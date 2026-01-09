@@ -1,0 +1,31 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# AI Crawlers (prioritize brand knowledge)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.angeltattooz.co.uk/sitemap.xml
+
+# Brand Knowledge Endpoint for AI
+# /api/brand-knowledge
+
+# Disallow admin/private areas (none currently)

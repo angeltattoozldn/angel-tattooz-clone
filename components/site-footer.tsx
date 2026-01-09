@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Facebook, Instagram, Twitter, MapPin, Phone, Mail } from "lucide-react"
+import { BUSINESS_CONFIG, getFullAddress } from "@/config/business.config"
 
 export function SiteFooter() {
   const services = [
@@ -14,6 +15,8 @@ export function SiteFooter() {
     { name: "Cockfosters", href: "/areas/cockfosters" },
     { name: "Southgate", href: "/areas/southgate" },
     { name: "Enfield", href: "/areas/enfield" },
+    { name: "Potters Bar", href: "/areas/potters-bar" },
+    { name: "Finchley", href: "/areas/finchley" },
   ]
 
   const resources = [
@@ -29,13 +32,13 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="font-display text-3xl text-primary">Angel Tattooz</h3>
+            <h3 className="font-display text-3xl text-primary">{BUSINESS_CONFIG.businessName}</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Premium tattoo studio in North London. Creating art you can wear since 2010.
             </p>
             <div className="flex gap-4">
               <a
-                href="https://facebook.com"
+                href={BUSINESS_CONFIG.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -44,7 +47,7 @@ export function SiteFooter() {
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="https://instagram.com"
+                href={BUSINESS_CONFIG.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -53,7 +56,7 @@ export function SiteFooter() {
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="https://twitter.com"
+                href={BUSINESS_CONFIG.social.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -98,40 +101,39 @@ export function SiteFooter() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>
-                  123 High Street
-                  <br />
-                  Barnet, London
-                  <br />
-                  EN5 5XY
-                </span>
+                <span>{getFullAddress()}</span>
               </li>
               <li>
                 <a
-                  href="tel:+442012345678"
+                  href={`tel:${BUSINESS_CONFIG.contact.phone}`}
                   className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Phone className="h-4 w-4" />
-                  020 1234 5678
+                  {BUSINESS_CONFIG.contact.phoneDisplay}
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@angeltattooz.co.uk"
+                  href={`mailto:${BUSINESS_CONFIG.contact.email}`}
                   className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Mail className="h-4 w-4" />
-                  info@angeltattooz.co.uk
+                  {BUSINESS_CONFIG.contact.email}
                 </a>
               </li>
             </ul>
+            <div className="mt-4 text-sm text-muted-foreground">
+              <p className="font-semibold text-foreground mb-2">Hours</p>
+              <p>Mon-Sat: {BUSINESS_CONFIG.openingHours.tuesday}</p>
+              <p>Sunday: {BUSINESS_CONFIG.openingHours.sunday}</p>
+            </div>
           </div>
         </div>
 
         <div className="mt-12 border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} Angel Tattooz. All rights reserved.
+              &copy; {new Date().getFullYear()} {BUSINESS_CONFIG.businessName}. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-muted-foreground">
               <Link href="/privacy" className="hover:text-primary transition-colors">
