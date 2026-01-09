@@ -224,7 +224,7 @@ export default function HomePage() {
               <div className="relative">
                 <div className="text-6xl text-primary/20 mb-4">"</div>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Absolutely in love with my new piece! The whole experience incredibly comfortable. Angle Tattoz
+                  Absolutely in love with my new piece! The whole experience incredibly comfortable. Angel Tattooz
                   definitely lives up to the 'Ready To Get Inked' motto!
                 </p>
                 <p className="font-display text-xl text-primary">Lisa Edwards</p>
@@ -234,7 +234,7 @@ export default function HomePage() {
                 <div className="text-6xl text-primary/20 mb-4">"</div>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   I'd been wanting a tattoo for years but was nervous to find the right artist. From the moment I walked
-                  into Angle Tattoz, I knew I was in good hands.
+                  into Angel Tattooz, I knew I was in good hands.
                 </p>
                 <p className="font-display text-xl text-primary">David Lee</p>
               </div>

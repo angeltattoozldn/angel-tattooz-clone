@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono, Dancing_Script } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { RelocationBanner } from "@/components/relocation-banner"
 import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
@@ -64,6 +65,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`font-sans antialiased ${_dancingScript.variable}`}>
+        <RelocationBanner />
         {children}
         <Analytics />
       </body>

@@ -8,14 +8,14 @@ export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navigation = [
-    { name: "HOME", href: "/" },
-    { name: "ABOUT US", href: "/about" },
-    { name: "SERVICES", href: "/services" },
-    { name: "GALLERY", href: "/gallery" },
-    { name: "BOOKINGS", href: "/book" },
-    { name: "PAYMENTS", href: "/contact" },
-    { name: "BLOG", href: "/blog" },
-    { name: "CONTACT", href: "/contact" },
+    { name: "HOME", href: "/", id: "nav-home" },
+    { name: "ABOUT US", href: "/about", id: "nav-about" },
+    { name: "SERVICES", href: "/services", id: "nav-services" },
+    { name: "GALLERY", href: "/gallery", id: "nav-gallery" },
+    { name: "BOOKINGS", href: "/book", id: "nav-bookings" },
+    { name: "PAYMENTS", href: "/payments", id: "nav-payments" },
+    { name: "BLOG", href: "/blog", id: "nav-blog" },
+    { name: "CONTACT", href: "/contact", id: "nav-contact" },
   ]
 
   return (
@@ -33,7 +33,7 @@ export function SiteHeader() {
           <div className="hidden lg:flex lg:items-center lg:gap-8">
             {navigation.map((item) => (
               <Link
-                key={item.name}
+                key={item.id}
                 href={item.href}
                 className="text-xs font-semibold text-foreground/90 hover:text-primary transition-colors tracking-wide"
               >
@@ -61,7 +61,7 @@ export function SiteHeader() {
             <div className="flex flex-col gap-4 pt-4">
               {navigation.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.id}
                   href={item.href}
                   className="text-base font-medium text-foreground/80 hover:text-primary transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
