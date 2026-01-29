@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 
 export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -19,13 +20,13 @@ export function SiteHeader() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border">
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80 border-b border-border">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-24 items-center p-2.5 justify-between">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             <Link href="/" className="flex items-center">
-              <span className="font-display text-3xl text-primary">Angel Tattooz</span>
+              <Image src="/angel-tattooz-logo-primary.svg" alt="Angel Tattooz Logo" width={130} height={68} className="p-2.5" />
             </Link>
           </div>
 
@@ -35,7 +36,7 @@ export function SiteHeader() {
               <Link
                 key={item.id}
                 href={item.href}
-                className="text-xs font-semibold text-foreground/90 hover:text-primary transition-colors tracking-wide"
+                className="text-md text-[#fad5e6] font-bold hover:text-primary transition-colors tracking-wide"
               >
                 {item.name}
               </Link>
