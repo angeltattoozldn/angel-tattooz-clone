@@ -37,6 +37,8 @@ export default function Home() {
                         WebkitTextStroke: '0px #000000'
                       }}
                     >
+                      {/* Screen Reader Only Text for SEO Dominance */}
+                      <span className="sr-only">Angel Tattooz: North London Tattoo Studio - </span>
                       Art You Can Wear
                     </h1>
                   </div>

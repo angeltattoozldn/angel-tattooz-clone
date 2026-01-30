@@ -112,7 +112,6 @@ export interface Review {
     name: string
   }
   reviewRating: {
-    "@context": string
     "@type": string
     ratingValue: number
     bestRating: number
