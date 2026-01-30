@@ -1,151 +1,151 @@
+"use client"
+
 import Link from "next/link"
-import { Facebook, Instagram, Twitter, MapPin, Phone, Mail } from "lucide-react"
-import { BUSINESS_CONFIG, getFullAddress } from "@/config/business.config"
+import Image from "next/image"
+import { Facebook, Instagram, Youtube, Rss, MapPin, Phone } from "lucide-react"
 
 export function SiteFooter() {
-  const services = [
-    { name: "Custom Tattoo Design", href: "/services/custom-tattoo-design" },
-    { name: "Black & Gray Tattoos", href: "/services/black-gray-tattoos" },
-    { name: "Color Tattoos", href: "/services/color-tattoos" },
-    { name: "Cover-Up Tattoos", href: "/services/cover-up-tattoos" },
-  ]
-
-  const areas = [
-    { name: "Barnet", href: "/areas/barnet" },
-    { name: "Cockfosters", href: "/areas/cockfosters" },
-    { name: "Southgate", href: "/areas/southgate" },
-    { name: "Enfield", href: "/areas/enfield" },
-    { name: "Potters Bar", href: "/areas/potters-bar" },
-    { name: "Finchley", href: "/areas/finchley" },
-  ]
-
-  const resources = [
-    { name: "FAQ", href: "/faq" },
-    { name: "Aftercare", href: "/aftercare" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
-  ]
-
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          {/* Brand */}
-          <div className="space-y-4">
-            <h3 className="font-display text-3xl text-primary">{BUSINESS_CONFIG.businessName}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Premium tattoo studio in North London. Creating art you can wear since 2010.
-            </p>
-            <div className="flex gap-4">
-              <a
-                href={BUSINESS_CONFIG.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href={BUSINESS_CONFIG.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href={BUSINESS_CONFIG.social.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
+    <footer className="bg-[#121212] text-white">
+      {/* Main Footer Content */}
+      <div className="container mx-auto max-w-285 px-4">
 
-          {/* Services */}
-          <div>
-            <h4 className="font-semibold mb-4 text-foreground">Services</h4>
-            <ul className="space-y-3">
-              {services.map((item) => (
-                <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Top Border Line */}
+        <div className="border-t border-[#FAD5E6] mt-15 pt-11 pb-10">
 
-          {/* Areas */}
-          <div>
-            <h4 className="font-semibold mb-4 text-foreground">Service Areas</h4>
-            <ul className="space-y-3">
-              {areas.map((item) => (
-                <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
 
-          {/* Contact */}
-          <div>
-            <h4 className="font-semibold mb-4 text-foreground">Contact</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>{getFullAddress()}</span>
-              </li>
-              <li>
-                <a
-                  href={`tel:${BUSINESS_CONFIG.contact.phone}`}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Phone className="h-4 w-4" />
-                  {BUSINESS_CONFIG.contact.phoneDisplay}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${BUSINESS_CONFIG.contact.email}`}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Mail className="h-4 w-4" />
-                  {BUSINESS_CONFIG.contact.email}
-                </a>
-              </li>
-            </ul>
-            <div className="mt-4 text-sm text-muted-foreground">
-              <p className="font-semibold text-foreground mb-2">Hours</p>
-              <p>Mon-Sat: {BUSINESS_CONFIG.openingHours.tuesday}</p>
-              <p>Sunday: {BUSINESS_CONFIG.openingHours.sunday}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-12 border-t border-border pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} {BUSINESS_CONFIG.businessName}. All rights reserved.
-            </p>
-            <div className="flex gap-6 text-sm text-muted-foreground">
-              <Link href="/privacy" className="hover:text-primary transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-primary transition-colors">
-                Terms of Service
+            {/* --- COLUMN 1: LOGO --- */}
+            <div className="flex flex-col items-center justify-start">
+              <Link href="/" className="inline-block">
+                <Image
+                  src="/angel-tattooz-logo-primary.svg"
+                  alt="Angel Tattooz Logo"
+                  width={250}
+                  height={130}
+                  className="w-[80%] h-auto max-w-62.5 opacity-100"
+                />
               </Link>
             </div>
+
+            {/* --- COLUMN 2: ADDRESS & CONTACT --- */}
+            <div className="flex flex-col items-center gap-6">
+              {/* Address */}
+              <div className="flex flex-col items-center gap-3">
+                <div className="text-white">
+                  <MapPin className="w-4.5 h-4.5" />
+                </div>
+                <a
+                  href="https://maps.google.com/?q=3+Mount+Parade,+Mount+Pleasant,+Cockfosters,+Barnet,+London+EN4+9DD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[16px] leading-[1.6] font-normal hover:text-[#FAD5E6] transition-colors font-sans"
+                >
+                  3 Mount Parade, Mount Pleasant,<br />
+                  Cockfosters, Barnet,<br />
+                  London EN4 9DD
+                </a>
+              </div>
+
+              {/* Phone */}
+              <div className="flex flex-col items-center gap-3">
+                <div className="text-white">
+                  <Phone className="w-4.5 h-4.5" />
+                </div>
+                <a
+                  href="tel:02082163400"
+                  className="text-[#FAD5E6] text-[16px] font-normal hover:text-white transition-colors font-sans"
+                >
+                  02082163400
+                </a>
+              </div>
+            </div>
+
+            {/* --- COLUMN 3: QUICK LINKS --- */}
+            <div className="flex flex-col items-center gap-3 text-[16px] font-sans pt-2">
+              <Link href="/faq" className="hover:text-[#FAD5E6] transition-colors">FAQ</Link>
+              <Link href="/aftercare" className="hover:text-[#FAD5E6] transition-colors">After Care</Link>
+              <Link href="/privacy-and-terms" className="hover:text-[#FAD5E6] transition-colors">Privacy & Terms</Link>
+              <Link href="/#newsletter" className="hover:text-[#FAD5E6] transition-colors">Offer</Link>
+            </div>
+
+            {/* --- COLUMN 4: HOURS & SOCIALS --- */}
+            <div className="flex flex-col items-center">
+              <div className="mb-6 space-y-1 font-sans">
+                <p className="font-bold text-[16px]">Mon-Sat</p>
+                <p className="text-[16px] font-normal">11.30 am – 6.30 pm</p>
+                <p className="font-bold text-[16px] mt-4">Sunday</p>
+                <p className="text-[16px] font-normal">Appointment Only</p>
+              </div>
+
+              {/* Social Icons */}
+              <div className="flex items-center gap-4">
+                <SocialLink
+                  href="https://www.facebook.com/profile.php?id=61558770900820"
+                  icon={<Facebook className="w-5 h-5" />}
+                />
+                <SocialLink
+                  href="https://www.instagram.com/angeltattoozldn/"
+                  icon={<Instagram className="w-5 h-5" />}
+                />
+
+                {/* TikTok (Custom SVG as Lucide doesn't have it) */}
+                <SocialLink
+                  href="https://www.tiktok.com/@angeltattoozldn"
+                  icon={
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                    </svg>
+                  }
+                />
+
+                <SocialLink
+                  href="https://www.youtube.com/channel/UC6rRXUxTs7eu7rZZtfDXqkQ"
+                  icon={<Youtube className="w-5 h-5" />}
+                />
+
+                {/* Pinterest (Custom SVG as Lucide doesn't have it) */}
+                <SocialLink
+                  href="https://www.pinterest.com/ink1180/"
+                  icon={
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                      <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.399.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.951-7.252 4.173 0 7.41 2.967 7.41 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.62 0 12.017 0z" />
+                    </svg>
+                  }
+                />
+
+                <SocialLink
+                  href="/blog"
+                  icon={<Rss className="w-5 h-5" />}
+                />
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
+
+      {/* --- BOTTOM COPYRIGHT BAR --- */}
+      <div className="bg-black py-6 mt-8 border-t border-white/5">
+        <div className="container mx-auto text-center">
+          <p className="text-white text-[14px] font-sans font-normal tracking-wide">
+            2024 © Angel Tattooz
+          </p>
+        </div>
+      </div>
     </footer>
+  )
+}
+
+function SocialLink({ href, icon }: { href: string, icon: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-white hover:text-[#D4C59D] transition-colors duration-300 transform hover:scale-110"
+    >
+      {icon}
+    </a>
   )
 }

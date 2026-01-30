@@ -1,19 +1,28 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono, Dancing_Script } from "next/font/google"
+import { Poppins, Dancing_Script } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { RelocationBanner } from "@/components/relocation-banner"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
-const _dancingScript = Dancing_Script({ subsets: ["latin"], variable: "--font-display" })
+// 1. Configure Poppins (Replaces Geist)
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
+})
+
+// 2. Keep Dancing Script (Existing)
+const _dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  variable: "--font-display"
+})
 
 export const metadata: Metadata = {
   title: "Angel Tattooz | Premium Tattoo Studio in North London",
   description:
     "Award-winning tattoo studio in North London. Custom designs, black & gray, color tattoos, cover-ups. Expert artists serving Barnet, Cockfosters, Southgate, Enfield.",
-  generator: "v0.app",
   keywords: [
     "tattoo studio",
     "North London tattoo",
@@ -50,7 +59,7 @@ export const metadata: Metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#1F1F1F",
+  themeColor: "#121212", // Updated to match your Brand Dark color
 }
 
 export default function RootLayout({
@@ -64,7 +73,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={`font-sans antialiased ${_dancingScript.variable}`}>
+      {/* 3. Inject Poppins and Dancing Script variables */}
+      <body className={`font-sans antialiased ${poppins.variable} ${_dancingScript.variable}`}>
         <RelocationBanner />
         {children}
         <Analytics />

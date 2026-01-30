@@ -3,7 +3,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* 1. REGISTER LOCAL FONT: HEY AUGUST */
+@font-face {
+  font-family: 'HeyAugust';
+  src: url('/fonts/hey-august/HeyAugust.woff2') format('woff2'),
+    url('/fonts/hey-august/HeyAugust.woff') format('woff'),
+    url('/fonts/hey-august/HeyAugust.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  /* Default Shadcn Variables */
   --background: oklch(0.12 0 0);
   --foreground: oklch(0.95 0.01 60);
   --card: oklch(0.16 0 0);
@@ -37,47 +49,52 @@
   --sidebar-accent-foreground: oklch(0.95 0.01 60);
   --sidebar-border: oklch(0.25 0 0);
   --sidebar-ring: oklch(0.78 0.08 75);
+
+  /* 2. BRAND SPECIFIC COLORS */
+  --brand-pink: #FAD5E6;
+  --brand-gold: #D4C59D;
+  --brand-dark: #121212;
 }
 
 .dark {
-  --background: oklch(0.12 0 0);
-  --foreground: oklch(0.95 0.01 60);
-  --card: oklch(0.16 0 0);
-  --card-foreground: oklch(0.95 0.01 60);
+  /* 3. OVERRIDE DARK THEME FOR PIXEL PERFECTION */
+  --background: var(--brand-dark);
+  --foreground: #FFFFFF;
+  --primary: var(--brand-pink);
+  --accent: var(--brand-gold);
+  --card: #242424;
+  --card-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.1);
+
+  /* Inherit others */
   --popover: oklch(0.16 0 0);
   --popover-foreground: oklch(0.95 0.01 60);
-  --primary: oklch(0.78 0.08 75);
   --primary-foreground: oklch(0.12 0 0);
   --secondary: oklch(0.22 0 0);
   --secondary-foreground: oklch(0.95 0.01 60);
   --muted: oklch(0.25 0 0);
   --muted-foreground: oklch(0.65 0.01 60);
-  --accent: oklch(0.78 0.08 75);
   --accent-foreground: oklch(0.12 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.95 0.01 60);
-  --border: oklch(0.25 0 0);
   --input: oklch(0.25 0 0);
   --ring: oklch(0.78 0.08 75);
-  --chart-1: oklch(0.78 0.08 75);
-  --chart-2: oklch(0.65 0.01 60);
-  --chart-3: oklch(0.45 0.01 60);
-  --chart-4: oklch(0.85 0.05 60);
-  --chart-5: oklch(0.35 0.01 60);
-  --sidebar: oklch(0.16 0 0);
-  --sidebar-foreground: oklch(0.95 0.01 60);
-  --sidebar-primary: oklch(0.78 0.08 75);
-  --sidebar-primary-foreground: oklch(0.12 0 0);
-  --sidebar-accent: oklch(0.22 0 0);
-  --sidebar-accent-foreground: oklch(0.95 0.01 60);
-  --sidebar-border: oklch(0.25 0 0);
-  --sidebar-ring: oklch(0.78 0.08 75);
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
+  /* 4. DEFINE FONTS LINKED TO VARIABLES */
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-hey: "HeyAugust", sans-serif;
+
   --font-mono: "Geist Mono", "Geist Mono Fallback";
   --font-display: "Dancing Script", cursive;
+
+  /* 5. DEFINE BRAND COLORS FOR UTILITIES */
+  --color-brand-pink: var(--brand-pink);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-dark: var(--brand-dark);
+
+  /* Map standard theme colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -118,29 +135,66 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
+    @apply border-border outline-ring;
   }
 
+  body {
+    @apply bg-background text-foreground;
+    /* CRITICAL FIX: Explicitly set font-family to the variable */
+    font-family: var(--font-poppins), sans-serif;
+  }
+
+  /* Headings use HeyAugust */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'HeyAugust', sans-serif;
+    font-weight: normal;
+  }
+
+  /* Scrollbar Styling */
   ::-webkit-scrollbar {
     width: 10px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-background;
+    background-color: var(--background);
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-muted rounded-full;
+    background-color: var(--muted);
+    border-radius: 9999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-muted-foreground;
+    background-color: var(--muted-foreground);
   }
 }
 
 .font-display {
   font-family: var(--font-display);
+}
+
+/* Header Animation Utilities */
+@layer utilities {
+  .nav-underline {
+    position: absolute;
+    bottom: 25%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--brand-gold);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  .group:hover .nav-underline,
+  .active .nav-underline {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
 }

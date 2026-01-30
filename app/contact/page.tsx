@@ -1,283 +1,187 @@
-"use client"
-
-import type React from "react"
-
+import Image from "next/image"
+import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { MapPin, Phone, Mail, Clock, MessageCircle, Instagram, Facebook } from "lucide-react"
-import { useState } from "react"
+import { Phone, Mail, MapPin } from "lucide-react"
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
+  // GPT Optimization: Structured Data for Local Business
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TattooParlor", // Specific Schema for Tattoo Studios
+    "name": "Angel Tattooz",
+    "image": "https://www.angeltattooz.co.uk/wp-content/uploads/2024/05/Angle-Tattooz-Website-Mock-ups-20.png",
+    "telephone": "02082163400",
+    "email": "Ink@angeltattooz.co.uk",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3 Mount Parade, Mount Pleasant",
+      "addressLocality": "Cockfosters, Barnet",
+      "addressRegion": "London",
+      "postalCode": "EN4 9DD",
+      "addressCountry": "UK"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 51.6496, // Approx coords for Cockfosters
+      "longitude": -0.1495
+    },
+    "url": "https://www.angeltattooz.co.uk",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "11:30",
+        "closes": "18:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "00:00",
+        "closes": "00:00",
+        "description": "By Appointment Only"
+      }
+    ]
   }
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen bg-[#121212]">
+      {/* Injecting the Schema for GPTs */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <SiteHeader />
-      <main>
-        {/* Hero */}
-        <section className="relative py-24 bg-gradient-to-b from-background to-secondary/20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <h1 className="font-display text-5xl md:text-6xl text-primary mb-6 text-balance">Get in Touch</h1>
-              <p className="text-xl text-muted-foreground leading-relaxed text-balance">
-                Have questions? Ready to book? We'd love to hear from you
+
+      <main className="flex-1">
+
+        {/* =========================================
+            1. HERO SECTION
+           ========================================= */}
+        <section className="relative w-full py-[150px] flex items-center justify-center overflow-hidden border-b border-white/5">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/contact/contact-hero.webp"
+              alt="Angel Tattooz Contact"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            {/* Dark Overlay */}
+            <div className="absolute inset-0 bg-black/65" />
+          </div>
+
+          <div className="relative z-10 text-center">
+            <h1 className="text-[#FAD5E6] font-hey text-[60px] md:text-[90px] leading-none drop-shadow-xl">
+              Contact Us
+            </h1>
+          </div>
+        </section>
+
+        {/* =========================================
+            2. CONTACT DETAILS GRID
+           ========================================= */}
+        <section className="bg-[#121212] py-20 px-4">
+          <div className="container mx-auto max-w-[1140px]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+
+              {/* Telephone */}
+              <div className="flex flex-col items-center">
+                <div className="mb-4 text-[#FAD5E6]">
+                  <Phone className="w-[50px] h-[50px]" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
+                  Telephone
+                </h3>
+                <a href="tel:02082163400" className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
+                  02082163400
+                </a>
+              </div>
+
+              {/* Email */}
+              <div className="flex flex-col items-center">
+                <div className="mb-4 text-[#FAD5E6]">
+                  <Mail className="w-[50px] h-[50px]" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
+                  Email
+                </h3>
+                <a href="mailto:Ink@angeltattooz.co.uk" className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
+                  Ink@angeltattooz.co.uk
+                </a>
+              </div>
+
+              {/* Address */}
+              <div className="flex flex-col items-center">
+                <div className="mb-4 text-[#FAD5E6]">
+                  <MapPin className="w-[50px] h-[50px]" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
+                  Address
+                </h3>
+                <address className="text-white font-sans text-[19px] not-italic max-w-[300px]">
+                  3 Mount Parade, Mount Pleasant,<br />
+                  Cockfosters, Barnet,<br />
+                  London EN4 9DD
+                </address>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================
+            3. GOOGLE MAPS EMBED
+           ========================================= */}
+        <section className="w-full bg-[#121212]">
+          <div className="w-full h-[350px] md:h-[450px] grayscale invert-[.1]">
+            <iframe
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2477.106560932289!2d-0.15174592305018693!3d51.64964600171221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761853aaa9a39d%3A0x6b1070868f000000!2s3%20Mount%20Parade%2C%20Cockfosters%20Rd%2C%20Barnet%20EN4%209DD%2C%20UK!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk"
+              title="Angel Tattooz Location"
+            ></iframe>
+          </div>
+        </section>
+
+        {/* =========================================
+            4. CTA SECTION
+           ========================================= */}
+        <section className="relative bg-[#121212] py-16 px-4 border-t border-white/5">
+          <div className="container mx-auto max-w-[1140px] flex flex-col items-center text-center gap-6">
+            <h2 className="text-[#FAD5E6] font-hey text-[45px] md:text-[65px] leading-[1] font-normal">
+              Ready to Get Inked?
+            </h2>
+            <div className="max-w-[650px]">
+              <p className="text-white font-sans text-[16px] font-normal leading-relaxed">
+                Take the first step towards your tattoo journey. Secure your spot or inquire about our services.
+                Let’s bring your ink dreams to life.
               </p>
             </div>
+            <Link
+              href="/bookings"
+              className="inline-block bg-[#D4C59D] text-white text-[15px] font-medium py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black mt-2"
+            >
+              Book Now
+            </Link>
           </div>
         </section>
 
-        {/* Contact Info & Form */}
-        <section className="py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Contact Information */}
-              <div className="space-y-8">
-                <div>
-                  <h2 className="text-3xl font-semibold text-foreground mb-6">Contact Information</h2>
-                  <div className="space-y-6">
-                    <div className="flex gap-4">
-                      <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <MapPin className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-1">Address</h3>
-                        <p className="text-muted-foreground">
-                          123 High Street
-                          <br />
-                          Barnet, London
-                          <br />
-                          EN5 5XY
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex gap-4">
-                      <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Phone className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                        <a
-                          href="tel:+442012345678"
-                          className="text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          020 1234 5678
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex gap-4">
-                      <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Mail className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                        <a
-                          href="mailto:info@angeltattooz.co.uk"
-                          className="text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          info@angeltattooz.co.uk
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex gap-4">
-                      <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Clock className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-1">Opening Hours</h3>
-                        <div className="text-muted-foreground space-y-1">
-                          <p>Tuesday - Friday: 10:00 AM - 7:00 PM</p>
-                          <p>Saturday: 10:00 AM - 6:00 PM</p>
-                          <p>Sunday - Monday: Closed</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-6 border-t border-border">
-                  <h3 className="font-semibold text-foreground mb-4">Quick Contact</h3>
-                  <div className="flex gap-4">
-                    <Button asChild size="lg" className="flex-1">
-                      <a
-                        href="https://wa.me/442012345678"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
-                      >
-                        <MessageCircle className="h-5 w-5" />
-                        WhatsApp
-                      </a>
-                    </Button>
-                    <a
-                      href="https://instagram.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="h-11 w-11 rounded bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
-                      aria-label="Instagram"
-                    >
-                      <Instagram className="h-5 w-5 text-primary" />
-                    </a>
-                    <a
-                      href="https://facebook.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="h-11 w-11 rounded bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
-                      aria-label="Facebook"
-                    >
-                      <Facebook className="h-5 w-5 text-primary" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Contact Form */}
-              <Card>
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-semibold text-foreground mb-6">Send us a Message</h2>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Name *</Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Your name"
-                        required
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="your.email@example.com"
-                        required
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="07123 456789"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Message *</Label>
-                      <Textarea
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Tell us about your tattoo idea..."
-                        rows={6}
-                        required
-                      />
-                    </div>
-
-                    <Button type="submit" size="lg" className="w-full">
-                      Send Message
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Map */}
-        <section className="py-24 bg-secondary/30">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="font-display text-4xl md:text-5xl text-primary mb-4">Find Us</h2>
-              <p className="text-lg text-muted-foreground">Located in the heart of Barnet, North London</p>
-            </div>
-            <Card className="overflow-hidden">
-              <div className="aspect-[16/9] bg-muted flex items-center justify-center">
-                <div className="text-center space-y-4 p-8">
-                  <MapPin className="h-16 w-16 text-primary mx-auto" />
-                  <div>
-                    <p className="text-foreground font-semibold mb-2">Angel Tattooz</p>
-                    <p className="text-muted-foreground">123 High Street, Barnet, London EN5 5XY</p>
-                  </div>
-                  <Button asChild>
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=123+High+Street+Barnet+EN5+5XY"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Open in Google Maps
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </section>
-
-        {/* Transport */}
-        <section className="py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-semibold text-foreground mb-4">Getting Here</h2>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              <Card>
-                <CardContent className="p-6 space-y-3">
-                  <h3 className="font-semibold text-foreground">By Train</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    High Barnet Station (Northern Line) - 8 minutes walk
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6 space-y-3">
-                  <h3 className="font-semibold text-foreground">By Car</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Free street parking available nearby. Multiple car parks within 5 minutes walk.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6 space-y-3">
-                  <h3 className="font-semibold text-foreground">By Bus</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Multiple bus routes stop within 2 minutes walk. Check TfL for routes.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
       </main>
       <SiteFooter />
-    </>
+    </div>
   )
 }

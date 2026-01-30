@@ -1,183 +1,180 @@
+import Image from "next/image"
+import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { SchemaScript } from "@/components/schema-script"
-import { generateBreadcrumbs } from "@/lib/schema"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import type { Metadata } from "next"
 
-export const metadata: Metadata = {
-  title: "About Us | Award-Winning Tattoo Studio Since 2010 | Angel Tattooz",
-  description:
-    "Learn about Angel Tattooz, North London's premier tattoo studio since 2010. Meet our award-winning artists and discover our commitment to excellence.",
+// Reusing helper components from the main page if they are exported or redefining them here
+// Ideally, move these to separate component files in /components for cleaner reuse.
+// For this single-file copy-paste solution, I will include the InstagramCard here.
+
+function InstagramCard({ bgImage, link }: { bgImage: string, link: string }) {
+  return (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative block h-50 w-full rounded-xl overflow-hidden group cursor-pointer"
+    >
+      <Image
+        src={bgImage}
+        alt="Instagram Post"
+        fill
+        className="object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+      <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/40" />
+      <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500 transform scale-50 group-hover:opacity-100 group-hover:scale-100">
+        <div className="relative w-25 h-25">
+          <Image
+            src="/images/home/ig-btn-02.webp"
+            alt="Instagram"
+            fill
+            className="object-contain drop-shadow-lg"
+          />
+        </div>
+      </div>
+    </a>
+  )
 }
 
 export default function AboutPage() {
-  const breadcrumbSchema = generateBreadcrumbs([
-    { name: "Home", url: "https://www.angeltattooz.co.uk" },
-    { name: "About" },
-  ])
-
   return (
-    <>
-      <SchemaScript schema={breadcrumbSchema} />
+    <div className="flex flex-col min-h-screen bg-[#121212]">
       <SiteHeader />
-      <main>
-        <section
-          className="relative py-32 flex items-center justify-center overflow-hidden bg-background"
-          style={{
-            backgroundImage: `url('/images/screencapture-angeltattooz-co-uk-about-us-2026-01-09-09-27-02.jpeg')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="relative z-10">
-            <h1 className="font-display text-6xl md:text-7xl text-primary text-center">About Us</h1>
+
+      <main className="flex-1">
+
+        {/* =========================================
+            1. PAGE HEADER (Hero Style)
+            Matches Elementor ID: 7355454
+            - Background Image: Mock-ups-28.png
+            - Centered Title "About Us"
+           ========================================= */}
+        <section className="relative w-full h-100 flex items-center justify-center overflow-hidden border-b border-white/5">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/about/about-hero.webp"
+              alt="About Angel Tattooz"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            {/* Dark Overlay (Opacity 0.65 from Elementor) */}
+            <div className="absolute inset-0 bg-black/65" />
+          </div>
+
+          <div className="relative z-10 text-center">
+            <h1 className="text-[#FAD5E6] font-hey text-[60px] md:text-[90px] leading-none drop-shadow-lg">
+              About Us
+            </h1>
           </div>
         </section>
 
-        <section className="py-20 bg-background">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              {/* Left Column - Images */}
-              <div className="space-y-6">
-                <div className="relative aspect-[4/3] overflow-hidden rounded">
-                  <img
-                    src="/.jpg?height=500&width=600&query=professional tattoo artist working on client detailed"
-                    alt="Tattoo artist at work"
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div className="relative aspect-video overflow-hidden rounded">
-                  <img
-                    src="/.jpg?height=300&width=500&query=tattooed hands with rings close up artistic"
-                    alt="Tattooed hands detail"
-                    className="object-cover w-full h-full"
+        {/* =========================================
+            2. MAIN CONTENT (Text + Image)
+            Matches Elementor ID: be2b022
+            - 2 Columns: Image Left, Text Right
+           ========================================= */}
+        <section className="relative bg-[#121212] py-20 px-4">
+          <div className="container mx-auto max-w-285">
+            <div className="flex flex-col lg:flex-row gap-12 items-start">
+
+              {/* Left Column: Image */}
+              <div className="w-full lg:w-1/2">
+                <div className="relative w-full aspect-3/4 rounded-sm overflow-hidden">
+                  <Image
+                    src="/images/about/about-section-2.webp"
+                    alt="Tattoo Artist Working"
+                    fill
+                    className="object-cover"
                   />
                 </div>
               </div>
 
-              {/* Right Column - Content */}
-              <div className="space-y-6">
-                <h2 className="font-display text-4xl md:text-5xl text-primary">Your Premier London Tattoo Studio</h2>
-                <h3 className="text-xl font-semibold text-foreground">Your Premier Tattoo Studio In North London</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Welcome to Angel Tattooz, your top destination for tattoo artistry in Cockfosters, Barnet, and North
-                  London. Whether it's your first tattoo or an addition to your collection, we promise an outstanding
-                  experience from start to finish.
-                </p>
+              {/* Right Column: Text Content */}
+              <div className="w-full lg:w-1/2 text-white font-sans">
+                <h2 className="text-[#FAD5E6] font-hey text-[50px] md:text-[65px] leading-[1.1] mb-6">
+                  Your Premier London<br />Tattoo Studio
+                </h2>
 
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-foreground">Why Choose Angel Tattooz?</h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Angel Tattooz is more than just a studio—it's a community of skilled artists dedicated to bringing
-                    your ideas to life. Catering to everyone from first-timers to seasoned enthusiasts, we are your
-                    go-to for personalized, high-quality tattoos. If you're searching for "best tattoo studio North
-                    London" or "top tattoo artists Barnet," look no further.
+                <div className="space-y-6 text-[16px] font-light leading-relaxed text-white/90">
+                  <p>
+                    <strong className="text-white font-bold">Your Premier Tattoo Studio in North London</strong>
+                  </p>
+                  <p>
+                    Welcome to Angel Tattooz, your top destination for tattoo artistry in Cockfosters, Barnet, and North London. Whether it’s your first tattoo or an addition to your collection, we promise an outstanding experience from start to finish.
                   </p>
 
-                  <ul className="space-y-3 text-muted-foreground">
-                    <li className="flex items-start gap-3">
-                      <span className="text-primary mt-1">•</span>
-                      <span>
-                        <strong className="text-foreground">Peaceful Location:</strong> Our tranquil, nature-surrounded
-                        studio offers a calming atmosphere.
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-primary mt-1">•</span>
-                      <span>
-                        <strong className="text-foreground">Top-Quality Equipment:</strong> We use the latest equipment
-                        for precision and safety.
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-primary mt-1">•</span>
-                      <span>
-                        <strong className="text-foreground">Premium Inks:</strong> Our high-quality inks ensure vibrant
-                        colours and lasting results.
-                      </span>
-                    </li>
+                  <p>
+                    <strong className="text-white font-bold">Why Choose Angel Tattooz?</strong>
+                  </p>
+                  <p>
+                    Angel Tattooz is more than just a tattoo studio—it’s a community of skilled artists dedicated to bringing your ideas to life. Catering to everyone from first-timers to seasoned enthusiasts, we are your go-to for personalized, high-quality tattoos. If you’re searching for “best tattoo studio North London” or “top tattoo artists Barnet,” look no further:
+                  </p>
+
+                  <ul className="list-disc pl-5 space-y-2 marker:text-[#FAD5E6]">
+                    <li>Peaceful Location: Our tranquil, nature-surrounded studio offers a calming atmosphere.</li>
+                    <li>Top-Quality Equipment: We use the latest equipment for precision and safety.</li>
+                    <li>Premium Inks: Our high-quality inks ensure vibrant colours and lasting results.</li>
                   </ul>
 
-                  <details className="group">
-                    <summary className="cursor-pointer text-primary hover:text-primary/80 transition-colors flex items-center gap-2">
-                      <span>Read More</span>
-                      <span className="text-xl group-open:rotate-180 transition-transform">+</span>
-                    </summary>
-                    <div className="mt-4 space-y-4 text-muted-foreground leading-relaxed">
-                      <p>
-                        Our artists specialize in a wide range of styles, from traditional and neo-traditional to
-                        realism, watercolor, and fine-line work. Each piece is custom-designed to reflect your unique
-                        personality and story.
-                      </p>
-                      <p>
-                        We maintain the highest standards of hygiene and safety, using single-use needles and sterilized
-                        equipment. Your health and comfort are our top priorities.
-                      </p>
-                      <p>
-                        Located conveniently in North London, we're easily accessible from Barnet, Cockfosters,
-                        Southgate, Enfield, and surrounding areas. Book your consultation today and experience the Angel
-                        Tattooz difference.
-                      </p>
-                    </div>
-                  </details>
+                  {/* Read More Expandable Section (Simplified as static for now, or Link to FAQ/Contact) */}
+                  <div className="pt-4">
+                    <p className="mb-4">
+                      <strong className="text-white font-bold">Your First Tattoo Experience</strong>
+                    </p>
+                    <p>
+                      Start your tattoo journey with confidence at Angel Tattooz. Our skilled artists specialize in intricate designs and innovative techniques, ensuring a comfortable and memorable first tattoo experience.
+                    </p>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
         </section>
 
-        <section className="py-24 bg-gradient-to-b from-background to-secondary/20">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="font-display text-5xl md:text-6xl text-primary mb-6">Ready to Get Inked?</h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Take the first step towards your tattoo journey. Secure your spot or inquire about our services. Let's
-              bring your ink dreams to life.
-            </p>
-            <Button size="lg" asChild className="text-base px-8 py-6">
-              <Link href="/book">Book Now</Link>
-            </Button>
+        {/* =========================================
+            3. CTA SECTION: "Ready to Get Inked?"
+            Reuse of Home Page Component
+           ========================================= */}
+        <section className="relative bg-[#121212] py-16 px-4 border-t border-white/5">
+          <div className="container mx-auto max-w-285 flex flex-col items-center text-center gap-6">
+            <h2 className="text-[#FAD5E6] font-hey text-[45px] md:text-[65px] leading-none font-normal">
+              Ready to Get Inked?
+            </h2>
+            <div className="max-w-162.5">
+              <p className="text-white font-sans text-[16px] font-normal leading-relaxed">
+                Take the first step towards your tattoo journey. Secure your spot or inquire about our services.
+                Let’s bring your ink dreams to life.
+              </p>
+            </div>
+            <Link
+              href="/bookings"
+              className="inline-block bg-[#D4C59D] text-white text-[15px] font-medium py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black mt-2"
+            >
+              Book Now
+            </Link>
           </div>
         </section>
 
-        <section className="py-12 bg-background">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="relative aspect-square overflow-hidden rounded">
-                <img
-                  src="/.jpg?height=400&width=400&query=tattoo machine close up artist working detailed"
-                  alt="Tattoo work"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="relative aspect-square overflow-hidden rounded">
-                <img
-                  src="/.jpg?height=400&width=400&query=colorful tattoo design vibrant ink work"
-                  alt="Tattoo design"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="relative aspect-square overflow-hidden rounded">
-                <img
-                  src="/.jpg?height=400&width=400&query=small back tattoo on woman elegant design"
-                  alt="Back tattoo"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="relative aspect-square overflow-hidden rounded">
-                <img
-                  src="/.jpg?height=400&width=400&query=woman with tattoos portrait professional artistic"
-                  alt="Tattoo portrait"
-                  className="object-cover w-full h-full"
-                />
-              </div>
+        {/* =========================================
+            4. INSTAGRAM FEED SECTION
+            Reuse of Home Page Component
+           ========================================= */}
+        <section className="relative bg-[#121212] py-10 px-4 border-t border-white/5">
+          <div className="container mx-auto max-w-285">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+              <InstagramCard bgImage="/images/home/Angle-Tattooz-Website-Insta-1.webp" link="https://www.instagram.com/angeltattoozldn/" />
+              <InstagramCard bgImage="/images/home/Angle-Tattooz-Website-Insta-2.webp" link="https://www.instagram.com/angeltattoozldn/" />
+              <InstagramCard bgImage="/images/home/Angle-Tattooz-Website-Insta-3.webp" link="https://www.instagram.com/angeltattoozldn/" />
+              <InstagramCard bgImage="/images/home/Angle-Tattooz-Website-Insta-4.webp" link="https://www.instagram.com/angeltattoozldn/" />
             </div>
           </div>
         </section>
+
       </main>
+
       <SiteFooter />
-    </>
+    </div>
   )
 }

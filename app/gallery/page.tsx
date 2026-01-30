@@ -1,80 +1,174 @@
+"use client"
+
+import { useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { SchemaScript } from "@/components/schema-script"
-import { generateBreadcrumbs } from "@/lib/schema"
-import type { Metadata } from "next"
-
-export const metadata: Metadata = {
-  title: "Tattoo Gallery | Our Best Work | Angel Tattooz North London",
-  description:
-    "Browse our extensive tattoo gallery featuring custom designs, realism, traditional, Japanese, and more. See why Angel Tattooz is North London's top-rated studio.",
-}
+import { motion, AnimatePresence } from "framer-motion"
 
 export default function GalleryPage() {
-  const breadcrumbSchema = generateBreadcrumbs([
-    { name: "Home", url: "https://www.angeltattooz.co.uk" },
-    { name: "Gallery" },
-  ])
-
-  const galleryImages = [
-    { query: "realistic portrait tattoo detailed black and gray face", style: "Realism" },
-    { query: "traditional rose tattoo bold red vibrant", style: "Traditional" },
-    { query: "japanese dragon tattoo sleeve colorful scales", style: "Japanese" },
-    { query: "geometric mandala tattoo intricate patterns", style: "Geometric" },
-    { query: "watercolor butterfly tattoo colorful artistic", style: "Watercolor" },
-    { query: "tribal polynesian tattoo bold black shoulder", style: "Tribal" },
-    { query: "fine line flower tattoo delicate minimalist", style: "Fine Line" },
-    { query: "neo traditional wolf tattoo detailed bold", style: "Neo-Traditional" },
-    { query: "blackwork ornamental tattoo solid black geometric", style: "Blackwork" },
-    { query: "realistic lion tattoo detailed fur shading", style: "Realism" },
-    { query: "traditional ship tattoo nautical bold lines", style: "Traditional" },
-    { query: "japanese koi fish tattoo swimming waves", style: "Japanese" },
-    { query: "geometric sacred geometry tattoo precise lines", style: "Geometric" },
-    { query: "watercolor landscape tattoo mountains sunset", style: "Watercolor" },
-    { query: "tribal maori tattoo traditional cultural patterns", style: "Tribal" },
-    { query: "fine line constellation tattoo stars delicate", style: "Fine Line" },
-    { query: "neo traditional skull tattoo decorative bold", style: "Neo-Traditional" },
-    { query: "blackwork sleeve tattoo solid black intricate", style: "Blackwork" },
-  ]
-
   return (
-    <>
-      <SchemaScript schema={breadcrumbSchema} />
+    <div className="flex flex-col min-h-screen bg-[#121212]">
       <SiteHeader />
-      <main>
-        {/* Hero */}
-        <section className="relative py-24 bg-gradient-to-b from-background to-secondary/20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h1 className="font-display text-5xl md:text-6xl text-primary mb-6 text-balance">Gallery</h1>
-              <p className="text-xl text-muted-foreground leading-relaxed text-balance">
-                Explore our portfolio of exceptional tattoo work. Every piece tells a unique story.
+
+      <main className="flex-1">
+
+        {/* =========================================
+            1. HERO SECTION
+            Matches Elementor ID: 7f1bbcb
+           ========================================= */}
+        <section className="relative w-full py-[150px] flex items-center justify-center overflow-hidden border-b border-white/5">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/gallery/gallery-hero.webp"
+              alt="Angel Tattooz Gallery"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            {/* Dark Overlay */}
+            <div className="absolute inset-0 bg-black/65" />
+          </div>
+
+          <div className="relative z-10 text-center">
+            <h1 className="text-[#FAD5E6] font-hey text-[60px] md:text-[90px] leading-none drop-shadow-xl">
+              Gallery
+            </h1>
+          </div>
+        </section>
+
+        {/* =========================================
+            2. FILTERABLE GALLERY
+            Matches Elementor ID: 1301c05
+           ========================================= */}
+        <GalleryGrid />
+
+        {/* =========================================
+            3. CTA SECTION
+            Matches Elementor ID: 2da1886
+           ========================================= */}
+        <section className="relative bg-[#121212] py-16 px-4 border-t border-white/5">
+          <div className="container mx-auto max-w-[1140px] flex flex-col items-center text-center gap-6">
+            <h2 className="text-[#FAD5E6] font-hey text-[45px] md:text-[65px] leading-[1] font-normal">
+              Ready to Get Inked?
+            </h2>
+            <div className="max-w-[650px]">
+              <p className="text-white font-sans text-[16px] font-normal leading-relaxed">
+                Take the first step towards your tattoo journey. Secure your spot or inquire about our services.
+                Let’s bring your ink dreams to life.
               </p>
             </div>
+            <Link
+              href="/bookings"
+              className="inline-block bg-[#D4C59D] text-white text-[15px] font-medium py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black mt-2"
+            >
+              Book Now
+            </Link>
           </div>
         </section>
 
-        {/* Gallery Grid */}
-        <section className="py-12 pb-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {galleryImages.map((image, index) => (
-                <div key={index} className="relative aspect-square overflow-hidden rounded group cursor-pointer">
-                  <img
-                    src={`/.jpg?height=500&width=500&query=${image.query}`}
-                    alt={`${image.style} tattoo`}
-                    className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <span className="text-white font-semibold">{image.style}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
       <SiteFooter />
-    </>
+    </div>
   )
 }
+
+/* --- GALLERY COMPONENT --- */
+
+const CATEGORIES = ["All", "Arm", "Back/Chest", "Face", "Neck", "Leg"]
+
+function GalleryGrid() {
+  const [activeFilter, setActiveFilter] = useState("All")
+
+  // Filter items based on active category
+  const filteredItems = activeFilter === "All"
+    ? GALLERY_ITEMS
+    : GALLERY_ITEMS.filter(item => item.category === activeFilter)
+
+  return (
+    <section className="bg-[#121212] py-16 px-4">
+      <div className="container mx-auto max-w-[1140px]">
+
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveFilter(cat)}
+              className={`px-4 py-2 rounded-[6px] text-[15px] uppercase tracking-wide transition-all duration-300 ${activeFilter === cat
+                ? "bg-[#D4C59D] text-black font-medium"
+                : "bg-transparent text-[#FAD5E6] hover:bg-[#FAD5E6] hover:text-black"
+                }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Image Grid with Animation */}
+        <motion.div
+          layout
+          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+        >
+          <AnimatePresence>
+            {filteredItems.map((item) => (
+              <motion.div
+                layout
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+                key={item.id}
+                className="relative aspect-[2/3] overflow-hidden rounded-[8px] group bg-[#1a1a1a]"
+              >
+                <Image
+                  src={item.src}
+                  alt={`Tattoo ${item.category}`}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+                {/* Overlay on Hover */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="bg-[#D4C59D] text-black text-xs font-bold px-3 py-1 rounded uppercase">
+                    {item.category}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+      </div>
+    </section>
+  )
+}
+
+/* --- DATA: EXTRACTED FROM YOUR HTML --- */
+
+const GALLERY_ITEMS = [
+  { id: 1, category: "Neck", src: "/images/gallery/Tattoo-fine-line-neck-ghost-art-design.webp" },
+  { id: 2, category: "Arm", src: "/images/gallery/Tattoo-graphic-name-arm-art-design.webp" },
+  { id: 3, category: "Arm", src: "/images/gallery/Tattoo-fine-line-hand-flower-art-design.webp" },
+  { id: 4, category: "Arm", src: "/images/gallery/Tattoo-graphic-memorial-arm-art-design.webp" },
+  { id: 5, category: "Arm", src: "/images/gallery/Tattoo-graphic-lion-arm-art-design.webp" },
+  { id: 6, category: "Leg", src: "/images/gallery/Tattoo-graphic-zeus-leg-art-design.webp" },
+  { id: 7, category: "Back/Chest", src: "/images/gallery/Tattoo-chest-art-design.webp" },
+  { id: 8, category: "Arm", src: "/images/gallery/Tattoo-graphic-colour-arm-art-design.webp" },
+  { id: 9, category: "Leg", src: "/images/gallery/Tattoo-fine-line-leg-art-design.webp" },
+  { id: 10, category: "Arm", src: "/images/gallery/Tattoo-graphic-dragon-shoulder-art-design.webp" },
+  { id: 11, category: "Arm", src: "/images/gallery/Tattoo-graphic-colour-arm-art-design1.webp" },
+  { id: 12, category: "Leg", src: "/images/gallery/Tattoo-graphic-star-leg-art-design.webp" },
+  { id: 13, category: "Neck", src: "/images/gallery/Tattoo-fine-line-neck-flower-initial-art-design.webp" },
+  { id: 14, category: "Leg", src: "/images/gallery/Tattoo-graphic-zeus-leg-art-design-3.webp" }, // Renamed from -2 based on context if duplicate
+  { id: 15, category: "Arm", src: "/images/gallery/Tattoo-graphic-shoulder-art-design.webp" },
+  { id: 16, category: "Arm", src: "/images/gallery/Tattoo-fine-line-arm-butterfly-art-design.webp" },
+  { id: 17, category: "Back/Chest", src: "/images/gallery/Tattoo-fine-line-back-art-design.webp" },
+  { id: 18, category: "Neck", src: "/images/gallery/ewdxw3ed.webp" },
+  { id: 19, category: "Leg", src: "/images/gallery/Tattoo-graphic-zeus-leg-art-design-2.webp" },
+  { id: 20, category: "Arm", src: "/images/gallery/Tattoo-graphic-clock-dove-arm-art-design.webp" },
+  { id: 21, category: "Arm", src: "/images/gallery/Tattoo-graphic-cat-arm-art-design.webp" },
+  { id: 22, category: "Arm", src: "/images/gallery/Tattoo-graphic-arm-art-design.webp" },
+  { id: 23, category: "Face", src: "/images/gallery/Tattoo-face-cover-up-art-design.webp" },
+]
