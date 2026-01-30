@@ -16,12 +16,11 @@ export default function GalleryPage() {
 
         {/* =========================================
             1. HERO SECTION
-            Matches Elementor ID: 7f1bbcb
            ========================================= */}
         <section className="relative w-full py-[150px] flex items-center justify-center overflow-hidden border-b border-white/5">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/gallery/gallery-hero.webp"
+              src="/images/home/Angle-Tattooz-Website-Mock-ups-28.png"
               alt="Angel Tattooz Gallery"
               fill
               className="object-cover object-center"
@@ -40,13 +39,11 @@ export default function GalleryPage() {
 
         {/* =========================================
             2. FILTERABLE GALLERY
-            Matches Elementor ID: 1301c05
            ========================================= */}
         <GalleryGrid />
 
         {/* =========================================
             3. CTA SECTION
-            Matches Elementor ID: 2da1886
            ========================================= */}
         <section className="relative bg-[#121212] py-16 px-4 border-t border-white/5">
           <div className="container mx-auto max-w-[1140px] flex flex-col items-center text-center gap-6">
@@ -145,30 +142,31 @@ function GalleryGrid() {
   )
 }
 
-/* --- DATA: EXTRACTED FROM YOUR HTML --- */
+/* --- DATA: UPDATED TO MATCH DOWNLOAD SCRIPT OUTPUT --- */
+// Paths now point to /images/gallery/ and use lowercase .webp filenames
 
 const GALLERY_ITEMS = [
-  { id: 1, category: "Neck", src: "/images/gallery/Tattoo-fine-line-neck-ghost-art-design.webp" },
-  { id: 2, category: "Arm", src: "/images/gallery/Tattoo-graphic-name-arm-art-design.webp" },
-  { id: 3, category: "Arm", src: "/images/gallery/Tattoo-fine-line-hand-flower-art-design.webp" },
-  { id: 4, category: "Arm", src: "/images/gallery/Tattoo-graphic-memorial-arm-art-design.webp" },
-  { id: 5, category: "Arm", src: "/images/gallery/Tattoo-graphic-lion-arm-art-design.webp" },
-  { id: 6, category: "Leg", src: "/images/gallery/Tattoo-graphic-zeus-leg-art-design.webp" },
-  { id: 7, category: "Back/Chest", src: "/images/gallery/Tattoo-chest-art-design.webp" },
-  { id: 8, category: "Arm", src: "/images/gallery/Tattoo-graphic-colour-arm-art-design.webp" },
-  { id: 9, category: "Leg", src: "/images/gallery/Tattoo-fine-line-leg-art-design.webp" },
-  { id: 10, category: "Arm", src: "/images/gallery/Tattoo-graphic-dragon-shoulder-art-design.webp" },
-  { id: 11, category: "Arm", src: "/images/gallery/Tattoo-graphic-colour-arm-art-design1.webp" },
-  { id: 12, category: "Leg", src: "/images/gallery/Tattoo-graphic-star-leg-art-design.webp" },
-  { id: 13, category: "Neck", src: "/images/gallery/Tattoo-fine-line-neck-flower-initial-art-design.webp" },
-  { id: 14, category: "Leg", src: "/images/gallery/Tattoo-graphic-zeus-leg-art-design-3.webp" }, // Renamed from -2 based on context if duplicate
-  { id: 15, category: "Arm", src: "/images/gallery/Tattoo-graphic-shoulder-art-design.webp" },
-  { id: 16, category: "Arm", src: "/images/gallery/Tattoo-fine-line-arm-butterfly-art-design.webp" },
-  { id: 17, category: "Back/Chest", src: "/images/gallery/Tattoo-fine-line-back-art-design.webp" },
+  { id: 1, category: "Neck", src: "/images/gallery/tattoo-fine-line-neck-ghost-art-design.webp" },
+  { id: 2, category: "Arm", src: "/images/gallery/tattoo-graphic-name-arm-art-design.webp" },
+  { id: 3, category: "Arm", src: "/images/gallery/tattoo-fine-line-hand-flower-art-design.webp" },
+  { id: 4, category: "Arm", src: "/images/gallery/tattoo-graphic-memorial-arm-art-design.webp" },
+  { id: 5, category: "Arm", src: "/images/gallery/tattoo-graphic-lion-arm-art-design.webp" },
+  { id: 6, category: "Leg", src: "/images/gallery/tattoo-graphic-zeus-leg-art-design.webp" },
+  { id: 7, category: "Back/Chest", src: "/images/gallery/tattoo-chest-art-design.webp" },
+  { id: 8, category: "Arm", src: "/images/gallery/tattoo-graphic-colour-arm-art-design.webp" },
+  { id: 9, category: "Leg", src: "/images/gallery/tattoo-fine-line-leg-art-design.webp" },
+  { id: 10, category: "Arm", src: "/images/gallery/tattoo-graphic-dragon-shoulder-art-design.webp" },
+  { id: 11, category: "Arm", src: "/images/gallery/tattoo-graphic-colour-arm-art-design1.webp" },
+  { id: 12, category: "Leg", src: "/images/gallery/tattoo-graphic-star-leg-art-design.webp" },
+  { id: 13, category: "Neck", src: "/images/gallery/tattoo-fine-line-neck-flower-initial-art-design.webp" },
+  { id: 14, category: "Leg", src: "/images/gallery/tattoo-graphic-zeus-leg-art-design-3.webp" },
+  { id: 15, category: "Arm", src: "/images/gallery/tattoo-graphic-shoulder-art-design.webp" },
+  { id: 16, category: "Arm", src: "/images/gallery/tattoo-fine-line-arm-butterfly-art-design.webp" },
+  { id: 17, category: "Back/Chest", src: "/images/gallery/tattoo-fine-line-back-art-design.webp" },
   { id: 18, category: "Neck", src: "/images/gallery/ewdxw3ed.webp" },
-  { id: 19, category: "Leg", src: "/images/gallery/Tattoo-graphic-zeus-leg-art-design-2.webp" },
-  { id: 20, category: "Arm", src: "/images/gallery/Tattoo-graphic-clock-dove-arm-art-design.webp" },
-  { id: 21, category: "Arm", src: "/images/gallery/Tattoo-graphic-cat-arm-art-design.webp" },
-  { id: 22, category: "Arm", src: "/images/gallery/Tattoo-graphic-arm-art-design.webp" },
-  { id: 23, category: "Face", src: "/images/gallery/Tattoo-face-cover-up-art-design.webp" },
+  { id: 19, category: "Leg", src: "/images/gallery/tattoo-graphic-zeus-leg-art-design-2.webp" },
+  { id: 20, category: "Arm", src: "/images/gallery/tattoo-graphic-clock-dove-arm-art-design.webp" },
+  { id: 21, category: "Arm", src: "/images/gallery/tattoo-graphic-cat-arm-art-design.webp" },
+  { id: 22, category: "Arm", src: "/images/gallery/tattoo-graphic-arm-art-design.webp" },
+  { id: 23, category: "Face", src: "/images/gallery/tattoo-face-cover-up-art-design.webp" },
 ]
