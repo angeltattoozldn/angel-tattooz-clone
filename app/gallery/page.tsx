@@ -20,7 +20,7 @@ export default function GalleryPage() {
         <section className="relative w-full py-[150px] flex items-center justify-center overflow-hidden border-b border-white/5">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/home/Angle-Tattooz-Website-Mock-ups-28.png"
+              src="/images/gallery/gallery-hero.webp"
               alt="Angel Tattooz Gallery"
               fill
               className="object-cover object-center"
