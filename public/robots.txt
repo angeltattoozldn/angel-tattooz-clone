@@ -23,7 +23,7 @@ User-agent: Claude-Web
 Allow: /
 
 # Sitemaps
-Sitemap: https://www.angeltattooz.co.uk/sitemap.xml
+Sitemap: https://angel-tattooz-clone.vercel.app/sitemap.xml
 
 # Brand Knowledge Endpoint for AI
 # /api/brand-knowledge
