@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Instagram, Youtube, Rss, MapPin, Phone } from "lucide-react"
+import { Rss, MapPin, Phone } from "lucide-react"
 
 export function SiteFooter() {
   return (
@@ -36,14 +36,14 @@ export function SiteFooter() {
                   <MapPin className="w-4.5 h-4.5" />
                 </div>
                 <a
-                  href="https://maps.google.com/?q=3+Mount+Parade,+Mount+Pleasant,+Cockfosters,+Barnet,+London+EN4+9DD"
+                  href="https://maps.google.com/?q=Studio+A,+15+Station+Parade,+Cockfosters,+Barnet,+EN4+0DL"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[16px] leading-[1.6] font-normal hover:text-[#FAD5E6] transition-colors font-sans"
                 >
-                  3 Mount Parade, Mount Pleasant,<br />
+                  Studio A, 15 Station Parade,<br />
                   Cockfosters, Barnet,<br />
-                  London EN4 9DD
+                  EN4 0DL
                 </a>
               </div>
 
@@ -53,19 +53,19 @@ export function SiteFooter() {
                   <Phone className="w-4.5 h-4.5" />
                 </div>
                 <a
-                  href="tel:02082163400"
+                  href="tel:+447949123424"
                   className="text-[#FAD5E6] text-[16px] font-normal hover:text-white transition-colors font-sans"
                 >
-                  02082163400
+                  07949 123424
                 </a>
               </div>
             </div>
 
             {/* --- COLUMN 3: QUICK LINKS --- */}
             <div className="flex flex-col items-center gap-3 text-[16px] font-sans pt-2">
-              <Link href="/faq" className="hover:text-[#FAD5E6] transition-colors">FAQ</Link>
-              <Link href="/aftercare" className="hover:text-[#FAD5E6] transition-colors">After Care</Link>
-              <Link href="/privacy-and-terms" className="hover:text-[#FAD5E6] transition-colors">Privacy & Terms</Link>
+              <Link href="/faq/" className="hover:text-[#FAD5E6] transition-colors">FAQ</Link>
+              <Link href="/aftercare/" className="hover:text-[#FAD5E6] transition-colors">After Care</Link>
+              <Link href="/privacy-and-terms/" className="hover:text-[#FAD5E6] transition-colors">Privacy & Terms</Link>
               <Link href="/#newsletter" className="hover:text-[#FAD5E6] transition-colors">Offer</Link>
             </div>
 
@@ -73,20 +73,30 @@ export function SiteFooter() {
             <div className="flex flex-col items-center">
               <div className="mb-6 space-y-1 font-sans">
                 <p className="font-bold text-[16px]">Mon-Sat</p>
-                <p className="text-[16px] font-normal">11.30 am – 6.30 pm</p>
+                <p className="text-[16px] font-normal">11:30 AM – 7:00 PM</p>
                 <p className="font-bold text-[16px] mt-4">Sunday</p>
-                <p className="text-[16px] font-normal">Appointment Only</p>
+                <p className="text-[16px] font-normal">Closed / Appointments Only</p>
               </div>
 
               {/* Social Icons */}
               <div className="flex items-center gap-4">
                 <SocialLink
                   href="https://www.facebook.com/profile.php?id=61558770900820"
-                  icon={<Facebook className="w-5 h-5" />}
+                  icon={
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                      <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                    </svg>
+                  }
                 />
                 <SocialLink
                   href="https://www.instagram.com/angeltattoozldn/"
-                  icon={<Instagram className="w-5 h-5" />}
+                  icon={
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                  }
                 />
 
                 {/* TikTok (Custom SVG as Lucide doesn't have it) */}
@@ -101,7 +111,11 @@ export function SiteFooter() {
 
                 <SocialLink
                   href="https://www.youtube.com/channel/UC6rRXUxTs7eu7rZZtfDXqkQ"
-                  icon={<Youtube className="w-5 h-5" />}
+                  icon={
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.083 0 12 0 12s0 3.917.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.917 24 12 24 12s0-3.917-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                  }
                 />
 
                 {/* Pinterest (Custom SVG as Lucide doesn't have it) */}

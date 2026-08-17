@@ -13,19 +13,24 @@ import { Calendar, MessageCircle, Phone, Clock, Check } from "lucide-react"
 import { useState } from "react"
 
 export default function BookPage() {
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle")
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     service: "",
+    placement: "",
+    appointmentType: "",
     description: "",
     preferredDate: "",
+    preferredTime: "",
   })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Handle form submission
     console.log("Booking submitted:", formData)
+    setFormStatus("success")
   }
 
   const services = [
@@ -43,7 +48,7 @@ export default function BookPage() {
       <SiteHeader />
       <main>
         {/* Hero */}
-        <section className="relative py-24 bg-gradient-to-b from-background to-secondary/20">
+        <section className="relative py-24 bg-linear-to-b from-background to-secondary/20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="font-display text-5xl md:text-6xl text-primary mb-6 text-balance">
@@ -166,121 +171,161 @@ export default function BookPage() {
                   </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
+                {formStatus === "success" ? (
+                  <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative text-center">
+                    <strong className="font-bold">Success!</strong>
+                    <span className="block sm:inline"> Your booking request has been submitted. We will contact you soon.</span>
+                    <Button className="mt-4" onClick={() => setFormStatus("idle")}>Submit Another Request</Button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="name">Full Name *</Label>
+                        <Input
+                          id="name"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          placeholder="John Smith"
+                          required
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email *</Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          placeholder="john@example.com"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="phone">Phone Number *</Label>
+                        <Input
+                          id="phone"
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          placeholder="07123 456789"
+                          required
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="service">Tattoo Style / Service *</Label>
+                        <select
+                          id="service"
+                          value={formData.service}
+                          onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                          required
+                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        >
+                          <option value="">Select a style</option>
+                          {services.map((service) => (
+                            <option key={service} value={service}>
+                              {service}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="placement">Tattoo Placement *</Label>
+                        <Input
+                          id="placement"
+                          value={formData.placement || ""}
+                          onChange={(e) => setFormData({ ...formData, placement: e.target.value })}
+                          placeholder="e.g. Left Forearm"
+                          required
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="appointmentType">Appointment Type *</Label>
+                        <select
+                          id="appointmentType"
+                          value={formData.appointmentType || ""}
+                          onChange={(e) => setFormData({ ...formData, appointmentType: e.target.value })}
+                          required
+                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        >
+                          <option value="">Select type</option>
+                          <option value="consultation">Consultation (Free)</option>
+                          <option value="tattoo">Tattoo Session (£50 Deposit Required)</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="preferredDate">Preferred Date</Label>
+                        <Input
+                          id="preferredDate"
+                          type="date"
+                          value={formData.preferredDate}
+                          onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
+                          required
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="preferredTime">Preferred Time</Label>
+                        <Input
+                          id="preferredTime"
+                          type="time"
+                          value={formData.preferredTime || ""}
+                          onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
+                          required
+                        />
+                      </div>
+                    </div>
+
                     <div className="space-y-2">
-                      <Label htmlFor="name">Full Name *</Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="John Smith"
+                      <Label htmlFor="description">Tell Us About Your Tattoo Idea *</Label>
+                      <Textarea
+                        id="description"
+                        value={formData.description}
+                        onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                        placeholder="Describe your tattoo idea in detail..."
+                        rows={6}
                         required
                       />
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="john@example.com"
-                        required
-                      />
-                    </div>
-                  </div>
+                    {formStatus === "error" && (
+                      <div className="text-red-500 text-sm">Please fill out all required fields correctly.</div>
+                    )}
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number *</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="07123 456789"
-                        required
-                      />
+                    <div className="bg-muted/50 rounded-lg p-6 space-y-3">
+                      <h3 className="font-semibold text-foreground flex items-center gap-2">
+                        <Check className="h-5 w-5 text-primary" />
+                        Important Information
+                      </h3>
+                      <ul className="space-y-2 text-sm text-muted-foreground">
+                        <li className="flex items-start gap-2">
+                          <Check className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                          <span>Tattoo sessions require a £50 deposit to secure your booking.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                          <span>We will contact you within 24 hours to confirm your appointment.</span>
+                        </li>
+                      </ul>
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="service">Service Type</Label>
-                      <select
-                        id="service"
-                        value={formData.service}
-                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                      >
-                        <option value="">Select a service</option>
-                        {services.map((service) => (
-                          <option key={service} value={service}>
-                            {service}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="preferredDate">Preferred Date (Optional)</Label>
-                    <Input
-                      id="preferredDate"
-                      type="date"
-                      value={formData.preferredDate}
-                      onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="description">Tell Us About Your Tattoo Idea *</Label>
-                    <Textarea
-                      id="description"
-                      value={formData.description}
-                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                      placeholder="Describe your tattoo idea, including size, placement, style preferences, and any reference images you have..."
-                      rows={6}
-                      required
-                    />
-                    <p className="text-sm text-muted-foreground">
-                      Include details about size, placement, colors, and style preferences
-                    </p>
-                  </div>
-
-                  <div className="bg-muted/50 rounded-lg p-6 space-y-3">
-                    <h3 className="font-semibold text-foreground flex items-center gap-2">
-                      <Check className="h-5 w-5 text-primary" />
-                      What to Expect
-                    </h3>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li className="flex items-start gap-2">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span>Free consultation with no obligation</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span>Response within 24 hours</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span>Detailed quote and timeline</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span>Design mockups before you commit</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <Button type="submit" size="lg" className="w-full text-lg">
-                    Submit Consultation Request
-                  </Button>
-
-                  <p className="text-sm text-center text-muted-foreground">
-                    By submitting this form, you agree to be contacted about your consultation
-                  </p>
-                </form>
+                    <Button type="submit" size="lg" className="w-full text-lg">
+                      Submit Consultation Request
+                    </Button>
+                  </form>
+                )}
               </CardContent>
             </Card>
           </div>
@@ -292,7 +337,7 @@ export default function BookPage() {
             <Card>
               <CardContent className="p-8">
                 <div className="flex items-start gap-6">
-                  <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <Clock className="h-8 w-8 text-primary" />
                   </div>
                   <div className="flex-1">

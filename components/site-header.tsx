@@ -12,13 +12,13 @@ export function SiteHeader() {
 
   const navigation = [
     { name: "HOME", href: "/", id: "nav-home" },
-    { name: "ABOUT US", href: "/about", id: "nav-about" },
-    { name: "SERVICES", href: "/services", id: "nav-services" },
-    { name: "GALLERY", href: "/gallery", id: "nav-gallery" },
-    { name: "BOOKINGS", href: "/book", id: "nav-bookings" },
-    { name: "PAYMENTS", href: "/payments", id: "nav-payments" },
-    { name: "BLOG", href: "/blog", id: "nav-blog" },
-    { name: "CONTACT", href: "/contact", id: "nav-contact" },
+    { name: "ABOUT US", href: "/about-us/", id: "nav-about" },
+    { name: "SERVICES", href: "/services/", id: "nav-services" },
+    { name: "GALLERY", href: "/gallery/", id: "nav-gallery" },
+    { name: "BOOKINGS", href: "/bookings/", id: "nav-bookings" },
+    { name: "PAYMENTS", href: "/payments/", id: "nav-payments" },
+    { name: "BLOG", href: "/blog/", id: "nav-blog" },
+    { name: "CONTACT", href: "/contact-us/", id: "nav-contact" },
   ]
 
   return (

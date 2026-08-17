@@ -38,10 +38,9 @@ export interface Organization {
 
 export interface LocalBusiness extends Organization {
   "@type": "TattooShop" | "LocalBusiness"
-  areaServed?: Array<{
-    "@type": string
-    name: string
-  }>
+  areaServed?: string[]
+  sameAs?: string[]
+  knowsAbout?: string[]
 }
 
 export interface Service {
@@ -64,6 +63,10 @@ export interface Service {
 export interface FAQPage {
   "@context": string
   "@type": string
+  speakable?: {
+    "@type": string
+    cssSelector: string[]
+  }
   mainEntity: Array<{
     "@type": string
     name: string
@@ -169,14 +172,30 @@ export function generateOrganizationSchema(): LocalBusiness {
       longitude: BUSINESS_CONFIG.geo.longitude,
     },
     areaServed: [
-      { "@type": "City", name: "Barnet" },
-      { "@type": "City", name: "Cockfosters" },
-      { "@type": "City", name: "Southgate" },
-      { "@type": "City", name: "Enfield" },
-      { "@type": "City", name: "Finchley" },
-      { "@type": "City", name: "Potters Bar" },
-      { "@type": "City", name: "Hertsmere" },
-      { "@type": "City", name: "Hertfordshire" },
+      "Cockfosters",
+      "Barnet",
+      "Southgate",
+      "Enfield",
+      "Hadley Wood",
+      "Potters Bar",
+      "Borehamwood",
+      "North London",
+      "Hertfordshire"
+    ],
+    sameAs: [
+      "https://instagram.com/angeltattoozldn",
+      "https://facebook.com/profile.php?id=61558770900820",
+      "https://youtube.com/channel/UC6rRXUxTs7eu7rZZtfDXqkQ",
+      "https://www.pinterest.com/angeltattz/"
+    ],
+    knowsAbout: [
+      "Custom Tattoos",
+      "Cover-Up Tattoos",
+      "First Tattoo Consultation",
+      "Black and Grey Realism",
+      "Fine Line",
+      "Traditional Tattoos",
+      "Japanese Sleeve Tattoos"
     ],
     openingHoursSpecification: [
       {
@@ -229,6 +248,10 @@ export function generateFAQSchema(faqs: Array<{ question: string; answer: string
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h2", "h3", ".faq-question", ".faq-answer"],
+    },
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,

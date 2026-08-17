@@ -12,20 +12,20 @@ export default function ContactPage() {
     "@type": "TattooParlor", // Specific Schema for Tattoo Studios
     "name": "Angel Tattooz",
     "image": "https://www.angeltattooz.co.uk/wp-content/uploads/2024/05/Angle-Tattooz-Website-Mock-ups-20.png",
-    "telephone": "02082163400",
-    "email": "Ink@angeltattooz.co.uk",
+    "telephone": "07949123424",
+    "email": "info@angeltattooz.co.uk",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "3 Mount Parade, Mount Pleasant",
+      "streetAddress": "Studio A, 15 Station Parade",
       "addressLocality": "Cockfosters, Barnet",
       "addressRegion": "London",
-      "postalCode": "EN4 9DD",
+      "postalCode": "EN4 0DL",
       "addressCountry": "UK"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 51.6496, // Approx coords for Cockfosters
-      "longitude": -0.1495
+      "latitude": 51.6517, // Approx coords for Cockfosters
+      "longitude": -0.1488
     },
     "url": "https://www.angeltattooz.co.uk",
     "openingHoursSpecification": [
@@ -67,7 +67,7 @@ export default function ContactPage() {
         {/* =========================================
             1. HERO SECTION
            ========================================= */}
-        <section className="relative w-full py-[150px] flex items-center justify-center overflow-hidden border-b border-white/5">
+        <section className="relative w-full py-37.5 flex items-center justify-center overflow-hidden border-b border-white/5">
           <div className="absolute inset-0 z-0">
             <Image
               src="/images/contact/contact-hero.webp"
@@ -91,47 +91,47 @@ export default function ContactPage() {
             2. CONTACT DETAILS GRID
            ========================================= */}
         <section className="bg-[#121212] py-20 px-4">
-          <div className="container mx-auto max-w-[1140px]">
+          <div className="container mx-auto max-w-285">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
 
               {/* Telephone */}
               <div className="flex flex-col items-center">
                 <div className="mb-4 text-[#FAD5E6]">
-                  <Phone className="w-[50px] h-[50px]" strokeWidth={1.5} />
+                  <Phone className="w-12.5 h-12.5" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
                   Telephone
                 </h3>
-                <a href="tel:02082163400" className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
-                  02082163400
+                <a href="tel:07949123424" className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
+                  07949 123424
                 </a>
               </div>
 
               {/* Email */}
               <div className="flex flex-col items-center">
                 <div className="mb-4 text-[#FAD5E6]">
-                  <Mail className="w-[50px] h-[50px]" strokeWidth={1.5} />
+                  <Mail className="w-12.5 h-12.5" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
                   Email
                 </h3>
-                <a href="mailto:Ink@angeltattooz.co.uk" className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
-                  Ink@angeltattooz.co.uk
+                <a href="mailto:info@angeltattooz.co.uk" className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
+                  info@angeltattooz.co.uk
                 </a>
               </div>
 
               {/* Address */}
               <div className="flex flex-col items-center">
                 <div className="mb-4 text-[#FAD5E6]">
-                  <MapPin className="w-[50px] h-[50px]" strokeWidth={1.5} />
+                  <MapPin className="w-12.5 h-12.5" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
                   Address
                 </h3>
-                <address className="text-white font-sans text-[19px] not-italic max-w-[300px]">
-                  3 Mount Parade, Mount Pleasant,<br />
+                <address className="text-white font-sans text-[19px] not-italic max-w-75">
+                  Studio A, 15 Station Parade,<br />
                   Cockfosters, Barnet,<br />
-                  London EN4 9DD
+                  EN4 0DL
                 </address>
               </div>
 
@@ -143,7 +143,7 @@ export default function ContactPage() {
             3. GOOGLE MAPS EMBED
            ========================================= */}
         <section className="w-full bg-[#121212]">
-          <div className="w-full h-[350px] md:h-[450px] grayscale invert-[.1]">
+          <div className="w-full h-87.5 md:h-112.5 grayscale invert-[.1]">
             <iframe
               width="100%"
               height="100%"
@@ -161,11 +161,11 @@ export default function ContactPage() {
             4. CTA SECTION
            ========================================= */}
         <section className="relative bg-[#121212] py-16 px-4 border-t border-white/5">
-          <div className="container mx-auto max-w-[1140px] flex flex-col items-center text-center gap-6">
-            <h2 className="text-[#FAD5E6] font-hey text-[45px] md:text-[65px] leading-[1] font-normal">
+          <div className="container mx-auto max-w-285 flex flex-col items-center text-center gap-6">
+            <h2 className="text-[#FAD5E6] font-hey text-[45px] md:text-[65px] leading-none font-normal">
               Ready to Get Inked?
             </h2>
-            <div className="max-w-[650px]">
+            <div className="max-w-162.5">
               <p className="text-white font-sans text-[16px] font-normal leading-relaxed">
                 Take the first step towards your tattoo journey. Secure your spot or inquire about our services.
                 Let’s bring your ink dreams to life.
