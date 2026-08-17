@@ -260,7 +260,7 @@ export default async function StylePage({ params }: { params: Promise<{ slug: st
       <SiteHeader />
       <main>
         {/* Hero */}
-        <section className="relative py-24 bg-gradient-to-b from-background to-secondary/20">
+        <section className="relative py-24 bg-linear-to-b from-background to-secondary/20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
@@ -271,7 +271,7 @@ export default async function StylePage({ params }: { params: Promise<{ slug: st
                   <Link href="/bookings/">Book Consultation</Link>
                 </Button>
               </div>
-              <div className="relative aspect-[4/5] rounded overflow-hidden">
+              <div className="relative aspect-4/5 rounded overflow-hidden">
                 <img
                   src={`/.jpg?height=700&width=560&query=${style.galleryImages[0].query}`}
                   alt={`${style.name} tattoo style`}
@@ -291,7 +291,7 @@ export default async function StylePage({ params }: { params: Promise<{ slug: st
                 <ul className="space-y-3">
                   {style.characteristics.map((char, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
                       <span className="text-muted-foreground">{char}</span>
                     </li>
                   ))}
@@ -302,7 +302,7 @@ export default async function StylePage({ params }: { params: Promise<{ slug: st
                 <ul className="space-y-3">
                   {style.bestFor.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
                       <span className="text-muted-foreground">{item}</span>
                     </li>
                   ))}
@@ -331,7 +331,7 @@ export default async function StylePage({ params }: { params: Promise<{ slug: st
                     alt={`${style.name} ${image.title}`}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <span className="text-white font-semibold">{image.title}</span>
                   </div>
                 </button>

@@ -234,7 +234,7 @@ export default async function AftercarePage({ params }: { params: Promise<{ slug
       <SiteHeader />
       <main>
         {/* Hero */}
-        <section className="relative py-24 bg-gradient-to-b from-background to-secondary/20">
+        <section className="relative py-24 bg-linear-to-b from-background to-secondary/20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="font-display text-5xl md:text-6xl text-primary mb-6 text-balance">{guide.title}</h1>
             <p className="text-xl text-muted-foreground leading-relaxed text-balance">{guide.description}</p>
@@ -250,7 +250,7 @@ export default async function AftercarePage({ params }: { params: Promise<{ slug
                 <Card key={index}>
                   <CardContent className="p-8">
                     <div className="flex gap-4">
-                      <div className="h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center flex-shrink-0 text-xl font-bold">
+                      <div className="h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 text-xl font-bold">
                         {index + 1}
                       </div>
                       <div className="flex-1 space-y-3">
@@ -285,7 +285,7 @@ export default async function AftercarePage({ params }: { params: Promise<{ slug
                   <ul className="space-y-3">
                     {guide.dos.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 shrink-0" />
                         <span className="text-muted-foreground">{item}</span>
                       </li>
                     ))}
@@ -305,7 +305,7 @@ export default async function AftercarePage({ params }: { params: Promise<{ slug
                   <ul className="space-y-3">
                     {guide.donts.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <XCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                        <XCircle className="h-5 w-5 text-red-500 mt-0.5 shrink-0" />
                         <span className="text-muted-foreground">{item}</span>
                       </li>
                     ))}
@@ -337,7 +337,7 @@ export default async function AftercarePage({ params }: { params: Promise<{ slug
             <Card className="border-orange-500/50">
               <CardContent className="p-8">
                 <div className="flex gap-4">
-                  <AlertCircle className="h-8 w-8 text-orange-500 flex-shrink-0" />
+                  <AlertCircle className="h-8 w-8 text-orange-500 shrink-0" />
                   <div className="space-y-3">
                     <h3 className="text-xl font-semibold text-foreground">When to Seek Medical Attention</h3>
                     <p className="text-muted-foreground leading-relaxed">
@@ -356,7 +356,7 @@ export default async function AftercarePage({ params }: { params: Promise<{ slug
         </section>
 
         {/* CTA */}
-        <section className="py-24 bg-gradient-to-b from-background to-secondary/20">
+        <section className="py-24 bg-linear-to-b from-background to-secondary/20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="font-display text-4xl md:text-5xl text-primary mb-6">Need More Guidance?</h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">

@@ -252,7 +252,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <SiteHeader />
       <main>
         {/* Hero */}
-        <section className="relative py-24 bg-gradient-to-b from-background to-secondary/20">
+        <section className="relative py-24 bg-linear-to-b from-background to-secondary/20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
@@ -304,7 +304,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   <ul className="space-y-3">
                     {service.features.map((feature, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                        <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                         <span className="text-muted-foreground">{feature}</span>
                       </li>
                     ))}

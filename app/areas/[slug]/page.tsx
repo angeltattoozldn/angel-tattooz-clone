@@ -70,7 +70,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
       <SiteHeader />
       <main>
         {/* Hero */}
-        <section className="relative py-24 bg-gradient-to-b from-background to-secondary/20">
+        <section className="relative py-24 bg-linear-to-b from-background to-secondary/20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h1 className="font-display text-5xl md:text-6xl text-primary mb-6 text-balance">
@@ -270,7 +270,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
         </section>
 
         {/* CTA */}
-        <section className="py-24 bg-gradient-to-b from-background to-secondary/20">
+        <section className="py-24 bg-linear-to-b from-background to-secondary/20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="font-display text-5xl md:text-6xl text-primary mb-6">Ready to Get Inked?</h2>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
