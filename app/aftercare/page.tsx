@@ -301,7 +301,7 @@ export default function AftercarePage() {
                   <a href="tel:+442012345678">Call Us: 020 1234 5678</a>
                 </Button>
                 <Button size="lg" variant="outline" asChild className="text-lg px-8 bg-transparent">
-                  <Link href="/contact">Contact Form</Link>
+                  <Link href="/contact-us/">Contact Form</Link>
                 </Button>
               </div>
             </div>

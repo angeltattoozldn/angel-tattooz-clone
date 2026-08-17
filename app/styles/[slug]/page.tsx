@@ -246,8 +246,9 @@ const stylesData: Record<
   },
 }
 
-export default function StylePage({ params }: { params: { slug: string } }) {
-  const style = stylesData[params.slug]
+export default async function StylePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const style = stylesData[slug]
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
 
   if (!style) {
@@ -267,7 +268,7 @@ export default function StylePage({ params }: { params: { slug: string } }) {
                 <p className="text-xl text-muted-foreground leading-relaxed">{style.description}</p>
                 <p className="text-lg text-muted-foreground leading-relaxed">{style.longDescription}</p>
                 <Button size="lg" asChild className="text-lg">
-                  <Link href="/book">Book Consultation</Link>
+                  <Link href="/bookings/">Book Consultation</Link>
                 </Button>
               </div>
               <div className="relative aspect-[4/5] rounded overflow-hidden">
@@ -348,7 +349,7 @@ export default function StylePage({ params }: { params: { slug: string } }) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="text-lg px-8">
-                <Link href="/book">Book Consultation</Link>
+                <Link href="/bookings/">Book Consultation</Link>
               </Button>
               <Button size="lg" variant="outline" asChild className="text-lg px-8 bg-transparent">
                 <Link href="/styles">View All Styles</Link>

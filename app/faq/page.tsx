@@ -168,7 +168,7 @@ export default function FAQPage() {
       <SiteHeader />
       <main>
         {/* Hero */}
-        <section className="relative py-24 bg-gradient-to-b from-background to-secondary/20">
+        <section className="relative py-24 bg-linear-to-b from-background to-secondary/20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="font-display text-5xl md:text-6xl text-primary mb-6 text-balance">
@@ -191,8 +191,8 @@ export default function FAQPage() {
                   <Accordion type="single" collapsible className="w-full">
                     {category.questions.map((faq, index) => (
                       <AccordionItem key={index} value={`${categoryIndex}-${index}`}>
-                        <AccordionTrigger className="text-left text-foreground">{faq.question}</AccordionTrigger>
-                        <AccordionContent className="text-muted-foreground leading-relaxed">
+                        <AccordionTrigger className="text-left text-foreground faq-question">{faq.question}</AccordionTrigger>
+                        <AccordionContent className="text-muted-foreground leading-relaxed faq-answer">
                           {faq.answer}
                         </AccordionContent>
                       </AccordionItem>
@@ -213,10 +213,10 @@ export default function FAQPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="text-lg px-8">
-                <Link href="/book">Book Consultation</Link>
+                <Link href="/bookings/">Book Consultation</Link>
               </Button>
               <Button size="lg" variant="outline" asChild className="text-lg px-8 bg-transparent">
-                <Link href="/contact">Contact Us</Link>
+                <Link href="/contact-us/">Contact Us</Link>
               </Button>
             </div>
           </div>

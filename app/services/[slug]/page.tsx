@@ -276,7 +276,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   </div>
                 </div>
                 <Button size="lg" asChild className="text-lg">
-                  <Link href="/book">Book Consultation</Link>
+                  <Link href="/bookings/">Book Consultation</Link>
                 </Button>
               </div>
               <div className="relative aspect-square rounded overflow-hidden">
@@ -388,10 +388,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="text-lg px-8">
-                <Link href="/book">Book Now</Link>
+                <Link href="/bookings/">Book Now</Link>
               </Button>
               <Button size="lg" variant="outline" asChild className="text-lg px-8 bg-transparent">
-                <Link href="/contact">Contact Us</Link>
+                <Link href="/contact-us/">Contact Us</Link>
               </Button>
             </div>
           </div>

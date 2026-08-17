@@ -129,7 +129,7 @@ export function SiteFooter() {
                 />
 
                 <SocialLink
-                  href="/blog"
+                  href="/blog/"
                   icon={<Rss className="w-5 h-5" />}
                 />
               </div>

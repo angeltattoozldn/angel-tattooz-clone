@@ -259,7 +259,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
               <p className="text-muted-foreground mb-6">Have more questions?</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg">
-                  <Link href="/book">Book Free Consultation</Link>
+                  <Link href="/bookings/">Book Free Consultation</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="bg-transparent">
                   <Link href="/faq">View All FAQs</Link>
@@ -279,7 +279,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="text-base px-8 py-6">
-                <Link href="/book">Book Now</Link>
+                <Link href="/bookings/">Book Now</Link>
               </Button>
               <Button size="lg" variant="outline" asChild className="text-base px-8 py-6 bg-transparent">
                 <a href="tel:+442082163400">

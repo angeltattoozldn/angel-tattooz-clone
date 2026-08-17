@@ -364,7 +364,7 @@ export default async function AftercarePage({ params }: { params: Promise<{ slug
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
-                <Link href="/contact">Contact Us</Link>
+                <Link href="/contact-us/">Contact Us</Link>
               </Button>
               <Button size="lg" variant="outline" asChild className="bg-transparent">
                 <Link href="/aftercare">All Aftercare Guides</Link>
