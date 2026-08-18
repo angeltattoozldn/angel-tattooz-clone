@@ -1,0 +1,3 @@
+minimumReleaseAgeExclude:
+  - input-otp@1.5.0
+  - lucide-react@1.32.0
