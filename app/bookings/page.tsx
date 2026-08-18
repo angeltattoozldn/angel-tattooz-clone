@@ -10,7 +10,8 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Calendar, MessageCircle, Phone, Clock, Check } from "lucide-react"
-import { useState } from "react"
+import { useState, useTransition } from "react"
+import { submitBooking } from "@/app/actions/booking"
 
 export default function BookPage() {
   const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle")
@@ -26,11 +27,31 @@ export default function BookPage() {
     preferredTime: "",
   })
 
+  const [isPending, startTransition] = useTransition()
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Booking submitted:", formData)
-    setFormStatus("success")
+    startTransition(async () => {
+      setFormStatus("idle")
+      const result = await submitBooking(formData)
+      if (result.success) {
+        setFormStatus("success")
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          placement: "",
+          appointmentType: "",
+          description: "",
+          preferredDate: "",
+          preferredTime: "",
+        })
+      } else {
+        console.error(result.error)
+        setFormStatus("error")
+      }
+    })
   }
 
   const services = [
@@ -321,8 +342,8 @@ export default function BookPage() {
                       </ul>
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full text-lg">
-                      Submit Consultation Request
+                    <Button type="submit" size="lg" className="w-full text-lg" disabled={isPending}>
+                      {isPending ? "Submitting..." : "Submit Consultation Request"}
                     </Button>
                   </form>
                 )}

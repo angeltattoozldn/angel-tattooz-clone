@@ -1,8 +1,24 @@
 import { BUSINESS_CONFIG } from "@/config/business.config"
 import { SERVICE_AREAS } from "@/config/service-areas.config"
 import { NextResponse } from "next/server"
+import { client } from '@/sanity/lib/client';
+import { groq } from 'next-sanity';
 
 export async function GET() {
+  let sanityPosts = []
+  try {
+    sanityPosts = await client.fetch(
+      groq`*[_type == "post"]{
+        title,
+        "url": "https://www.angeltattooz.co.uk/" + slug.current + "/",
+        excerpt,
+        faqs
+      }`
+    );
+  } catch (error) {
+    console.error("Failed to fetch Sanity posts for KB index:", error);
+  }
+
   const knowledgeBase = {
     pages: [
       {
@@ -94,6 +110,7 @@ export async function GET() {
       version: "1.0",
       totalPages: 8,
     },
+    articles: sanityPosts,
   }
 
   return NextResponse.json(knowledgeBase, {
