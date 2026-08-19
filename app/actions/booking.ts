@@ -35,7 +35,7 @@ export async function submitBooking(formData: any) {
 
     const { data, error } = await resend.emails.send({
       from: "Angel Tattooz Bookings <onboarding@resend.dev>", // Or your verified domain
-      to: ["info@angeltattooz.co.uk"],
+      to: ["Ink@angeltattooz.co.uk"],
       replyTo: email,
       subject: `New Booking Request from ${name} - ${service}`,
       html: htmlContent,

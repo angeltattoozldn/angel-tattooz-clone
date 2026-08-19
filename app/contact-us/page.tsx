@@ -13,7 +13,7 @@ export default function ContactPage() {
     "name": "Angel Tattooz",
     "image": "https://www.angeltattooz.co.uk/wp-content/uploads/2024/05/Angle-Tattooz-Website-Mock-ups-20.png",
     "telephone": "02082163400",
-    "email": "info@angeltattooz.co.uk",
+    "email": "Ink@angeltattooz.co.uk",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Studio A, 15 Station Parade",
@@ -115,8 +115,8 @@ export default function ContactPage() {
                 <h3 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
                   Email
                 </h3>
-                <a href="mailto:info@angeltattooz.co.uk" className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
-                  info@angeltattooz.co.uk
+                <a href="mailto:Ink@angeltattooz.co.uk" className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
+                  Ink@angeltattooz.co.uk
                 </a>
               </div>
 
