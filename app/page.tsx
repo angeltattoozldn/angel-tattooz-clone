@@ -504,10 +504,10 @@ export default function Home() {
             - Blog Card Style with Floating Badge
            ========================================= */}
         <section className="relative bg-[#121212] pb-24 px-4">
-          <div className="container mx-auto max-w-[1140px]">
+          <div className="container mx-auto max-w-285">
 
             {/* Blog Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7.5 mb-12">
 
               {/* Blog Post 1 */}
               <BlogCard
@@ -679,9 +679,9 @@ function BlogCard({
   link: string
 }) {
   return (
-    <article className="flex flex-col bg-[#242424] rounded-[16px] overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2">
+    <article className="flex flex-col bg-[#242424] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2">
       {/* Image Container */}
-      <Link href={link} className="relative block w-full h-[240px] overflow-hidden">
+      <Link href={link} className="relative block w-full h-60 overflow-hidden">
         <Image
           src={image}
           alt={title}
@@ -696,7 +696,7 @@ function BlogCard({
       </Link>
 
       {/* Content */}
-      <div className="p-8 flex flex-col flex-grow">
+      <div className="p-8 flex flex-col grow">
         <h3 className="text-[#FAD5E6] font-sans text-[22px] leading-[1.3] font-normal mb-6">
           <Link href={link} className="hover:text-white transition-colors">
             {title}

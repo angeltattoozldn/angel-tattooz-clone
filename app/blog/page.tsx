@@ -57,7 +57,7 @@ export default async function BlogIndexPage() {
             {posts.map((post: any) => (
               <article key={post._id} className="border border-border/50 rounded-lg overflow-hidden bg-card/40 flex flex-col hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 group">
                 {post.mainImage && (
-                  <div className="relative aspect-[16/9] w-full overflow-hidden">
+                  <div className="relative aspect-video w-full overflow-hidden">
                     <Image alt={post.mainImage.alt || post.title} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-110 transition-transform duration-500" fill src={urlForImage(post.mainImage).url()} />
                   </div>
                 )}

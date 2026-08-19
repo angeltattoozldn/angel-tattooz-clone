@@ -70,7 +70,7 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
       
       <main className="min-h-screen bg-[#0a0a0a] text-zinc-100 pb-20">
         {/* 1. Full-Width Hero Section with Background Image */}
-        <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center border-b border-zinc-800/60 overflow-hidden">
+        <section className="relative w-full h-[60vh] min-h-100 flex items-center justify-center border-b border-zinc-800/60 overflow-hidden">
           {post.mainImage && (
             <div className="absolute inset-0 z-0">
               <Image 
@@ -81,7 +81,7 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
                 priority 
                 src={urlForImage(post.mainImage).url()} 
               />
-              <div className="absolute inset-0 bg-black/70 bg-gradient-to-t from-[#0a0a0a] via-black/50 to-black/30" />
+              <div className="absolute inset-0 bg-black/70 bg-linear-to-t from-[#0a0a0a] via-black/50 to-black/30" />
             </div>
           )}
           
