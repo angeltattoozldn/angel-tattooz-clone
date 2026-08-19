@@ -198,7 +198,7 @@ export default function Home() {
                   name="ne"
                   required
                   placeholder="Email"
-                  className="w-[70%] px-4 py-3 bg-neutral-100 text-neutral-700 text-[16px] placeholder:text-neutral-500 border border-neutral-300 rounded-l-[10px] focus:outline-none focus:border-[#D4C59D]"
+                  className="w-[70%] px-4 py-3 bg-neutral-100 text-[16px] placeholder:text-neutral-500 border border-neutral-300 rounded-l-[10px] focus:outline-none"
                 />
 
                 {/* Submit Button */}
