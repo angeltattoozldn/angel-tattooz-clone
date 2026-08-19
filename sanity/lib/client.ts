@@ -8,5 +8,5 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: false, // Set to false for ISR / on-demand revalidation
+  useCdn: false, // Ensures live fresh data directly from Sanity API
 });

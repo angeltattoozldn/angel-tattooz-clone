@@ -1,25 +1,42 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
+import { type NextRequest, NextResponse } from 'next/server';
+import { parseBody } from 'next-sanity/webhook';
 
 export async function POST(req: NextRequest) {
-  const secret = req.nextUrl.searchParams.get('secret');
-
-  if (secret !== process.env.SANITY_REVALIDATE_SECRET) {
-    return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
-  }
-
   try {
-    const body = await req.json();
-    const slug = body?.slug?.current;
+    const { isValidSignature, body } = await parseBody<{
+      _type: string;
+      slug?: { current: string };
+    }>(req, process.env.SANITY_REVALIDATE_SECRET);
 
-    // Purge blog index and specific slug
-    revalidatePath('/blog/');
-    if (slug) {
-      revalidatePath(`/${slug}/`);
+    // If a secret is provided, validate it
+    const secret = req.nextUrl.searchParams.get('secret');
+    if (process.env.SANITY_REVALIDATE_SECRET && secret !== process.env.SANITY_REVALIDATE_SECRET && !isValidSignature) {
+      return new NextResponse('Invalid token', { status: 401 });
     }
 
-    return NextResponse.json({ revalidated: true, now: Date.now() });
-  } catch (err) {
-    return NextResponse.json({ message: 'Error revalidating', error: String(err) }, { status: 500 });
+    if (!body?._type) {
+      return new NextResponse('Bad Request', { status: 400 });
+    }
+
+    // Revalidate the blog index and specific post
+    revalidatePath('/blog', 'page');
+    revalidatePath('/blog/', 'page');
+    revalidatePath('/', 'page');
+
+    if (body.slug?.current) {
+      revalidatePath(`/${body.slug.current}`, 'page');
+      revalidatePath(`/${body.slug.current}/`, 'page');
+    }
+
+    return NextResponse.json({
+      status: 200,
+      revalidated: true,
+      now: Date.now(),
+      body,
+    });
+  } catch (err: any) {
+    console.error('Revalidation error:', err);
+    return new NextResponse(err.message, { status: 500 });
   }
 }
