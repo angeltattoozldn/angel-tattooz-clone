@@ -28,7 +28,7 @@ export function SiteHeader() {
 
           {/* Logo */}
           <div className="shrink-0">
-            <Link href="/" className="flex items-center">
+            <Link href="/" aria-label="Angel Tattooz Home" className="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4C59D] rounded-sm">
               <Image
                 src="/angel-tattooz-logo-primary.svg"
                 alt="Angel Tattooz Logo"
@@ -49,7 +49,7 @@ export function SiteHeader() {
                 <Link
                   key={item.id}
                   href={item.href}
-                  className={`relative group flex items-center h-full px-1 text-[15px] font-bold tracking-widest transition-colors
+                  className={`relative group flex items-center h-full px-1 text-[15px] font-bold tracking-widest transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4C59D] rounded-sm
                     ${isActive ? "text-[#FAD5E6]" : "text-[#FAD5E6]/90 hover:text-[#FAD5E6]"}`}
                 >
                   {item.name}
@@ -68,7 +68,7 @@ export function SiteHeader() {
           <div className="lg:hidden">
             <button
               type="button"
-              className="text-[#FAD5E6]"
+              className="text-[#FAD5E6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4C59D] rounded-sm p-1"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -85,7 +85,7 @@ export function SiteHeader() {
                 <Link
                   key={item.id}
                   href={item.href}
-                  className={`block py-3 text-base font-bold tracking-widest border-b border-white/5
+                  className={`block py-3 text-base font-bold tracking-widest border-b border-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4C59D]
                     ${pathname === item.href ? "text-[#D4C59D]" : "text-[#FAD5E6]"}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >

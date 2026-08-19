@@ -19,6 +19,7 @@ export default function Home() {
               src="/images/home/Angle-Tattooz-Website-Hero-Image.webp"
               alt="Angel Tattooz Studio Background"
               fill
+              sizes="100vw"
               className="object-cover object-center"
               priority
               quality={90}
@@ -77,6 +78,7 @@ export default function Home() {
                   src="/images/home/Be-Inkspired-1.webp"
                   alt="Tattoo Showcase 1"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-fit transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -107,6 +109,7 @@ export default function Home() {
                   src="/images/home/Be-Inkspired-2.webp"
                   alt="Tattoo Showcase 2"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-fit transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -117,6 +120,7 @@ export default function Home() {
                   src="/images/home/Be-Inkspired-7.webp"
                   alt="Tattoo Showcase 3"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-fit transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -129,6 +133,7 @@ export default function Home() {
                   src="/images/home/Be-Inkspired-4.webp"
                   alt="Tattoo Showcase 4"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-fit transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -139,6 +144,7 @@ export default function Home() {
                   src="/images/home/Be-Inkspired-8.webp"
                   alt="Tattoo Showcase 5"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-fit transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -313,6 +319,7 @@ export default function Home() {
               className="absolute top-1/2 left-1/2 w-[300%] h-[300%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
               src="https://www.youtube.com/embed/DxR9eauTK1I?controls=0&rel=0&playsinline=1&autoplay=1&mute=1&loop=1&playlist=DxR9eauTK1I&start=2&end=30&enablejsapi=1&iv_load_policy=3&showinfo=0&modestbranding=1"
               title="Cinematic Tattoo Studio Background"
+              loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               style={{ border: 'none' }}
             />
@@ -347,6 +354,7 @@ export default function Home() {
                 src="/images/home/decoration.webp"
                 alt="Decoration"
                 fill
+                sizes="100px"
                 className="object-contain"
               />
             </div>
@@ -569,6 +577,7 @@ function FlipCard({
             src={image}
             alt={title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover"
           />
           {/* Overlay & Title */}
@@ -586,6 +595,7 @@ function FlipCard({
             src={image}
             alt={title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover opacity-40"
           />
 
@@ -619,6 +629,7 @@ function InstagramCard({ bgImage, link }: { bgImage: string, link: string }) {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="View our Instagram Profile"
       className="relative block h-50 w-full rounded-xl overflow-hidden group cursor-pointer"
     >
       {/* Background Image */}
@@ -626,6 +637,7 @@ function InstagramCard({ bgImage, link }: { bgImage: string, link: string }) {
         src={bgImage}
         alt="Instagram Post"
         fill
+        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
         className="object-cover transition-transform duration-700 group-hover:scale-110"
       />
 
@@ -639,6 +651,7 @@ function InstagramCard({ bgImage, link }: { bgImage: string, link: string }) {
             src="/images/home/ig-btn-02.webp"
             alt="Instagram"
             fill
+            sizes="112px"
             className="object-contain drop-shadow-lg"
           />
         </div>
@@ -673,6 +686,7 @@ function BlogCard({
           src={image}
           alt={title}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-500 hover:scale-105"
         />
         {/* Floating Category Badge */}

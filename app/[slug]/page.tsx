@@ -77,6 +77,7 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
                 alt={post.mainImage.alt || post.title} 
                 className="object-cover" 
                 fill 
+                sizes="100vw"
                 priority 
                 src={urlForImage(post.mainImage).url()} 
               />
