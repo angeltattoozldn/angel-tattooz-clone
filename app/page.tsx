@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-contradicting-classname */
 import Image from "next/image"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
@@ -197,7 +198,6 @@ export default function Home() {
                   name="ne"
                   required
                   placeholder="Email"
-                  // eslint-disable-next-line tailwindcss/no-contradicting-classname
                   className="w-[70%] px-4 py-3 bg-neutral-100 text-neutral-700 text-[16px] placeholder:text-neutral-500 border border-neutral-300 rounded-l-[10px] focus:outline-none focus:border-[#D4C59D]"
                 />
 
