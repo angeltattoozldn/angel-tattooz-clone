@@ -53,10 +53,10 @@ export function SiteFooter() {
                   <Phone className="w-4.5 h-4.5" />
                 </div>
                 <a
-                  href="tel:+447949123424"
+                  href="tel:02082163400"
                   className="text-[#FAD5E6] text-[16px] font-normal hover:text-white transition-colors font-sans"
                 >
-                  07949 123424
+                  020 8216 3400
                 </a>
               </div>
             </div>

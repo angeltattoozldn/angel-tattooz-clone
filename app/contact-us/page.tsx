@@ -12,7 +12,7 @@ export default function ContactPage() {
     "@type": "TattooParlor", // Specific Schema for Tattoo Studios
     "name": "Angel Tattooz",
     "image": "https://www.angeltattooz.co.uk/wp-content/uploads/2024/05/Angle-Tattooz-Website-Mock-ups-20.png",
-    "telephone": "07949123424",
+    "telephone": "02082163400",
     "email": "info@angeltattooz.co.uk",
     "address": {
       "@type": "PostalAddress",
@@ -102,8 +102,8 @@ export default function ContactPage() {
                 <h3 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
                   Telephone
                 </h3>
-                <a href="tel:07949123424" className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
-                  07949 123424
+                <a href="tel:02082163400" className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
+                  020 8216 3400
                 </a>
               </div>
 

@@ -17,7 +17,7 @@ Our expert artists specialize in realism, minimalist, tribal, traditional, and c
 
 ## Contact & Location
 - Address: Studio A, 15 Station Parade, Cockfosters, Barnet, EN4 0DL
-- Phone: +44 7949 123424
+- Phone: 020 8216 3400
 - Hours: Mon-Sat 11:30 AM to 7:00 PM
 
 ## Booking

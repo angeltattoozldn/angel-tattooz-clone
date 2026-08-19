@@ -154,7 +154,7 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
                 </p>
                 <p className="flex items-center gap-2">
                   <span className="text-zinc-100 font-bold">📞</span>
-                  <span>+44 7949 123424</span>
+                  <span>020 8216 3400</span>
                 </p>
                 <p className="flex items-center gap-2">
                   <span className="text-zinc-100 font-bold">🕒</span>

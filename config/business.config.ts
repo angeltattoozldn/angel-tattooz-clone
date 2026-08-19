@@ -50,9 +50,9 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     state: "confirmed",
   },
   contact: {
-    phone: "+447949123424",
-    phoneDisplay: "+44 7949 123424",
-    whatsapp: "+447949123424",
+    phone: "02082163400",
+    phoneDisplay: "020 8216 3400",
+    whatsapp: "+442082163400",
     email: "info@angeltattooz.co.uk",
   },
   geo: {
