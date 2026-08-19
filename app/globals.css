@@ -87,7 +87,7 @@
   --font-hey: "HeyAugust", sans-serif;
 
   --font-mono: "Geist Mono", "Geist Mono Fallback";
-  --font-display: "Dancing Script", cursive;
+  --font-display: "HeyAugust", sans-serif;
 
   /* 5. DEFINE BRAND COLORS FOR UTILITIES */
   --color-brand-pink: var(--brand-pink);

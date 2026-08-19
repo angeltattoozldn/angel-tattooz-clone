@@ -35,7 +35,7 @@ export default function PrivacyAndTermsPage() {
 
         {/* Content Container */}
         <div className="max-w-4xl mx-auto px-4 md:px-8 mt-16">
-          <div className="prose prose-invert max-w-none prose-headings:font-sans prose-headings:font-bold prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:text-center prose-h2:mb-8 prose-h3:text-lg md:prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4 prose-p:text-zinc-300 prose-p:leading-relaxed prose-p:text-sm md:prose-p:text-base prose-a:text-[#D4C59D] prose-a:no-underline hover:prose-a:underline">
+          <div className="prose prose-invert max-w-none prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:text-center prose-h2:mb-8 [&_h3]:font-sans [&_h3]:font-bold [&_h3]:text-xl [&_h3]:text-white [&_h3]:mt-12 [&_h3]:mb-4 [&_p]:mb-6 [&_ul]:mb-8 prose-p:text-zinc-300 prose-p:leading-relaxed prose-p:text-sm md:prose-p:text-base prose-a:text-[#D4C59D] prose-a:no-underline hover:prose-a:underline">
             
             {/* Terms and Conditions Section */}
             <h2 className="font-display text-4xl text-[#FAD5E6] !mb-12">Terms and Conditions</h2>
@@ -50,7 +50,7 @@ export default function PrivacyAndTermsPage() {
 
             <h3>2. General</h3>
             <ul className="list-disc pl-6 space-y-2 text-zinc-300 text-sm md:text-base">
-              <li><strong>Service Provider:</strong> Angel Tattooz, located at 3 Mount Parade, Mount Pleasant, Cockfosters, EN4 9DD.</li>
+              <li><strong>Service Provider:</strong> Angel Tattooz, located at Studio A, 15 Station Parade, Cockfosters, Barnet, EN4 0DL.</li>
               <li><strong>Contact Information:</strong> For any inquiries, please email us at <a href="mailto:Ink@angeltattooz.co.uk">Ink@angeltattooz.co.uk</a>.</li>
               <li><strong>Governing Law:</strong> These Terms and Conditions are governed by and construed in accordance with the laws of England and Wales. Any disputes relating to these terms will be subject to the exclusive jurisdiction of the courts of England and Wales.</li>
             </ul>
@@ -135,7 +135,7 @@ export default function PrivacyAndTermsPage() {
             <h3>1. Data Controller</h3>
             <ul className="list-none pl-0 space-y-1 text-zinc-300 text-sm md:text-base">
               <li><strong>Company:</strong> Angel Tattooz</li>
-              <li><strong>Address:</strong> 3 Mount Parade, Mount Pleasant, Cockfosters, EN4 9DD</li>
+              <li><strong>Address:</strong> Studio A, 15 Station Parade, Cockfosters, Barnet, EN4 0DL</li>
               <li><strong>Website:</strong> <a href="https://www.angeltattooz.co.uk">www.angeltattooz.co.uk</a></li>
               <li><strong>Contact:</strong> <a href="mailto:Ink@angeltattooz.co.uk">Ink@angeltattooz.co.uk</a></li>
             </ul>

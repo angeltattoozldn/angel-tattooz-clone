@@ -4,13 +4,14 @@ import { SchemaScript } from "@/components/schema-script"
 import { generateBreadcrumbs, generateFAQSchema } from "@/lib/schema"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Tattoo FAQ | Common Questions Answered | Angel Tattooz",
+  title: "FAQ | Angel Tattooz",
   description:
-    "Get answers to common tattoo questions. Pain, pricing, aftercare, healing time, and more. Expert advice from North London's premier tattoo studio.",
+    "Get answers to common tattoo questions. Pain, pricing, aftercare, healing time, and more. Expert advice from Angel Tattooz.",
 }
 
 export default function FAQPage() {
@@ -19,145 +20,81 @@ export default function FAQPage() {
     { name: "FAQ" },
   ])
 
-  const faqCategories = [
+  const allFAQs = [
     {
-      category: "Getting Started",
-      questions: [
-        {
-          question: "How much will my tattoo cost?",
-          answer:
-            "Tattoo pricing depends on size, complexity, placement, and time required. Small simple tattoos start around £80-150, while larger custom pieces are typically £100-150 per hour. We provide detailed quotes during your free consultation after discussing your design.",
-        },
-        {
-          question: "Do tattoos hurt?",
-          answer:
-            "Pain levels vary by individual and placement. Most people describe the sensation as a scratching or burning feeling. Areas with more flesh tend to be less painful, while bony areas can be more sensitive. Our artists work efficiently to minimize discomfort, and most clients find the experience manageable.",
-        },
-        {
-          question: "How do I book an appointment?",
-          answer:
-            "You can book online through our website, call us at 020 1234 5678, or message us on WhatsApp. We recommend starting with a free consultation to discuss your ideas and get a quote before scheduling your tattoo session.",
-        },
-        {
-          question: "What should I bring to my consultation?",
-          answer:
-            "Bring any reference images, ideas, or inspiration photos you have. Think about size, placement, and your budget. We'll discuss your vision and create a custom design plan. No obligation to book on the spot.",
-        },
-        {
-          question: "How old do I need to be to get a tattoo?",
-          answer:
-            "You must be 18 or older to get a tattoo in the UK. We require valid photo ID (passport or driving license) for all clients. No exceptions, even with parental consent.",
-        },
-      ],
+      question: "How do I book an appointment?",
+      answer: "You can book an appointment through our online booking form on the website. If you have a design, you can book a 30-minute consultation. If you need help with a design, you can book a 1-hour appointment."
     },
     {
-      category: "Design & Planning",
-      questions: [
-        {
-          question: "Can I bring my own design?",
-          answer:
-            "Yes! We welcome reference images and design ideas. Our artists will work with you to refine and adapt your design to work best as a tattoo, ensuring it will age well and look great on your chosen placement.",
-        },
-        {
-          question: "How long does the design process take?",
-          answer:
-            "For custom designs, typically 1-2 weeks from consultation to final design approval. Complex pieces may take longer. We provide digital mockups and offer unlimited revisions until you're completely satisfied.",
-        },
-        {
-          question: "Can I see the design before my appointment?",
-          answer:
-            "For custom work, yes! We'll send you digital mockups for approval. For simpler designs, you'll see the stencil on the day of your appointment before we begin. You always have final approval.",
-        },
-        {
-          question: "What if I don't know exactly what I want?",
-          answer:
-            "That's completely normal! Book a consultation and share your general ideas, themes, or feelings you want to express. Our experienced artists will guide you through the creative process and help develop the perfect design.",
-        },
-      ],
+      question: "What are the prices for tattoos?",
+      answer: "Black & White Tattoos: £120 (currently on special offer for £100 for a 1-hour session). Colour Tattoos: £150 (currently on special offer for £130 for a 1-hour session)",
+      jsxAnswer: (
+        <ul className="list-disc pl-6 space-y-2">
+          <li>Black &amp; White Tattoos: £120 (currently on special offer for £100 for a 1-hour session)</li>
+          <li>Colour Tattoos: £150 (currently on special offer for £130 for a 1-hour session)</li>
+        </ul>
+      )
     },
     {
-      category: "The Tattoo Process",
-      questions: [
-        {
-          question: "How long will my tattoo session take?",
-          answer:
-            "Session length varies by design size and complexity. Small tattoos may take 1-2 hours, medium pieces 3-5 hours, and large work may require multiple sessions of 4-8 hours each. We'll give you a time estimate during consultation.",
-        },
-        {
-          question: "Can I take breaks during my session?",
-          answer:
-            "Yes! We encourage breaks for longer sessions. Feel free to request breaks anytime you need to stretch, use the bathroom, or have a snack. Your comfort is important to us.",
-        },
-        {
-          question: "What should I wear to my appointment?",
-          answer:
-            "Wear comfortable clothing that provides easy access to the area being tattooed. Choose dark, old clothing in case of ink stains. Avoid tight clothing that might rub against your fresh tattoo.",
-        },
-        {
-          question: "Should I eat before getting tattooed?",
-          answer:
-            "Yes! Eat a good meal 1-2 hours before your appointment and stay hydrated. This helps maintain your blood sugar and energy levels. Avoid alcohol and aspirin for 24 hours before, as they thin blood.",
-        },
-      ],
+      question: "Do I need to pay a deposit?",
+      answer: "Yes, a £50 deposit is required to book in for a tattoo and for the 1-hour appointment if you do not have a design."
     },
     {
-      category: "Aftercare & Healing",
-      questions: [
-        {
-          question: "How do I care for my new tattoo?",
-          answer:
-            "Keep it clean and moisturized. Wash gently 2-3 times daily with antibacterial soap, pat dry, and apply a thin layer of recommended ointment. See our detailed aftercare guide for complete instructions.",
-        },
-        {
-          question: "How long does a tattoo take to heal?",
-          answer:
-            "Surface healing takes 2-3 weeks, but complete healing takes 3-4 months. Initial peeling and flaking occur within the first week. Follow aftercare instructions carefully for best results.",
-        },
-        {
-          question: "Can I swim or work out after getting tattooed?",
-          answer:
-            "Avoid swimming, saunas, and steam rooms for 2-3 weeks. Light exercise is fine, but avoid activities that cause excessive sweating or friction on the tattoo. Keep it clean and dry.",
-        },
-        {
-          question: "What if my tattoo looks faded after healing?",
-          answer:
-            "Some fading during healing is normal as skin regenerates. We offer free touch-ups within the first year for work done at our studio. Book a touch-up appointment if needed after complete healing.",
-        },
-      ],
+      question: "Can I get a quote for a custom tattoo?",
+      answer: "Yes, you can request a quotation for custom & complex tattoos. There is a £50 fee for the custom design, which goes towards the price of the tattoo when you get it done."
     },
     {
-      category: "Safety & Health",
-      questions: [
-        {
-          question: "Is getting a tattoo safe?",
-          answer:
-            "Yes, when done by licensed professionals following proper safety protocols. We use sterile, single-use needles, maintain strict hygiene standards, and follow all UK health and safety regulations.",
-        },
-        {
-          question: "Can I get a tattoo if I have allergies?",
-          answer:
-            "Most people with allergies can get tattoos safely. Inform us of any known allergies during consultation. Severe metal allergies or specific pigment sensitivities may require patch testing or alternative inks.",
-        },
-        {
-          question: "Can I get a tattoo if I'm pregnant or breastfeeding?",
-          answer:
-            "We don't tattoo pregnant or breastfeeding clients due to potential risks. We recommend waiting until after pregnancy and breastfeeding are complete for your safety.",
-        },
-        {
-          question: "What about medical conditions or medications?",
-          answer:
-            "Certain conditions and medications may affect tattooing. Inform us of any medical conditions, medications, blood thinners, or immune system issues. We may require doctor's clearance in some cases.",
-        },
-      ],
+      question: "What should I bring to my appointment?",
+      answer: "Please bring a valid form of ID. Ensure you are well-rested, hydrated, and have eaten a good meal before your appointment. Avoid alcohol and blood-thinning medications 24 hours prior to your session. If you are a new customer, ensure you have completed the patch test 24 hours before your appointment if required."
     },
+    {
+      question: "Are there any health conditions that might affect my ability to get a tattoo?",
+      answer: "Yes, certain health conditions might affect your ability to get a tattoo. Please inform us if you have any medical conditions, allergies, or if you are on medication. Tattooing is not recommended for individuals who are pregnant or breastfeeding. During your consultation, let your artist know about any skin sensitivities or allergies. We use high-quality, hypoallergenic inks and can advise on the best approach."
+    },
+    {
+      question: "Is there anything I should avoid before my tattoo appointment?",
+      answer: "Yes, please avoid alcohol and drugs before your appointment. It is important to be in a sober state for the procedure."
+    },
+    {
+      question: "How long will my tattoo take?",
+      answer: "The duration of your tattoo session depends on the size and complexity of the design. Standard sessions are typically 1 hour, but this can vary."
+    },
+    {
+      question: "Do you offer touch-ups?",
+      answer: "Yes, we offer touch-ups for our tattoos. Please discuss this with your tattoo artist during your consultation."
+    },
+    {
+      question: "What if I need to reschedule my appointment?",
+      answer: "If you need to reschedule, please contact us at least 48 hours in advance. We require at least 48 hours' notice for cancellations or rescheduling. Deposits are non-refundable but can be transferred to a new appointment if rescheduled in time. Please note that the £50 deposit, which goes towards the price of the tattoo, is non-refundable for no-shows."
+    },
+    {
+      question: "How do I choose the right tattoo design?",
+      answer: "Our experienced tattoo artists can help you choose a design that fits your style and preferences. Schedule a 1-hour consultation for just £50 to discuss your ideas and start the design process."
+    },
+    {
+      question: "What should I expect during my tattoo session?",
+      answer: "Our artists will clean and prep the area, transfer the design, and then start tattooing. The process can take a few hours, depending on the complexity of the design. You can take breaks if needed."
+    },
+    {
+      question: "Does getting a tattoo hurt?",
+      answer: "Pain levels vary by individual and tattoo placement. Our artists strive to make the experience as comfortable as possible. You can discuss any concerns during your consultation. We also use the very best tattoo guns, which have pressure sensitivity on them, which really helps as well to minimize any discomfort."
+    },
+    {
+      question: "How do I care for my new tattoo?",
+      answer: "After your session, our artist will provide detailed aftercare instructions to ensure proper healing. This typically includes keeping the tattoo clean, moisturized, and protected from direct sunlight.",
+      jsxAnswer: (
+        <p>After your session, our artist will provide <Link href="/aftercare" className="text-black font-semibold hover:underline">detailed aftercare instructions</Link> to ensure proper healing. This typically includes keeping the tattoo clean, moisturized, and protected from direct sunlight.</p>
+      )
+    },
+    {
+      question: "What if I want to cover up an old tattoo?",
+      answer: "Our skilled artists specialize in cover-up tattoos. Show us your existing tattoo, and we can discuss design options to create a new piece you'll love."
+    },
+    {
+      question: "Do you accept walk-ins?",
+      answer: "While we recommend booking an appointment to ensure availability, we do accept walk-ins based on artist availability. Call ahead to check for same-day openings."
+    }
   ]
-
-  const allFAQs = faqCategories.flatMap((category) =>
-    category.questions.map((q) => ({
-      question: q.question,
-      answer: q.answer,
-    })),
-  )
 
   const faqSchema = generateFAQSchema(allFAQs)
 
@@ -166,59 +103,51 @@ export default function FAQPage() {
       <SchemaScript schema={breadcrumbSchema} />
       <SchemaScript schema={faqSchema} />
       <SiteHeader />
-      <main>
-        {/* Hero */}
-        <section className="relative py-24 bg-linear-to-b from-background to-secondary/20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <h1 className="font-display text-5xl md:text-6xl text-primary mb-6 text-balance">
-                Frequently Asked Questions
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed text-balance">
-                Everything you need to know about getting a tattoo at Angel Tattooz
-              </p>
-            </div>
+      <main className="bg-[#121212]">
+        {/* Hero Section */}
+        <section className="relative h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 w-full h-full">
+            <Image
+              fill
+              className="object-cover object-center"
+              alt="Angel Tattooz Studio Interior"
+              src="/images/home/Angle-Tattooz-Website-Hero-Image.webp"
+            />
+            <div className="absolute inset-0 bg-black/70 bg-linear-to-t from-[#121212] via-black/50 to-black/30" />
+          </div>
+
+          <div className="relative z-10 max-w-6xl mx-auto text-center px-4 pt-10">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-hey text-[#FAD5E6] tracking-wide leading-tight max-w-5xl mx-auto drop-shadow-lg">
+              FAQ
+            </h1>
           </div>
         </section>
 
-        {/* FAQ Categories */}
+        {/* FAQ Content */}
         <section className="py-24">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="space-y-16">
-              {faqCategories.map((category, categoryIndex) => (
-                <div key={categoryIndex} className="space-y-6">
-                  <h2 className="text-3xl font-semibold text-foreground">{category.category}</h2>
-                  <Accordion type="single" collapsible className="w-full">
-                    {category.questions.map((faq, index) => (
-                      <AccordionItem key={index} value={`${categoryIndex}-${index}`}>
-                        <AccordionTrigger className="text-left text-foreground faq-question">{faq.question}</AccordionTrigger>
-                        <AccordionContent className="text-muted-foreground leading-relaxed faq-answer">
-                          {faq.answer}
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                  </Accordion>
-                </div>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-[45px] text-[#FAD5E6] font-normal leading-tight mb-4 drop-shadow-md">
+                You Got Questions. We Got Answers
+              </h2>
+            </div>
+            
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {allFAQs.map((faq, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`} 
+                  className="group border border-zinc-600 rounded-[10px] overflow-hidden data-[state=open]:border-[#FAD5E6] data-[state=open]:bg-[#FAD5E6] transition-all duration-300"
+                >
+                  <AccordionTrigger className="font-sans flex-1 text-center justify-between text-white group-data-[state=open]:text-black hover:no-underline py-5 px-6 [&>svg]:ml-4 group-data-[state=open]:[&>svg]:text-black">
+                    <span className="flex-1 text-center font-bold tracking-wide text-[15px]">{faq.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-white group-data-[state=open]:text-black leading-relaxed pb-6 px-6 text-sm md:text-base font-medium">
+                    {faq.jsxAnswer || <p>{faq.answer}</p>}
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Still Have Questions */}
-        <section className="py-24 bg-secondary/30">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="font-display text-4xl md:text-5xl text-primary mb-6">Still Have Questions?</h2>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              We're here to help! Book a free consultation or get in touch with us
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild className="text-lg px-8">
-                <Link href="/bookings/">Book Consultation</Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="text-lg px-8 bg-transparent">
-                <Link href="/contact-us/">Contact Us</Link>
-              </Button>
-            </div>
+            </Accordion>
           </div>
         </section>
       </main>

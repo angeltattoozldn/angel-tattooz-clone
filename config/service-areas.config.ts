@@ -34,19 +34,19 @@ export const SERVICE_AREAS: ServiceArea[] = [
     transport: {
       tube: "High Barnet Station (Northern Line) - 5 minute walk",
       bus: "Routes 34, 84, 234, 263, 326 - Stop outside studio",
-      car: "Free street parking available on Mount Parade and surrounding streets",
+      car: "Free street parking available on Station Parade and surrounding streets",
       parking: "Multiple public car parks within 5 minutes walk",
     },
     localFAQs: [
       {
         question: "How do I get to Angel Tattooz from Barnet town centre?",
         answer:
-          "We're just a 5 minute walk from High Barnet Station. Exit the station, head down Barnet Hill, and you'll find us at 3 Mount Parade.",
+          "We're just a 5 minute walk from High Barnet Station. Exit the station, head down Barnet Hill, and you'll find us at Studio A, 15 Station Parade.",
       },
       {
         question: "Is there parking near your Barnet studio?",
         answer:
-          "Yes! Free street parking is available on Mount Parade and surrounding streets. There are also several public car parks within 5 minutes walk.",
+          "Yes! Free street parking is available on Station Parade and surrounding streets. There are also several public car parks within 5 minutes walk.",
       },
       {
         question: "Do you serve walk-in customers in Barnet?",
@@ -85,11 +85,11 @@ export const SERVICE_AREAS: ServiceArea[] = [
       {
         question: "Where exactly is Angel Tattooz in Cockfosters?",
         answer:
-          "We're at 3 Mount Parade, Mount Pleasant, Cockfosters - just 3 minutes walk from Cockfosters Tube Station (end of Piccadilly Line).",
+          "We're at Studio A, 15 Station Parade, Cockfosters - next to Cockfosters Tube Station (end of Piccadilly Line).",
       },
       {
         question: "Can I park at your Cockfosters location?",
-        answer: "Yes! We have free parking available right outside the studio on Mount Parade.",
+        answer: "Yes! We have free parking available right outside the studio on Station Parade.",
       },
       {
         question: "Do you offer consultations in Cockfosters?",

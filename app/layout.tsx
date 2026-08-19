@@ -2,7 +2,7 @@
 
 import type React from "react"
 import type { Metadata } from "next"
-import { Poppins, Dancing_Script } from "next/font/google"
+import { Poppins } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { RelocationBanner } from "@/components/relocation-banner"
 import { SchemaScript } from "@/components/schema-script" // Import this
@@ -16,10 +16,7 @@ const poppins = Poppins({
   display: "swap",
 })
 
-const _dancingScript = Dancing_Script({
-  subsets: ["latin"],
-  variable: "--font-display"
-})
+
 
 // 1. Define your Production Base URL (Critical for Canonical/OG)
 const BASE_URL = "https://www.angeltattooz.co.uk"
@@ -93,7 +90,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={`font-sans antialiased ${poppins.variable} ${_dancingScript.variable}`}>
+      <body className={`font-sans antialiased ${poppins.variable}`}>
         {/* 6. Inject Schema JSON-LD */}
         <SchemaScript schema={orgSchema} />
 
