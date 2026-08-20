@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label"
 import { Calendar, MessageCircle, Phone, Clock, Check } from "lucide-react"
 import { useState, useTransition } from "react"
 import { submitBooking } from "@/app/actions/booking"
+import { BUSINESS_CONFIG } from "@/config/business.config"
 
 export default function BookPage() {
   const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle")
@@ -95,7 +96,7 @@ export default function BookPage() {
                   <h3 className="text-xl font-semibold text-foreground">WhatsApp</h3>
                   <p className="text-sm text-muted-foreground">Fastest response time</p>
                   <Button asChild className="w-full">
-                    <a href="https://wa.me/442012345678" target="_blank" rel="noopener noreferrer">
+                    <a href={`https://wa.me/${BUSINESS_CONFIG.contact.whatsapp.replace('+', '')}`} target="_blank" rel="noopener noreferrer">
                       Message on WhatsApp
                     </a>
                   </Button>
@@ -110,7 +111,7 @@ export default function BookPage() {
                   <h3 className="text-xl font-semibold text-foreground">Call Us</h3>
                   <p className="text-sm text-muted-foreground">Speak to us directly</p>
                   <Button asChild variant="outline" className="w-full bg-transparent">
-                    <a href="tel:+442012345678">020 1234 5678</a>
+                    <a href={`tel:${BUSINESS_CONFIG.contact.phone}`}>{BUSINESS_CONFIG.contact.phoneDisplay}</a>
                   </Button>
                 </CardContent>
               </Card>
