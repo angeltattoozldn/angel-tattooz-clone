@@ -3,63 +3,10 @@ import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Phone, Mail, MapPin } from "lucide-react"
-
+import { BUSINESS_CONFIG, getFullAddress } from "@/config/business.config"
 export default function ContactPage() {
-
-  // GPT Optimization: Structured Data for Local Business
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "TattooParlor", // Specific Schema for Tattoo Studios
-    "name": "Angel Tattooz",
-    "image": "https://www.angeltattooz.co.uk/wp-content/uploads/2024/05/Angle-Tattooz-Website-Mock-ups-20.png",
-    "telephone": "02082163400",
-    "email": "Ink@angeltattooz.co.uk",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Studio A, 15 Station Parade",
-      "addressLocality": "Cockfosters, Barnet",
-      "addressRegion": "London",
-      "postalCode": "EN4 0DL",
-      "addressCountry": "UK"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 51.6517, // Approx coords for Cockfosters
-      "longitude": -0.1488
-    },
-    "url": "https://www.angeltattooz.co.uk",
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "11:30",
-        "closes": "18:30"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Sunday",
-        "opens": "00:00",
-        "closes": "00:00",
-        "description": "By Appointment Only"
-      }
-    ]
-  }
-
   return (
     <div className="flex flex-col min-h-screen bg-[#121212]">
-      {/* Injecting the Schema for GPTs */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       <SiteHeader />
 
       <main className="flex-1">
@@ -102,8 +49,8 @@ export default function ContactPage() {
                 <h3 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
                   Telephone
                 </h3>
-                <a href="tel:02082163400" className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
-                  020 8216 3400
+                <a href={`tel:${BUSINESS_CONFIG.contact.phone}`} className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
+                  {BUSINESS_CONFIG.contact.phoneDisplay}
                 </a>
               </div>
 
@@ -115,8 +62,8 @@ export default function ContactPage() {
                 <h3 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
                   Email
                 </h3>
-                <a href="mailto:Ink@angeltattooz.co.uk" className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
-                  Ink@angeltattooz.co.uk
+                <a href={`mailto:${BUSINESS_CONFIG.contact.email}`} className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
+                  {BUSINESS_CONFIG.contact.email}
                 </a>
               </div>
 
@@ -129,9 +76,9 @@ export default function ContactPage() {
                   Address
                 </h3>
                 <address className="text-white font-sans text-[19px] not-italic max-w-75">
-                  Studio A, 15 Station Parade,<br />
-                  Cockfosters, Barnet,<br />
-                  EN4 0DL
+                  {BUSINESS_CONFIG.primaryAddress.street},<br />
+                  {BUSINESS_CONFIG.primaryAddress.area}, {BUSINESS_CONFIG.primaryAddress.city},<br />
+                  {BUSINESS_CONFIG.primaryAddress.postcode}
                 </address>
               </div>
 
@@ -151,7 +98,7 @@ export default function ContactPage() {
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2477.106560932289!2d-0.15174592305018693!3d51.64964600171221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761853aaa9a39d%3A0x6b1070868f000000!2s3%20Mount%20Parade%2C%20Cockfosters%20Rd%2C%20Barnet%20EN4%209DD%2C%20UK!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(getFullAddress())}&output=embed`}
               title="Angel Tattooz Location"
             ></iframe>
           </div>

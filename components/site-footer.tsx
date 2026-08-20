@@ -3,6 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Rss, MapPin, Phone } from "lucide-react"
+import { BUSINESS_CONFIG, getFullAddress } from "@/config/business.config"
 
 export function SiteFooter() {
   return (
@@ -36,14 +37,14 @@ export function SiteFooter() {
                   <MapPin className="w-4.5 h-4.5" />
                 </div>
                 <a
-                  href="https://maps.google.com/?q=Studio+A,+15+Station+Parade,+Cockfosters,+Barnet,+EN4+0DL"
+                  href={`https://maps.google.com/?q=${encodeURIComponent(getFullAddress())}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[16px] leading-[1.6] font-normal hover:text-[#FAD5E6] transition-colors font-sans"
                 >
-                  Studio A, 15 Station Parade,<br />
-                  Cockfosters, Barnet,<br />
-                  EN4 0DL
+                  {BUSINESS_CONFIG.primaryAddress.street},<br />
+                  {BUSINESS_CONFIG.primaryAddress.area}, {BUSINESS_CONFIG.primaryAddress.city},<br />
+                  {BUSINESS_CONFIG.primaryAddress.postcode}
                 </a>
               </div>
 
@@ -53,10 +54,10 @@ export function SiteFooter() {
                   <Phone className="w-4.5 h-4.5" />
                 </div>
                 <a
-                  href="tel:02082163400"
+                  href={`tel:${BUSINESS_CONFIG.contact.phone}`}
                   className="text-[#FAD5E6] text-[16px] font-normal hover:text-white transition-colors font-sans"
                 >
-                  020 8216 3400
+                  {BUSINESS_CONFIG.contact.phoneDisplay}
                 </a>
               </div>
             </div>
@@ -71,11 +72,11 @@ export function SiteFooter() {
 
             {/* --- COLUMN 4: HOURS & SOCIALS --- */}
             <div className="flex flex-col items-center">
-              <div className="mb-6 space-y-1 font-sans">
+              <div className="mb-6 space-y-1 font-sans text-center">
                 <p className="font-bold text-[16px]">Mon-Sat</p>
-                <p className="text-[16px] font-normal">11:30 AM – 7:00 PM</p>
+                <p className="text-[16px] font-normal">{BUSINESS_CONFIG.openingHours.monday}</p>
                 <p className="font-bold text-[16px] mt-4">Sunday</p>
-                <p className="text-[16px] font-normal">Closed / Appointments Only</p>
+                <p className="text-[16px] font-normal">{BUSINESS_CONFIG.openingHours.sunday}</p>
               </div>
 
               {/* Social Icons */}

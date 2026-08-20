@@ -9,6 +9,7 @@ import { SchemaScript } from '@/components/schema-script';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { portableTextComponents } from '@/components/portable-text';
+import { BUSINESS_CONFIG, getFullAddress } from '@/config/business.config';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -143,22 +144,22 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
             {/* Studio CTA Card */}
             <div className="sticky top-28 p-6 rounded-2xl bg-zinc-900/80 border border-zinc-800 space-y-6">
               <div className="border-b border-zinc-800 pb-4">
-                <h4 className="text-lg font-serif font-bold text-white">Angel Tattooz</h4>
-                <p className="text-xs text-zinc-400 mt-1">Cockfosters • Barnet • North London</p>
+                <h4 className="text-lg font-serif font-bold text-white">{BUSINESS_CONFIG.businessName}</h4>
+                <p className="text-xs text-zinc-400 mt-1">{BUSINESS_CONFIG.primaryAddress.area} • {BUSINESS_CONFIG.primaryAddress.city} • North London</p>
               </div>
               
               <div className="space-y-3 text-xs text-zinc-300">
                 <p className="flex items-start gap-2">
                   <span className="text-zinc-100 font-bold">📍</span>
-                  <span>Studio A, 15 Station Parade, Cockfosters, Barnet, EN4 0DL</span>
+                  <span>{getFullAddress()}</span>
                 </p>
                 <p className="flex items-center gap-2">
                   <span className="text-zinc-100 font-bold">📞</span>
-                  <span>020 8216 3400</span>
+                  <span>{BUSINESS_CONFIG.contact.phoneDisplay}</span>
                 </p>
                 <p className="flex items-center gap-2">
                   <span className="text-zinc-100 font-bold">🕒</span>
-                  <span>Mon–Sat: 11:30 AM – 7:00 PM</span>
+                  <span>Mon–Sat: {BUSINESS_CONFIG.openingHours.monday}</span>
                 </p>
               </div>
 

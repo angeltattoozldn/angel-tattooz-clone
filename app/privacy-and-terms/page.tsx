@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import Image from "next/image"
+import { BUSINESS_CONFIG, getFullAddress } from "@/config/business.config"
 
 export const metadata: Metadata = {
   title: "Legal & Privacy Information | Angel Tattooz",
@@ -50,8 +51,8 @@ export default function PrivacyAndTermsPage() {
 
             <h3>2. General</h3>
             <ul className="list-disc pl-6 space-y-2 text-zinc-300 text-sm md:text-base">
-              <li><strong>Service Provider:</strong> Angel Tattooz, located at Studio A, 15 Station Parade, Cockfosters, Barnet, EN4 0DL.</li>
-              <li><strong>Contact Information:</strong> For any inquiries, please email us at <a href="mailto:Ink@angeltattooz.co.uk">Ink@angeltattooz.co.uk</a>.</li>
+              <li><strong>Service Provider:</strong> {BUSINESS_CONFIG.businessName}, located at {getFullAddress()}.</li>
+              <li><strong>Contact Information:</strong> For any inquiries, please email us at <a href={`mailto:${BUSINESS_CONFIG.contact.email}`}>{BUSINESS_CONFIG.contact.email}</a>.</li>
               <li><strong>Governing Law:</strong> These Terms and Conditions are governed by and construed in accordance with the laws of England and Wales. Any disputes relating to these terms will be subject to the exclusive jurisdiction of the courts of England and Wales.</li>
             </ul>
 
@@ -134,10 +135,10 @@ export default function PrivacyAndTermsPage() {
 
             <h3>1. Data Controller</h3>
             <ul className="list-none pl-0 space-y-1 text-zinc-300 text-sm md:text-base">
-              <li><strong>Company:</strong> Angel Tattooz</li>
-              <li><strong>Address:</strong> Studio A, 15 Station Parade, Cockfosters, Barnet, EN4 0DL</li>
+              <li><strong>Company:</strong> {BUSINESS_CONFIG.businessName}</li>
+              <li><strong>Address:</strong> {getFullAddress()}</li>
               <li><strong>Website:</strong> <a href="https://www.angeltattooz.co.uk">www.angeltattooz.co.uk</a></li>
-              <li><strong>Contact:</strong> <a href="mailto:Ink@angeltattooz.co.uk">Ink@angeltattooz.co.uk</a></li>
+              <li><strong>Contact:</strong> <a href={`mailto:${BUSINESS_CONFIG.contact.email}`}>{BUSINESS_CONFIG.contact.email}</a></li>
             </ul>
 
             <h3>2. Information We Collect</h3>
@@ -191,7 +192,7 @@ export default function PrivacyAndTermsPage() {
             <p>We may update this privacy policy from time to time. Any changes will be posted on this page, and where appropriate, notified to you by email.</p>
 
             <h3>11. Contact Us</h3>
-            <p>If you have any questions or concerns about our privacy practices, please contact us at <a href="mailto:Ink@angeltattooz.co.uk">Ink@angeltattooz.co.uk</a>.</p>
+            <p>If you have any questions or concerns about our privacy practices, please contact us at <a href={`mailto:${BUSINESS_CONFIG.contact.email}`}>{BUSINESS_CONFIG.contact.email}</a>.</p>
 
             <p className="mt-8 font-semibold italic text-center">By using our website, you agree to our Terms and Conditions and acknowledge our Privacy Policy. Thank you for choosing Angel Tattooz for your tattoo journey.</p>
           </div>

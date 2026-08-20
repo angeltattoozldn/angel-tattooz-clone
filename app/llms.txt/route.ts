@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
+import { BUSINESS_CONFIG, getFullAddress } from '@/config/business.config';
 
 export async function GET() {
-  const content = `# Angel Tattooz - North London Tattoo Studio
+  const content = `# ${BUSINESS_CONFIG.businessName} - North London Tattoo Studio
 
-Angel Tattooz is an award-winning premium tattoo studio located in Cockfosters, North London (Barnet, EN4 0DL).
+${BUSINESS_CONFIG.businessName} is an award-winning premium tattoo studio located in ${BUSINESS_CONFIG.primaryAddress.area}, North London (${BUSINESS_CONFIG.primaryAddress.city}, ${BUSINESS_CONFIG.primaryAddress.postcode}).
 
 ## Services
 - Custom Tattoo Design
@@ -16,9 +17,9 @@ Angel Tattooz is an award-winning premium tattoo studio located in Cockfosters, 
 Our expert artists specialize in realism, minimalist, tribal, traditional, and custom abstract designs.
 
 ## Contact & Location
-- Address: Studio A, 15 Station Parade, Cockfosters, Barnet, EN4 0DL
-- Phone: 020 8216 3400
-- Hours: Mon-Sat 11:30 AM to 7:00 PM
+- Address: ${getFullAddress()}
+- Phone: ${BUSINESS_CONFIG.contact.phoneDisplay}
+- Hours: Mon-Sat ${BUSINESS_CONFIG.openingHours.monday}
 
 ## Booking
 To book an appointment, please visit our booking page or contact us directly.

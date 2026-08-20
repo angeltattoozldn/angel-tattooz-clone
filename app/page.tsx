@@ -3,10 +3,17 @@ import Image from "next/image"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { generateWebSiteSchema } from "@/lib/schema"
 
 export default function Home() {
+  const websiteSchema = generateWebSiteSchema()
+
   return (
     <div className="flex flex-col min-h-screen bg-[#121212]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       <SiteHeader />
 
       <main className="flex-1">
