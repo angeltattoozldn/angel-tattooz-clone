@@ -148,7 +148,7 @@ export interface VideoObject {
 export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'TattooShop',
+    '@type': ['TattooShop', 'LocalBusiness'],
     '@id': 'https://www.angeltattooz.co.uk/#organization',
     name: 'Angel Tattooz',
     description: 'Premier custom tattoo studio in Cockfosters, Barnet, North London specializing in custom designs, black & grey realism, fine line, and cover-ups.',

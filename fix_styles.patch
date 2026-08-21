@@ -1,0 +1,84 @@
+--- app/styles/[slug]/page.tsx
++++ app/styles/[slug]/page.tsx
+@@ -7,6 +7,7 @@
+ import { Card } from "@/components/ui/card"
+ import Link from "next/link"
+ import { X } from "lucide-react"
+ import { notFound } from "next/navigation"
++import type { Metadata } from "next"
+ 
+ export const stylesData: Record<
+@@ -201,8 +202,23 @@
+   },
+ }
+ 
++export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
++  const { slug } = await params
++  const style = stylesData[slug]
++
++  if (!style) {
++    return { title: "Style Not Found" }
++  }
++
++  return {
++    title: `${style.name} Tattoos | Angel Tattooz`,
++    description: style.description,
++  }
++}
++
++export async function generateStaticParams() {
++  return Object.keys(stylesData).map((slug) => ({ slug }))
++}
++
+ export default async function StylePage({ params }: { params: Promise<{ slug: string }> }) {
+   const { slug } = await params
+   const style = stylesData[slug]
+-  const [selectedImage, setSelectedImage] = useState<number | null>(null)
+ 
+   if (!style) {
+@@ -279,7 +294,6 @@
+             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+               {style.galleryImages.map((image, index) => (
+-                <button
++                <div
+                   key={index}
+-                  onClick={() => setSelectedImage(index)}
+-                  className="relative aspect-square overflow-hidden rounded group cursor-pointer"
++                  className="relative aspect-square overflow-hidden rounded group"
+                 >
+                   <img
+                     src={`/.jpg?height=500&width=500&query=${image.query}`}
+@@ -291,7 +305,7 @@
+                   </div>
+-                </button>
++                </div>
+               ))}
+             </div>
+           </div>
+         </section>
+ 
+@@ -318,22 +332,6 @@
+       </main>
+ 
+-      {/* Lightbox */}
+-      {selectedImage !== null && (
+-        <div
+-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+-          onClick={() => setSelectedImage(null)}
+-        >
+-          <button
+-            className="absolute top-4 right-4 text-white hover:text-primary"
+-            onClick={() => setSelectedImage(null)}
+-            aria-label="Close"
+-          >
+-            <X className="h-8 w-8" />
+-          </button>
+-          <img
+-            src={`/.jpg?height=900&width=900&query=${style.galleryImages[selectedImage].query}`}
+-            alt={`${style.name} ${style.galleryImages[selectedImage].title}`}
+-            className="max-h-full max-w-full object-contain"
+-          />
+-        </div>
+-      )}
+-
+       <SiteFooter />

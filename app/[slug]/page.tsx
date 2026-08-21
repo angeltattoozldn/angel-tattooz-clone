@@ -15,6 +15,33 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+import type { Metadata } from 'next';
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  let post = null;
+  try {
+    post = await client.fetch(
+      groq`*[_type == "post" && slug.current == $slug && !(_id in path("drafts.**"))][0]{
+        title,
+        excerpt
+      }`,
+      { slug }
+    );
+  } catch (err) {
+    console.error("Failed to fetch Sanity post for metadata:", err);
+  }
+
+  if (!post) {
+    return { title: 'Post Not Found | Angel Tattooz' };
+  }
+
+  return {
+    title: `${post.title} | Angel Tattooz`,
+    description: post.excerpt || "Read the latest from Angel Tattooz.",
+  };
+}
+
 
 
 export default async function DynamicBlogPostPage({ params }: PageProps) {
@@ -112,7 +139,7 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
               <Link href="/blog" className="text-zinc-400 hover:text-zinc-200 text-sm flex items-center justify-center gap-2 mb-16">
                 <span>←</span> Back to Home
               </Link>
-              <h3 className="text-6xl md:text-7xl font-hey text-[#ffe4e6] mb-4">Ready to Get Inked?</h3>
+              <h2 className="text-6xl md:text-7xl font-hey text-[#ffe4e6] mb-4">Ready to Get Inked?</h2>
               <p className="text-zinc-300 max-w-xl mx-auto mb-8 text-sm md:text-base">
                 Take the first step towards your tattoo journey. Secure your spot or inquire about our services. Let's bring your ink dreams to life.
               </p>
@@ -126,11 +153,11 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
             {/* FAQ Accordion Section */}
             {post.faqs && post.faqs.length > 0 && (
               <section className="mt-16 pt-10 border-t border-zinc-800">
-                <h3 className="text-2xl font-serif font-bold text-white mb-6">Frequently Asked Questions</h3>
+                <h2 className="text-2xl font-serif font-bold text-white mb-6">Frequently Asked Questions</h2>
                 <div className="space-y-4">
                   {post.faqs.map((faq: any, idx: number) => (
                     <div key={idx} className="p-5 rounded-xl bg-zinc-900/60 border border-zinc-800/80">
-                      <h4 className="font-semibold text-base md:text-lg text-zinc-100">{faq.question}</h4>
+                      <h3 className="font-semibold text-base md:text-lg text-zinc-100">{faq.question}</h3>
                       <p className="mt-2 text-zinc-300 text-sm leading-relaxed">{faq.answer}</p>
                     </div>
                   ))}
@@ -144,7 +171,7 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
             {/* Studio CTA Card */}
             <div className="sticky top-28 p-6 rounded-2xl bg-zinc-900/80 border border-zinc-800 space-y-6">
               <div className="border-b border-zinc-800 pb-4">
-                <h4 className="text-lg font-serif font-bold text-white">{BUSINESS_CONFIG.businessName}</h4>
+                <h2 className="text-lg font-serif font-bold text-white">{BUSINESS_CONFIG.businessName}</h2>
                 <p className="text-xs text-zinc-400 mt-1">{BUSINESS_CONFIG.primaryAddress.area} • {BUSINESS_CONFIG.primaryAddress.city} • North London</p>
               </div>
               

@@ -18,7 +18,7 @@ export function SiteFooter() {
 
             {/* --- COLUMN 1: LOGO --- */}
             <div className="flex flex-col items-center justify-start">
-              <Link href="/" className="inline-block">
+              <Link href="/" className="inline-block" aria-label="Angel Tattooz Home">
                 <Image
                   src="/angel-tattooz-logo-primary.svg"
                   alt="Angel Tattooz Logo"

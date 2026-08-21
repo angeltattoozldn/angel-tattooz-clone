@@ -1,10 +1,17 @@
+import type { Metadata } from "next";
 /* eslint-disable tailwindcss/no-contradicting-classname */
 import Image from "next/image"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { generateWebSiteSchema } from "@/lib/schema"
+import { BackgroundVideo } from "@/components/background-video"
 
+
+export const metadata: Metadata = {
+  title: "Angel Tattooz | Premier Tattoo Studio in North London",
+  description: "Award-winning custom tattoo studio in Cockfosters, North London. Book your consultation today.",
+};
 export default function Home() {
   const websiteSchema = generateWebSiteSchema()
 
@@ -82,13 +89,14 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-7.5 gap-y-8.75">
 
               {/* --- CELL 1 (Left Top) --- */}
-              <div className="relative w-full overflow-hidden group rounded-[10px]" style={{ aspectRatio: '502/768' }}>
+              <div className="relative w-full overflow-hidden group rounded-[10px]">
                 <Image
                   src="/images/home/Be-Inkspired-1.webp"
                   alt="Tattoo Showcase 1"
-                  fill
+                  width={502}
+                  height={768}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
@@ -113,48 +121,52 @@ export default function Home() {
               </div>
 
               {/* --- CELL 3 (Right Top) --- */}
-              <div className="relative w-full overflow-hidden group rounded-[10px]" style={{ aspectRatio: '502/768' }}>
+              <div className="relative w-full overflow-hidden group rounded-[10px]">
                 <Image
                   src="/images/home/Be-Inkspired-2.webp"
                   alt="Tattoo Showcase 2"
-                  fill
+                  width={502}
+                  height={768}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
               {/* --- CELL 4 (Left Bottom) --- */}
-              <div className="relative w-full overflow-hidden group rounded-[10px]" style={{ aspectRatio: '502/512' }}>
+              <div className="relative w-full overflow-hidden group rounded-[10px]">
                 <Image
                   src="/images/home/Be-Inkspired-7.webp"
                   alt="Tattoo Showcase 3"
-                  fill
+                  width={502}
+                  height={512}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
               {/* --- CELL 5 (Center Bottom - Staggered Image) --- 
                   Fix: Kept z-10 (lower than text block's z-20) so overlap is handled correctly 
               */}
-              <div className="relative z-10 w-full overflow-hidden group lg:-mt-25 rounded-[10px]" style={{ aspectRatio: '502/768' }}>
+              <div className="relative z-10 w-full overflow-hidden group lg:-mt-25 rounded-[10px]">
                 <Image
                   src="/images/home/Be-Inkspired-4.webp"
                   alt="Tattoo Showcase 4"
-                  fill
+                  width={502}
+                  height={768}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
               {/* --- CELL 6 (Right Bottom) --- */}
-              <div className="relative w-full overflow-hidden group rounded-[10px]" style={{ aspectRatio: '502/512' }}>
+              <div className="relative w-full overflow-hidden group rounded-[10px]">
                 <Image
                   src="/images/home/Be-Inkspired-8.webp"
                   alt="Tattoo Showcase 5"
-                  fill
+                  width={502}
+                  height={512}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
@@ -206,7 +218,7 @@ export default function Home() {
                   name="ne"
                   required
                   placeholder="Email"
-                  className="w-[70%] px-4 py-3 bg-neutral-100 text-zinc-900 text-[16px] border border-neutral-300 rounded-l-[10px] focus:outline-none"
+                  className="w-[70%] px-4 py-3 bg-neutral-100 text-zinc-900 text-[16px] placeholder:text-neutral-600 border border-neutral-300 rounded-l-[10px] focus:outline-none"
                 />
 
                 {/* Submit Button */}
@@ -323,16 +335,7 @@ export default function Home() {
               - Oversized (w-[300%]) and centered to ensure it "covers" the area 
               - pointer-events-none prevents interaction (it's just a background)
           */}
-          <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
-            <iframe
-              className="absolute top-1/2 left-1/2 w-[300%] h-[300%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-              src="https://www.youtube-nocookie.com/embed/DxR9eauTK1I?controls=0&rel=0&playsinline=1&autoplay=1&mute=1&loop=1&playlist=DxR9eauTK1I&start=2&end=30&enablejsapi=1&iv_load_policy=3&showinfo=0&modestbranding=1"
-              title="Cinematic Tattoo Studio Background"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              style={{ border: 'none' }}
-            />
-          </div>
+          <BackgroundVideo videoId="DxR9eauTK1I" />
 
           {/* Gradient Overlay
               - Matches the specific RGB gradient from your JSX
@@ -388,7 +391,7 @@ export default function Home() {
               href="/about"
               className="inline-flex items-center justify-center bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] py-3 px-8 rounded-[3px] transition-all duration-300 hover:bg-white hover:text-black"
             >
-              Learn More About Angel Tattooz
+              Discover Our Tattoo Artists and Studio
             </Link>
 
           </div>
@@ -717,7 +720,7 @@ function BlogCard({
             href={link}
             className="text-white text-[15px] font-medium uppercase tracking-wide hover:text-[#D4C59D] transition-colors"
           >
-            Read More →
+            Read Full Article →
           </Link>
         </div>
       </div>

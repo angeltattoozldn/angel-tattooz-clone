@@ -3,6 +3,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
+import localFont from "next/font/local"
 import { Analytics } from "@vercel/analytics/next"
 import { RelocationBanner } from "@/components/relocation-banner"
 import { SchemaScript } from "@/components/schema-script"
@@ -13,6 +14,18 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
+  display: "swap",
+})
+
+const heyAugust = localFont({
+  src: [
+    {
+      path: "../public/fonts/hey-august/HeyAugust.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-hey",
   display: "swap",
 })
 
@@ -88,7 +101,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <head>
       </head>
-      <body className={`font-sans antialiased ${poppins.variable}`}>
+      <body className={`font-sans antialiased ${poppins.variable} ${heyAugust.variable}`}>
         {/* 6. Inject Schema JSON-LD */}
         <SchemaScript schema={orgSchema} />
 

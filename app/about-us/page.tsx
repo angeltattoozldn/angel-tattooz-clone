@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
@@ -36,6 +37,11 @@ function InstagramCard({ bgImage, link }: { bgImage: string, link: string }) {
   )
 }
 
+
+export const metadata: Metadata = {
+  title: "About Us | Angel Tattooz",
+  description: "Learn about Angel Tattooz, North London's premier tattoo studio.",
+};
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#121212]">

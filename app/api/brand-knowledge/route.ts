@@ -5,7 +5,7 @@ import { NextResponse } from "next/server"
 export async function GET() {
   const brandKnowledge = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["TattooShop", "LocalBusiness", "Organization"],
     name: BUSINESS_CONFIG.businessName,
     description:
       "Premium tattoo studio in North London specializing in custom tattoo designs, black & gray, color tattoos, cover-ups, and all tattoo styles. Award-winning artists with 15+ years of experience.",

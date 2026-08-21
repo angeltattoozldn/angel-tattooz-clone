@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { motion, AnimatePresence } from "framer-motion"
 
+
 export default function GalleryPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#121212]">
@@ -94,7 +95,7 @@ function GalleryGrid() {
               key={cat}
               onClick={() => setActiveFilter(cat)}
               className={`px-4 py-2 rounded-[6px] text-[15px] uppercase tracking-wide transition-all duration-300 ${activeFilter === cat
-                ? "bg-[#D4C59D] text-black font-medium"
+                ? "bg-[#D4C59D] text-zinc-950 font-semibold"
                 : "bg-transparent text-[#FAD5E6] hover:bg-[#FAD5E6] hover:text-black"
                 }`}
             >
@@ -128,7 +129,7 @@ function GalleryGrid() {
                 />
                 {/* Overlay on Hover */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="bg-[#D4C59D] text-black text-xs font-bold px-3 py-1 rounded uppercase">
+                  <div className="bg-[#D4C59D] text-zinc-950 text-xs font-semibold px-3 py-1 rounded uppercase">
                     {item.category}
                   </div>
                 </div>

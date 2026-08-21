@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { motion } from "framer-motion"
 
+
 export default function PaymentsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#121212]">
@@ -92,6 +93,7 @@ function PaymentTabs() {
           {/* Tab 1: Bank Deposit */}
           <button
             onClick={() => setActiveTab("bank")}
+            aria-label="Bank Deposit"
             className={`
               relative w-full md:w-1/3 h-[80px] flex items-center justify-center rounded-[10px] md:rounded-r-none md:rounded-l-[10px] transition-all duration-300
               ${activeTab === "bank" ? "bg-[#D4C59D] scale-105 z-10 shadow-lg" : "bg-[#D5D5D5] hover:bg-[#e0e0e0]"}
@@ -114,6 +116,7 @@ function PaymentTabs() {
           {/* Tab 2: Cards / Stripe */}
           <button
             onClick={() => setActiveTab("card")}
+            aria-label="Card Payments"
             className={`
               relative w-full md:w-1/3 h-[80px] flex items-center justify-center md:rounded-none rounded-[10px] transition-all duration-300
               ${activeTab === "card" ? "bg-[#D4C59D] scale-105 z-10 shadow-lg" : "bg-[#D5D5D5] hover:bg-[#e0e0e0]"}
@@ -135,6 +138,7 @@ function PaymentTabs() {
           {/* Tab 3: PayPal */}
           <button
             onClick={() => setActiveTab("paypal")}
+            aria-label="PayPal"
             className={`
               relative w-full md:w-1/3 h-[80px] flex items-center justify-center rounded-[10px] md:rounded-l-none md:rounded-r-[10px] transition-all duration-300
               ${activeTab === "paypal" ? "bg-[#D4C59D] scale-105 z-10 shadow-lg" : "bg-[#D5D5D5] hover:bg-[#e0e0e0]"}
@@ -188,7 +192,7 @@ function PaymentTabs() {
                 href="https://buy.stripe.com/9AQ4je1EQ3ff7T24gh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#D4C59D] hover:bg-white text-black font-sans font-bold text-[16px] py-4 px-8 rounded-[4px] transition-colors duration-300"
+                className="inline-block bg-[#D4C59D] hover:bg-white text-zinc-950 font-sans font-semibold text-[16px] py-4 px-8 rounded-[4px] transition-colors duration-300"
               >
                 £50 Booking Advance
               </a>
@@ -206,7 +210,7 @@ function PaymentTabs() {
               {/* Placeholder link, or reuse Stripe/PayPal link if available */}
               <a
                 href="#"
-                className="inline-block bg-[#D4C59D] hover:bg-white text-black font-sans font-bold text-[16px] py-4 px-8 rounded-[4px] transition-colors duration-300"
+                className="inline-block bg-[#D4C59D] hover:bg-white text-zinc-950 font-sans font-semibold text-[16px] py-4 px-8 rounded-[4px] transition-colors duration-300"
               >
                 £50 Booking Advance
               </a>

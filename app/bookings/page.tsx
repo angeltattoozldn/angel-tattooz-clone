@@ -14,6 +14,7 @@ import { useState, useTransition } from "react"
 import { submitBooking } from "@/app/actions/booking"
 import { BUSINESS_CONFIG } from "@/config/business.config"
 
+
 export default function BookPage() {
   const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle")
   const [formData, setFormData] = useState({

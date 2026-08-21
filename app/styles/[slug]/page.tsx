@@ -1,15 +1,16 @@
-"use client"
+
 
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
-import { useState } from "react"
+
 import { X } from "lucide-react"
 import { notFound } from "next/navigation"
+import type { Metadata } from "next"
 
-const stylesData: Record<
+export const stylesData: Record<
   string,
   {
     name: string
@@ -246,10 +247,29 @@ const stylesData: Record<
   },
 }
 
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const style = stylesData[slug]
+
+  if (!style) {
+    return { title: "Style Not Found" }
+  }
+
+  return {
+    title: `${style.name} Tattoos | Angel Tattooz`,
+    description: style.description,
+  }
+}
+
+export async function generateStaticParams() {
+  return Object.keys(stylesData).map((slug) => ({ slug }))
+}
+
 export default async function StylePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const style = stylesData[slug]
-  const [selectedImage, setSelectedImage] = useState<number | null>(null)
+  
 
   if (!style) {
     notFound()
@@ -321,11 +341,7 @@ export default async function StylePage({ params }: { params: Promise<{ slug: st
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {style.galleryImages.map((image, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedImage(index)}
-                  className="relative aspect-square overflow-hidden rounded group cursor-pointer"
-                >
+                <div className="relative aspect-square overflow-hidden rounded group">
                   <img
                     src={`/.jpg?height=500&width=500&query=${image.query}`}
                     alt={`${style.name} ${image.title}`}
@@ -334,7 +350,7 @@ export default async function StylePage({ params }: { params: Promise<{ slug: st
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <span className="text-white font-semibold">{image.title}</span>
                   </div>
-                </button>
+                </div>
               ))}
             </div>
           </div>
@@ -358,27 +374,6 @@ export default async function StylePage({ params }: { params: Promise<{ slug: st
           </div>
         </section>
       </main>
-
-      {/* Lightbox */}
-      {selectedImage !== null && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}
-        >
-          <button
-            className="absolute top-4 right-4 text-white hover:text-primary"
-            onClick={() => setSelectedImage(null)}
-            aria-label="Close"
-          >
-            <X className="h-8 w-8" />
-          </button>
-          <img
-            src={`/.jpg?height=900&width=900&query=${style.galleryImages[selectedImage].query}`}
-            alt={`${style.name} ${style.galleryImages[selectedImage].title}`}
-            className="max-h-full max-w-full object-contain"
-          />
-        </div>
-      )}
 
       <SiteFooter />
     </>

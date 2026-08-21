@@ -222,7 +222,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
                         Professional {service.name.toLowerCase()} for {area.name} residents
                       </p>
                       <Button variant="outline" size="sm" className="bg-transparent">
-                        Learn More
+                        {`Explore ${service.name}`}
                       </Button>
                     </CardContent>
                   </Card>

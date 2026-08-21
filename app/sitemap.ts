@@ -1,6 +1,10 @@
 import type { MetadataRoute } from 'next'
 import { client } from '@/sanity/lib/client'
 import { groq } from 'next-sanity'
+import { servicesData } from '@/app/services/[slug]/page'
+import { stylesData } from '@/app/styles/[slug]/page'
+import { aftercareGuides } from '@/app/aftercare/[slug]/page'
+import { getAllServiceAreaSlugs } from '@/config/service-areas.config'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let posts = [];
@@ -28,6 +32,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/gallery',
     '/services',
     '/blog',
+    '/styles',
+    '/aftercare',
+    '/privacy-and-terms',
+    '/payments'
   ].map((route) => ({
     url: `https://www.angeltattooz.co.uk${route}`,
     lastModified: new Date(),
@@ -35,5 +43,40 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route === '' ? 1.0 : 0.8,
   }));
 
-  return [...staticUrls, ...blogUrls] as MetadataRoute.Sitemap;
+  const serviceUrls = Object.keys(servicesData).map(slug => ({
+    url: `https://www.angeltattooz.co.uk/services/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.9,
+  }));
+
+  const styleUrls = Object.keys(stylesData).map(slug => ({
+    url: `https://www.angeltattooz.co.uk/styles/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.9,
+  }));
+
+  const aftercareUrls = Object.keys(aftercareGuides).map(slug => ({
+    url: `https://www.angeltattooz.co.uk/aftercare/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'yearly',
+    priority: 0.7,
+  }));
+
+  const areaUrls = getAllServiceAreaSlugs().map(slug => ({
+    url: `https://www.angeltattooz.co.uk/areas/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }));
+
+  return [
+    ...staticUrls,
+    ...blogUrls,
+    ...serviceUrls,
+    ...styleUrls,
+    ...aftercareUrls,
+    ...areaUrls
+  ] as MetadataRoute.Sitemap;
 }

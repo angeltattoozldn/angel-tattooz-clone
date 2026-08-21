@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { ChevronRight, ChevronDown } from "lucide-react"
 
+
 export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#121212]">

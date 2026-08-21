@@ -3,16 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* 1. REGISTER LOCAL FONT: HEY AUGUST */
-@font-face {
-  font-family: 'HeyAugust';
-  src: url('/fonts/hey-august/HeyAugust.woff2') format('woff2'),
-    url('/fonts/hey-august/HeyAugust.woff') format('woff'),
-    url('/fonts/hey-august/HeyAugust.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+/* 1. LOCAL FONT LOADED VIA NEXT/FONT/LOCAL */
 
 :root {
   /* Default Shadcn Variables */
@@ -84,10 +75,10 @@
 @theme inline {
   /* 4. DEFINE FONTS LINKED TO VARIABLES */
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-hey: "HeyAugust", sans-serif;
+  --font-hey: var(--font-hey), sans-serif;
 
   --font-mono: "Geist Mono", "Geist Mono Fallback";
-  --font-display: "HeyAugust", sans-serif;
+  --font-display: var(--font-hey), sans-serif;
 
   /* 5. DEFINE BRAND COLORS FOR UTILITIES */
   --color-brand-pink: var(--brand-pink);
@@ -151,7 +142,7 @@
   h4,
   h5,
   h6 {
-    font-family: 'HeyAugust', sans-serif;
+    font-family: var(--font-hey), sans-serif;
     font-weight: normal;
   }
 

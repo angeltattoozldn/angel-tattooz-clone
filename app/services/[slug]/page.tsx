@@ -10,7 +10,7 @@ import { Check, Clock, DollarSign, Shield } from "lucide-react"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 
-const servicesData: Record<
+export const servicesData: Record<
   string,
   {
     title: string
@@ -368,7 +368,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                       <CardContent className="p-6">
                         <h3 className="text-xl font-semibold text-foreground mb-2">{related.title}</h3>
                         <Button variant="outline" className="mt-4 bg-transparent">
-                          Learn More
+                          {`Explore ${related.title}`}
                         </Button>
                       </CardContent>
                     </Card>

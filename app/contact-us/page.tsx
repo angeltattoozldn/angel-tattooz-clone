@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Phone, Mail, MapPin } from "lucide-react"
 import { BUSINESS_CONFIG, getFullAddress } from "@/config/business.config"
+
+export const metadata: Metadata = {
+  title: "Contact Us | Angel Tattooz",
+  description: "Get in touch with Angel Tattooz in North London.",
+};
 export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#121212]">
@@ -46,9 +52,9 @@ export default function ContactPage() {
                 <div className="mb-4 text-[#FAD5E6]">
                   <Phone className="w-12.5 h-12.5" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
+                <h2 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
                   Telephone
-                </h3>
+                </h2>
                 <a href={`tel:${BUSINESS_CONFIG.contact.phone}`} className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
                   {BUSINESS_CONFIG.contact.phoneDisplay}
                 </a>
@@ -59,9 +65,9 @@ export default function ContactPage() {
                 <div className="mb-4 text-[#FAD5E6]">
                   <Mail className="w-12.5 h-12.5" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
+                <h2 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
                   Email
-                </h3>
+                </h2>
                 <a href={`mailto:${BUSINESS_CONFIG.contact.email}`} className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
                   {BUSINESS_CONFIG.contact.email}
                 </a>
@@ -72,9 +78,9 @@ export default function ContactPage() {
                 <div className="mb-4 text-[#FAD5E6]">
                   <MapPin className="w-12.5 h-12.5" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
+                <h2 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
                   Address
-                </h3>
+                </h2>
                 <address className="text-white font-sans text-[19px] not-italic max-w-75">
                   {BUSINESS_CONFIG.primaryAddress.street},<br />
                   {BUSINESS_CONFIG.primaryAddress.area}, {BUSINESS_CONFIG.primaryAddress.city},<br />

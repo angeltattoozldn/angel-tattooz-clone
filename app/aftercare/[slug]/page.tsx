@@ -9,7 +9,7 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { CheckCircle2, AlertCircle, XCircle } from "lucide-react"
 
-const aftercareGuides: Record<
+export const aftercareGuides: Record<
   string,
   {
     title: string
