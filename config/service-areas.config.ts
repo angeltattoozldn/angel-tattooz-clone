@@ -41,7 +41,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
       {
         question: "How do I get to Angel Tattooz from Barnet town centre?",
         answer:
-          "We're just a 5 minute walk from High Barnet Station. Exit the station, head down Barnet Hill, and you'll find us at Studio A, 15 Station Parade.",
+          "We're just a 5 minute walk from High Barnet Station. Exit the station, head down Barnet Hill, and you'll find us at 15 Station Parade.",
       },
       {
         question: "Is there parking near your Barnet studio?",
@@ -85,7 +85,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
       {
         question: "Where exactly is Angel Tattooz in Cockfosters?",
         answer:
-          "We're at Studio A, 15 Station Parade, Cockfosters - next to Cockfosters Tube Station (end of Piccadilly Line).",
+          "We're at 15 Station Parade, Cockfosters - next to Cockfosters Tube Station (end of Piccadilly Line).",
       },
       {
         question: "Can I park at your Cockfosters location?",

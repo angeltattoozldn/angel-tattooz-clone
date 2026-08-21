@@ -158,7 +158,7 @@ export function generateLocalBusinessSchema() {
     image: 'https://www.angeltattooz.co.uk/icon.png',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Studio A, 15 Station Parade',
+      streetAddress: '15 Station Parade',
       addressLocality: 'Cockfosters',
       addressRegion: 'Barnet',
       postalCode: 'EN4 0DL',

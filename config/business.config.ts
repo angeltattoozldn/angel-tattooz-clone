@@ -44,7 +44,7 @@ export interface BusinessLocation {
 export const BUSINESS_CONFIG: BusinessLocation = {
   businessName: "Angel Tattooz",
   primaryAddress: {
-    street: "Studio A, 15 Station Parade",
+    street: "15 Station Parade",
     area: "Cockfosters",
     city: "Barnet",
     postcode: "EN4 0DL",
@@ -74,7 +74,7 @@ export const BUSINESS_CONFIG: BusinessLocation = {
   },
   relocation: {
     isRelocating: true,
-    note: "We have relocated! Visit our new studio at Studio A, 15 Station Parade, Cockfosters, Barnet, EN4 0DL (Next to Cockfosters Tube Station).",
+    note: "We have relocated! Visit our new studio at 15 Station Parade, Cockfosters, Barnet, EN4 0DL (Next to Cockfosters Tube Station).",
     estimatedDate: undefined,
   },
   social: {
