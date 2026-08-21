@@ -35,7 +35,7 @@ export default function Home() {
               alt="Angel Tattooz Studio Background"
               fill
               sizes="100vw"
-              className="object-cover object-center"
+              className="object-cover object-[77%] md:object-center"
               priority={true}
               fetchPriority="high"
               quality={90}
@@ -218,7 +218,7 @@ export default function Home() {
                   name="ne"
                   required
                   placeholder="Email"
-                  className="w-[70%] px-4 py-3 bg-neutral-100 text-zinc-900 text-[16px] placeholder:text-neutral-600 border border-neutral-300 rounded-l-[10px] focus:outline-none"
+                  className="w-[70%] px-4 py-3 bg-neutral-100 text-zinc-900 text-[16px] border border-neutral-300 rounded-l-[10px] focus:outline-none"
                 />
 
                 {/* Submit Button */}
