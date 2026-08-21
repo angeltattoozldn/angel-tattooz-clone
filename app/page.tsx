@@ -29,7 +29,8 @@ export default function Home() {
               fill
               sizes="100vw"
               className="object-cover object-center"
-              priority
+              priority={true}
+              fetchPriority="high"
               quality={90}
             />
           </div>
@@ -54,7 +55,7 @@ export default function Home() {
                   <div>
                     <Link
                       href="/bookings"
-                      className="inline-flex items-center justify-center bg-[#D4C59D] text-white text-[15px] font-medium py-3 px-6 rounded-[3px] transition-all duration-300 hover:bg-white hover:text-black"
+                      className="inline-flex items-center justify-center bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] font-medium py-3 px-6 rounded-[3px] transition-all duration-300 hover:bg-white hover:text-black"
                     >
                       Book Your Appointment Now
                     </Link>
@@ -81,13 +82,13 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-7.5 gap-y-8.75">
 
               {/* --- CELL 1 (Left Top) --- */}
-              <div className="relative h-140 w-full overflow-hidden group rounded-[10px]">
+              <div className="relative w-full overflow-hidden group rounded-[10px]" style={{ aspectRatio: '502/768' }}>
                 <Image
                   src="/images/home/Be-Inkspired-1.webp"
                   alt="Tattoo Showcase 1"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-fit transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
@@ -105,55 +106,55 @@ export default function Home() {
                 {/* Button is safe now due to z-20 on parent */}
                 <Link
                   href="/gallery"
-                  className="inline-block border-2 border-transparent bg-[#D4C59D] text-white px-8 py-3 text-[15px] font-medium rounded-[3px] hover:bg-white hover:text-black transition-all duration-300"
+                  className="inline-block border-2 border-transparent bg-[#D4C59D] text-zinc-950 font-semibold px-8 py-3 text-[15px] font-medium rounded-[3px] hover:bg-white hover:text-black transition-all duration-300"
                 >
                   Ink Showcase
                 </Link>
               </div>
 
               {/* --- CELL 3 (Right Top) --- */}
-              <div className="relative h-140 w-full overflow-hidden group rounded-[10px]">
+              <div className="relative w-full overflow-hidden group rounded-[10px]" style={{ aspectRatio: '502/768' }}>
                 <Image
                   src="/images/home/Be-Inkspired-2.webp"
                   alt="Tattoo Showcase 2"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-fit transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
               {/* --- CELL 4 (Left Bottom) --- */}
-              <div className="relative h-93.25 w-full overflow-hidden group rounded-[10px]">
+              <div className="relative w-full overflow-hidden group rounded-[10px]" style={{ aspectRatio: '502/512' }}>
                 <Image
                   src="/images/home/Be-Inkspired-7.webp"
                   alt="Tattoo Showcase 3"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-fit transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
               {/* --- CELL 5 (Center Bottom - Staggered Image) --- 
                   Fix: Kept z-10 (lower than text block's z-20) so overlap is handled correctly 
               */}
-              <div className="relative z-10 w-full overflow-hidden group lg:-mt-25 rounded-[10px]">
+              <div className="relative z-10 w-full overflow-hidden group lg:-mt-25 rounded-[10px]" style={{ aspectRatio: '502/768' }}>
                 <Image
                   src="/images/home/Be-Inkspired-4.webp"
                   alt="Tattoo Showcase 4"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-fit transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
               {/* --- CELL 6 (Right Bottom) --- */}
-              <div className="relative h-93.25 w-full overflow-hidden group rounded-[10px]">
+              <div className="relative w-full overflow-hidden group rounded-[10px]" style={{ aspectRatio: '502/512' }}>
                 <Image
                   src="/images/home/Be-Inkspired-8.webp"
                   alt="Tattoo Showcase 5"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-fit transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
@@ -205,13 +206,13 @@ export default function Home() {
                   name="ne"
                   required
                   placeholder="Email"
-                  className="w-[70%] px-4 py-3 bg-neutral-100 text-[16px] placeholder:text-neutral-500 border border-neutral-300 rounded-l-[10px] focus:outline-none"
+                  className="w-[70%] px-4 py-3 bg-neutral-100 text-zinc-900 text-[16px] placeholder:text-neutral-500 border border-neutral-300 rounded-l-[10px] focus:outline-none"
                 />
 
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-[30%] bg-[#D4C59D] text-white text-[14px] font-medium uppercase tracking-wide rounded-r-[10px] hover:bg-white hover:text-black transition-colors duration-300"
+                  className="w-[30%] bg-[#D4C59D] text-zinc-950 font-semibold text-[14px] font-medium uppercase tracking-wide rounded-r-[10px] hover:bg-white hover:text-black transition-colors duration-300"
                 >
                   Subscribe
                 </button>
@@ -301,7 +302,7 @@ export default function Home() {
             {/* Book Now Button */}
             <Link
               href="/bookings"
-              className="inline-block bg-[#D4C59D] text-white text-[15px] font-medium py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black mt-2"
+              className="inline-block bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] font-medium py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black mt-2"
             >
               Book Now
             </Link>
@@ -325,7 +326,7 @@ export default function Home() {
           <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
             <iframe
               className="absolute top-1/2 left-1/2 w-[300%] h-[300%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-              src="https://www.youtube.com/embed/DxR9eauTK1I?controls=0&rel=0&playsinline=1&autoplay=1&mute=1&loop=1&playlist=DxR9eauTK1I&start=2&end=30&enablejsapi=1&iv_load_policy=3&showinfo=0&modestbranding=1"
+              src="https://www.youtube-nocookie.com/embed/DxR9eauTK1I?controls=0&rel=0&playsinline=1&autoplay=1&mute=1&loop=1&playlist=DxR9eauTK1I&start=2&end=30&enablejsapi=1&iv_load_policy=3&showinfo=0&modestbranding=1"
               title="Cinematic Tattoo Studio Background"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -385,9 +386,9 @@ export default function Home() {
             {/* Read More Button */}
             <Link
               href="/about"
-              className="inline-flex items-center justify-center bg-[#D4C59D] text-white text-[15px] font-medium py-3 px-8 rounded-[3px] transition-all duration-300 hover:bg-white hover:text-black"
+              className="inline-flex items-center justify-center bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] font-medium py-3 px-8 rounded-[3px] transition-all duration-300 hover:bg-white hover:text-black"
             >
-              Read More
+              Learn More About Angel Tattooz
             </Link>
 
           </div>
@@ -464,9 +465,9 @@ export default function Home() {
                 </p>
 
                 {/* Author */}
-                <h4 className="text-[#FAD5E6] font-hey text-[35px] leading-none">
+                <h3 className="text-[#FAD5E6] font-hey text-[35px] leading-none">
                   Lisa Edwards
-                </h4>
+                </h3>
               </div>
 
               {/* Testimonial 2 */}
@@ -483,9 +484,9 @@ export default function Home() {
                 </p>
 
                 {/* Author */}
-                <h4 className="text-[#FAD5E6] font-hey text-[35px] leading-none">
+                <h3 className="text-[#FAD5E6] font-hey text-[35px] leading-none">
                   David Lee
-                </h4>
+                </h3>
               </div>
 
             </div>
@@ -496,7 +497,7 @@ export default function Home() {
                 href="https://g.page/r/CaJWy-nqXoSYEBM/review"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#D4C59D] text-white text-[15px] font-medium py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black"
+                className="inline-block bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] font-medium py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black"
               >
                 Share Your Tattoo Story
               </a>
@@ -547,7 +548,7 @@ export default function Home() {
             <div className="text-center">
               <Link
                 href="/blog"
-                className="inline-block bg-[#D4C59D] text-white text-[15px] font-medium py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black"
+                className="inline-block bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] font-medium py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black"
               >
                 View More Posts
               </Link>
@@ -617,9 +618,9 @@ function FlipCard({
               <div className="flex flex-col items-center justify-center h-full">
                 <Link
                   href="/services"
-                  className="inline-block border border-[#D4C59D] bg-[#D4C59D] text-white hover:bg-transparent hover:text-white px-6 py-2 text-[15px] font-medium rounded-[3px] transition-all duration-300"
+                  className="inline-block border border-[#D4C59D] bg-[#D4C59D] text-zinc-950 font-semibold hover:bg-transparent hover:text-white px-6 py-2 text-[15px] font-medium rounded-[3px] transition-all duration-300"
                 >
-                  Learn More
+                  Explore All Tattoo Services
                 </Link>
               </div>
             )}
@@ -698,7 +699,7 @@ function BlogCard({
           className="object-cover transition-transform duration-500 hover:scale-105"
         />
         {/* Floating Category Badge */}
-        <span className="absolute top-5 right-5 bg-[#D4C59D] text-white text-[12px] font-medium uppercase px-3 py-2 rounded-full shadow-md">
+        <span className="absolute top-5 right-5 bg-[#D4C59D] text-zinc-950 font-semibold text-[12px] font-medium uppercase px-3 py-2 rounded-full shadow-md">
           {category}
         </span>
       </Link>

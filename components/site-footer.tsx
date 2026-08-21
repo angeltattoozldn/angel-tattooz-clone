@@ -82,6 +82,7 @@ export function SiteFooter() {
               {/* Social Icons */}
               <div className="flex items-center gap-4">
                 <SocialLink
+                  ariaLabel="Follow Angel Tattooz on Facebook"
                   href="https://www.facebook.com/profile.php?id=61558770900820"
                   icon={
                     <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -90,6 +91,7 @@ export function SiteFooter() {
                   }
                 />
                 <SocialLink
+                  ariaLabel="Follow Angel Tattooz on Instagram"
                   href="https://www.instagram.com/angeltattoozldn/"
                   icon={
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -102,6 +104,7 @@ export function SiteFooter() {
 
                 {/* TikTok (Custom SVG as Lucide doesn't have it) */}
                 <SocialLink
+                  ariaLabel="Follow Angel Tattooz on TikTok"
                   href="https://www.tiktok.com/@angeltattoozldn"
                   icon={
                     <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -111,6 +114,7 @@ export function SiteFooter() {
                 />
 
                 <SocialLink
+                  ariaLabel="Visit Angel Tattooz YouTube Channel"
                   href="https://www.youtube.com/channel/UC6rRXUxTs7eu7rZZtfDXqkQ"
                   icon={
                     <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -121,6 +125,7 @@ export function SiteFooter() {
 
                 {/* Pinterest (Custom SVG as Lucide doesn't have it) */}
                 <SocialLink
+                  ariaLabel="Follow Angel Tattooz on Pinterest"
                   href="https://www.pinterest.com/ink1180/"
                   icon={
                     <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -130,6 +135,7 @@ export function SiteFooter() {
                 />
 
                 <SocialLink
+                  ariaLabel="Read the Angel Tattooz Blog"
                   href="/blog/"
                   icon={<Rss className="w-5 h-5" />}
                 />
@@ -152,12 +158,13 @@ export function SiteFooter() {
   )
 }
 
-function SocialLink({ href, icon }: { href: string, icon: React.ReactNode }) {
+function SocialLink({ href, icon, ariaLabel }: { href: string, icon: React.ReactNode, ariaLabel?: string }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={ariaLabel}
       className="text-white hover:text-[#D4C59D] transition-colors duration-300 transform hover:scale-110"
     >
       {icon}

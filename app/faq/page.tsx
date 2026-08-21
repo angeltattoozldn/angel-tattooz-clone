@@ -132,18 +132,18 @@ export default function FAQPage() {
                 You Got Questions. We Got Answers
               </h2>
             </div>
-            
+
             <Accordion type="single" collapsible className="w-full space-y-4">
               {allFAQs.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`} 
-                  className="group border border-zinc-600 rounded-[10px] overflow-hidden [&[data-state=open]]:border-[#FAD5E6] [&[data-state=open]]:bg-[#FAD5E6] transition-all duration-300"
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="group border border-zinc-600 rounded-[10px] overflow-hidden data-[state=open]:bg-[#FAD5E6] transition-all duration-300"
                 >
-                  <AccordionTrigger className="font-sans flex-1 text-center justify-between text-white group-[&[data-state=open]]:text-black hover:no-underline py-5 px-6 [&>svg]:ml-4 group-[&[data-state=open]]:[&>svg]:text-black">
+                  <AccordionTrigger className="font-sans flex-1 text-center justify-between text-white hover:no-underline py-5 px-6 [&>svg]:ml-4">
                     <span className="flex-1 text-center font-bold tracking-wide text-[15px]">{faq.question}</span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-white group-[&[data-state=open]]:text-black leading-relaxed pb-6 px-6 text-sm md:text-base font-medium">
+                  <AccordionContent className="group-data-[state=open]:text-black leading-relaxed pb-6 px-6 text-sm md:text-base font-medium">
                     {faq.jsxAnswer || <p>{faq.answer}</p>}
                   </AccordionContent>
                 </AccordionItem>

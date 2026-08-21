@@ -1,30 +1,24 @@
 import { NextResponse } from 'next/server';
-import { BUSINESS_CONFIG, getFullAddress } from '@/config/business.config';
 
 export async function GET() {
-  const content = `# ${BUSINESS_CONFIG.businessName} - North London Tattoo Studio
+  const content = `# Angel Tattooz London
+> Premier custom tattoo studio located in Cockfosters, Barnet, North London (EN4 0DL).
 
-${BUSINESS_CONFIG.businessName} is an award-winning premium tattoo studio located in ${BUSINESS_CONFIG.primaryAddress.area}, North London (${BUSINESS_CONFIG.primaryAddress.city}, ${BUSINESS_CONFIG.primaryAddress.postcode}).
+Angel Tattooz specializes in bespoke custom tattooing, black and grey realism, fine line, Japanese Irezumi, and cover-up tattoos.
 
-## Services
-- Custom Tattoo Design
-- Black and Grey Realism
-- Colour Tattoos
-- Cover-up Tattoos
-- Tattoo Consultations
-
-## Artists & Styles
-Our expert artists specialize in realism, minimalist, tribal, traditional, and custom abstract designs.
-
-## Contact & Location
-- Address: ${getFullAddress()}
-- Phone: ${BUSINESS_CONFIG.contact.phoneDisplay}
-- Hours: Mon-Sat ${BUSINESS_CONFIG.openingHours.monday}
-
-## Booking
-To book an appointment, please visit our booking page or contact us directly.
+## Key Information & Links
+- [Home Page](https://www.angeltattooz.co.uk/): Studio overview and showcase.
+- [Bookings](https://www.angeltattooz.co.uk/bookings/): Online consultation booking and £50 deposit payment.
+- [Services & Styles](https://www.angeltattooz.co.uk/services/): Custom tattoos, fine line, realism, and cover-ups.
+- [Studio Reviews](https://www.angeltattooz.co.uk/reviews/): 5-star client testimonials and ratings.
+- [Contact & Location](https://www.angeltattooz.co.uk/contact-us/): Studio A, 15 Station Parade, Cockfosters, Barnet, EN4 0DL.
+- [Blog & Guides](https://www.angeltattooz.co.uk/blog/): Tattoo aftercare, style guides, and studio articles.
 `;
+
   return new NextResponse(content, {
-    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=86400',
+    },
   });
 }
