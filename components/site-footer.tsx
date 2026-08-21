@@ -49,16 +49,24 @@ export function SiteFooter() {
               </div>
 
               {/* Phone */}
-              <div className="flex flex-col items-center gap-3">
+              <div className="flex flex-col items-center gap-3 text-center">
                 <div className="text-white">
                   <Phone className="w-4.5 h-4.5" />
                 </div>
-                <a
-                  href={`tel:${BUSINESS_CONFIG.contact.phone}`}
-                  className="text-[#FAD5E6] text-[16px] font-normal hover:text-white transition-colors font-sans"
-                >
-                  {BUSINESS_CONFIG.contact.phoneDisplay}
-                </a>
+                <div className="flex flex-col gap-1">
+                  <a
+                    href={`tel:${BUSINESS_CONFIG.contact.phone}`}
+                    className="text-[#FAD5E6] text-[16px] font-normal hover:text-white transition-colors font-sans"
+                  >
+                    {BUSINESS_CONFIG.contact.phoneDisplay}
+                  </a>
+                  <a
+                    href={`tel:${BUSINESS_CONFIG.contact.phone2}`}
+                    className="text-[#FAD5E6] text-[16px] font-normal hover:text-white transition-colors font-sans"
+                  >
+                    {BUSINESS_CONFIG.contact.phone2Display}
+                  </a>
+                </div>
               </div>
             </div>
 

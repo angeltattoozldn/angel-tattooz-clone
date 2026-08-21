@@ -17,6 +17,7 @@ export async function GET() {
       },
       contact: {
         phone: BUSINESS_CONFIG.contact.phoneDisplay,
+        phone2: BUSINESS_CONFIG.contact.phone2Display,
         whatsapp: BUSINESS_CONFIG.contact.whatsapp,
         email: BUSINESS_CONFIG.contact.email,
       },

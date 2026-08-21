@@ -55,9 +55,14 @@ export default function ContactPage() {
                 <h2 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
                   Telephone
                 </h2>
-                <a href={`tel:${BUSINESS_CONFIG.contact.phone}`} className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
-                  {BUSINESS_CONFIG.contact.phoneDisplay}
-                </a>
+                <div className="flex flex-col items-center gap-1">
+                  <a href={`tel:${BUSINESS_CONFIG.contact.phone}`} className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
+                    {BUSINESS_CONFIG.contact.phoneDisplay}
+                  </a>
+                  <a href={`tel:${BUSINESS_CONFIG.contact.phone2}`} className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
+                    {BUSINESS_CONFIG.contact.phone2Display}
+                  </a>
+                </div>
               </div>
 
               {/* Email */}

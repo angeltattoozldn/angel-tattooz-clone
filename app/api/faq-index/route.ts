@@ -37,7 +37,7 @@ export async function GET() {
             id: "how-to-book",
             question: "How do I book an appointment?",
             answer:
-              `Contact us via phone (${BUSINESS_CONFIG.contact.phoneDisplay}), WhatsApp, or our online booking form. We'll schedule a free consultation to discuss your design and book your tattoo session.`,
+              `Contact us via phone (${BUSINESS_CONFIG.contact.phoneDisplay} / ${BUSINESS_CONFIG.contact.phone2Display}), WhatsApp, or our online booking form. We'll schedule a free consultation to discuss your design and book your tattoo session.`,
             keywords: ["appointment", "booking", "schedule"],
           },
           {

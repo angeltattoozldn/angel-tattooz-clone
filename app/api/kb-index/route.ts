@@ -101,6 +101,7 @@ export async function GET() {
     })),
     contact: {
       phone: BUSINESS_CONFIG.contact.phoneDisplay,
+      phone2: BUSINESS_CONFIG.contact.phone2Display,
       email: BUSINESS_CONFIG.contact.email,
       whatsapp: BUSINESS_CONFIG.contact.whatsapp,
       address: `${BUSINESS_CONFIG.primaryAddress.street}, ${BUSINESS_CONFIG.primaryAddress.area}, ${BUSINESS_CONFIG.primaryAddress.city} ${BUSINESS_CONFIG.primaryAddress.postcode}`,

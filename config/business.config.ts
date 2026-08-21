@@ -11,6 +11,8 @@ export interface BusinessLocation {
   contact: {
     phone: string
     phoneDisplay: string
+    phone2: string
+    phone2Display: string
     whatsapp: string
     email: string
   }
@@ -52,6 +54,8 @@ export const BUSINESS_CONFIG: BusinessLocation = {
   contact: {
     phone: "02082163400",
     phoneDisplay: "020 8216 3400",
+    phone2: "07949123424",
+    phone2Display: "07949 123 424",
     whatsapp: "+442082163400",
     email: "Ink@angeltattooz.co.uk",
   },
