@@ -5,6 +5,7 @@ import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import localFont from "next/font/local"
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { RelocationBanner } from "@/components/relocation-banner"
 import { SchemaScript } from "@/components/schema-script"
 import { generateLocalBusinessSchema } from "@/lib/schema"
@@ -108,6 +109,7 @@ export default function RootLayout({
         <RelocationBanner />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
