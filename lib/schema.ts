@@ -145,72 +145,78 @@ export interface VideoObject {
   contentUrl: string
 }
 
-export function generateOrganizationSchema(): LocalBusiness {
-  const address = BUSINESS_CONFIG.primaryAddress
-  const contact = BUSINESS_CONFIG.contact
-
+export function generateLocalBusinessSchema() {
   return {
-    "@context": "https://schema.org",
-    "@type": "TattooShop",
-    name: BUSINESS_CONFIG.businessName,
-    description:
-      "Premium tattoo studio in North London specializing in custom designs, black & gray, and color tattoos.",
-    url: "https://www.angeltattooz.co.uk",
-    telephone: contact.phone,
-    priceRange: "££",
+    '@context': 'https://schema.org',
+    '@type': 'TattooShop',
+    '@id': 'https://www.angeltattooz.co.uk/#organization',
+    name: 'Angel Tattooz',
+    description: 'Premier custom tattoo studio in Cockfosters, Barnet, North London specializing in custom designs, black & grey realism, fine line, and cover-ups.',
+    url: 'https://www.angeltattooz.co.uk/',
+    telephone: '+447949123424',
+    priceRange: '££',
+    image: 'https://www.angeltattooz.co.uk/icon.png',
     address: {
-      "@type": "PostalAddress",
-      streetAddress: address.street,
-      addressLocality: address.area,
-      addressRegion: address.city,
-      postalCode: address.postcode,
-      addressCountry: address.country,
+      '@type': 'PostalAddress',
+      streetAddress: 'Studio A, 15 Station Parade',
+      addressLocality: 'Cockfosters',
+      addressRegion: 'Barnet',
+      postalCode: 'EN4 0DL',
+      addressCountry: 'GB',
     },
     geo: {
-      "@type": "GeoCoordinates",
-      latitude: BUSINESS_CONFIG.geo.latitude,
-      longitude: BUSINESS_CONFIG.geo.longitude,
+      '@type': 'GeoCoordinates',
+      latitude: 51.6517,
+      longitude: -0.1488,
     },
     areaServed: [
-      "Cockfosters",
-      "Barnet",
-      "Southgate",
-      "Enfield",
-      "Hadley Wood",
-      "Potters Bar",
-      "Borehamwood",
-      "North London",
-      "Hertfordshire"
+      'Cockfosters',
+      'Barnet',
+      'Southgate',
+      'Enfield',
+      'Hadley Wood',
+      'Potters Bar',
+      'Borehamwood',
+      'North London',
+      'Hertfordshire',
     ],
     sameAs: [
-      "https://instagram.com/angeltattoozldn",
-      "https://facebook.com/profile.php?id=61558770900820",
-      "https://youtube.com/channel/UC6rRXUxTs7eu7rZZtfDXqkQ",
-      "https://www.pinterest.com/angeltattz/"
+      'https://instagram.com/angeltattoozldn',
+      'https://facebook.com/profile.php?id=61558770900820',
+      'https://youtube.com/channel/UC6rRXUxTs7eu7rZZtfDXqkQ',
+      'https://www.pinterest.com/angeltattooz/',
     ],
     knowsAbout: [
-      "Custom Tattoos",
-      "Cover-Up Tattoos",
-      "First Tattoo Consultation",
-      "Black and Grey Realism",
-      "Fine Line",
-      "Traditional Tattoos",
-      "Japanese Sleeve Tattoos"
+      'Custom Tattoos',
+      'Cover-Up Tattoos',
+      'First Tattoo Consultation',
+      'Black and Grey Realism',
+      'Fine Line Tattoos',
+      'Traditional Tattoos',
+      'Japanese Sleeve Tattoos',
     ],
     openingHoursSpecification: [
       {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "11:30",
-        closes: "18:30",
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+        ],
+        opens: '11:30',
+        closes: '18:30',
       },
     ],
     aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: 4.9,
-      reviewCount: 127,
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '127',
+      bestRating: '5',
+      worstRating: '1',
     },
-  }
+  };
 }
 
 export function generateBreadcrumbs(items: Array<{ name: string; url?: string }>): BreadcrumbList {

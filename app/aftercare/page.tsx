@@ -14,7 +14,7 @@ export default function AftercarePage() {
       <SiteHeader />
       <main className="min-h-screen bg-[#121212] text-zinc-100 pb-20">
         {/* Full-Width Hero Section */}
-        <section className="relative w-full h-[40vh] min-h-[300px] flex items-center justify-center border-b border-zinc-800/60 overflow-hidden">
+        <section className="relative w-full h-[40vh] min-h-75 flex items-center justify-center border-b border-zinc-800/60 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
               alt="Angel Tattooz Aftercare"

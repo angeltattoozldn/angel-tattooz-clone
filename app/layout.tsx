@@ -5,8 +5,8 @@ import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { RelocationBanner } from "@/components/relocation-banner"
-import { SchemaScript } from "@/components/schema-script" // Import this
-import { generateOrganizationSchema } from "@/lib/schema" // Import this
+import { SchemaScript } from "@/components/schema-script"
+import { generateLocalBusinessSchema } from "@/lib/schema"
 import "./globals.css"
 
 const poppins = Poppins({
@@ -82,13 +82,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   // 5. Generate the Schema
-  const orgSchema = generateOrganizationSchema()
+  const orgSchema = generateLocalBusinessSchema()
 
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`font-sans antialiased ${poppins.variable}`}>
         {/* 6. Inject Schema JSON-LD */}

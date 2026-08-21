@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
+/* eslint-disable tailwindcss/no-contradicting-classname */
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -105,7 +106,7 @@ export default function FAQPage() {
       <SiteHeader />
       <main className="bg-[#121212]">
         {/* Hero Section */}
-        <section className="relative h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[40vh] min-h-100 flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 w-full h-full">
             <Image
               fill
@@ -137,12 +138,12 @@ export default function FAQPage() {
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`} 
-                  className="group border border-zinc-600 rounded-[10px] overflow-hidden data-[state=open]:border-[#FAD5E6] data-[state=open]:bg-[#FAD5E6] transition-all duration-300"
+                  className="group border border-zinc-600 rounded-[10px] overflow-hidden [&[data-state=open]]:border-[#FAD5E6] [&[data-state=open]]:bg-[#FAD5E6] transition-all duration-300"
                 >
-                  <AccordionTrigger className="font-sans flex-1 text-center justify-between text-white group-data-[state=open]:text-black hover:no-underline py-5 px-6 [&>svg]:ml-4 group-data-[state=open]:[&>svg]:text-black">
+                  <AccordionTrigger className="font-sans flex-1 text-center justify-between text-white group-[&[data-state=open]]:text-black hover:no-underline py-5 px-6 [&>svg]:ml-4 group-[&[data-state=open]]:[&>svg]:text-black">
                     <span className="flex-1 text-center font-bold tracking-wide text-[15px]">{faq.question}</span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-white group-data-[state=open]:text-black leading-relaxed pb-6 px-6 text-sm md:text-base font-medium">
+                  <AccordionContent className="text-white group-[&[data-state=open]]:text-black leading-relaxed pb-6 px-6 text-sm md:text-base font-medium">
                     {faq.jsxAnswer || <p>{faq.answer}</p>}
                   </AccordionContent>
                 </AccordionItem>

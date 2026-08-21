@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-contradicting-classname */
 import { Metadata } from "next"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
@@ -15,7 +16,7 @@ export default function PrivacyAndTermsPage() {
       <SiteHeader />
       <main className="min-h-screen bg-[#0a0a0a] text-zinc-100 pb-20">
         {/* Full-Width Hero Section with Background Image */}
-        <section className="relative w-full h-[40vh] min-h-[300px] flex items-center justify-center border-b border-zinc-800/60 overflow-hidden">
+        <section className="relative w-full h-[40vh] min-h-75 flex items-center justify-center border-b border-zinc-800/60 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
               alt="Angel Tattooz Studio"
@@ -36,10 +37,11 @@ export default function PrivacyAndTermsPage() {
 
         {/* Content Container */}
         <div className="max-w-4xl mx-auto px-4 md:px-8 mt-16">
-          <div className="prose prose-invert max-w-none prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:text-center prose-h2:mb-8 [&_h3]:font-sans [&_h3]:font-bold [&_h3]:text-xl [&_h3]:text-white [&_h3]:mt-12 [&_h3]:mb-4 [&_p]:mb-6 [&_ul]:mb-8 prose-p:text-zinc-300 prose-p:leading-relaxed prose-p:text-sm md:prose-p:text-base prose-a:text-[#D4C59D] prose-a:no-underline hover:prose-a:underline">
+          {/* eslint-disable-next-line tailwindcss/no-contradicting-classname */}
+          <div className="prose prose-invert max-w-none prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:text-center prose-h2:mb-8 prose-h3:font-sans prose-h3:font-bold prose-h3:text-xl prose-h3:text-white prose-h3:mt-12 prose-h3:mb-4 prose-p:mb-6 prose-ul:mb-8 prose-p:text-zinc-300 prose-p:leading-relaxed prose-p:text-sm md:prose-p:text-base prose-a:text-[#D4C59D] prose-a:no-underline hover:prose-a:underline">
             
             {/* Terms and Conditions Section */}
-            <h2 className="font-display text-4xl text-[#FAD5E6] !mb-12">Terms and Conditions</h2>
+            <h2 className="font-display text-4xl text-[#FAD5E6] mb-12!">Terms and Conditions</h2>
             
             <p className="font-bold">Welcome to Angel Tattooz</p>
             <p>
@@ -128,7 +130,7 @@ export default function PrivacyAndTermsPage() {
             {/* Privacy Policy Section */}
             <div className="my-16 border-t border-zinc-800"></div>
 
-            <h2 className="font-display text-4xl text-[#FAD5E6] !mb-12">Privacy Policy</h2>
+            <h2 className="font-display text-4xl text-[#FAD5E6] mb-12!">Privacy Policy</h2>
             
             <p className="font-bold">Introduction</p>
             <p>Angel Tattooz is committed to protecting your personal data and respecting your privacy. This policy explains how we collect, use, and protect your personal information.</p>
