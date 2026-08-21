@@ -55,7 +55,7 @@ export default function Home() {
                   <div>
                     <Link
                       href="/bookings"
-                      className="inline-flex items-center justify-center bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] font-medium py-3 px-6 rounded-[3px] transition-all duration-300 hover:bg-white hover:text-black"
+                      className="inline-flex items-center justify-center bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] py-3 px-6 rounded-[3px] transition-all duration-300 hover:bg-white hover:text-black"
                     >
                       Book Your Appointment Now
                     </Link>
@@ -106,7 +106,7 @@ export default function Home() {
                 {/* Button is safe now due to z-20 on parent */}
                 <Link
                   href="/gallery"
-                  className="inline-block border-2 border-transparent bg-[#D4C59D] text-zinc-950 font-semibold px-8 py-3 text-[15px] font-medium rounded-[3px] hover:bg-white hover:text-black transition-all duration-300"
+                  className="inline-block border-2 border-transparent bg-[#D4C59D] text-zinc-950 font-semibold px-8 py-3 text-[15px] rounded-[3px] hover:bg-white hover:text-black transition-all duration-300"
                 >
                   Ink Showcase
                 </Link>
@@ -206,13 +206,13 @@ export default function Home() {
                   name="ne"
                   required
                   placeholder="Email"
-                  className="w-[70%] px-4 py-3 bg-neutral-100 text-zinc-900 text-[16px] placeholder:text-neutral-500 border border-neutral-300 rounded-l-[10px] focus:outline-none"
+                  className="w-[70%] px-4 py-3 bg-neutral-100 text-zinc-900 text-[16px] border border-neutral-300 rounded-l-[10px] focus:outline-none"
                 />
 
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-[30%] bg-[#D4C59D] text-zinc-950 font-semibold text-[14px] font-medium uppercase tracking-wide rounded-r-[10px] hover:bg-white hover:text-black transition-colors duration-300"
+                  className="w-[30%] bg-[#D4C59D] text-zinc-950 font-semibold text-[14px] uppercase tracking-wide rounded-r-[10px] hover:bg-white hover:text-black transition-colors duration-300"
                 >
                   Subscribe
                 </button>
@@ -302,7 +302,7 @@ export default function Home() {
             {/* Book Now Button */}
             <Link
               href="/bookings"
-              className="inline-block bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] font-medium py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black mt-2"
+              className="inline-block bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black mt-2"
             >
               Book Now
             </Link>
@@ -386,7 +386,7 @@ export default function Home() {
             {/* Read More Button */}
             <Link
               href="/about"
-              className="inline-flex items-center justify-center bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] font-medium py-3 px-8 rounded-[3px] transition-all duration-300 hover:bg-white hover:text-black"
+              className="inline-flex items-center justify-center bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] py-3 px-8 rounded-[3px] transition-all duration-300 hover:bg-white hover:text-black"
             >
               Learn More About Angel Tattooz
             </Link>
@@ -497,7 +497,7 @@ export default function Home() {
                 href="https://g.page/r/CaJWy-nqXoSYEBM/review"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] font-medium py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black"
+                className="inline-block bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black"
               >
                 Share Your Tattoo Story
               </a>
@@ -548,7 +548,7 @@ export default function Home() {
             <div className="text-center">
               <Link
                 href="/blog"
-                className="inline-block bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] font-medium py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black"
+                className="inline-block bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black"
               >
                 View More Posts
               </Link>
@@ -618,7 +618,7 @@ function FlipCard({
               <div className="flex flex-col items-center justify-center h-full">
                 <Link
                   href="/services"
-                  className="inline-block border border-[#D4C59D] bg-[#D4C59D] text-zinc-950 font-semibold hover:bg-transparent hover:text-white px-6 py-2 text-[15px] font-medium rounded-[3px] transition-all duration-300"
+                  className="inline-block border border-[#D4C59D] bg-[#D4C59D] text-zinc-950 font-semibold hover:bg-transparent hover:text-white px-6 py-2 text-[15px] rounded-[3px] transition-all duration-300"
                 >
                   Explore All Tattoo Services
                 </Link>
@@ -699,7 +699,7 @@ function BlogCard({
           className="object-cover transition-transform duration-500 hover:scale-105"
         />
         {/* Floating Category Badge */}
-        <span className="absolute top-5 right-5 bg-[#D4C59D] text-zinc-950 font-semibold text-[12px] font-medium uppercase px-3 py-2 rounded-full shadow-md">
+        <span className="absolute top-5 right-5 bg-[#D4C59D] text-zinc-950 font-semibold text-[12px] uppercase px-3 py-2 rounded-full shadow-md">
           {category}
         </span>
       </Link>
