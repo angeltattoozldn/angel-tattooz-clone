@@ -10,7 +10,7 @@ import { BackgroundVideo } from "@/components/background-video"
 
 export const metadata: Metadata = {
   title: "Angel Tattooz | Premier Tattoo Studio in North London",
-  description: "Award-winning custom tattoo studio in Cockfosters, North London. Book your consultation today.",
+  description: "Angel Tattooz is an award-winning custom tattoo studio in Cockfosters, North London. We specialize in bespoke designs, cover-ups, and fine line art. Book today!",
 };
 export default function Home() {
   const websiteSchema = generateWebSiteSchema()

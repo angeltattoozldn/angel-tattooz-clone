@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     default: "Angel Tattooz | Premium Tattoo Studio in North London",
     template: "%s | Angel Tattooz"
   },
-  // 2. Shortened Description (Report complained it was >160 chars)
+  // 2. Ideal Meta Description (Between 150-160 characters for optimal SEO)
   description:
-    "Award-winning North London tattoo studio. Specialists in custom designs, realism & cover-ups. Expert artists serving Barnet, Cockfosters & Enfield.",
+    "Angel Tattooz is an award-winning North London tattoo studio. Specialists in custom designs, realism & cover-ups. Expert artists in Barnet & Cockfosters!",
   keywords: [
     "tattoo studio",
     "North London tattoo",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   // 4. Fix Missing OG Data (Report Error)
   openGraph: {
     title: "Angel Tattooz | Premium Tattoo Studio in North London",
-    description: "Award-winning tattoo studio in North London. Custom designs, expert artists.",
+    description: "Angel Tattooz is an award-winning North London tattoo studio. Specialists in custom designs, realism & cover-ups. Expert artists in Barnet & Cockfosters!",
     url: BASE_URL,
     siteName: "Angel Tattooz",
     locale: "en_GB",
