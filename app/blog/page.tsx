@@ -68,7 +68,7 @@ export default async function BlogIndexPage() {
                       <span className="text-muted-foreground">{new Date(post.publishedAt).toLocaleDateString()}</span>
                     </div>
                     <h2 className="text-xl font-bold mt-2 mb-3">
-                      <Link className="hover:text-primary transition-colors before:absolute before:inset-0" href={`/${post.slug}/`}>
+                      <Link className="hover:text-primary transition-colors before:absolute before:inset-0" href={`/blog/${post.slug}/`}>
                         {post.title}
                       </Link>
                     </h2>

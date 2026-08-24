@@ -18,6 +18,40 @@ const nextConfig = {
       bodySizeLimit: '5mb',
     },
   },
+  async redirects() {
+    return [
+      {
+        source: '/the-history-of-tattoos-from-ancient-traditions-to-modern-art/',
+        destination: '/blog/the-history-of-tattoos-from-ancient-traditions-to-modern-art/',
+        permanent: true,
+      },
+      {
+        source: '/top-10-most-popular-tattoo-styles-in-2024-find-your-next-design-inspiration/',
+        destination: '/blog/top-10-most-popular-tattoo-styles-in-2024-find-your-next-design-inspiration/',
+        permanent: true,
+      },
+      {
+        source: '/discover-the-diverse-tattoo-styles-at-angel-tattooz-in-london/',
+        destination: '/blog/discover-the-diverse-tattoo-styles-at-angel-tattooz-in-london/',
+        permanent: true,
+      },
+      {
+        source: '/the-dark-side-of-laser-tattoo-removal-why-cover-ups-are-a-better-bet/',
+        destination: '/blog/the-dark-side-of-laser-tattoo-removal-why-cover-ups-are-a-better-bet/',
+        permanent: true,
+      },
+      {
+        source: '/the-ultimate-guide-to-tattoo-aftercare-keeping-your-ink-fresh/',
+        destination: '/blog/the-ultimate-guide-to-tattoo-aftercare-keeping-your-ink-fresh/',
+        permanent: true,
+      },
+      {
+        source: '/discover-the-ultimate-tattoo-experience-at-angel-tattooz/',
+        destination: '/blog/discover-the-ultimate-tattoo-experience-at-angel-tattooz/',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {

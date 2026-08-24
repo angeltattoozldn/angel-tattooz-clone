@@ -39,6 +39,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${post.title} | Angel Tattooz`,
     description: post.excerpt || "Read the latest from Angel Tattooz.",
+    alternates: {
+      canonical: `https://www.angeltattooz.co.uk/blog/${slug}/`,
+    },
   };
 }
 

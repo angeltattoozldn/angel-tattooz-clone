@@ -526,7 +526,7 @@ export default function Home() {
                 image="/images/home/blog-post-1.webp"
                 category="Tattoos"
                 title="Top 10 Most Popular Tattoo Styles in 2024: Find Your Next Design Inspiration"
-                link="/blog/top-10-tattoo-styles-2024"
+                link="/blog/top-10-most-popular-tattoo-styles-in-2024-find-your-next-design-inspiration/"
               />
 
               {/* Blog Post 2 */}
@@ -534,7 +534,7 @@ export default function Home() {
                 image="/images/home/blog-post-2.webp"
                 category="Tattoos"
                 title="The History of Tattoos: From Ancient Traditions to Modern Art"
-                link="/blog/history-of-tattoos"
+                link="/blog/the-history-of-tattoos-from-ancient-traditions-to-modern-art/"
               />
 
               {/* Blog Post 3 */}
@@ -542,7 +542,7 @@ export default function Home() {
                 image="/images/home/blog-post-3.webp"
                 category="Tattoos"
                 title="Discover the Diverse Tattoo Styles at Angel Tattooz in London"
-                link="/blog/diverse-tattoo-styles"
+                link="/blog/discover-the-diverse-tattoo-styles-at-angel-tattooz-in-london/"
               />
 
             </div>

@@ -17,7 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   const blogUrls = posts.map((post: any) => ({
-    url: `https://www.angeltattooz.co.uk/${post.slug}`,
+    url: `https://www.angeltattooz.co.uk/blog/${post.slug}`,
     lastModified: new Date(post.publishedAt || Date.now()),
     changeFrequency: 'monthly',
     priority: 0.8,
