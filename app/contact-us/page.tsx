@@ -57,10 +57,10 @@ export default function ContactPage() {
                 </h2>
                 <div className="flex flex-col items-center gap-1">
                   <a href={`tel:${BUSINESS_CONFIG.contact.phone}`} className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
-                    {BUSINESS_CONFIG.contact.phoneDisplay}
+                    Studio: {BUSINESS_CONFIG.contact.phoneDisplay}
                   </a>
                   <a href={`tel:${BUSINESS_CONFIG.contact.phone2}`} className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
-                    {BUSINESS_CONFIG.contact.phone2Display}
+                    Mobile: {BUSINESS_CONFIG.contact.phone2Display}
                   </a>
                 </div>
               </div>

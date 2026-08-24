@@ -46,7 +46,7 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row items-start">
               <div className="w-full lg:w-[60%] relative">
                 <div className="bg-black/75 p-8 md:p-9.75 rounded-[20px] backdrop-blur-[0px] shadow-none">
-                  <div className="mb-5">
+                  <div className="mb-14">
                     <h1
                       className="text-[#FAD5E6] font-hey font-normal leading-none text-[5rem] md:text-[6.5rem] lg:text-[136px]"
                       style={{
@@ -464,7 +464,7 @@ export default function Home() {
                 {/* Review Text */}
                 <p className="text-white font-sans text-[16px] font-normal leading-relaxed mb-6">
                   Absolutely in love with my new piece!
-                  The whole experience incredibly comfortable. Angle Tattoz definitely lives up to the 'Ready To Get Inked' motto!
+                  The whole experience incredibly comfortable. Angel Tattooz definitely lives up to the 'Ready To Get Inked' motto!
                 </p>
 
                 {/* Author */}
@@ -483,7 +483,7 @@ export default function Home() {
                 {/* Review Text */}
                 <p className="text-white font-sans text-[16px] font-normal leading-relaxed mb-6">
                   I'd been wanting a tattoo for years but was nervous to find the right artist.
-                  From the moment I walked into Angle Tattoz, I knew I was in good hands.
+                  From the moment I walked into Angel Tattooz, I knew I was in good hands.
                 </p>
 
                 {/* Author */}

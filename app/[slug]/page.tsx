@@ -182,7 +182,10 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
                 </p>
                 <p className="flex items-center gap-2">
                   <span className="text-zinc-100 font-bold">📞</span>
-                  <span>{BUSINESS_CONFIG.contact.phoneDisplay} | {BUSINESS_CONFIG.contact.phone2Display}</span>
+                  <div className="flex flex-col">
+                    <span>Studio: {BUSINESS_CONFIG.contact.phoneDisplay}</span>
+                    <span>Mobile: {BUSINESS_CONFIG.contact.phone2Display}</span>
+                  </div>
                 </p>
                 <p className="flex items-center gap-2">
                   <span className="text-zinc-100 font-bold">🕒</span>

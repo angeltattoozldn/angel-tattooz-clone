@@ -10,7 +10,8 @@ Angel Tattooz specializes in bespoke custom tattooing, black and grey realism, f
 ## Business Information
 - Name: ${BUSINESS_CONFIG.businessName}
 - Address: 15 Station Parade, Cockfosters, EN4 0DL, United Kingdom
-- Phone: ${BUSINESS_CONFIG.contact.phoneDisplay} / ${BUSINESS_CONFIG.contact.phone2Display}
+- Phone (Studio): ${BUSINESS_CONFIG.contact.phoneDisplay}
+- Phone (Mobile): ${BUSINESS_CONFIG.contact.phone2Display}
 - Email: ${BUSINESS_CONFIG.contact.email}
 
 ## Key Information & Links

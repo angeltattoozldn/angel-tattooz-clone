@@ -113,10 +113,10 @@ export default function BookPage() {
                   <p className="text-sm text-muted-foreground">Speak to us directly</p>
                   <div className="flex flex-col w-full gap-2 mt-4">
                     <Button asChild variant="outline" className="w-full bg-transparent">
-                      <a href={`tel:${BUSINESS_CONFIG.contact.phone}`}>{BUSINESS_CONFIG.contact.phoneDisplay}</a>
+                      <a href={`tel:${BUSINESS_CONFIG.contact.phone}`}>Studio: {BUSINESS_CONFIG.contact.phoneDisplay}</a>
                     </Button>
                     <Button asChild variant="outline" className="w-full bg-transparent">
-                      <a href={`tel:${BUSINESS_CONFIG.contact.phone2}`}>{BUSINESS_CONFIG.contact.phone2Display}</a>
+                      <a href={`tel:${BUSINESS_CONFIG.contact.phone2}`}>Mobile: {BUSINESS_CONFIG.contact.phone2Display}</a>
                     </Button>
                   </div>
                 </CardContent>
