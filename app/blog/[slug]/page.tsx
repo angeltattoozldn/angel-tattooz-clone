@@ -190,10 +190,13 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
                     <span>Mobile: {BUSINESS_CONFIG.contact.phone2Display}</span>
                   </div>
                 </p>
-                <p className="flex items-center gap-2">
+                <div className="flex items-center gap-2">
                   <span className="text-zinc-100 font-bold">🕒</span>
-                  <span>Mon–Sat: {BUSINESS_CONFIG.openingHours.monday}</span>
-                </p>
+                  <div className="flex flex-col">
+                    <span>Mon–Sat: {BUSINESS_CONFIG.openingHours.monday}</span>
+                    <span>Sun: {BUSINESS_CONFIG.openingHours.sunday}</span>
+                  </div>
+                </div>
               </div>
 
               <Link className="block w-full text-center py-3 rounded-sm bg-[#c2a278] hover:bg-[#b08f65] text-black font-semibold text-sm transition-colors" href="/bookings/">

@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { ReviewsSection } from "@/components/reviews-section"
 import { generateWebSiteSchema } from "@/lib/schema"
 import { BackgroundVideo } from "@/components/background-video"
 
@@ -436,78 +437,9 @@ export default function Home() {
         </section>
 
         {/* =========================================
-            10. TESTIMONIALS SECTION ("Ink-Credible Stories")
-            Matches Elementor ID: e0324ce
-            - Heading + 2 Columns + Quote Icons
-            - Share Button
+            10. GOOGLE REVIEWS & TESTIMONIALS SECTION
            ========================================= */}
-        <section className="relative bg-[#121212] py-20 px-4">
-          <div className="container mx-auto max-w-285">
-
-            {/* Heading */}
-            <div className="text-center mb-12">
-              <h2 className="text-[#FAD5E6] font-hey text-[45px] md:text-[65px] leading-none font-normal">
-                Ink-Credible Stories
-              </h2>
-            </div>
-
-            {/* Testimonials Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-
-              {/* Testimonial 1 */}
-              <div className="flex flex-col items-center text-center px-4 md:px-12">
-                {/* Quote Icon */}
-                <div className="text-[#FAD5E6] mb-4">
-                  <QuoteIcon />
-                </div>
-
-                {/* Review Text */}
-                <p className="text-white font-sans text-[16px] font-normal leading-relaxed mb-6">
-                  Absolutely in love with my new piece!
-                  The whole experience incredibly comfortable. Angel Tattooz definitely lives up to the 'Ready To Get Inked' motto!
-                </p>
-
-                {/* Author */}
-                <h3 className="text-[#FAD5E6] font-hey text-[35px] leading-none">
-                  Lisa Edwards
-                </h3>
-              </div>
-
-              {/* Testimonial 2 */}
-              <div className="flex flex-col items-center text-center px-4 md:px-12">
-                {/* Quote Icon */}
-                <div className="text-[#FAD5E6] mb-4">
-                  <QuoteIcon />
-                </div>
-
-                {/* Review Text */}
-                <p className="text-white font-sans text-[16px] font-normal leading-relaxed mb-6">
-                  I'd been wanting a tattoo for years but was nervous to find the right artist.
-                  From the moment I walked into Angel Tattooz, I knew I was in good hands.
-                </p>
-
-                {/* Author */}
-                <h3 className="text-[#FAD5E6] font-hey text-[35px] leading-none">
-                  David Lee
-                </h3>
-              </div>
-
-            </div>
-
-            {/* Share Button */}
-            <div className="text-center">
-              <a
-                href="https://g.page/r/CaJWy-nqXoSYEBM/review"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black"
-              >
-                Share Your Tattoo Story
-              </a>
-            </div>
-
-          </div>
-        </section>
+        <ReviewsSection />
 
         {/* =========================================
             11. LATEST BLOG POSTS SECTION

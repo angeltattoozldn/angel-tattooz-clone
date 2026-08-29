@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { ReviewsSection } from "@/components/reviews-section"
 
 // Reusing helper components from the main page if they are exported or redefining them here
 // Ideally, move these to separate component files in /components for cleaner reuse.
@@ -140,7 +141,12 @@ export default function AboutPage() {
         </section>
 
         {/* =========================================
-            3. CTA SECTION: "Ready to Get Inked?"
+            3. GOOGLE REVIEWS SECTION
+           ========================================= */}
+        <ReviewsSection />
+
+        {/* =========================================
+            4. CTA SECTION: "Ready to Get Inked?"
             Reuse of Home Page Component
            ========================================= */}
         <section className="relative bg-[#121212] py-16 px-4 border-t border-white/5">

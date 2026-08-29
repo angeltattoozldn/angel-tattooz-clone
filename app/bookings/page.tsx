@@ -373,22 +373,14 @@ export default function BookPage() {
                     <div className="grid md:grid-cols-2 gap-4 text-muted-foreground">
                       <div className="space-y-2">
                         <div className="flex justify-between">
-                          <span>Tuesday - Friday</span>
-                          <span className="font-semibold">10:00 AM - 7:00 PM</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Saturday</span>
-                          <span className="font-semibold">10:00 AM - 6:00 PM</span>
+                          <span>Monday – Saturday</span>
+                          <span className="font-semibold text-foreground">{BUSINESS_CONFIG.openingHours.monday}</span>
                         </div>
                       </div>
                       <div className="space-y-2">
                         <div className="flex justify-between">
                           <span>Sunday</span>
-                          <span className="font-semibold">Closed</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Monday</span>
-                          <span className="font-semibold">Closed</span>
+                          <span className="font-semibold text-foreground">{BUSINESS_CONFIG.openingHours.sunday}</span>
                         </div>
                       </div>
                     </div>

@@ -181,10 +181,11 @@ export function generateLocalBusinessSchema() {
       'Hertfordshire',
     ],
     sameAs: [
+      'https://www.tiktok.com/@angeltattoozldn',
       'https://instagram.com/angeltattoozldn',
       'https://facebook.com/profile.php?id=61558770900820',
       'https://youtube.com/channel/UC6rRXUxTs7eu7rZZtfDXqkQ',
-      'https://www.pinterest.com/angeltattooz/',
+      'https://www.pinterest.com/ink1180/',
     ],
     knowsAbout: [
       'Custom Tattoos',
@@ -199,6 +200,7 @@ export function generateLocalBusinessSchema() {
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: [
+          'Monday',
           'Tuesday',
           'Wednesday',
           'Thursday',
@@ -211,7 +213,7 @@ export function generateLocalBusinessSchema() {
     ],
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: 4.9,
+      ratingValue: 5.0,
       reviewCount: 127,
       bestRating: 5,
       worstRating: 1,

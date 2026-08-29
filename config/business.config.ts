@@ -38,6 +38,15 @@ export interface BusinessLocation {
     facebook: string
     instagram: string
     twitter: string
+    tiktok: string
+    youtube: string
+    pinterest: string
+  }
+  reviews: {
+    googleRating: number
+    reviewCount: number
+    googleReviewUrl: string
+    googleMapsUrl: string
   }
 }
 
@@ -64,13 +73,13 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     longitude: -0.1488,
   },
   openingHours: {
-    monday: "11:30 AM – 7:00 PM",
-    tuesday: "11:30 AM – 7:00 PM",
-    wednesday: "11:30 AM – 7:00 PM",
-    thursday: "11:30 AM – 7:00 PM",
-    friday: "11:30 AM – 7:00 PM",
-    saturday: "11:30 AM – 7:00 PM",
-    sunday: "Closed / Appointments Only",
+    monday: "11:30 AM – 6:30 PM",
+    tuesday: "11:30 AM – 6:30 PM",
+    wednesday: "11:30 AM – 6:30 PM",
+    thursday: "11:30 AM – 6:30 PM",
+    friday: "11:30 AM – 6:30 PM",
+    saturday: "11:30 AM – 6:30 PM",
+    sunday: "Appointment only",
   },
   relocation: {
     isRelocating: true,
@@ -78,9 +87,18 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     estimatedDate: undefined,
   },
   social: {
-    facebook: "https://facebook.com/angeltattooz",
-    instagram: "https://instagram.com/angeltattooz",
+    facebook: "https://www.facebook.com/profile.php?id=61558770900820",
+    instagram: "https://www.instagram.com/angeltattoozldn/",
     twitter: "https://twitter.com/angeltattooz",
+    tiktok: "https://www.tiktok.com/@angeltattoozldn",
+    youtube: "https://www.youtube.com/channel/UC6rRXUxTs7eu7rZZtfDXqkQ",
+    pinterest: "https://www.pinterest.com/ink1180/",
+  },
+  reviews: {
+    googleRating: 5.0,
+    reviewCount: 127,
+    googleReviewUrl: "https://g.page/r/CaJWy-nqXoSYEBM/review",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Angel+Tattooz+Cockfosters",
   },
 }
 
