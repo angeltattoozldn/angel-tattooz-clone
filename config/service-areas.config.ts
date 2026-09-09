@@ -41,7 +41,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
       {
         question: "How do I get to Angel Tattooz from Barnet town centre?",
         answer:
-          "We're just a 5 minute walk from High Barnet Station. Exit the station, head down Barnet Hill, and you'll find us at 15 Station Parade.",
+          "We're located at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL (Located in: Derma Sence, just steps from Cockfosters Tube Station).",
       },
       {
         question: "Is there parking near your Barnet studio?",
@@ -85,7 +85,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
       {
         question: "Where exactly is Angel Tattooz in Cockfosters?",
         answer:
-          "We're at 15 Station Parade, Cockfosters - next to Cockfosters Tube Station (end of Piccadilly Line).",
+          "We're at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL (Located in: Derma Sence, next to Cockfosters Tube Station at the end of the Piccadilly Line).",
       },
       {
         question: "Can I park at your Cockfosters location?",
@@ -103,7 +103,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
       {
         question: "Are you open weekends in Cockfosters?",
         answer:
-          "Yes! We're open Saturday 11:30 AM - 6:30 PM and Sunday by appointment only. Check our booking page for availability.",
+          "Yes! We're open Monday – Saturday 11:30 AM – 6:30 PM and Sunday: Appointments Only. Check our booking page for availability.",
       },
     ],
   },

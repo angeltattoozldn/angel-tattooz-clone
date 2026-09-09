@@ -158,11 +158,15 @@ export function generateLocalBusinessSchema() {
     image: 'https://www.angeltattooz.co.uk/icon.png',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '15 Station Parade',
+      streetAddress: 'Studio A, 15 Station Parade',
       addressLocality: 'Cockfosters',
-      addressRegion: 'Barnet',
+      addressRegion: 'Barnet, London',
       postalCode: 'EN4 0DL',
       addressCountry: 'GB',
+    },
+    containedInPlace: {
+      '@type': 'Place',
+      name: 'Derma Sence',
     },
     geo: {
       '@type': 'GeoCoordinates',
@@ -209,6 +213,11 @@ export function generateLocalBusinessSchema() {
         ],
         opens: '11:30',
         closes: '18:30',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Sunday',
+        description: 'Appointments Only',
       },
     ],
     aggregateRating: {

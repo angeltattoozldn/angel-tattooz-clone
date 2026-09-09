@@ -8,6 +8,9 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Cover Up Tattoos London | Expert Tattoo Cover-Ups | Angel Tattooz",
   description: "Specialist cover-up tattoos in North London. Transform old or unwanted tattoos into beautiful new art with our expert artists.",
+  alternates: {
+    canonical: "https://www.angeltattooz.co.uk/services/cover-up-tattoos/",
+  },
 }
 
 export default function CoverUpTattoosPage() {

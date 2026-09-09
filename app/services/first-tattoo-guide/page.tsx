@@ -8,6 +8,9 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "First Tattoo Guide | What to Expect | Angel Tattooz",
   description: "Getting your first tattoo? Read our comprehensive guide on what to expect, how to prepare, and expert advice for your first time.",
+  alternates: {
+    canonical: "https://www.angeltattooz.co.uk/services/first-tattoo-guide/",
+  },
 }
 
 export default function FirstTattooGuidePage() {

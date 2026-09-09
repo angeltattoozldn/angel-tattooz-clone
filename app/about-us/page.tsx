@@ -42,6 +42,9 @@ function InstagramCard({ bgImage, link }: { bgImage: string, link: string }) {
 export const metadata: Metadata = {
   title: "About Us | Angel Tattooz",
   description: "Learn about Angel Tattooz, North London's premier tattoo studio.",
+  alternates: {
+    canonical: "https://www.angeltattooz.co.uk/about-us/",
+  },
 };
 export default function AboutPage() {
   return (
