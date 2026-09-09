@@ -8,6 +8,9 @@ import { BUSINESS_CONFIG, getFullAddress } from "@/config/business.config"
 export const metadata: Metadata = {
   title: "Legal & Privacy Information | Angel Tattooz",
   description: "Terms and conditions and privacy policy for Angel Tattooz, a premium tattoo studio in North London.",
+  alternates: {
+    canonical: "https://www.angeltattooz.co.uk/privacy-and-terms/",
+  },
 }
 
 export default function PrivacyAndTermsPage() {

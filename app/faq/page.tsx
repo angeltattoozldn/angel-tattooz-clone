@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: "FAQ | Angel Tattooz",
   description:
     "Get answers to common tattoo questions. Pain, pricing, aftercare, healing time, and more. Expert advice from Angel Tattooz.",
+  alternates: {
+    canonical: "https://www.angeltattooz.co.uk/faq/",
+  },
 }
 
 export default function FAQPage() {

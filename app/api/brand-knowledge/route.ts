@@ -25,10 +25,34 @@ export async function GET() {
     },
 
     location: {
-      address: BUSINESS_CONFIG.primaryAddress,
+      address: {
+        ...BUSINESS_CONFIG.primaryAddress,
+        fullAddress: "Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL",
+        buildingContext: "Located in: Derma Sence",
+      },
       contact: BUSINESS_CONFIG.contact,
       geo: BUSINESS_CONFIG.geo,
       openingHours: BUSINESS_CONFIG.openingHours,
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+          opens: "11:30",
+          closes: "18:30",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Sunday",
+          description: "Appointments Only",
+        },
+      ],
     },
 
     serviceAreas: SERVICE_AREAS.map((area) => ({

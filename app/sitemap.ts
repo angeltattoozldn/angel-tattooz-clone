@@ -17,7 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   const blogUrls = posts.map((post: any) => ({
-    url: `https://www.angeltattooz.co.uk/blog/${post.slug}`,
+    url: `https://www.angeltattooz.co.uk/blog/${post.slug}/`,
     lastModified: new Date(post.publishedAt || Date.now()),
     changeFrequency: 'monthly',
     priority: 0.8,
@@ -31,52 +31,62 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/faq',
     '/gallery',
     '/services',
+    '/services/first-tattoo-guide',
+    '/services/cover-up-tattoos',
     '/blog',
     '/styles',
     '/aftercare',
     '/privacy-and-terms',
+    '/privacy-policy',
+    '/terms-of-service',
     '/payments'
   ].map((route) => ({
-    url: `https://www.angeltattooz.co.uk${route}`,
+    url: route === '' ? 'https://www.angeltattooz.co.uk/' : `https://www.angeltattooz.co.uk${route}/`,
     lastModified: new Date(),
     changeFrequency: route === '' ? 'weekly' : 'monthly',
     priority: route === '' ? 1.0 : 0.8,
   }));
 
   const serviceUrls = Object.keys(servicesData).map(slug => ({
-    url: `https://www.angeltattooz.co.uk/services/${slug}`,
+    url: `https://www.angeltattooz.co.uk/services/${slug}/`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.9,
   }));
 
   const styleUrls = Object.keys(stylesData).map(slug => ({
-    url: `https://www.angeltattooz.co.uk/styles/${slug}`,
+    url: `https://www.angeltattooz.co.uk/styles/${slug}/`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.9,
   }));
 
   const aftercareUrls = Object.keys(aftercareGuides).map(slug => ({
-    url: `https://www.angeltattooz.co.uk/aftercare/${slug}`,
+    url: `https://www.angeltattooz.co.uk/aftercare/${slug}/`,
     lastModified: new Date(),
     changeFrequency: 'yearly',
     priority: 0.7,
   }));
 
   const areaUrls = getAllServiceAreaSlugs().map(slug => ({
-    url: `https://www.angeltattooz.co.uk/areas/${slug}`,
+    url: `https://www.angeltattooz.co.uk/areas/${slug}/`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.6,
   }));
 
-  return [
+  // Deduplicate URLs just in case (e.g. if servicesData contains cover-up-tattoos)
+  const allUrlsMap = new Map<string, any>();
+  for (const entry of [
     ...staticUrls,
     ...blogUrls,
     ...serviceUrls,
     ...styleUrls,
     ...aftercareUrls,
     ...areaUrls
-  ] as MetadataRoute.Sitemap;
+  ]) {
+    allUrlsMap.set(entry.url, entry);
+  }
+
+  return Array.from(allUrlsMap.values()) as MetadataRoute.Sitemap;
 }

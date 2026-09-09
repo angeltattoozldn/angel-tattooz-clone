@@ -220,6 +220,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${service.title} | Tattoo Services | Angel Tattooz North London`,
     description: `${service.description}. Professional ${service.title.toLowerCase()} services in North London. ${service.pricing} - ${service.duration}. Book your consultation today.`,
+    alternates: {
+      canonical: `https://www.angeltattooz.co.uk/services/${slug}/`,
+    },
   }
 }
 

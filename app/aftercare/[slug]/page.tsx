@@ -204,6 +204,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${guide.title} | Angel Tattooz Aftercare`,
     description: guide.description,
+    alternates: {
+      canonical: `https://www.angeltattooz.co.uk/aftercare/${slug}/`,
+    },
   }
 }
 

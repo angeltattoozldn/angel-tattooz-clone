@@ -12,6 +12,9 @@ import { BackgroundVideo } from "@/components/background-video"
 export const metadata: Metadata = {
   title: "Angel Tattooz | Premier Tattoo Studio in North London",
   description: "Angel Tattooz is an award-winning custom tattoo studio in Cockfosters, North London. We specialize in bespoke designs, cover-ups, and fine line art. Book today!",
+  alternates: {
+    canonical: "https://www.angeltattooz.co.uk/",
+  },
 };
 export default function Home() {
   const websiteSchema = generateWebSiteSchema()
@@ -457,7 +460,7 @@ export default function Home() {
               <BlogCard
                 image="/images/home/blog-post-1.webp"
                 category="Tattoos"
-                title="Top 10 Most Popular Tattoo Styles in 2024: Find Your Next Design Inspiration"
+                title="Top Tattoo Styles in 2026: Find Your Next Design Inspiration"
                 link="/blog/top-10-most-popular-tattoo-styles-in-2024-find-your-next-design-inspiration/"
               />
 

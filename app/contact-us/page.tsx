@@ -9,6 +9,9 @@ import { BUSINESS_CONFIG, getFullAddress } from "@/config/business.config"
 export const metadata: Metadata = {
   title: "Contact Us | Angel Tattooz",
   description: "Get in touch with Angel Tattooz in North London.",
+  alternates: {
+    canonical: "https://www.angeltattooz.co.uk/contact-us/",
+  },
 };
 export default function ContactPage() {
   return (
@@ -88,11 +91,22 @@ export default function ContactPage() {
                 </h2>
                 <address className="text-white font-sans text-[19px] not-italic max-w-75">
                   {BUSINESS_CONFIG.primaryAddress.street},<br />
+                  Located in: Derma Sence,<br />
                   {BUSINESS_CONFIG.primaryAddress.area}, {BUSINESS_CONFIG.primaryAddress.city},<br />
                   {BUSINESS_CONFIG.primaryAddress.postcode}
                 </address>
               </div>
 
+            </div>
+
+            {/* Opening Hours Banner in Contact */}
+            <div className="mt-16 pt-12 border-t border-white/10 max-w-xl mx-auto text-center font-sans">
+              <h3 className="text-[#FAD5E6] font-hey text-[36px] mb-4">Opening Hours</h3>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-zinc-300 text-[18px]">
+                <p><strong className="text-white">Monday – Saturday:</strong> {BUSINESS_CONFIG.openingHours.monday}</p>
+                <span className="hidden sm:inline text-white/30">•</span>
+                <p><strong className="text-white">Sunday:</strong> {BUSINESS_CONFIG.openingHours.sunday}</p>
+              </div>
             </div>
           </div>
         </section>

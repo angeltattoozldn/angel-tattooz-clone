@@ -7,6 +7,7 @@ export interface BusinessLocation {
     postcode: string
     country: string
     state: "confirmed" | "TBC"
+    buildingContext?: string
   }
   contact: {
     phone: string
@@ -53,12 +54,13 @@ export interface BusinessLocation {
 export const BUSINESS_CONFIG: BusinessLocation = {
   businessName: "Angel Tattooz",
   primaryAddress: {
-    street: "15 Station Parade",
+    street: "Studio A, 15 Station Parade",
     area: "Cockfosters",
-    city: "Barnet",
+    city: "Barnet, London",
     postcode: "EN4 0DL",
     country: "United Kingdom",
     state: "confirmed",
+    buildingContext: "Located in: Derma Sence",
   },
   contact: {
     phone: "+442082163400",
@@ -79,11 +81,11 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     thursday: "11:30 AM – 6:30 PM",
     friday: "11:30 AM – 6:30 PM",
     saturday: "11:30 AM – 6:30 PM",
-    sunday: "Appointment only",
+    sunday: "Appointments Only",
   },
   relocation: {
     isRelocating: true,
-    note: "We have relocated! Visit our new studio at 15 Station Parade, Cockfosters, Barnet, EN4 0DL (Next to Cockfosters Tube Station).",
+    note: "We have relocated! Visit our new studio at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL (Located in: Derma Sence, Next to Cockfosters Tube Station).",
     estimatedDate: undefined,
   },
   social: {

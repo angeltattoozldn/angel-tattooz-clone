@@ -508,7 +508,7 @@ const posts = [
     category: 'Studio News',
     publishedAt: new Date('2024-05-25T10:00:00.000Z').toISOString(),
     excerpt:
-      'Step inside our premier studio at 15 Station Parade, Cockfosters. Experience unmatched artistic talent, hospital-grade hygiene, and a welcoming client-first consultation environment.',
+      'Step inside our premier studio at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL (Located in: Derma Sence). Experience unmatched artistic talent, hospital-grade hygiene, and a welcoming client-first consultation environment.',
     body: [
       {
         _key: 'e1',
@@ -590,7 +590,7 @@ const posts = [
           {
             _key: 'e7c1',
             _type: 'span',
-            text: 'Conveniently situated at Studio A, 15 Station Parade, Cockfosters, Barnet, EN4 0DL (just steps from Cockfosters Underground Station on the Piccadilly Line), our doors are open for consultations and booked appointments.',
+            text: 'Conveniently situated at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL (Located in: Derma Sence, just steps from Cockfosters Underground Station on the Piccadilly Line), our doors are open for consultations and booked appointments.',
           },
         ],
       },

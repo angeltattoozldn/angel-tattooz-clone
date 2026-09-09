@@ -9,7 +9,9 @@ Angel Tattooz specializes in bespoke custom tattooing, black and grey realism, f
 
 ## Business Information
 - Name: ${BUSINESS_CONFIG.businessName}
-- Address: 15 Station Parade, Cockfosters, EN4 0DL, United Kingdom
+- Address: Studio A, 15 Station Parade, Cockfosters, EN4 0DL, United Kingdom
+- Building Context: Located in: Derma Sence
+- Hours: 11:30 AM - 6:30 PM Mon-Sat (Sunday: Appointments Only)
 - Phone (Studio): ${BUSINESS_CONFIG.contact.phoneDisplay}
 - Phone (Mobile): ${BUSINESS_CONFIG.contact.phone2Display}
 - Email: ${BUSINESS_CONFIG.contact.email}

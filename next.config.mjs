@@ -50,6 +50,26 @@ const nextConfig = {
         destination: '/blog/discover-the-ultimate-tattoo-experience-at-angel-tattooz/',
         permanent: true,
       },
+      {
+        source: '/top-tattoo-styles-in-2026-find-your-next-design-inspiration/',
+        destination: '/blog/top-tattoo-styles-in-2026-find-your-next-design-inspiration/',
+        permanent: true,
+      },
+      {
+        source: '/privacy/',
+        destination: '/privacy-policy/',
+        permanent: true,
+      },
+      {
+        source: '/terms/',
+        destination: '/terms-of-service/',
+        permanent: true,
+      },
+      {
+        source: '/terms-and-conditions/',
+        destination: '/terms-of-service/',
+        permanent: true,
+      },
     ]
   },
   async headers() {

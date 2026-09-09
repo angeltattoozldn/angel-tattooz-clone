@@ -12,6 +12,19 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Tattoo Blog | Tips, Trends & Inspiration | Angel Tattooz",
   description: "Explore our tattoo blog for expert advice, style guides, aftercare tips, and the latest trends in tattoo artistry.",
+  alternates: {
+    canonical: "https://www.angeltattooz.co.uk/blog/",
+  },
+}
+
+function normalizePostTitle(title: string): string {
+  if (
+    title.includes("Top 10 Most Popular Tattoo Styles in 2024") ||
+    title.includes("Popular Tattoo Styles in 2024")
+  ) {
+    return "Top Tattoo Styles in 2026: Find Your Next Design Inspiration";
+  }
+  return title.replace(/\b2024\b/g, "2026");
 }
 
 const postsQuery = groq`*[_type == "post" && !(_id in path("drafts.**"))] | order(publishedAt desc) {
@@ -69,7 +82,7 @@ export default async function BlogIndexPage() {
                     </div>
                     <h2 className="text-xl font-bold mt-2 mb-3">
                       <Link className="hover:text-primary transition-colors before:absolute before:inset-0" href={`/blog/${post.slug}/`}>
-                        {post.title}
+                        {normalizePostTitle(post.title)}
                       </Link>
                     </h2>
                     <p className="text-muted-foreground text-sm line-clamp-3 mb-4">{post.excerpt}</p>

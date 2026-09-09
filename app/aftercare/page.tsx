@@ -6,6 +6,9 @@ import Image from "next/image"
 export const metadata: Metadata = {
   title: "Aftercare | Angel Tattooz",
   description: "Proper aftercare is crucial for ensuring the best healing and longevity of your tattoo.",
+  alternates: {
+    canonical: "https://www.angeltattooz.co.uk/aftercare/",
+  },
 }
 
 export default function AftercarePage() {

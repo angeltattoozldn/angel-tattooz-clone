@@ -17,16 +17,31 @@ interface PageProps {
 
 import type { Metadata } from 'next';
 
+function normalizePostTitle(title: string): string {
+  if (
+    title.includes("Top 10 Most Popular Tattoo Styles in 2024") ||
+    title.includes("Popular Tattoo Styles in 2024")
+  ) {
+    return "Top Tattoo Styles in 2026: Find Your Next Design Inspiration";
+  }
+  return title.replace(/\b2024\b/g, "2026");
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
+  const lookupSlug =
+    slug === "top-tattoo-styles-in-2026-find-your-next-design-inspiration"
+      ? "top-10-most-popular-tattoo-styles-in-2024-find-your-next-design-inspiration"
+      : slug;
+
   let post = null;
   try {
     post = await client.fetch(
-      groq`*[_type == "post" && slug.current == $slug && !(_id in path("drafts.**"))][0]{
+      groq`*[_type == "post" && (slug.current == $lookupSlug || slug.current == $slug) && !(_id in path("drafts.**"))][0]{
         title,
         excerpt
       }`,
-      { slug }
+      { lookupSlug, slug }
     );
   } catch (err) {
     console.error("Failed to fetch Sanity post for metadata:", err);
@@ -36,9 +51,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: 'Post Not Found | Angel Tattooz' };
   }
 
+  const cleanTitle = normalizePostTitle(post.title);
+  const cleanExcerpt = post.excerpt ? post.excerpt.replace(/\b2024\b/g, "2026") : "Read the latest from Angel Tattooz.";
+
   return {
-    title: `${post.title} | Angel Tattooz`,
-    description: post.excerpt || "Read the latest from Angel Tattooz.",
+    title: `${cleanTitle} | Angel Tattooz`,
+    description: cleanExcerpt,
     alternates: {
       canonical: `https://www.angeltattooz.co.uk/blog/${slug}/`,
     },
@@ -49,11 +67,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function DynamicBlogPostPage({ params }: PageProps) {
   const { slug } = await params;
+  const lookupSlug =
+    slug === "top-tattoo-styles-in-2026-find-your-next-design-inspiration"
+      ? "top-10-most-popular-tattoo-styles-in-2024-find-your-next-design-inspiration"
+      : slug;
 
   let post = null;
   try {
     post = await client.fetch(
-      groq`*[_type == "post" && slug.current == $slug && !(_id in path("drafts.**"))][0]{
+      groq`*[_type == "post" && (slug.current == $lookupSlug || slug.current == $slug) && !(_id in path("drafts.**"))][0]{
         title,
         "slug": slug.current,
         excerpt,
@@ -64,7 +86,7 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
         author->{ name, role, bio, image, instagram, knowsAbout },
         faqs
       }`,
-      { slug }
+      { lookupSlug, slug }
     );
   } catch (err) {
     console.error("Failed to fetch Sanity post:", err);
@@ -74,13 +96,17 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
     notFound();
   }
 
+  const postTitle = normalizePostTitle(post.title);
+  const postExcerpt = post.excerpt ? post.excerpt.replace(/\b2024\b/g, "2026") : "";
+
   // Generate dynamic Article + FAQ Schema
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: post.title,
-    description: post.excerpt,
+    headline: postTitle,
+    description: postExcerpt,
     datePublished: post.publishedAt,
+    dateModified: '2026-09-01T00:00:00.000Z',
     author: {
       '@type': 'Person',
       name: post.author?.name || 'Angel Tattooz',
@@ -105,7 +131,7 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
           {post.mainImage && (
             <div className="absolute inset-0 z-0">
               <Image 
-                alt={post.mainImage.alt || post.title} 
+                alt={post.mainImage.alt || postTitle} 
                 className="object-cover" 
                 fill 
                 sizes="100vw"
@@ -118,7 +144,7 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
           
           <div className="relative z-10 max-w-6xl mx-auto text-center px-4 pt-10">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-hey text-[#ffe4e6] tracking-wide leading-tight max-w-5xl mx-auto drop-shadow-lg">
-              {post.title}
+              {postTitle}
             </h1>
           </div>
         </section>
@@ -128,8 +154,16 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
           
           {/* Left Column: Article Body */}
           <article className="lg:col-span-8">
-            <div className="mb-6 text-sm text-zinc-400">
-              Welcome to Angel Tattooz, your go-to source for the latest tattoo trends in 2024. Whether you're a seasoned tattoo enthusiast or a first-timer looking for inspiration, we've got you covered.
+            {/* Visible Modernization Badge */}
+            <div className="flex items-center gap-2 mb-6">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-950/80 border border-emerald-500/40 text-emerald-400">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                Updated: September 2026
+              </span>
+            </div>
+
+            <div className="mb-6 text-sm text-zinc-300">
+              Welcome to Angel Tattooz, your go-to source for the latest tattoo trends in 2026. Whether you're a seasoned tattoo enthusiast or a first-timer looking for inspiration, we've got you covered.
             </div>
 
             {/* Portable Text Body with Custom Component Styling */}

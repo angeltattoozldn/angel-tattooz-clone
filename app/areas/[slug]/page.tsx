@@ -37,6 +37,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       "custom tattoos",
       "North London tattoo",
     ],
+    alternates: {
+      canonical: `https://www.angeltattooz.co.uk/areas/${slug}/`,
+    },
   }
 }
 

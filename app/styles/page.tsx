@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Tattoo Styles & Portfolio | Realism, Traditional, Japanese | Angel Tattooz",
   description:
     "Explore our diverse tattoo style portfolio. Realism, traditional, Japanese, geometric, watercolor, tribal, and more. North London's premier tattoo artists.",
+  alternates: {
+    canonical: "https://www.angeltattooz.co.uk/styles/",
+  },
 }
 
 export default function StylesPage() {

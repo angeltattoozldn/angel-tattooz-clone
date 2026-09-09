@@ -43,6 +43,7 @@ export function SiteFooter() {
                   className="text-[16px] leading-[1.6] font-normal hover:text-[#FAD5E6] transition-colors font-sans"
                 >
                   {BUSINESS_CONFIG.primaryAddress.street},<br />
+                  {BUSINESS_CONFIG.primaryAddress.buildingContext && <>{BUSINESS_CONFIG.primaryAddress.buildingContext},<br /></>}
                   {BUSINESS_CONFIG.primaryAddress.area}, {BUSINESS_CONFIG.primaryAddress.city},<br />
                   {BUSINESS_CONFIG.primaryAddress.postcode}
                 </a>
@@ -74,7 +75,8 @@ export function SiteFooter() {
             <div className="flex flex-col items-center gap-3 text-[16px] font-sans pt-2">
               <Link href="/faq/" className="hover:text-[#FAD5E6] transition-colors">FAQ</Link>
               <Link href="/aftercare/" className="hover:text-[#FAD5E6] transition-colors">After Care</Link>
-              <Link href="/privacy-and-terms/" className="hover:text-[#FAD5E6] transition-colors">Privacy & Terms</Link>
+              <Link href="/privacy-policy/" className="hover:text-[#FAD5E6] transition-colors">Privacy Policy</Link>
+              <Link href="/terms-of-service/" className="hover:text-[#FAD5E6] transition-colors">Terms of Service</Link>
               <Link href="/#newsletter" className="hover:text-[#FAD5E6] transition-colors">Offer</Link>
             </div>
 
@@ -158,7 +160,7 @@ export function SiteFooter() {
       <div className="bg-black py-6 mt-8 border-t border-white/5">
         <div className="container mx-auto text-center">
           <p className="text-white text-[14px] font-sans font-normal tracking-wide">
-            2024 © Angel Tattooz
+            © 2024–{new Date().getFullYear()} Angel Tattooz. All rights reserved.
           </p>
         </div>
       </div>
