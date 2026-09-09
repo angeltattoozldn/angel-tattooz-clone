@@ -170,8 +170,8 @@ export function generateLocalBusinessSchema() {
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 51.6517,
-      longitude: -0.1488,
+      latitude: 51.648312,
+      longitude: -0.147312,
     },
     areaServed: [
       'Cockfosters',
