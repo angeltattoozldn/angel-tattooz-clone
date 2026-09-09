@@ -32,6 +32,7 @@ export async function GET() {
       },
       contact: BUSINESS_CONFIG.contact,
       geo: BUSINESS_CONFIG.geo,
+      plusCode: "JVX3+83 Barnet, United Kingdom",
       openingHours: BUSINESS_CONFIG.openingHours,
       openingHoursSpecification: [
         {

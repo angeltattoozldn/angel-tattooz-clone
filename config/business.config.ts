@@ -71,8 +71,8 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     email: "Ink@angeltattooz.co.uk",
   },
   geo: {
-    latitude: 51.6517,
-    longitude: -0.1488,
+    latitude: 51.648312,
+    longitude: -0.147312,
   },
   openingHours: {
     monday: "11:30 AM – 6:30 PM",
