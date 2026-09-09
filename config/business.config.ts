@@ -71,8 +71,8 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     email: "Ink@angeltattooz.co.uk",
   },
   geo: {
-    latitude: 51.648312,
-    longitude: -0.147312,
+    latitude: 51.6485798,
+    longitude: -0.1474347,
   },
   openingHours: {
     monday: "11:30 AM – 6:30 PM",
@@ -100,7 +100,7 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     googleRating: 5.0,
     reviewCount: 127,
     googleReviewUrl: "https://g.page/r/CaJWy-nqXoSYEBM/review",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Angel+Tattooz+Cockfosters",
+    googleMapsUrl: "https://maps.app.goo.gl/5YKt1y4fTxgNL7xp7",
   },
 }
 

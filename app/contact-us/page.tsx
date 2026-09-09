@@ -89,12 +89,19 @@ export default function ContactPage() {
                 <h2 className="text-[#FAD5E6] font-hey text-[46px] leading-tight mb-2">
                   Address
                 </h2>
-                <address className="text-white font-sans text-[19px] not-italic max-w-75">
-                  {BUSINESS_CONFIG.primaryAddress.street},<br />
-                  Located in: Derma Sence,<br />
-                  {BUSINESS_CONFIG.primaryAddress.area}, {BUSINESS_CONFIG.primaryAddress.city},<br />
-                  {BUSINESS_CONFIG.primaryAddress.postcode}
-                </address>
+                <a
+                  href={BUSINESS_CONFIG.reviews.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FAD5E6] transition-colors"
+                >
+                  <address className="text-white font-sans text-[19px] not-italic max-w-75 cursor-pointer">
+                    {BUSINESS_CONFIG.primaryAddress.street},<br />
+                    Located in: Derma Sence,<br />
+                    {BUSINESS_CONFIG.primaryAddress.area}, {BUSINESS_CONFIG.primaryAddress.city},<br />
+                    {BUSINESS_CONFIG.primaryAddress.postcode}
+                  </address>
+                </a>
               </div>
 
             </div>
@@ -123,7 +130,7 @@ export default function ContactPage() {
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              src={`https://www.google.com/maps?q=${encodeURIComponent(getFullAddress())}&output=embed`}
+              src="https://www.google.com/maps?q=ANGEL+TATTOOZ,15+Station+Parade,Cockfosters,Barnet+EN4+0DL&ll=51.6485798,-0.1474347&z=19&output=embed"
               title="Angel Tattooz Location"
             ></iframe>
           </div>

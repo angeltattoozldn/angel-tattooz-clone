@@ -178,7 +178,7 @@ export function ReviewsSection() {
           </a>
 
           <a
-            href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_CONFIG.businessName + " " + BUSINESS_CONFIG.primaryAddress.street + " " + BUSINESS_CONFIG.primaryAddress.postcode)}`}
+            href={BUSINESS_CONFIG.reviews.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent text-[#FAD5E6] border border-[#FAD5E6]/40 font-semibold text-[15px] py-3.5 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-[#FAD5E6]/10 hover:border-[#FAD5E6]"

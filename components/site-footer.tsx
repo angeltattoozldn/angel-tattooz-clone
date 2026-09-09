@@ -37,7 +37,7 @@ export function SiteFooter() {
                   <MapPin className="w-4.5 h-4.5" />
                 </div>
                 <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(getFullAddress())}`}
+                  href={BUSINESS_CONFIG.reviews.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[16px] leading-[1.6] font-normal hover:text-[#FAD5E6] transition-colors font-sans"
