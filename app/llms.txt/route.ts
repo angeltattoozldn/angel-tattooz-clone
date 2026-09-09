@@ -11,7 +11,8 @@ Angel Tattooz specializes in bespoke custom tattooing, black and grey realism, f
 - Name: ${BUSINESS_CONFIG.businessName}
 - Address: Studio A, 15 Station Parade, Cockfosters, EN4 0DL, United Kingdom
 - Building Context: Located in: Derma Sence
-- Coordinates: 51.648312, -0.147312 (Plus Code: JVX3+83 Barnet, United Kingdom / 9C3XJVX3+83)
+- Coordinates: 51.6485798, -0.1474347 (Plus Code: JVX3+83 Barnet, United Kingdom / 9C3XJVX3+83)
+- Google Maps: https://maps.app.goo.gl/5YKt1y4fTxgNL7xp7
 - Hours: 11:30 AM - 6:30 PM Mon-Sat (Sunday: Appointments Only)
 - Phone (Studio): ${BUSINESS_CONFIG.contact.phoneDisplay}
 - Phone (Mobile): ${BUSINESS_CONFIG.contact.phone2Display}
