@@ -26,14 +26,20 @@ export async function GET() {
 
     location: {
       address: {
-        ...BUSINESS_CONFIG.primaryAddress,
+        streetAddress: "Studio A, 15 Station Parade",
+        addressLocality: "Cockfosters, Barnet, London",
+        postalCode: "EN4 0DL",
+        addressCountry: "GB",
         fullAddress: "Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL",
-        buildingContext: "Located in: Derma Sence",
       },
+      landmark: "Minutes' walk from Cockfosters Underground Station, right next door to Costa Coffee on Station Parade.",
       contact: BUSINESS_CONFIG.contact,
-      geo: BUSINESS_CONFIG.geo,
+      geo: {
+        latitude: 51.6511,
+        longitude: -0.1495,
+      },
       plusCode: "JVX3+83 Barnet, United Kingdom",
-      googleMapsUrl: BUSINESS_CONFIG.reviews.googleMapsUrl,
+      googleMapsUrl: "https://maps.google.com/?cid=12140880313101569106",
       openingHours: BUSINESS_CONFIG.openingHours,
       openingHoursSpecification: [
         {

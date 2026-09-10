@@ -237,6 +237,42 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
                 Book Your Appointment
               </Link>
             </div>
+
+            {/* Specialist Catchments & Studios Link Hub */}
+            <div className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 space-y-4">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-400">
+                Specialist Services & Studios
+              </h3>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <Link
+                    href="/best-tattoo-cover-up-studio-london/"
+                    className="text-zinc-200 hover:text-[#c2a278] transition-colors block leading-snug"
+                  >
+                    ✦ <span className="underline decoration-zinc-700 hover:decoration-[#c2a278]">our specialized cover-up process in North London</span>
+                  </Link>
+                  <p className="text-xs text-zinc-400 mt-0.5">Bespoke blast-overs & complete ink transformations</p>
+                </li>
+                <li>
+                  <Link
+                    href="/best-first-tattoo-studio-london-southgate/"
+                    className="text-zinc-200 hover:text-[#c2a278] transition-colors block leading-snug"
+                  >
+                    ✦ <span className="underline decoration-zinc-700 hover:decoration-[#c2a278]">best first tattoo studio in London (Southgate & Cockfosters)</span>
+                  </Link>
+                  <p className="text-xs text-zinc-400 mt-0.5">Gentle, patient consultation for first-time ink collectors</p>
+                </li>
+                <li>
+                  <Link
+                    href="/tattoo-studio-potters-bar-hatfield/"
+                    className="text-zinc-200 hover:text-[#c2a278] transition-colors block leading-snug"
+                  >
+                    ✦ <span className="underline decoration-zinc-700 hover:decoration-[#c2a278]">premier tattoo studio serving Potters Bar & Hatfield</span>
+                  </Link>
+                  <p className="text-xs text-zinc-400 mt-0.5">Dedicated Hertfordshire & North London catchment studio</p>
+                </li>
+              </ul>
+            </div>
           </aside>
 
         </div>

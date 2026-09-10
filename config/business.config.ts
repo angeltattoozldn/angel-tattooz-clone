@@ -60,7 +60,6 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     postcode: "EN4 0DL",
     country: "United Kingdom",
     state: "confirmed",
-    buildingContext: "Located in: Derma Sence",
   },
   contact: {
     phone: "+442082163400",
@@ -71,8 +70,8 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     email: "Ink@angeltattooz.co.uk",
   },
   geo: {
-    latitude: 51.6485798,
-    longitude: -0.1474347,
+    latitude: 51.6511,
+    longitude: -0.1495,
   },
   openingHours: {
     monday: "11:30 AM – 6:30 PM",
@@ -85,7 +84,7 @@ export const BUSINESS_CONFIG: BusinessLocation = {
   },
   relocation: {
     isRelocating: true,
-    note: "We have relocated! Visit our new studio at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL (Located in: Derma Sence, Next to Cockfosters Tube Station).",
+    note: "Angel Tattooz is located at Studio A, 15 Station Parade, Cockfosters, EN4 0DL — just minutes’ walk from Cockfosters Underground Station and immediately next door to the large double-fronted Costa Coffee on Station Parade.",
     estimatedDate: undefined,
   },
   social: {

@@ -2,11 +2,19 @@ import type { Metadata } from "next";
 /* eslint-disable tailwindcss/no-contradicting-classname */
 import Image from "next/image"
 import Link from "next/link"
+import dynamic from "next/dynamic"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { ReviewsSection } from "@/components/reviews-section"
 import { generateWebSiteSchema } from "@/lib/schema"
 import { BackgroundVideo } from "@/components/background-video"
+
+const ReviewsSection = dynamic(
+  () => import("@/components/reviews-section").then((mod) => mod.ReviewsSection),
+  {
+    ssr: true,
+    loading: () => <div className="h-64 animate-pulse bg-slate-900/20 rounded-lg max-w-285 mx-auto my-12" />,
+  }
+)
 
 
 export const metadata: Metadata = {
@@ -38,10 +46,11 @@ export default function Home() {
               src="/images/home/Angle-Tattooz-Website-Hero-Image.webp"
               alt="Angel Tattooz Studio Background"
               fill
-              sizes="100vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover object-[77%] md:object-center"
               priority={true}
               fetchPriority="high"
+              loading="eager"
               quality={90}
             />
           </div>
@@ -243,8 +252,13 @@ export default function Home() {
             - 3 Columns, 2 Rows
             - 3D Flip Animation on Hover
            ========================================= */}
-        <section className="relative bg-[#121212] py-20 px-4">
+        <section className="relative bg-[#121212] py-20 px-4" aria-label="Our Professional Tattoo Services">
           <div className="container mx-auto max-w-285">
+            <div className="text-center mb-12">
+              <h2 className="text-[#FAD5E6] font-hey text-[45px] md:text-[65px] leading-none font-normal">
+                Our Professional Tattoo Services
+              </h2>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
               {/* Service 1: Custom Tattoo Design */}
@@ -407,8 +421,13 @@ export default function Home() {
             - 4 Columns
             - Background Image + Overlay + Icon
            ========================================= */}
-        <section className="relative bg-[#121212] py-10 px-4">
+        <section className="relative bg-[#121212] py-10 px-4" aria-label="Follow Us on Instagram">
           <div className="container mx-auto max-w-285">
+            <div className="text-center mb-8">
+              <h2 className="text-[#FAD5E6] font-hey text-[45px] md:text-[65px] leading-none font-normal">
+                Follow Our Ink Journey
+              </h2>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
 
               {/* Insta Item 1 */}
@@ -450,8 +469,13 @@ export default function Home() {
             - 3 Column Grid
             - Blog Card Style with Floating Badge
            ========================================= */}
-        <section className="relative bg-[#121212] pb-24 px-4">
+        <section className="relative bg-[#121212] pb-24 px-4" aria-label="Latest Articles and Guides">
           <div className="container mx-auto max-w-285">
+            <div className="text-center mb-12">
+              <h2 className="text-[#FAD5E6] font-hey text-[45px] md:text-[65px] leading-none font-normal">
+                Latest Articles & Tattoo Guides
+              </h2>
+            </div>
 
             {/* Blog Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7.5 mb-12">

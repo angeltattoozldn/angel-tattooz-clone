@@ -5,11 +5,21 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'cdn.sanity.io',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.cdninstagram.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.fbcdn.net',
       },
     ],
   },
@@ -99,7 +109,7 @@ const nextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.youtube.com https://www.youtube-nocookie.com https://s.ytimg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' blob: data: https://cdn.sanity.io https://images.unsplash.com https://i.ytimg.com; font-src 'self' https://fonts.gstatic.com data:; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com; connect-src 'self' https://e1ur0uih.api.sanity.io https://cdn.sanity.io https://www.google-analytics.com;",
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.googletagmanager.com https://www.youtube.com https://www.youtube-nocookie.com https://s.ytimg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' blob: data: https://cdn.sanity.io https://images.unsplash.com https://i.ytimg.com https://*.cdninstagram.com https://*.fbcdn.net https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://maps.google.com; connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com https://e1ur0uih.api.sanity.io https://cdn.sanity.io https://www.google-analytics.com; object-src 'none'; base-uri 'self';",
           },
         ],
       },

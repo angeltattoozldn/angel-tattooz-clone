@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export const portableTextComponents = {
   block: {
     h2: ({ children }: any) => (
@@ -13,5 +15,28 @@ export const portableTextComponents = {
     normal: ({ children }: any) => (
       <p className="text-zinc-300 leading-relaxed text-sm md:text-base mb-6">{children}</p>
     ),
+  },
+  marks: {
+    link: ({ children, value }: any) => {
+      const href = value?.href || '#';
+      const isInternal = href.startsWith('/') || href.startsWith('#');
+      if (isInternal) {
+        return (
+          <Link href={href} className="text-[#c2a278] hover:text-[#e0c59e] underline underline-offset-4 decoration-[#c2a278]/50 hover:decoration-[#c2a278] transition-colors font-medium">
+            {children}
+          </Link>
+        );
+      }
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#c2a278] hover:text-[#e0c59e] underline underline-offset-4 decoration-[#c2a278]/50 hover:decoration-[#c2a278] transition-colors font-medium"
+        >
+          {children}
+        </a>
+      );
+    },
   },
 };

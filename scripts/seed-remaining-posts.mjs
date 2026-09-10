@@ -354,7 +354,25 @@ const posts = [
           {
             _key: 'l6c1',
             _type: 'span',
-            text: 'With a cover-up at Angel Tattooz, you walk away with a piece of art you are proud to wear in just a fraction of the time and cost required by laser clinics.',
+            text: 'With ',
+          },
+          {
+            _key: 'l6c2',
+            _type: 'span',
+            marks: ['link-coverup'],
+            text: 'our specialized cover-up process in North London',
+          },
+          {
+            _key: 'l6c3',
+            _type: 'span',
+            text: ' at Angel Tattooz, you walk away with a piece of art you are proud to wear in just a fraction of the time and cost required by laser clinics.',
+          },
+        ],
+        markDefs: [
+          {
+            _key: 'link-coverup',
+            _type: 'link',
+            href: '/best-tattoo-cover-up-studio-london/',
           },
         ],
       },
@@ -508,7 +526,7 @@ const posts = [
     category: 'Studio News',
     publishedAt: new Date('2024-05-25T10:00:00.000Z').toISOString(),
     excerpt:
-      'Step inside our premier studio at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL (Located in: Derma Sence). Experience unmatched artistic talent, hospital-grade hygiene, and a welcoming client-first consultation environment.',
+      'Step inside our premier studio at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL (minutes’ walk from Cockfosters Underground Station, right next door to Costa Coffee on Station Parade). Experience unmatched artistic talent, hospital-grade hygiene, and a welcoming client-first consultation environment.',
     body: [
       {
         _key: 'e1',
@@ -590,7 +608,55 @@ const posts = [
           {
             _key: 'e7c1',
             _type: 'span',
-            text: 'Conveniently situated at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL (Located in: Derma Sence, just steps from Cockfosters Underground Station on the Piccadilly Line), our doors are open for consultations and booked appointments.',
+            text: 'Conveniently situated at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL (minutes’ walk from Cockfosters Underground Station, right next door to Costa Coffee on Station Parade), our doors are open for consultations and booked appointments. We are widely recognized as the ',
+          },
+          {
+            _key: 'e7c2',
+            _type: 'span',
+            marks: ['link-first-tattoo'],
+            text: 'best first tattoo studio in London (Southgate & Cockfosters)',
+          },
+          {
+            _key: 'e7c3',
+            _type: 'span',
+            text: ', providing complete peace of mind for beginners.',
+          },
+        ],
+        markDefs: [
+          {
+            _key: 'link-first-tattoo',
+            _type: 'link',
+            href: '/best-first-tattoo-studio-london-southgate/',
+          },
+        ],
+      },
+      {
+        _key: 'e8',
+        _type: 'block',
+        style: 'normal',
+        children: [
+          {
+            _key: 'e8c1',
+            _type: 'span',
+            text: 'For clients traveling from Hertfordshire, we also serve as the ',
+          },
+          {
+            _key: 'e8c2',
+            _type: 'span',
+            marks: ['link-potters-bar'],
+            text: 'premier tattoo studio serving Potters Bar & Hatfield',
+          },
+          {
+            _key: 'e8c3',
+            _type: 'span',
+            text: ' with direct transport connections and easy local parking.',
+          },
+        ],
+        markDefs: [
+          {
+            _key: 'link-potters-bar',
+            _type: 'link',
+            href: '/tattoo-studio-potters-bar-hatfield/',
           },
         ],
       },

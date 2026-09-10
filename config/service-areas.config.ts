@@ -41,7 +41,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
       {
         question: "How do I get to Angel Tattooz from Barnet town centre?",
         answer:
-          "We're located at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL (Located in: Derma Sence, just steps from Cockfosters Tube Station).",
+          "We're located at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL — minutes' walk from Cockfosters Underground Station and immediately next door to Costa Coffee on Station Parade.",
       },
       {
         question: "Is there parking near your Barnet studio?",
@@ -85,7 +85,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
       {
         question: "Where exactly is Angel Tattooz in Cockfosters?",
         answer:
-          "We're at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL (Located in: Derma Sence, next to Cockfosters Tube Station at the end of the Piccadilly Line).",
+          "We're at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL — minutes' walk from Cockfosters Underground Station, right next door to Costa Coffee on Station Parade.",
       },
       {
         question: "Can I park at your Cockfosters location?",

@@ -39,7 +39,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/privacy-and-terms',
     '/privacy-policy',
     '/terms-of-service',
-    '/payments'
+    '/payments',
+    '/best-first-tattoo-studio-london-southgate',
+    '/best-tattoo-cover-up-studio-london',
+    '/tattoo-studio-potters-bar-hatfield'
   ].map((route) => ({
     url: route === '' ? 'https://www.angeltattooz.co.uk/' : `https://www.angeltattooz.co.uk${route}/`,
     lastModified: new Date(),
