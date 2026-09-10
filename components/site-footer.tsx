@@ -37,15 +37,17 @@ export function SiteFooter() {
                   <MapPin className="w-4.5 h-4.5" />
                 </div>
                 <a
-                  href={BUSINESS_CONFIG.reviews.googleMapsUrl}
+                  href="https://maps.google.com/?cid=12140880313101569106"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[16px] leading-[1.6] font-normal hover:text-[#FAD5E6] transition-colors font-sans"
+                  className="text-[16px] leading-[1.6] font-normal hover:text-[#FAD5E6] transition-colors font-sans text-center max-w-75"
                 >
                   {BUSINESS_CONFIG.primaryAddress.street},<br />
-                  {BUSINESS_CONFIG.primaryAddress.buildingContext && <>{BUSINESS_CONFIG.primaryAddress.buildingContext},<br /></>}
                   {BUSINESS_CONFIG.primaryAddress.area}, {BUSINESS_CONFIG.primaryAddress.city},<br />
                   {BUSINESS_CONFIG.primaryAddress.postcode}
+                  <span className="block text-xs text-zinc-400 mt-2 font-normal">
+                    Minutes’ walk from Cockfosters Underground Station, right next door to Costa Coffee on Station Parade.
+                  </span>
                 </a>
               </div>
 
@@ -159,8 +161,11 @@ export function SiteFooter() {
       {/* --- BOTTOM COPYRIGHT BAR --- */}
       <div className="bg-black py-6 mt-8 border-t border-white/5">
         <div className="container mx-auto text-center">
-          <p className="text-white text-[14px] font-sans font-normal tracking-wide">
-            © 2024–{new Date().getFullYear()} Angel Tattooz. All rights reserved.
+          <p
+            suppressHydrationWarning
+            className="text-white text-[14px] font-sans font-normal tracking-wide"
+          >
+            © 2026 Angel Tattooz. All rights reserved.
           </p>
         </div>
       </div>

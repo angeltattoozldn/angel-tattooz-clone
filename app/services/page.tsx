@@ -58,8 +58,13 @@ export default function ServicesPage() {
             - Left Column: Accordion Set 1
             - Right Column: Accordion Set 2
            ========================================= */}
-        <section className="bg-[#121212] pb-16 px-4">
+        <section className="bg-[#121212] pb-16 px-4" aria-label="Our Tattoo Service Specialties">
           <div className="container mx-auto max-w-285">
+            <div className="text-center mb-10">
+              <h2 className="text-[#FAD5E6] font-hey text-[45px] md:text-[65px] leading-none font-normal">
+                Our Tattoo Disciplines & Specialties
+              </h2>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start">
 
               {/* Left Column Accordion */}
@@ -79,10 +84,10 @@ export default function ServicesPage() {
         {/* =========================================
             4. ADDITIONAL STYLES LIST
            ========================================= */}
-        <section className="bg-[#121212] pt-4 pb-20 px-4">
+        <section className="bg-[#121212] pt-4 pb-20 px-4" aria-label="Additional Tattoo Styles">
           <div className="container mx-auto max-w-285">
             <div className="text-center mb-8">
-              <p className="text-white text-[16px]">We also do the following style of tattoos:</p>
+              <h2 className="text-white text-[20px] font-semibold">We also do the following style of tattoos:</h2>
             </div>
 
             <div className="bg-[#242424] rounded-[15px] p-8 md:p-12">
@@ -101,9 +106,9 @@ export default function ServicesPage() {
         {/* =========================================
             5. CTA SECTION
            ========================================= */}
-        <section className="relative bg-[#121212] py-16 px-4 border-t border-white/5">
+        <section className="relative bg-[#121212] py-16 px-4 border-t border-white/5" aria-label="Ready to Get Inked">
           <div className="container mx-auto max-w-285 flex flex-col items-center text-center gap-6">
-            <h2 className="text-[#FAD5E6] font-hey text-[45px] md:text-[65px] leading-nonee font-normal">
+            <h2 className="text-[#FAD5E6] font-hey text-[45px] md:text-[65px] leading-none font-normal">
               Ready to Get Inked?
             </h2>
             <div className="max-w-162.5">
@@ -114,7 +119,7 @@ export default function ServicesPage() {
             </div>
             <Link
               href="/bookings"
-              className="inline-block bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] font-medium py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black mt-2"
+              className="inline-block bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] py-3 px-8 rounded-[3px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black mt-2"
             >
               Book Now
             </Link>
@@ -148,6 +153,8 @@ function AccordionGroup({ services }: { services: any[] }) {
             {/* Header */}
             <button
               onClick={() => toggle(index)}
+              aria-expanded={isOpen}
+              aria-label={`Toggle ${service.title} details`}
               className="w-full flex items-center bg-[#242424] p-2.5 transition-colors hover:bg-[#2a2a2a] text-left group"
             >
               {/* Icon Circle */}
@@ -157,6 +164,7 @@ function AccordionGroup({ services }: { services: any[] }) {
                   viewBox={service.viewBox}
                   fill="currentColor"
                   className="w-9.25 h-9.25"
+                  aria-hidden="true"
                 >
                   <g dangerouslySetInnerHTML={{ __html: service.path }} />
                 </svg>
@@ -164,7 +172,7 @@ function AccordionGroup({ services }: { services: any[] }) {
 
               {/* Title */}
               <div className="flex-1 pl-4">
-                <span className="text-white font-sans text-[16px] font-semibold">{service.title}</span>
+                <h3 className="text-white font-sans text-[16px] font-semibold m-0">{service.title}</h3>
               </div>
 
               {/* Toggle Icon */}

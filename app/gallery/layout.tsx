@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const revalidate = 3600; // Cache and revalidate once per hour
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

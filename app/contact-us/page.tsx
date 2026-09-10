@@ -90,16 +90,18 @@ export default function ContactPage() {
                   Address
                 </h2>
                 <a
-                  href={BUSINESS_CONFIG.reviews.googleMapsUrl}
+                  href="https://maps.google.com/?cid=12140880313101569106"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#FAD5E6] transition-colors"
                 >
-                  <address className="text-white font-sans text-[19px] not-italic max-w-75 cursor-pointer">
+                  <address className="text-white font-sans text-[19px] not-italic max-w-85 cursor-pointer text-center">
                     {BUSINESS_CONFIG.primaryAddress.street},<br />
-                    Located in: Derma Sence,<br />
                     {BUSINESS_CONFIG.primaryAddress.area}, {BUSINESS_CONFIG.primaryAddress.city},<br />
                     {BUSINESS_CONFIG.primaryAddress.postcode}
+                    <span className="block text-sm text-zinc-300 mt-3 font-normal leading-relaxed">
+                      Angel Tattooz is located at Studio A, 15 Station Parade, Cockfosters, EN4 0DL — just minutes’ walk from Cockfosters Underground Station and immediately next door to the large double-fronted Costa Coffee on Station Parade.
+                    </span>
                   </address>
                 </a>
               </div>
@@ -130,7 +132,7 @@ export default function ContactPage() {
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=ANGEL+TATTOOZ,15+Station+Parade,Cockfosters,Barnet+EN4+0DL&ll=51.6485798,-0.1474347&z=19&output=embed"
+              src="https://www.google.com/maps?q=Angel+Tattooz,Studio+A,15+Station+Parade,Cockfosters,Barnet,London+EN4+0DL&ll=51.6511,-0.1495&z=19&output=embed"
               title="Angel Tattooz Location"
             ></iframe>
           </div>

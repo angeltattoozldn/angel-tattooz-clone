@@ -50,7 +50,7 @@ export default function TermsOfServicePage() {
             <h3>1. Service Provider</h3>
             <ul className="list-none pl-0 space-y-1 text-zinc-300 text-sm md:text-base">
               <li><strong>Business Name:</strong> {BUSINESS_CONFIG.businessName}</li>
-              <li><strong>Studio Address:</strong> {getFullAddress()} (Located in: Derma Sence)</li>
+              <li><strong>Studio Address:</strong> {getFullAddress()}</li>
               <li><strong>Contact Email:</strong> <a href={`mailto:${BUSINESS_CONFIG.contact.email}`}>{BUSINESS_CONFIG.contact.email}</a></li>
               <li><strong>Telephone:</strong> {BUSINESS_CONFIG.contact.phoneDisplay} / {BUSINESS_CONFIG.contact.phone2Display}</li>
             </ul>
