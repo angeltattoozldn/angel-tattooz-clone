@@ -158,7 +158,7 @@ export function generateLocalBusinessSchema() {
     description: 'We are a premier tattoo studio in London, operating as a modern tattoo shop that honors the history of the classic London tattoo parlour.',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Studio A, 15 Station Parade, Cockfosters',
+      streetAddress: 'Studio A, 15 Station Parade',
       addressLocality: 'Barnet, London',
       postalCode: 'EN4 0DL',
       addressCountry: 'GB',

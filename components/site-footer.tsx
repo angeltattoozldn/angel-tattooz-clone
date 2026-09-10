@@ -40,14 +40,15 @@ export function SiteFooter() {
                   href="https://maps.google.com/?cid=12140880313101569106"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[16px] leading-[1.6] font-normal hover:text-[#FAD5E6] transition-colors font-sans text-center max-w-75"
+                  className="hover:opacity-90 transition-opacity font-sans text-center max-w-75"
                 >
-                  {BUSINESS_CONFIG.primaryAddress.street},<br />
-                  {BUSINESS_CONFIG.primaryAddress.area}, {BUSINESS_CONFIG.primaryAddress.city},<br />
-                  {BUSINESS_CONFIG.primaryAddress.postcode}
-                  <span className="block text-xs text-zinc-400 mt-2 font-normal">
-                    Minutes’ walk from Cockfosters Underground Station, right next door to Costa Coffee on Station Parade.
-                  </span>
+                  <div className="text-slate-300 text-sm leading-relaxed">
+                    <p className="font-semibold text-white">Angel Tattooz</p>
+                    <p>Studio A, 15 Station Parade, Cockfosters, EN4 0DL</p>
+                    <p className="text-amber-400/90 text-xs mt-1">
+                      Minutes’ walk from Cockfosters Underground Station, right next door to Costa Coffee.
+                    </p>
+                  </div>
                 </a>
               </div>
 
