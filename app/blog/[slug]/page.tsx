@@ -271,6 +271,15 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
                   </Link>
                   <p className="text-xs text-zinc-400 mt-0.5">Dedicated Hertfordshire & North London catchment studio</p>
                 </li>
+                <li>
+                  <Link
+                    href="/tattoo-artists-welwyn-garden-city/"
+                    className="text-zinc-200 hover:text-[#c2a278] transition-colors block leading-snug"
+                  >
+                    ✦ <span className="underline decoration-zinc-700 hover:decoration-[#c2a278]">custom tattoo artists serving Welwyn Garden City & Borehamwood</span>
+                  </Link>
+                  <p className="text-xs text-zinc-400 mt-0.5">Bespoke fine line & realism on the Hertfordshire border</p>
+                </li>
               </ul>
             </div>
           </aside>

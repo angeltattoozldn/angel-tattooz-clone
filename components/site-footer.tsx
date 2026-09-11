@@ -37,7 +37,7 @@ export function SiteFooter() {
                   <MapPin className="w-4.5 h-4.5" />
                 </div>
                 <a
-                  href="https://maps.google.com/?cid=12140880313101569106"
+                  href="https://maps.app.goo.gl/aUofWWXSFmsiukHt5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-90 transition-opacity font-sans text-center max-w-75"

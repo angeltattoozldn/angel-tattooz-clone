@@ -99,7 +99,7 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     googleRating: 5.0,
     reviewCount: 127,
     googleReviewUrl: "https://g.page/r/CaJWy-nqXoSYEBM/review",
-    googleMapsUrl: "https://maps.app.goo.gl/5YKt1y4fTxgNL7xp7",
+    googleMapsUrl: "https://maps.app.goo.gl/aUofWWXSFmsiukHt5",
   },
 }
 
