@@ -90,7 +90,7 @@ export default function ContactPage() {
                   Address
                 </h2>
                 <a
-                  href="https://maps.google.com/?cid=12140880313101569106"
+                  href="https://maps.app.goo.gl/aUofWWXSFmsiukHt5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-90 transition-opacity font-sans"

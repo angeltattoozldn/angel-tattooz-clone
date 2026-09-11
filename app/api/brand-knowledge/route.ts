@@ -39,7 +39,7 @@ export async function GET() {
         longitude: -0.1495,
       },
       plusCode: "JVX3+83 Barnet, United Kingdom",
-      googleMapsUrl: "https://maps.google.com/?cid=12140880313101569106",
+      googleMapsUrl: "https://maps.app.goo.gl/aUofWWXSFmsiukHt5",
       openingHours: BUSINESS_CONFIG.openingHours,
       openingHoursSpecification: [
         {

@@ -168,9 +168,9 @@ export function generateLocalBusinessSchema() {
       latitude: 51.6511,
       longitude: -0.1495,
     },
-    hasMap: 'https://maps.google.com/?cid=12140880313101569106',
+    hasMap: 'https://maps.app.goo.gl/aUofWWXSFmsiukHt5',
     sameAs: [
-      'https://maps.google.com/?cid=12140880313101569106',
+      'https://maps.app.goo.gl/aUofWWXSFmsiukHt5',
       'https://www.instagram.com/angeltattoozldn/',
       'https://www.tiktok.com/@angeltattoozldn',
       'https://www.facebook.com/angeltattoozldn',
