@@ -14,8 +14,8 @@ Angel Tattooz specializes in bespoke custom tattooing, black and grey realism, f
 - Coordinates: 51.6511, -0.1495 (Plus Code: JVX3+83 Barnet, United Kingdom / 9C3XJVX3+83)
 - Google Maps: https://maps.app.goo.gl/aUofWWXSFmsiukHt5
 - Hours: 11:30 AM - 6:30 PM Mon-Sat (Sunday: Appointments Only)
-- Phone (Studio): ${BUSINESS_CONFIG.contact.phoneDisplay}
-- Phone (Mobile): ${BUSINESS_CONFIG.contact.phone2Display}
+- Phone: ${BUSINESS_CONFIG.contact.phoneDisplay}
+- WhatsApp: https://wa.me/${BUSINESS_CONFIG.contact.whatsapp.replace('+', '')}
 - Email: ${BUSINESS_CONFIG.contact.email}
 
 ## Key Information & Links

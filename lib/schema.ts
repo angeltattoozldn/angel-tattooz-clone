@@ -153,7 +153,7 @@ export function generateLocalBusinessSchema() {
     image: 'https://www.angeltattooz.co.uk/logo.png',
     '@id': 'https://www.angeltattooz.co.uk/#tattooparlor',
     url: 'https://www.angeltattooz.co.uk/',
-    telephone: '+442082163400',
+    telephone: '+447949123424',
     priceRange: '££-£££',
     description: 'We are a premier tattoo studio in London, operating as a modern tattoo shop that honors the history of the classic London tattoo parlour.',
     address: {

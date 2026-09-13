@@ -219,10 +219,9 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
                 </p>
                 <p className="flex items-center gap-2">
                   <span className="text-zinc-100 font-bold">📞</span>
-                  <div className="flex flex-col">
-                    <span>Studio: {BUSINESS_CONFIG.contact.phoneDisplay}</span>
-                    <span>Mobile: {BUSINESS_CONFIG.contact.phone2Display}</span>
-                  </div>
+                  <a href={`tel:${BUSINESS_CONFIG.contact.phone}`} className="hover:text-[#c2a278] transition-colors">
+                    {BUSINESS_CONFIG.contact.phoneDisplay}
+                  </a>
                 </p>
                 <div className="flex items-center gap-2">
                   <span className="text-zinc-100 font-bold">🕒</span>

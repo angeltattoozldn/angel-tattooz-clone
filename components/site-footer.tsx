@@ -62,13 +62,7 @@ export function SiteFooter() {
                     href={`tel:${BUSINESS_CONFIG.contact.phone}`}
                     className="text-[#FAD5E6] text-[16px] font-normal hover:text-white transition-colors font-sans"
                   >
-                    Studio: {BUSINESS_CONFIG.contact.phoneDisplay}
-                  </a>
-                  <a
-                    href={`tel:${BUSINESS_CONFIG.contact.phone2}`}
-                    className="text-[#FAD5E6] text-[16px] font-normal hover:text-white transition-colors font-sans"
-                  >
-                    Mobile: {BUSINESS_CONFIG.contact.phone2Display}
+                    {BUSINESS_CONFIG.contact.phoneDisplay}
                   </a>
                 </div>
               </div>

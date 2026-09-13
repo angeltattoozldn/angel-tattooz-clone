@@ -52,7 +52,7 @@ export default function TermsOfServicePage() {
               <li><strong>Business Name:</strong> {BUSINESS_CONFIG.businessName}</li>
               <li><strong>Studio Address:</strong> {getFullAddress()}</li>
               <li><strong>Contact Email:</strong> <a href={`mailto:${BUSINESS_CONFIG.contact.email}`}>{BUSINESS_CONFIG.contact.email}</a></li>
-              <li><strong>Telephone:</strong> {BUSINESS_CONFIG.contact.phoneDisplay} / {BUSINESS_CONFIG.contact.phone2Display}</li>
+              <li><strong>Telephone:</strong> {BUSINESS_CONFIG.contact.phoneDisplay}</li>
             </ul>
 
             <h3>2. Appointments, Deposits & Cancellations</h3>
