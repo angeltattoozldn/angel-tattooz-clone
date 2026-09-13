@@ -666,7 +666,7 @@ const posts = [
         _key: 'faq-e1',
         question: 'How do I book an appointment at Angel Tattooz?',
         answer:
-          'Appointments can be booked online via our booking form with a £50 deposit, or by contacting our studio team directly via WhatsApp or phone at 020 8216 3400.',
+          'Appointments can be booked online via our booking form with a £50 deposit, or by contacting our studio team directly via WhatsApp or phone at 07949 123424.',
       },
       {
         _key: 'faq-e2',

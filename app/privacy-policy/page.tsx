@@ -53,7 +53,7 @@ export default function PrivacyPolicyPage() {
               <li><strong>Studio Address:</strong> {getFullAddress()}</li>
               <li><strong>Website:</strong> <a href="https://www.angeltattooz.co.uk">www.angeltattooz.co.uk</a></li>
               <li><strong>Contact Email:</strong> <a href={`mailto:${BUSINESS_CONFIG.contact.email}`}>{BUSINESS_CONFIG.contact.email}</a></li>
-              <li><strong>Phone:</strong> {BUSINESS_CONFIG.contact.phoneDisplay} / {BUSINESS_CONFIG.contact.phone2Display}</li>
+              <li><strong>Phone:</strong> {BUSINESS_CONFIG.contact.phoneDisplay}</li>
             </ul>
 
             <h3>2. Information We Collect</h3>

@@ -3,6 +3,7 @@ import { SiteFooter } from "@/components/site-footer"
 import { SchemaScript } from "@/components/schema-script"
 import { generateBreadcrumbs, generateFAQSchema, generateServiceSchema } from "@/lib/schema"
 import { getServiceAreaBySlug, getAllServiceAreaSlugs } from "@/config/service-areas.config"
+import { BUSINESS_CONFIG } from "@/config/business.config"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -285,7 +286,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
                 <Link href="/bookings/">Book Now</Link>
               </Button>
               <Button size="lg" variant="outline" asChild className="text-base px-8 py-6 bg-transparent">
-                <a href="tel:+442082163400">
+                <a href={`tel:${BUSINESS_CONFIG.contact.phone}`}>
                   <Phone className="h-5 w-5 mr-2" />
                   Call Us
                 </a>

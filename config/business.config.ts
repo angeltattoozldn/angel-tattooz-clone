@@ -62,11 +62,11 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     state: "confirmed",
   },
   contact: {
-    phone: "+442082163400",
-    phoneDisplay: "+44 20 8216 3400",
+    phone: "+447949123424",
+    phoneDisplay: "+44 79 4912 3424",
     phone2: "+447949123424",
     phone2Display: "+44 79 4912 3424",
-    whatsapp: "+442082163400",
+    whatsapp: "+447949123424",
     email: "Ink@angeltattooz.co.uk",
   },
   geo: {

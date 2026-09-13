@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { RelocationBanner } from "@/components/relocation-banner"
 import { SchemaScript } from "@/components/schema-script"
+import { QuickActionsBar } from "@/components/quick-actions-bar"
 import { generateLocalBusinessSchema } from "@/lib/schema"
 import "./globals.css"
 
@@ -115,6 +116,7 @@ export default function RootLayout({
 
         <RelocationBanner />
         {children}
+        <QuickActionsBar />
         <Analytics />
         <SpeedInsights />
       </body>
