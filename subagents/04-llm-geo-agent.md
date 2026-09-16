@@ -23,7 +23,7 @@ Enforce absolute consistency across all feeds, files, and schemas for the studio
 - **Region / City:** `Barnet, North London / Hertfordshire`
 - **Postal Code:** `EN4 0DL`
 - **Country:** `GB`
-- **Telephone:** `+44 7949 123424` / `0208 216 3400`
+- **Telephone:** `+44 7949 123424`
 - *(Purge all legacy directory references in favor of Studio A, 15 Station Parade).*
 
 ### 2. Standardized `llms.txt` Endpoint (`app/llms.txt/route.ts`)
