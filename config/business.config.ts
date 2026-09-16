@@ -84,7 +84,7 @@ export const BUSINESS_CONFIG: BusinessLocation = {
   },
   relocation: {
     isRelocating: true,
-    note: "Angel Tattooz is located at Studio A, 15 Station Parade, Cockfosters, EN4 0DL — just minutes’ walk from Cockfosters Underground Station and immediately next door to the large double-fronted Costa Coffee on Station Parade.",
+    note: "Studio A, 15 Station Parade, Cockfosters, EN4 0DL — Next door to Costa Coffee",
     estimatedDate: undefined,
   },
   social: {
