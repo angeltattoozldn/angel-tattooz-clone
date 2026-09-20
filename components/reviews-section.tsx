@@ -71,7 +71,7 @@ function GoogleGIcon({ className = "w-5 h-5" }: { className?: string }) {
 
 function StarRating({ count = 5 }: { count?: number }) {
   return (
-    <div className="flex items-center gap-1" aria-label={`${count} out of 5 stars`}>
+    <div className="flex items-center gap-1" role="img" aria-label={`${count} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}
