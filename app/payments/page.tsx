@@ -104,6 +104,7 @@ function PaymentTabs() {
                 src="/images/payments/BANK-DEPOSIT.webp"
                 alt="Bank Deposit"
                 fill
+                sizes="160px"
                 className="object-contain"
               />
             </div>
@@ -127,6 +128,7 @@ function PaymentTabs() {
                 src="/images/payments/cardpayments.webp"
                 alt="Card Payments"
                 fill
+                sizes="180px"
                 className="object-contain"
               />
             </div>
@@ -149,6 +151,7 @@ function PaymentTabs() {
                 src="/images/payments/BANK-DEPOSIT-2.webp"
                 alt="PayPal"
                 fill
+                sizes="160px"
                 className="object-contain"
               />
             </div>

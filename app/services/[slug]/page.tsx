@@ -329,7 +329,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               {service.process.map((step, index) => (
                 <div key={index} className="text-center space-y-4">
                   <div className="inline-block">
-                    <span className="font-display text-6xl text-primary/20">{String(index + 1).padStart(2, "0")}</span>
+                    <span className="font-display text-6xl text-primary/20">{index < 9 ? `0${index + 1}` : `${index + 1}`}</span>
                   </div>
                   <h3 className="text-xl font-semibold text-foreground">{step.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{step.description}</p>

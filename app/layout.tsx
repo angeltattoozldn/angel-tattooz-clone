@@ -102,13 +102,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link
-          rel="preload"
-          as="image"
-          href="/images/home/Angle-Tattooz-Website-Hero-Image.webp"
-          type="image/webp"
-          fetchPriority="high"
-        />
       </head>
       <body className={`font-sans antialiased ${poppins.variable} ${heyAugust.variable}`}>
         {/* 6. Inject Schema JSON-LD */}
