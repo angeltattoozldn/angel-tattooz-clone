@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Image from "next/image"
 
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
@@ -70,16 +71,36 @@ export default function BookPage() {
     <>
       <SiteHeader />
       <main>
-        {/* Hero */}
-        <section className="relative py-24 bg-linear-to-b from-background to-secondary/20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <h1 className="font-display text-5xl md:text-6xl text-primary mb-6 text-balance">
-                Book Your Consultation
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed text-balance">
-                Start your tattoo journey with a free consultation. Let's discuss your vision and create something
-                extraordinary together.
+        {/* =========================================
+            1. HERO SECTION
+           ========================================= */}
+        <section className="relative w-full py-37.5 items-center justify-center overflow-hidden border-b border-white/5">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/services/services-hero.webp"
+              alt="Angel Tattooz Bookings"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/65" />
+          </div>
+
+          <div className="relative z-10 text-center">
+            <h1 className="text-[#FAD5E6] font-hey text-[60px] md:text-[90px] leading-none drop-shadow-xl">
+              Bookings
+            </h1>
+          </div>
+        </section>
+
+        {/* =========================================
+            2. INTRO TEXT
+           ========================================= */}
+        <section className="bg-[#121212] pt-16 pb-10 px-4">
+          <div className="container mx-auto max-w-285 text-center">
+            <div className="max-w-200 mx-auto">
+              <p className="text-white font-sans text-[16px] font-normal leading-[1.6]">
+                Start your tattoo journey with a free consultation. Let's discuss your vision and create something extraordinary together.
               </p>
             </div>
           </div>

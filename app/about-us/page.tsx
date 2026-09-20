@@ -21,6 +21,7 @@ function InstagramCard({ bgImage, link }: { bgImage: string, link: string }) {
         src={bgImage}
         alt="Instagram Post"
         fill
+        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
         className="object-cover transition-transform duration-700 group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/40" />
@@ -30,6 +31,7 @@ function InstagramCard({ bgImage, link }: { bgImage: string, link: string }) {
             src="/images/home/ig-btn-02.webp"
             alt="Instagram"
             fill
+            sizes="100px"
             className="object-contain drop-shadow-lg"
           />
         </div>
@@ -95,6 +97,7 @@ export default function AboutPage() {
                     src="/images/about/about-section-2.webp"
                     alt="Tattoo Artist Working"
                     fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
                   />
                 </div>

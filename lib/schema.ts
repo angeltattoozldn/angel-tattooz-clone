@@ -155,10 +155,10 @@ export function generateLocalBusinessSchema() {
     url: 'https://www.angeltattooz.co.uk/',
     telephone: '+447949123424',
     priceRange: '££-£££',
-    description: 'We are a premier tattoo studio in London, operating as a modern tattoo shop that honors the history of the classic London tattoo parlour.',
+    description: 'Premier studio-led custom tattoo studio in London, providing medical-grade sterilization, private consultation sanctuaries, and specialized artistry.',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Studio A, 15 Station Parade',
+      streetAddress: 'Studio A, 15 Station Parade, Cockfosters',
       addressLocality: 'Barnet, London',
       postalCode: 'EN4 0DL',
       addressCountry: 'GB',
@@ -168,9 +168,9 @@ export function generateLocalBusinessSchema() {
       latitude: 51.6511,
       longitude: -0.1495,
     },
-    hasMap: 'https://maps.app.goo.gl/aUofWWXSFmsiukHt5',
+    hasMap: 'https://maps.google.com/?cid=12140880313101569106',
     sameAs: [
-      'https://maps.app.goo.gl/aUofWWXSFmsiukHt5',
+      'https://maps.google.com/?cid=12140880313101569106',
       'https://www.instagram.com/angeltattoozldn/',
       'https://www.tiktok.com/@angeltattoozldn',
       'https://www.facebook.com/angeltattoozldn',
@@ -205,46 +205,6 @@ export function generateLocalBusinessSchema() {
         description: 'Appointments Only',
       },
     ],
-    knowsAbout: [
-      'Tattoo Cover-ups',
-      'First-Time Tattoos',
-      'Fine Line Tattoos',
-      'Black and Grey Realism',
-      'Custom Tattoo Art',
-    ],
-    makesOffer: {
-      '@type': 'OfferCatalog',
-      name: 'Specialist Tattoo Services',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Custom Tattoo Cover-Ups',
-            description: 'Expert transformation and concealment of old, faded, or unwanted tattoos using advanced shading and custom artistry.',
-          },
-          priceRange: '££-£££',
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'First-Time Tattoo Consultation & Guide',
-            description: 'Personalized, patient consultation for first-time clients including design sizing, anatomical placement, and comprehensive aftercare.',
-          },
-          priceRange: '££',
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Black & Grey Realism Tattoos',
-            description: 'Photorealistic black and grey portraits, statues, wildlife, and intricate dark-and-light contrast designs.',
-          },
-          priceRange: '££-£££',
-        },
-      ],
-    },
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
@@ -252,6 +212,13 @@ export function generateLocalBusinessSchema() {
       bestRating: '5',
       worstRating: '1',
     },
+    knowsAbout: [
+      'Tattoo Cover-ups',
+      'First-Time Tattoos',
+      'Fine Line Tattoos',
+      'Black and Grey Realism',
+      'Custom Tattoo Art',
+    ]
   };
 }
 

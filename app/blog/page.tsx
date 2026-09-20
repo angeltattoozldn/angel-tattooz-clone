@@ -55,15 +55,43 @@ export default async function BlogIndexPage() {
     <>
       <SchemaScript schema={breadcrumbSchema} />
       <SiteHeader />
-      <main className="min-h-screen bg-background py-16 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="font-display text-5xl md:text-6xl text-primary mb-6 text-balance">
-            Tattoo Insights, Aftercare & Guides
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed text-balance">
-            Expert articles from our artists covering custom ink, cover-up solutions, and healing advice.
-          </p>
-        </div>
+      <main>
+        {/* =========================================
+            1. HERO SECTION
+           ========================================= */}
+        <section className="relative w-full py-37.5 items-center justify-center overflow-hidden border-b border-white/5">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/services/services-hero.webp"
+              alt="Angel Tattooz Blog"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/65" />
+          </div>
+
+          <div className="relative z-10 text-center">
+            <h1 className="text-[#FAD5E6] font-hey text-[60px] md:text-[90px] leading-none drop-shadow-xl">
+              Blog
+            </h1>
+          </div>
+        </section>
+
+        {/* =========================================
+            2. INTRO TEXT
+           ========================================= */}
+        <section className="bg-[#121212] pt-16 pb-10 px-4">
+          <div className="container mx-auto max-w-285 text-center">
+            <div className="max-w-200 mx-auto">
+              <p className="text-white font-sans text-[16px] font-normal leading-[1.6]">
+                Expert articles from our artists covering custom ink, cover-up solutions, and healing advice.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#121212] pb-24 px-4 md:px-8 max-w-7xl mx-auto">
 
         {posts && posts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -100,6 +128,7 @@ export default async function BlogIndexPage() {
             <p className="text-muted-foreground">Our artists are currently working on fresh insights and guides. Check back later!</p>
           </div>
         )}
+        </section>
       </main>
       <SiteFooter />
     </>
