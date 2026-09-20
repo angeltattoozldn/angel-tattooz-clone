@@ -51,7 +51,6 @@ export default function Home() {
               priority={true}
               fetchPriority="high"
               loading="eager"
-              quality={90}
             />
           </div>
 
@@ -194,11 +193,21 @@ export default function Home() {
             - Centered text and custom form styling
            ========================================= */}
         <section
-          className="relative z-20 w-full my-5 mx-auto px-4 py-28 bg-cover bg-center bg-no-repeat rounded-sm shadow-xl"
-          style={{ backgroundImage: "url('/images/home/newsletter.webp')" }}
+          className="relative z-20 w-full my-5 mx-auto px-4 py-28 rounded-sm shadow-xl overflow-hidden"
         >
+          {/* Background Image Optimized via Next.js */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/home/newsletter.webp"
+              alt="Newsletter Background"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1200px"
+              className="object-cover object-center"
+            />
+          </div>
+
           {/* Dark Overlay (Implicit in design or image, added for readability if needed) */}
-          <div className="absolute inset-0 bg-black/60 rounded-sm" />
+          <div className="absolute inset-0 bg-black/60 z-0" />
 
           <div className="relative z-10 flex flex-col items-center text-center gap-6">
 
@@ -218,6 +227,8 @@ export default function Home() {
             {/* Newsletter Form */}
             <div className="w-full max-w-125 mt-2">
               <form
+                aria-label="Newsletter Subscription Form"
+                data-mcp-form="newsletter"
                 action="https://www.angeltattooz.co.uk/?na=s"
                 method="post"
                 className="flex w-full"
