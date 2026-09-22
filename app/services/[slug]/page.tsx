@@ -205,6 +205,50 @@ export const servicesData: Record<
     ],
     imageQuery: "tattoo cover up transformation before and after",
   },
+  "tattoo-cover-ups": {
+    title: "Tattoo Cover-Ups",
+    description: "Transform old or unwanted ink into beautiful new artwork",
+    longDescription:
+      "Cover-up tattoos are a specialized art form that requires expert planning and execution. Our artists excel at concealing old or unwanted tattoos by creating new designs that strategically incorporate or completely transform the existing ink. We'll work with you to design something beautiful that gives you a fresh start.",
+    features: [
+      "Expert concealment techniques",
+      "Creative design solutions",
+      "Strategic color application",
+      "Size and placement optimization",
+      "Before/after consultation",
+      "Transformation guarantee",
+    ],
+    process: [
+      { title: "Assessment", description: "We evaluate your existing tattoo and discuss possibilities" },
+      { title: "Design Strategy", description: "Creating a new design that effectively covers the old ink" },
+      { title: "Color Planning", description: "Selecting colors that will provide optimal coverage" },
+      { title: "Application", description: "Expert execution of your new tattoo" },
+    ],
+    pricing: "From £150/hour",
+    duration: "4-12 hours",
+    faqs: [
+      {
+        question: "Can any tattoo be covered up?",
+        answer:
+          "Most tattoos can be covered, though some may require laser lightening first. We'll assess your specific situation during consultation.",
+      },
+      {
+        question: "Will the old tattoo show through?",
+        answer:
+          "With proper design and technique, old tattoos can be completely concealed. Strategic use of darker colors and placement ensures optimal coverage.",
+      },
+      {
+        question: "How much bigger does the new tattoo need to be?",
+        answer:
+          "Cover-ups typically need to be 2-3 times larger than the original tattoo for complete coverage, though this varies by design.",
+      },
+    ],
+    relatedServices: [
+      { title: "Custom Tattoo Design", slug: "custom-tattoo-design" },
+      { title: "Color Tattoos", slug: "color-tattoos" },
+    ],
+    imageQuery: "tattoo cover up transformation before and after",
+  },
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

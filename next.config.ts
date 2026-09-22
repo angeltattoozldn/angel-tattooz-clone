@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
   trailingSlash: true,
   typescript: {
     ignoreBuildErrors: true,
@@ -31,6 +32,28 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Phase 2 Infrastructure Regional Hub & Service Consolidations
+      {
+        source: '/best-first-tattoo-studio-london-southgate/',
+        destination: '/areas-we-serve/southgate/',
+        permanent: true,
+      },
+      {
+        source: '/tattoo-studio-potters-bar-hatfield/',
+        destination: '/areas-we-serve/potters-bar/',
+        permanent: true,
+      },
+      {
+        source: '/tattoo-artists-welwyn-garden-city/',
+        destination: '/areas-we-serve/welwyn-garden-city/',
+        permanent: true,
+      },
+      {
+        source: '/best-tattoo-cover-up-studio-london/',
+        destination: '/services/tattoo-cover-ups/',
+        permanent: true,
+      },
+      // Legacy Blog Articles & Legal Routes
       {
         source: '/the-history-of-tattoos-from-ancient-traditions-to-modern-art/',
         destination: '/blog/the-history-of-tattoos-from-ancient-traditions-to-modern-art/',
@@ -81,7 +104,7 @@ const nextConfig = {
         destination: '/terms-of-service/',
         permanent: true,
       },
-    ]
+    ];
   },
   async headers() {
     return [
@@ -132,8 +155,8 @@ const nextConfig = {
           },
         ],
       },
-    ]
+    ];
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;

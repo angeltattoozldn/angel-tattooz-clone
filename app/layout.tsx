@@ -1,5 +1,3 @@
-// app/layout.tsx
-
 import type React from "react"
 import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
@@ -7,9 +5,7 @@ import localFont from "next/font/local"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { RelocationBanner } from "@/components/relocation-banner"
-import { SchemaScript } from "@/components/schema-script"
 import { QuickActionsBar } from "@/components/quick-actions-bar"
-import { generateLocalBusinessSchema } from "@/lib/schema"
 import "./globals.css"
 
 const poppins = Poppins({
@@ -31,20 +27,16 @@ const heyAugust = localFont({
   display: "swap",
 })
 
-
-
-// 1. Define your Production Base URL (Critical for Canonical/OG)
 const BASE_URL = "https://www.angeltattooz.co.uk"
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Angel Tattooz | Premium Tattoo Studio in North London",
-    template: "%s | Angel Tattooz"
+    default: "Angel Tattooz | Premier Custom Tattoo Studio North London & Cockfosters",
+    template: "%s | Angel Tattooz",
   },
-  // 2. Ideal Meta Description (Between 150-160 characters for optimal SEO)
   description:
-    "Angel Tattooz is an award-winning North London tattoo studio. Specialists in custom designs, realism & cover-ups. Expert artists in Barnet & Cockfosters!",
+    "Studio-led custom tattoo sanctuary at 15 Station Parade, Cockfosters (EN4 0DL). Specializing in custom cover-ups, fine-line, and black & grey realism.",
   keywords: [
     "tattoo studio",
     "North London tattoo",
@@ -54,9 +46,8 @@ export const metadata: Metadata = {
     "Cockfosters",
     "Enfield",
   ],
-  // 3. Fix Missing Canonical Tag (Report Error)
   alternates: {
-    canonical: "/",
+    canonical: "https://www.angeltattooz.co.uk/",
   },
   icons: {
     icon: [
@@ -66,10 +57,10 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-  // 4. Fix Missing OG Data (Report Error)
   openGraph: {
-    title: "Angel Tattooz | Premium Tattoo Studio in North London",
-    description: "Angel Tattooz is an award-winning North London tattoo studio. Specialists in custom designs, realism & cover-ups. Expert artists in Barnet & Cockfosters!",
+    title: "Angel Tattooz | Premier Custom Tattoo Studio North London & Cockfosters",
+    description:
+      "Studio-led custom tattoo sanctuary at 15 Station Parade, Cockfosters (EN4 0DL). Specializing in custom cover-ups, fine-line, and black & grey realism.",
     url: BASE_URL,
     siteName: "Angel Tattooz",
     locale: "en_GB",
@@ -91,22 +82,146 @@ export const viewport = {
   themeColor: "#121212",
 }
 
+export const gmbVerifiedSchema = {
+  "@context": "https://schema.org",
+  "@type": "TattooParlor",
+  "name": "Angel Tattooz",
+  "image": "https://www.angeltattooz.co.uk/logo.png",
+  "@id": "https://www.angeltattooz.co.uk/#tattooparlor",
+  "url": "https://www.angeltattooz.co.uk/",
+  "telephone": "+447949123424",
+  "priceRange": "££-£££",
+  "description": "Premier studio-led custom tattoo studio in London, providing medical-grade sterilization, private consultation sanctuaries, and specialized artistry.",
+  "hasMap": "https://maps.google.com/?cid=12140880313101569106",
+  "sameAs": [
+    "https://maps.google.com/?cid=12140880313101569106",
+    "https://www.instagram.com/angeltattoozldn/",
+    "https://www.tiktok.com/@angeltattoozldn",
+    "https://www.facebook.com/angeltattoozldn"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Studio A, 15 Station Parade, Cockfosters",
+    "addressLocality": "Barnet, London",
+    "postalCode": "EN4 0DL",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 51.6511,
+    "longitude": -0.1495
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "11:30",
+      "closes": "18:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "description": "Appointments Only"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "114",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "areaServed": [
+    {"@type": "AdministrativeArea", "name": "London"},
+    {"@type": "AdministrativeArea", "name": "North London"},
+    {"@type": "AdministrativeArea", "name": "Barnet"},
+    {"@type": "AdministrativeArea", "name": "Cockfosters"},
+    {"@type": "AdministrativeArea", "name": "Southgate"},
+    {"@type": "AdministrativeArea", "name": "Enfield"},
+    {"@type": "AdministrativeArea", "name": "Potters Bar"},
+    {"@type": "AdministrativeArea", "name": "Hertfordshire"}
+  ],
+  "knowsAbout": [
+    "Tattoo Cover-ups",
+    "First-Time Tattoos",
+    "Fine Line Tattoos",
+    "Black and Grey Realism",
+    "Custom Tattoo Art"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Specialist Tattoo Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Custom Tattoo Cover-Ups & Reworks",
+          "description": "Advanced dermal pigment analysis and blast-over transformation for existing tattoos."
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "GBP",
+          "price": "££-£££"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "First-Time Tattoo Consultation & Guide",
+          "description": "Low-anxiety, private consultation sanctuary tailored for first-time clients."
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "GBP",
+          "price": "££"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Fine-Line & Delicate Tattoo Artistry",
+          "description": "Ultra-precise fine-needle texturing, micro-realism, and subtle script artistry."
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "GBP",
+          "price": "££-£££"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Black & Grey Realism Tattoos",
+          "description": "High-contrast, smooth-gradient realism and fine-needle detailed portraiture."
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "GBP",
+          "price": "££-£££"
+        }
+      }
+    ]
+  }
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // 5. Generate the Schema
-  const orgSchema = generateLocalBusinessSchema()
-
   return (
     <html lang="en" className="dark">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(gmbVerifiedSchema) }}
+        />
       </head>
       <body className={`font-sans antialiased ${poppins.variable} ${heyAugust.variable}`}>
-        {/* 6. Inject Schema JSON-LD */}
-        <SchemaScript schema={orgSchema} />
-
         <RelocationBanner />
         {children}
         <QuickActionsBar />

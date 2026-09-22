@@ -218,7 +218,65 @@ export function generateLocalBusinessSchema() {
       'Fine Line Tattoos',
       'Black and Grey Realism',
       'Custom Tattoo Art',
-    ]
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Specialist Tattoo Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Custom Tattoo Cover-Ups & Reworks',
+            description: 'Advanced dermal pigment analysis and blast-over transformation for existing tattoos.',
+          },
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'GBP',
+            price: '££-£££',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'First-Time Tattoo Consultation & Guide',
+            description: 'Low-anxiety, private consultation sanctuary tailored for first-time clients.',
+          },
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'GBP',
+            price: '££',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Fine-Line & Delicate Tattoo Artistry',
+            description: 'Ultra-precise fine-needle texturing, micro-realism, and subtle script artistry.',
+          },
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'GBP',
+            price: '££-£££',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Black & Grey Realism Tattoos',
+            description: 'High-contrast, smooth-gradient realism and fine-needle detailed portraiture.',
+          },
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'GBP',
+            price: '££-£££',
+          },
+        },
+      ],
+    },
   };
 }
 

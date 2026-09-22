@@ -40,10 +40,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/privacy-policy',
     '/terms-of-service',
     '/payments',
-    '/best-first-tattoo-studio-london-southgate',
-    '/best-tattoo-cover-up-studio-london',
-    '/tattoo-studio-potters-bar-hatfield',
-    '/tattoo-artists-welwyn-garden-city'
+    '/areas-we-serve/southgate',
+    '/areas-we-serve/barnet',
+    '/areas-we-serve/enfield',
+    '/areas-we-serve/potters-bar',
+    '/areas-we-serve/welwyn-garden-city'
   ].map((route) => ({
     url: route === '' ? 'https://www.angeltattooz.co.uk/' : `https://www.angeltattooz.co.uk${route}/`,
     lastModified: new Date(),
