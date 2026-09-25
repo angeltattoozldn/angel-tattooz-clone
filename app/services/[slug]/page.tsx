@@ -152,7 +152,7 @@ export const servicesData: Record<
       },
       {
         question: "Do you offer touch-ups for color tattoos?",
-        answer: "Yes, we offer free touch-ups within the first year for all our color work.",
+        answer: "Yes, we offer complimentary touch-ups within the first year for all our color work.",
       },
     ],
     relatedServices: [
@@ -431,7 +431,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="font-display text-4xl md:text-5xl text-primary mb-6">Ready to Get Started?</h2>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Book your free consultation to discuss your {service.title.toLowerCase()} with our expert artists
+              Book your consultation to discuss your {service.title.toLowerCase()} with our expert artists
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="text-lg px-8">

@@ -23,7 +23,7 @@ export default function CoverUpTattoosPage() {
   const faqs = [
     {
       question: "Can any tattoo be covered up?",
-      answer: "Most tattoos can be covered, but it depends on the size, darkness, and placement of the original tattoo. We offer a free consultation to evaluate your existing tattoo and discuss realistic options for covering it."
+      answer: "Most tattoos can be covered, but it depends on the size, darkness, and placement of the original tattoo. We offer a dedicated consultation to evaluate your existing tattoo and discuss realistic options for covering it."
     },
     {
       question: "Will the old tattoo show through?",

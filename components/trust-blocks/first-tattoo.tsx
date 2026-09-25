@@ -18,7 +18,7 @@ export function FirstTattooBlock() {
               confident throughout the entire process.
             </p>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• Free consultation to discuss your ideas and concerns</li>
+              <li>• In-depth consultation to discuss your ideas and concerns</li>
               <li>• Detailed explanation of the process before we begin</li>
               <li>• Patient, experienced artists who prioritize your comfort</li>
               <li>• Comprehensive aftercare guidance</li>

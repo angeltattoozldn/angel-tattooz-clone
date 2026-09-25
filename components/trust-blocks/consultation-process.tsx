@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 export function ConsultationProcessBlock() {
   const steps = [
     {
-      title: "Book Your Free Consultation",
+      title: "Book Your Consultation",
       description: "Schedule online, by phone, or via WhatsApp",
     },
     {

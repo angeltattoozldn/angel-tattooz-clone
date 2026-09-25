@@ -86,9 +86,9 @@ export default function TattooStudioPottersBarHatfieldPage() {
               </div>
               <div className="p-8 rounded-xl bg-zinc-900/60 border border-white/10">
                 <MapPin className="w-10 h-10 text-[#D4C59D] mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Hassle-Free Free Parking</h3>
+                <h3 className="text-xl font-bold text-white mb-2">Convenient Street Parking</h3>
                 <p className="text-zinc-300 text-sm leading-relaxed">
-                  Enjoy hassle-free free parking directly on Station Parade, right next door to Costa Coffee and steps from our studio door.
+                  Enjoy convenient parking directly on Station Parade, right next door to Costa Coffee and steps from our studio door.
                 </p>
               </div>
               <div className="p-8 rounded-xl bg-zinc-900/60 border border-white/10">

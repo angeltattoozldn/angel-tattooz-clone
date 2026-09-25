@@ -61,7 +61,7 @@ export default function BestFirstTattooStudioPage() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Button asChild size="lg" className="bg-[#D4C59D] hover:bg-white text-zinc-950 font-semibold px-8 py-6 text-base">
-                <Link href="/bookings/">Book Free Consultation</Link>
+                <Link href="/bookings/">Book Consultation</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-white/20 hover:bg-white/10 text-white px-8 py-6 text-base">
                 <Link href="/services/first-tattoo-guide/">Read First-Time Guide</Link>
@@ -95,7 +95,7 @@ export default function BestFirstTattooStudioPage() {
                 <CheckCircle2 className="w-10 h-10 text-[#D4C59D] mb-4" />
                 <h3 className="text-xl font-bold text-white mb-2">Lifetime Aftercare Support</h3>
                 <p className="text-zinc-300 text-sm leading-relaxed">
-                  Comprehensive healing instructions, recommended balms, and free touch-ups within your first year of tattooing.
+                  Comprehensive healing instructions, recommended balms, and complimentary touch-ups within your first year of tattooing.
                 </p>
               </div>
             </div>

@@ -31,7 +31,7 @@ export default function FirstTattooGuidePage() {
     },
     {
       question: "How do I choose the right design?",
-      answer: "Bring references and ideas to your free consultation. We will help you translate your concepts into a custom piece of art that suits your body's natural flow and fits your style."
+      answer: "Bring references and ideas to your consultation. We will help you translate your concepts into a custom piece of art that suits your body's natural flow and fits your style."
     }
   ]
 

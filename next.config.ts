@@ -104,6 +104,37 @@ const nextConfig: NextConfig = {
         destination: '/terms-of-service/',
         permanent: true,
       },
+      // Core URL Aliases
+      {
+        source: '/about/',
+        destination: '/about-us/',
+        permanent: true,
+      },
+      {
+        source: '/contact/',
+        destination: '/contact-us/',
+        permanent: true,
+      },
+      {
+        source: '/booking/',
+        destination: '/bookings/',
+        permanent: true,
+      },
+      {
+        source: '/payment/',
+        destination: '/payments/',
+        permanent: true,
+      },
+      {
+        source: '/blogs/',
+        destination: '/blog/',
+        permanent: true,
+      },
+      {
+        source: '/portfolio/',
+        destination: '/gallery/',
+        permanent: true,
+      },
     ];
   },
   async headers() {
