@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { generateWebSiteSchema } from "@/lib/schema"
 import { BackgroundVideo } from "@/components/background-video"
+import { NewsletterForm } from "@/components/newsletter-form"
 
 const ReviewsSection = dynamic(
   () => import("@/components/reviews-section").then((mod) => mod.ReviewsSection),
@@ -193,7 +194,8 @@ export default function Home() {
             - Centered text and custom form styling
            ========================================= */}
         <section
-          className="relative z-20 w-full my-5 mx-auto px-4 py-28 rounded-sm shadow-xl overflow-hidden"
+          id="newsletter"
+          className="relative z-20 w-full my-5 mx-auto px-4 py-28 rounded-sm shadow-xl overflow-hidden scroll-mt-24"
         >
           {/* Background Image Optimized via Next.js */}
           <div className="absolute inset-0 z-0">
@@ -226,33 +228,7 @@ export default function Home() {
 
             {/* Newsletter Form */}
             <div className="w-full max-w-125 mt-2">
-              <form
-                aria-label="Newsletter Subscription Form"
-                data-mcp-form="newsletter"
-                action="https://www.angeltattooz.co.uk/?na=s"
-                method="post"
-                className="flex w-full"
-              >
-                <input type="hidden" name="nr" value="minimal" />
-                <input type="hidden" name="nlang" value="" />
-
-                {/* Email Input */}
-                <input
-                  type="email"
-                  name="ne"
-                  required
-                  placeholder="Email"
-                  className="w-[70%] px-4 py-3 bg-neutral-100 text-zinc-900 text-[16px] border border-neutral-300 rounded-l-[10px] focus:outline-none"
-                />
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-[30%] bg-[#D4C59D] text-zinc-950 font-semibold text-[14px] uppercase tracking-wide rounded-r-[10px] hover:bg-white hover:text-black transition-colors duration-300"
-                >
-                  Subscribe
-                </button>
-              </form>
+              <NewsletterForm />
             </div>
 
           </div>
@@ -417,7 +393,7 @@ export default function Home() {
 
             {/* Read More Button */}
             <Link
-              href="/about"
+              href="/about-us/"
               className="inline-flex items-center justify-center bg-[#D4C59D] text-zinc-950 font-semibold text-[15px] py-3 px-8 rounded-[3px] transition-all duration-300 hover:bg-white hover:text-black"
             >
               Discover Our Tattoo Artists and Studio
@@ -496,7 +472,7 @@ export default function Home() {
                 image="/images/home/blog-post-1.webp"
                 category="Tattoos"
                 title="Top Tattoo Styles in 2026: Find Your Next Design Inspiration"
-                link="/blog/top-10-most-popular-tattoo-styles-in-2024-find-your-next-design-inspiration/"
+                link="/blog/top-10-most-popular-tattoo-styles-find-your-next-design-inspiration/"
               />
 
               {/* Blog Post 2 */}

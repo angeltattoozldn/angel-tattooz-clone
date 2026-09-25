@@ -21,7 +21,7 @@ export function AftercareResponsibilityBlock() {
               <li>• Detailed written aftercare instructions</li>
               <li>• Recommended aftercare products available in-studio</li>
               <li>• Ongoing support via phone, WhatsApp, or email</li>
-              <li>• Free touch-ups within the first year</li>
+              <li>• Studio touch-up support within the first year</li>
               <li>• Healing check-in after 2 weeks</li>
             </ul>
             <div className="flex gap-3">

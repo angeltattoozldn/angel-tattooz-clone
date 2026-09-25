@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: `Tattoo Studio Serving ${area.name} | ${area.distance} Away | Angel Tattooz`,
-    description: `${area.description} Located ${area.travelTime} from ${area.name}. Expert tattoo services near ${area.nearestStation}. Book your free consultation today.`,
+    description: `${area.description} Located ${area.travelTime} from ${area.name}. Expert tattoo services near ${area.nearestStation}. Book your consultation today.`,
     keywords: [
       `tattoo ${area.name}`,
       `tattoo studio ${area.name}`,
@@ -263,7 +263,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
               <p className="text-muted-foreground mb-6">Have more questions?</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg">
-                  <Link href="/bookings/">Book Free Consultation</Link>
+                  <Link href="/bookings/">Book Consultation</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="bg-transparent">
                   <Link href="/faq">View All FAQs</Link>
@@ -278,7 +278,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="font-display text-5xl md:text-6xl text-primary mb-6">Ready to Get Inked?</h2>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Join hundreds of satisfied clients from {area.name}. Book your free consultation today and let's bring
+              Join hundreds of satisfied clients from {area.name}. Book your consultation today and let's bring
               your tattoo vision to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

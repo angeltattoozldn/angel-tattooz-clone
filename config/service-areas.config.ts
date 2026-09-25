@@ -93,7 +93,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
       },
       {
         question: "Do you offer consultations in Cockfosters?",
-        answer: "We offer free consultations at our Cockfosters studio. Book online or call us to schedule yours.",
+        answer: "We offer dedicated consultations at our Cockfosters studio. Book online or call us to schedule yours.",
       },
       {
         question: "What makes Angel Tattooz the best choice in Cockfosters?",
@@ -183,7 +183,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
       {
         question: "Can I see your portfolio before visiting from Enfield?",
         answer:
-          "Yes! Check our gallery page or Instagram @angeltattooz to see our work. We also offer free consultations to discuss your ideas.",
+          "Yes! Check our gallery page or Instagram @angeltattooz to see our work. We also offer consultations to discuss your ideas.",
       },
       {
         question: "Do you offer any discounts for Enfield residents?",
@@ -312,8 +312,8 @@ export const SERVICE_AREAS: ServiceArea[] = [
           "Check our gallery and Instagram. We've created stunning tattoos for many Hertsmere residents across all styles.",
       },
       {
-        question: "Do you offer free consultations for Hertsmere residents?",
-        answer: "Yes! All consultations are free, whether you're from Hertsmere, North London, or anywhere else.",
+        question: "Do you offer consultations for Hertsmere residents?",
+        answer: "Yes! We offer dedicated one-on-one consultations, whether you're from Hertsmere, North London, or anywhere else.",
       },
     ],
   },

@@ -28,7 +28,7 @@ const posts = [
     },
     author: authorRef,
     category: 'Studio News',
-    publishedAt: new Date('2024-04-10T10:00:00.000Z').toISOString(),
+    publishedAt: new Date('2026-09-02T10:00:00.000Z').toISOString(),
     excerpt:
       'From sacred Neolithic rituals and Polynesian Ta Moko to contemporary realism in London, explore the rich cultural history of tattooing and how ancient traditions evolved into fine modern art.',
     body: [
@@ -170,7 +170,7 @@ const posts = [
     },
     author: authorRef,
     category: 'Styles Guide',
-    publishedAt: new Date('2024-04-20T10:00:00.000Z').toISOString(),
+    publishedAt: new Date('2026-09-08T10:00:00.000Z').toISOString(),
     excerpt:
       'Explore the signature tattoo styles mastered by the artists at Angel Tattooz in Cockfosters, Barnet—including fine line, black & grey realism, Japanese sleeves, and bespoke custom concepts.',
     body: [
@@ -282,7 +282,7 @@ const posts = [
     },
     author: authorRef,
     category: 'Cover-Up Insights',
-    publishedAt: new Date('2024-05-02T10:00:00.000Z').toISOString(),
+    publishedAt: new Date('2026-09-12T10:00:00.000Z').toISOString(),
     excerpt:
       'Unwanted tattoo? Before undergoing painful, expensive, and prolonged laser removal sessions, discover how a master cover-up artist can transform old ink into a fresh masterpiece.',
     body: [
@@ -406,7 +406,7 @@ const posts = [
     },
     author: authorRef,
     category: 'Aftercare Advice',
-    publishedAt: new Date('2024-05-10T10:00:00.000Z').toISOString(),
+    publishedAt: new Date('2026-09-18T10:00:00.000Z').toISOString(),
     excerpt:
       'Proper healing is crucial for ink vibrancy and crisp lines. Follow the official Angel Tattooz aftercare protocol for washing, moisturizing, and protecting your new tattoo.',
     body: [
@@ -524,7 +524,7 @@ const posts = [
     },
     author: authorRef,
     category: 'Studio News',
-    publishedAt: new Date('2024-05-25T10:00:00.000Z').toISOString(),
+    publishedAt: new Date('2026-09-22T10:00:00.000Z').toISOString(),
     excerpt:
       'Step inside our premier studio at Studio A, 15 Station Parade, Cockfosters, Barnet, London, EN4 0DL (minutes’ walk from Cockfosters Underground Station, right next door to Costa Coffee on Station Parade). Experience unmatched artistic talent, hospital-grade hygiene, and a welcoming client-first consultation environment.',
     body: [
