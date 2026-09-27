@@ -33,14 +33,14 @@ export default function NotFound() {
               </Link>
             </Button>
 
-            <Button asChild variant="outline" className="w-full sm:w-auto border-neutral-700 hover:bg-neutral-800 text-white px-6 py-2.5">
+            <Button asChild variant="outline" className="w-full sm:w-auto border-neutral-700 hover:border-neutral-500 bg-transparent hover:bg-neutral-800 text-white hover:text-white px-6 py-2.5 transition-all">
               <Link href="/services">
                 <Compass className="mr-2 h-4 w-4" />
                 Our Services
               </Link>
             </Button>
 
-            <Button asChild variant="outline" className="w-full sm:w-auto border-neutral-700 hover:bg-neutral-800 text-white px-6 py-2.5">
+            <Button asChild variant="outline" className="w-full sm:w-auto border-neutral-700 hover:border-neutral-500 bg-transparent hover:bg-neutral-800 text-white hover:text-white px-6 py-2.5 transition-all">
               <Link href="/bookings">
                 <Calendar className="mr-2 h-4 w-4" />
                 Book Now

@@ -74,13 +74,22 @@ export async function submitBooking(formData: BookingSubmissionData): Promise<Bo
           <p><small>Angel Tattooz • Studio A, 15 Station Parade, Cockfosters EN4 0DL</small></p>
         `
 
-        await resend.emails.send({
-          from: "Angel Tattooz Bookings <onboarding@resend.dev>",
-          to: ["Ink@angeltattooz.co.uk"],
+        const recipientEmail = process.env.BOOKING_NOTIFICATION_EMAIL || "angeltattoozldn@gmail.com"
+        const fromEmail = process.env.RESEND_FROM_EMAIL || "Angel Tattooz Bookings <onboarding@resend.dev>"
+
+        const sendResult = await resend.emails.send({
+          from: fromEmail,
+          to: [recipientEmail],
           replyTo: email,
           subject: `${isDepositRequired ? "🚨 New Tattoo Booking" : "💬 New Consultation"}: ${name} - ${service}`,
           html: htmlContent,
         })
+
+        if (sendResult.error) {
+          console.warn("[RESEND WARNING] Email notification returned error:", sendResult.error)
+        } else {
+          console.log(`[RESEND SUCCESS] Booking notification email delivered to ${recipientEmail} (ID: ${sendResult.data?.id})`)
+        }
       } catch (emailErr) {
         console.warn("Resend email notification failed/restricted (logged to console):", emailErr)
       }

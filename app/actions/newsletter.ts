@@ -17,9 +17,11 @@ export async function submitNewsletter(formData: FormData | { email: string }) {
     if (process.env.RESEND_API_KEY) {
       try {
         const resend = new Resend(process.env.RESEND_API_KEY)
-        await resend.emails.send({
-          from: "Angel Tattooz <onboarding@resend.dev>",
-          to: ["Ink@angeltattooz.co.uk"],
+        const recipientEmail = process.env.BOOKING_NOTIFICATION_EMAIL || "angeltattoozldn@gmail.com"
+        const fromEmail = process.env.RESEND_FROM_EMAIL || "Angel Tattooz <onboarding@resend.dev>"
+        const sendResult = await resend.emails.send({
+          from: fromEmail,
+          to: [recipientEmail],
           subject: `New Newsletter Subscriber: ${email.trim()}`,
           html: `
             <h2>New Newsletter Subscription</h2>
@@ -27,6 +29,11 @@ export async function submitNewsletter(formData: FormData | { email: string }) {
             <p><strong>Date:</strong> ${new Date().toLocaleString("en-GB")}</p>
           `,
         })
+        if (sendResult.error) {
+          console.warn("[RESEND WARNING] Newsletter notification returned error:", sendResult.error)
+        } else {
+          console.log(`[RESEND SUCCESS] Newsletter notification sent to ${recipientEmail} (ID: ${sendResult.data?.id})`)
+        }
       } catch (emailErr) {
         console.warn("Newsletter admin notification email skipped:", emailErr)
       }
