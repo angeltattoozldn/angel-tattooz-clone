@@ -243,9 +243,9 @@ export default function BookPage() {
 
                       <div className="pt-4 border-t border-zinc-800 text-xs text-zinc-400 space-y-2">
                         <p>
-                          Prefer direct bank transfer or PayPal?{" "}
+                          Prefer direct bank transfer?{" "}
                           <Link href="/payments/" className="text-[#D4C59D] hover:underline">
-                            View all payment methods
+                            View bank deposit details
                           </Link>
                         </p>
                         <p>
@@ -406,6 +406,7 @@ export default function BookPage() {
                         <Input
                           id="preferredDate"
                           type="date"
+                          min={new Date().toISOString().split("T")[0]}
                           value={formData.preferredDate}
                           onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
                           className="bg-zinc-900/60 border-zinc-800"
@@ -413,14 +414,30 @@ export default function BookPage() {
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="preferredTime">Preferred Time</Label>
-                        <Input
+                        <Label htmlFor="preferredTime">Preferred Time (Hours: 11:30 AM – 6:30 PM)</Label>
+                        <select
                           id="preferredTime"
-                          type="time"
                           value={formData.preferredTime || ""}
                           onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                          className="bg-zinc-900/60 border-zinc-800"
-                        />
+                          className="flex h-10 w-full rounded-md border border-zinc-800 bg-zinc-900/60 px-3 py-2 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                        >
+                          <option value="">Select a time slot (from 11:30 AM)</option>
+                          <option value="11:30 AM">11:30 AM (Opening Slot)</option>
+                          <option value="12:00 PM">12:00 PM</option>
+                          <option value="12:30 PM">12:30 PM</option>
+                          <option value="01:00 PM">01:00 PM</option>
+                          <option value="01:30 PM">01:30 PM</option>
+                          <option value="02:00 PM">02:00 PM</option>
+                          <option value="02:30 PM">02:30 PM</option>
+                          <option value="03:00 PM">03:00 PM</option>
+                          <option value="03:30 PM">03:30 PM</option>
+                          <option value="04:00 PM">04:00 PM</option>
+                          <option value="04:30 PM">04:30 PM</option>
+                          <option value="05:00 PM">05:00 PM</option>
+                          <option value="05:30 PM">05:30 PM</option>
+                          <option value="06:00 PM">06:00 PM (Final Slot)</option>
+                          <option value="Flexible">Flexible (Any Available Slot)</option>
+                        </select>
                       </div>
                     </div>
 
