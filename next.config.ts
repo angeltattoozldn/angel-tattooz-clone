@@ -32,25 +32,10 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Phase 2 Infrastructure Regional Hub & Service Consolidations
+      // Canonical mapping from legacy /areas-we-serve/* to /areas/*
       {
-        source: '/best-first-tattoo-studio-london-southgate/',
-        destination: '/areas-we-serve/southgate/',
-        permanent: true,
-      },
-      {
-        source: '/tattoo-studio-potters-bar-hatfield/',
-        destination: '/areas-we-serve/potters-bar/',
-        permanent: true,
-      },
-      {
-        source: '/tattoo-artists-welwyn-garden-city/',
-        destination: '/areas-we-serve/welwyn-garden-city/',
-        permanent: true,
-      },
-      {
-        source: '/best-tattoo-cover-up-studio-london/',
-        destination: '/services/tattoo-cover-ups/',
+        source: '/areas-we-serve/:slug/',
+        destination: '/areas/:slug/',
         permanent: true,
       },
       // Legacy Blog Articles & Legal Routes

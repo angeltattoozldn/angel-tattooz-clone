@@ -25,7 +25,7 @@ export function RelocationBanner() {
           </div>
           <span className="hidden sm:inline text-zinc-500">•</span>
           <span className="text-[11px] sm:text-xs text-zinc-300">
-            Next door to Costa Coffee • 1 min walk from Cockfosters Tube
+            Next door to Costa Coffee • Minutes away from Cockfosters Tube
           </span>
         </div>
 

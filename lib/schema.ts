@@ -36,12 +36,14 @@ export interface Organization {
   }
 }
 
-export interface LocalBusiness extends Organization {
-  "@type": "TattooShop" | "LocalBusiness"
-  areaServed?: string[]
+export interface TattooParlor extends Organization {
+  "@type": "TattooParlor"
+  areaServed?: Array<{ "@type": string; name: string }> | string[]
   sameAs?: string[]
   knowsAbout?: string[]
 }
+
+export type LocalBusiness = TattooParlor
 
 export interface Service {
   "@context": string
@@ -145,7 +147,7 @@ export interface VideoObject {
   contentUrl: string
 }
 
-export function generateLocalBusinessSchema() {
+export function generateTattooParlorSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'TattooParlor',
@@ -280,6 +282,8 @@ export function generateLocalBusinessSchema() {
   };
 }
 
+export const generateLocalBusinessSchema = generateTattooParlorSchema;
+
 export function generateBreadcrumbs(items: Array<{ name: string; url?: string }>): BreadcrumbList {
   return {
     "@context": "https://schema.org",
@@ -303,7 +307,7 @@ export function generateServiceSchema(service: {
     "@type": "Service",
     serviceType: service.name,
     provider: {
-      "@type": "TattooShop",
+      "@type": "TattooParlor",
       name: BUSINESS_CONFIG.businessName,
     },
     description: service.description,
@@ -356,7 +360,7 @@ export function generateReviewSchema(review: {
     "@context": "https://schema.org",
     "@type": "Review",
     itemReviewed: {
-      "@type": "LocalBusiness",
+      "@type": "TattooParlor",
       name: BUSINESS_CONFIG.businessName,
     },
     author: {

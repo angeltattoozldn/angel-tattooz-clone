@@ -122,7 +122,7 @@ function GalleryGrid() {
               >
                 <Image
                   src={item.src}
-                  alt={`Tattoo ${item.category}`}
+                  alt={item.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 50vw, 25vw"
@@ -147,27 +147,27 @@ function GalleryGrid() {
 // Paths now point to /images/gallery/ and use lowercase .webp filenames
 
 const GALLERY_ITEMS = [
-  { id: 1, category: "Neck", src: "/images/gallery/tattoo-fine-line-neck-ghost-art-design.webp" },
-  { id: 2, category: "Arm", src: "/images/gallery/tattoo-graphic-name-arm-art-design.webp" },
-  { id: 3, category: "Arm", src: "/images/gallery/tattoo-fine-line-hand-flower-art-design.webp" },
-  { id: 4, category: "Arm", src: "/images/gallery/tattoo-graphic-memorial-arm-art-design.webp" },
-  { id: 5, category: "Arm", src: "/images/gallery/tattoo-graphic-lion-arm-art-design.webp" },
-  { id: 6, category: "Leg", src: "/images/gallery/tattoo-graphic-zeus-leg-art-design.webp" },
-  { id: 7, category: "Back/Chest", src: "/images/gallery/tattoo-chest-art-design.webp" },
-  { id: 8, category: "Arm", src: "/images/gallery/tattoo-graphic-colour-arm-art-design.webp" },
-  { id: 9, category: "Leg", src: "/images/gallery/tattoo-fine-line-leg-art-design.webp" },
-  { id: 10, category: "Arm", src: "/images/gallery/tattoo-graphic-dragon-shoulder-art-design.webp" },
-  { id: 11, category: "Arm", src: "/images/gallery/tattoo-graphic-colour-arm-art-design1.webp" },
-  { id: 12, category: "Leg", src: "/images/gallery/tattoo-graphic-star-leg-art-design.webp" },
-  { id: 13, category: "Neck", src: "/images/gallery/tattoo-fine-line-neck-flower-initial-art-design.webp" },
-  { id: 14, category: "Leg", src: "/images/gallery/tattoo-graphic-zeus-leg-art-design-3.webp" },
-  { id: 15, category: "Arm", src: "/images/gallery/tattoo-graphic-shoulder-art-design.webp" },
-  { id: 16, category: "Arm", src: "/images/gallery/tattoo-fine-line-arm-butterfly-art-design.webp" },
-  { id: 17, category: "Back/Chest", src: "/images/gallery/tattoo-fine-line-back-art-design.webp" },
-  { id: 18, category: "Neck", src: "/images/gallery/ewdxw3ed.webp" },
-  { id: 19, category: "Leg", src: "/images/gallery/tattoo-graphic-zeus-leg-art-design-2.webp" },
-  { id: 20, category: "Arm", src: "/images/gallery/tattoo-graphic-clock-dove-arm-art-design.webp" },
-  { id: 21, category: "Arm", src: "/images/gallery/tattoo-graphic-cat-arm-art-design.webp" },
-  { id: 22, category: "Arm", src: "/images/gallery/tattoo-graphic-arm-art-design.webp" },
-  { id: 23, category: "Face", src: "/images/gallery/tattoo-face-cover-up-art-design.webp" },
+  { id: 1, category: "Neck", src: "/images/gallery/tattoo-fine-line-neck-ghost-art-design.webp", title: "Fine line ghost art design neck tattoo" },
+  { id: 2, category: "Arm", src: "/images/gallery/tattoo-graphic-name-arm-art-design.webp", title: "Graphic name lettering arm tattoo" },
+  { id: 3, category: "Arm", src: "/images/gallery/tattoo-fine-line-hand-flower-art-design.webp", title: "Fine line floral hand tattoo design" },
+  { id: 4, category: "Arm", src: "/images/gallery/tattoo-graphic-memorial-arm-art-design.webp", title: "Graphic memorial tribute arm tattoo" },
+  { id: 5, category: "Arm", src: "/images/gallery/tattoo-graphic-lion-arm-art-design.webp", title: "Graphic lion portrait arm tattoo" },
+  { id: 6, category: "Leg", src: "/images/gallery/tattoo-graphic-zeus-leg-art-design.webp", title: "Graphic Zeus mythology leg tattoo" },
+  { id: 7, category: "Back/Chest", src: "/images/gallery/tattoo-chest-art-design.webp", title: "Custom chest piece tattoo design" },
+  { id: 8, category: "Arm", src: "/images/gallery/tattoo-graphic-colour-arm-art-design.webp", title: "Vibrant colour graphic arm tattoo" },
+  { id: 9, category: "Leg", src: "/images/gallery/tattoo-fine-line-leg-art-design.webp", title: "Fine line delicate leg tattoo" },
+  { id: 10, category: "Arm", src: "/images/gallery/tattoo-graphic-dragon-shoulder-art-design.webp", title: "Graphic dragon shoulder tattoo design" },
+  { id: 11, category: "Arm", src: "/images/gallery/tattoo-graphic-colour-arm-art-design1.webp", title: "Bold colour graphic arm tattoo artwork" },
+  { id: 12, category: "Leg", src: "/images/gallery/tattoo-graphic-star-leg-art-design.webp", title: "Graphic star design leg tattoo" },
+  { id: 13, category: "Neck", src: "/images/gallery/tattoo-fine-line-neck-flower-initial-art-design.webp", title: "Fine line floral initials neck tattoo" },
+  { id: 14, category: "Leg", src: "/images/gallery/tattoo-graphic-zeus-leg-art-design-3.webp", title: "Zeus mythology full leg sleeve tattoo" },
+  { id: 15, category: "Arm", src: "/images/gallery/tattoo-graphic-shoulder-art-design.webp", title: "Graphic shoulder tattoo artwork" },
+  { id: 16, category: "Arm", src: "/images/gallery/tattoo-fine-line-arm-butterfly-art-design.webp", title: "Fine line butterfly arm tattoo" },
+  { id: 17, category: "Back/Chest", src: "/images/gallery/tattoo-fine-line-back-art-design.webp", title: "Fine line back piece tattoo" },
+  { id: 18, category: "Neck", src: "/images/gallery/ewdxw3ed.webp", title: "Custom neck tattoo design at Angel Tattooz" },
+  { id: 19, category: "Leg", src: "/images/gallery/tattoo-graphic-zeus-leg-art-design-2.webp", title: "Zeus portrait graphic leg tattoo" },
+  { id: 20, category: "Arm", src: "/images/gallery/tattoo-graphic-clock-dove-arm-art-design.webp", title: "Graphic clock and dove arm tattoo" },
+  { id: 21, category: "Arm", src: "/images/gallery/tattoo-graphic-cat-arm-art-design.webp", title: "Graphic cat portrait arm tattoo" },
+  { id: 22, category: "Arm", src: "/images/gallery/tattoo-graphic-arm-art-design.webp", title: "Custom graphic arm tattoo design" },
+  { id: 23, category: "Face", src: "/images/gallery/tattoo-face-cover-up-art-design.webp", title: "Face cover-up tattoo transformation" },
 ]

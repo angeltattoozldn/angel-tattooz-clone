@@ -40,11 +40,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/privacy-policy',
     '/terms-of-service',
     '/payments',
-    '/areas-we-serve/southgate',
-    '/areas-we-serve/barnet',
-    '/areas-we-serve/enfield',
-    '/areas-we-serve/potters-bar',
-    '/areas-we-serve/welwyn-garden-city'
   ].map((route) => ({
     url: route === '' ? 'https://www.angeltattooz.co.uk/' : `https://www.angeltattooz.co.uk${route}/`,
     lastModified: new Date(),
@@ -77,7 +72,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `https://www.angeltattooz.co.uk/areas/${slug}/`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
-    priority: 0.6,
+    priority: 0.8,
+  }));
+
+  // Dedicated SEO landing pages
+  const landingPageUrls = [
+    '/tattoo-artists-welwyn-garden-city',
+    '/tattoo-studio-potters-bar-hatfield',
+    '/best-first-tattoo-studio-london-southgate',
+    '/best-tattoo-cover-up-studio-london',
+  ].map(route => ({
+    url: `https://www.angeltattooz.co.uk${route}/`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
   }));
 
   // Deduplicate URLs just in case (e.g. if servicesData contains cover-up-tattoos)
@@ -88,7 +96,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...serviceUrls,
     ...styleUrls,
     ...aftercareUrls,
-    ...areaUrls
+    ...areaUrls,
+    ...landingPageUrls
   ]) {
     allUrlsMap.set(entry.url, entry);
   }

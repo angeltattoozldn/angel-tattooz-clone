@@ -3,12 +3,22 @@ DOMAIN="${1:-https://www.angeltattooz.co.uk}"
 
 URLS=(
   "/"
-  "/services/"
-  "/areas-we-serve/southgate/"
-  "/areas-we-serve/barnet/"
-  "/areas-we-serve/enfield/"
-  "/areas-we-serve/potters-bar/"
+  "/best-tattoo-cover-up-studio-london/"
+  "/best-first-tattoo-studio-london-southgate/"
+  "/tattoo-studio-potters-bar-hatfield/"
+  "/tattoo-artists-welwyn-garden-city/"
+  "/services/cover-up-tattoos/"
+  "/services/first-tattoo-guide/"
+  "/services/custom-tattoo-design/"
+  "/services/black-gray-tattoos/"
+  "/areas/cockfosters/"
+  "/areas/barnet/"
+  "/areas/southgate/"
+  "/areas/enfield/"
+  "/areas/potters-bar/"
+  "/bookings/"
   "/llms.txt"
+  "/robots.txt"
   "/sitemap.xml"
 )
 
@@ -20,7 +30,7 @@ BOTS=(
 )
 
 echo "========================================================"
-echo "ANGEL TATTOOZ PHASE 2 PRODUCTION AUDIT"
+echo "ANGEL TATTOOZ PRODUCTION AI CRAWLER AUDIT"
 echo "Target Domain: $DOMAIN"
 echo "Timestamp: $(date -u)"
 echo "========================================================"
@@ -36,7 +46,7 @@ for bot in "${BOTS[@]}"; do
   for url in "${URLS[@]}"; do
     TOTAL_TESTS=$((TOTAL_TESTS + 1))
     FULL_URL="$DOMAIN$url"
-    HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -A "$BOT_UA" "$FULL_URL")
+    HTTP_STATUS=$(curl -s -L -o /dev/null -w "%{http_code}" -A "$BOT_UA" "$FULL_URL")
     if [ "$HTTP_STATUS" -eq 200 ]; then
       echo "  [200 OK] $FULL_URL"
     else

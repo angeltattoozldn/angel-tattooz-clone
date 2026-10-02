@@ -6,7 +6,7 @@ import { SchemaScript } from "@/components/schema-script"
 import { generateBreadcrumbs, generateFAQSchema } from "@/lib/schema"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { MapPin, Navigation, Award, Sparkles } from "lucide-react"
+import { MapPin, Navigation, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Tattoo Studio Near Potters Bar & Hatfield | Angel Tattooz",
@@ -34,7 +34,7 @@ export default function TattooStudioPottersBarHatfieldPage() {
     },
     {
       question: "What tattoo styles do you specialize in?",
-      answer: "Our award-winning artists cover black & grey realism, fine line, illustrative color, Japanese irezumi sleeves, script lettering, and complex cover-up projects.",
+      answer: "Our experienced artists cover black & grey realism, fine line, illustrative color, Japanese irezumi sleeves, script lettering, and complex cover-up projects.",
     },
   ]
 
@@ -92,8 +92,8 @@ export default function TattooStudioPottersBarHatfieldPage() {
                 </p>
               </div>
               <div className="p-8 rounded-xl bg-zinc-900/60 border border-white/10">
-                <Award className="w-10 h-10 text-[#D4C59D] mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Award-Winning Quality</h3>
+                <Sparkles className="w-10 h-10 text-[#D4C59D] mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Master Craftsmanship</h3>
                 <p className="text-zinc-300 text-sm leading-relaxed">
                   Access 15+ years of tattoo mastery with 127+ 5-star Google reviews right on your local North London doorstep.
                 </p>
