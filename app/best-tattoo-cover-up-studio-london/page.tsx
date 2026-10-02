@@ -52,7 +52,7 @@ export default function BestTattooCoverUpStudioPage() {
         <section className="relative py-28 px-4 bg-linear-to-b from-black via-zinc-950 to-[#121212] border-b border-white/10 text-center">
           <div className="container mx-auto max-w-4xl">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4C59D]/10 text-[#D4C59D] border border-[#D4C59D]/30 text-xs font-semibold tracking-wider uppercase mb-6">
-              <Wand2 className="w-4 h-4" /> Award-Winning Cover-Up Specialists
+              <Wand2 className="w-4 h-4" /> Master Cover-Up Specialists
             </span>
             <h1 className="text-4xl md:text-6xl font-hey text-[#FAD5E6] leading-tight mb-6">
               Best Tattoo Cover-Up Studio in London

@@ -20,7 +20,7 @@ const ReviewsSection = dynamic(
 
 export const metadata: Metadata = {
   title: "Angel Tattooz | Premier Tattoo Studio in North London",
-  description: "Angel Tattooz is an award-winning custom tattoo studio in Cockfosters, North London. We specialize in bespoke designs, cover-ups, and fine line art. Book today!",
+  description: "Angel Tattooz is a premier custom tattoo studio in Cockfosters, North London. We specialize in bespoke designs, cover-ups, and fine line art. Book today!",
   alternates: {
     canonical: "https://www.angeltattooz.co.uk/",
   },
@@ -105,7 +105,7 @@ export default function Home() {
               <div className="relative w-full overflow-hidden group rounded-[10px]">
                 <Image
                   src="/images/home/Be-Inkspired-1.webp"
-                  alt="Tattoo Showcase 1"
+                  alt="Custom black and grey realism tattoo by Angel Tattooz artist"
                   width={502}
                   height={768}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -137,7 +137,7 @@ export default function Home() {
               <div className="relative w-full overflow-hidden group rounded-[10px]">
                 <Image
                   src="/images/home/Be-Inkspired-2.webp"
-                  alt="Tattoo Showcase 2"
+                  alt="Fine line floral tattoo design on arm at Angel Tattooz studio"
                   width={502}
                   height={768}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -149,7 +149,7 @@ export default function Home() {
               <div className="relative w-full overflow-hidden group rounded-[10px]">
                 <Image
                   src="/images/home/Be-Inkspired-7.webp"
-                  alt="Tattoo Showcase 3"
+                  alt="Colour tattoo artwork showcasing vibrant ink at Angel Tattooz"
                   width={502}
                   height={512}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -163,7 +163,7 @@ export default function Home() {
               <div className="relative z-10 w-full overflow-hidden group lg:-mt-25 rounded-[10px]">
                 <Image
                   src="/images/home/Be-Inkspired-4.webp"
-                  alt="Tattoo Showcase 4"
+                  alt="Cover-up tattoo transformation by Angel Tattooz Cockfosters"
                   width={502}
                   height={768}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -175,7 +175,7 @@ export default function Home() {
               <div className="relative w-full overflow-hidden group rounded-[10px]">
                 <Image
                   src="/images/home/Be-Inkspired-8.webp"
-                  alt="Tattoo Showcase 5"
+                  alt="Geometric minimalist tattoo design by Angel Tattooz North London"
                   width={502}
                   height={512}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

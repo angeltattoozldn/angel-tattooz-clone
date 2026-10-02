@@ -46,7 +46,7 @@ export default function CoverUpTattoosPage() {
         <h1 className="text-4xl font-bold mb-8">Expert Cover-Up Tattoos</h1>
         <div className="mb-12 max-w-3xl">
           <p className="text-lg leading-relaxed text-gray-300">
-            Don't live with a tattoo you no longer love. Our award-winning artists specialize in transforming old, faded, or unwanted tattoos into beautiful new artwork.
+            Don't live with a tattoo you no longer love. Our experienced artists specialize in transforming old, faded, or unwanted tattoos into beautiful new artwork.
           </p>
         </div>
         

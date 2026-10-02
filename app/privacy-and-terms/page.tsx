@@ -64,7 +64,7 @@ export default function PrivacyAndTermsPage() {
             <h3>3. Appointments and Cancellations</h3>
             <ul className="list-disc pl-6 space-y-2 text-zinc-300 text-sm md:text-base">
               <li><strong>Booking:</strong> Customers can book appointments via our online booking form or by contacting the studio directly.</li>
-              <li><strong>Consultation:</strong> Free 20-minute consultations are available for customers with existing designs. Consultations requiring more time or for customers without a design may incur charges.</li>
+              <li><strong>Consultation:</strong> Standard 20-minute consultations are available for customers with existing designs. Consultations requiring extended design time may incur design charges.</li>
               <li><strong>Custom Complex Tattoos:</strong> Quotations are available upon request, with no deposit required.</li>
               <li><strong>Cancellations:</strong> Appointments must be cancelled at least 24 hours in advance. Failure to do so will result in forfeiture of the deposit. Rescheduling within 24 hours of the appointment will also result in forfeiture of the deposit unless otherwise agreed upon by Angel Tattooz.</li>
               <li><strong>No-Show Policy:</strong> No-shows will forfeit their deposit and may be required to pay a new deposit to secure another appointment.</li>

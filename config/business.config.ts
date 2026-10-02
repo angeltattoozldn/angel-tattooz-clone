@@ -67,7 +67,7 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     phone2: "+447949123424",
     phone2Display: "+44 79 4912 3424",
     whatsapp: "+447949123424",
-    email: "Ink@angeltattooz.co.uk",
+    email: "ink@angeltattooz.co.uk",
   },
   geo: {
     latitude: 51.6511,

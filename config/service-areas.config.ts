@@ -98,7 +98,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
       {
         question: "What makes Angel Tattooz the best choice in Cockfosters?",
         answer:
-          "We're a community-focused studio with award-winning artists, premium equipment, and a tranquil atmosphere. Our local reputation speaks for itself!",
+          "We're a community-focused studio with master artists, premium equipment, and a tranquil atmosphere. Our local reputation speaks for itself!",
       },
       {
         question: "Are you open weekends in Cockfosters?",
@@ -118,7 +118,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
     stationLine: "Piccadilly Line",
     landmarks: ["Southgate Station", "Waterfall Road", "Grovelands Park"],
     transport: {
-      tube: "Southgate Station (Piccadilly Line) - One stop to Cockfosters, then 3 min walk",
+      tube: "Southgate Station (Piccadilly Line) - Two stops to Cockfosters, then 3 min walk",
       bus: "Routes 121, 299, 307, W6 connect to Cockfosters",
       car: "10 minute drive via A111",
       parking: "Free parking at studio",
@@ -127,11 +127,11 @@ export const SERVICE_AREAS: ServiceArea[] = [
       {
         question: "How do I travel from Southgate to Angel Tattooz?",
         answer:
-          "Take the Piccadilly Line from Southgate to Cockfosters (one stop, 5 mins), then it's a 3 minute walk to our studio.",
+          "Take the Piccadilly Line from Southgate to Cockfosters (two stops, approx 5 mins), then it's a 3 minute walk to our studio.",
       },
       {
         question: "Is Angel Tattooz convenient for Southgate residents?",
-        answer: "We're just one tube stop away, making us easily accessible for all your tattoo needs in Southgate.",
+        answer: "We're just two tube stops away on the Piccadilly Line, making us easily accessible for all your tattoo needs in Southgate.",
       },
       {
         question: "Do you have clients from Southgate?",
@@ -263,7 +263,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
       {
         question: "Why should I choose Angel Tattooz over Finchley studios?",
         answer:
-          "Our award-winning artists, premium equipment, tranquil atmosphere, and exceptional reviews set us apart. Many Finchley clients prefer us!",
+          "Our experienced artists, premium equipment, tranquil atmosphere, and exceptional reviews set us apart. Many Finchley clients prefer us!",
       },
       {
         question: "Can I combine my tattoo session with aftercare purchases?",
@@ -346,7 +346,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
       {
         question: "Why do Hertfordshire residents choose Angel Tattooz?",
         answer:
-          "Our combination of award-winning artists, premium quality, competitive pricing, and convenient location makes us a top choice.",
+          "Our combination of experienced artists, premium quality, competitive pricing, and convenient location makes us a top choice.",
       },
       {
         question: "Can I book a longer session if traveling from Hertfordshire?",

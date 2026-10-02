@@ -11,15 +11,23 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Calendar, MessageCircle, Phone, Clock, Check, ShieldAlert, CreditCard } from "lucide-react"
+import { Calendar, MessageCircle, Phone, Clock, Check, ShieldAlert, CreditCard, Upload, ImageIcon, X } from "lucide-react"
 import { useState, useTransition } from "react"
 import { submitBooking, type BookingResult } from "@/app/actions/booking"
 import { BUSINESS_CONFIG } from "@/config/business.config"
+
+interface SelectedFileItem {
+  file: File
+  name: string
+  size: number
+  preview: string
+}
 
 export default function BookPage() {
   const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle")
   const [errorMessage, setErrorMessage] = useState("")
   const [submissionResult, setSubmissionResult] = useState<BookingResult | null>(null)
+  const [selectedFiles, setSelectedFiles] = useState<SelectedFileItem[]>([])
 
   const [formData, setFormData] = useState({
     name: "",
@@ -35,17 +43,69 @@ export default function BookPage() {
 
   const [isPending, startTransition] = useTransition()
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return
+    const incoming = Array.from(e.target.files)
+    const newItems: SelectedFileItem[] = []
+
+    incoming.forEach((file) => {
+      // Limit to 5MB per file
+      if (file.size > 5 * 1024 * 1024) {
+        alert(`File ${file.name} exceeds 5MB limit. Please choose a smaller image.`)
+        return
+      }
+      const preview = URL.createObjectURL(file)
+      newItems.push({
+        file,
+        name: file.name,
+        size: file.size,
+        preview,
+      })
+    })
+
+    setSelectedFiles((prev) => [...prev, ...newItems])
+    e.target.value = ""
+  }
+
+  const removeFile = (index: number) => {
+    setSelectedFiles((prev) => {
+      const target = prev[index]
+      if (target?.preview) {
+        URL.revokeObjectURL(target.preview)
+      }
+      return prev.filter((_, i) => i !== index)
+    })
+  }
+
+  const isSunday = formData.preferredDate ? new Date(formData.preferredDate).getDay() === 0 : false
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     startTransition(async () => {
       setFormStatus("idle")
       setErrorMessage("")
-      const result = await submitBooking(formData)
+
+      const payload = new FormData()
+      payload.append("name", formData.name)
+      payload.append("email", formData.email)
+      payload.append("phone", formData.phone)
+      payload.append("service", formData.service)
+      payload.append("placement", formData.placement)
+      payload.append("appointmentType", formData.appointmentType)
+      payload.append("preferredDate", formData.preferredDate)
+      payload.append("preferredTime", formData.preferredTime)
+      payload.append("description", formData.description)
+
+      selectedFiles.forEach((item) => {
+        payload.append("images", item.file)
+      })
+
+      const result = await submitBooking(payload)
+      setSubmissionResult(result)
       if (result.success) {
-        setSubmissionResult(result)
         setFormStatus("success")
       } else {
-        setErrorMessage(result.error || "Unable to submit your request. Please try again or reach out on WhatsApp.")
+        setErrorMessage(result.error || "Booking notification failed to dispatch. Please contact the studio directly via WhatsApp.")
         setFormStatus("error")
       }
     })
@@ -411,6 +471,12 @@ export default function BookPage() {
                           onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
                           className="bg-zinc-900/60 border-zinc-800"
                         />
+                        {isSunday && (
+                          <p className="text-amber-400 text-xs flex items-center gap-1.5 mt-1.5 font-medium">
+                            <Clock className="w-3.5 h-3.5 shrink-0" />
+                            Sunday: Appointments Only. We will confirm artist studio availability for your requested date.
+                          </p>
+                        )}
                       </div>
 
                       <div className="space-y-2">
@@ -439,6 +505,66 @@ export default function BookPage() {
                           <option value="Flexible">Flexible (Any Available Slot)</option>
                         </select>
                       </div>
+                    </div>
+
+                    {/* Reference Images Upload */}
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <Label htmlFor="images" className="text-sm font-medium text-foreground flex items-center gap-2">
+                          <ImageIcon className="w-4 h-4 text-[#D4C59D]" />
+                          Upload Reference Photos / Current Tattoo (Optional)
+                        </Label>
+                        <span className="text-xs text-zinc-400">PNG, JPG, WEBP (Up to 5MB each)</span>
+                      </div>
+                      
+                      <div className="border-2 border-dashed border-zinc-800 hover:border-[#D4C59D]/60 rounded-xl p-6 text-center transition-colors bg-zinc-950/40 cursor-pointer relative group">
+                        <input
+                          id="images"
+                          type="file"
+                          multiple
+                          accept="image/png,image/jpeg,image/webp,image/jpg"
+                          onChange={handleFileChange}
+                          className="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10"
+                        />
+                        <div className="flex flex-col items-center justify-center gap-2 text-zinc-400">
+                          <Upload className="w-8 h-8 text-[#D4C59D] mb-1 group-hover:scale-110 transition-transform" />
+                          <p className="text-sm font-medium text-white">
+                            Click or drag and drop your reference pictures here
+                          </p>
+                          <p className="text-xs text-zinc-500">
+                            Help our artists see your design inspiration, placement, or existing ink for cover-ups
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* File preview list */}
+                      {selectedFiles.length > 0 && (
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                          {selectedFiles.map((item, idx) => (
+                            <div key={idx} className="relative bg-zinc-900 border border-zinc-800 rounded-lg p-2 flex items-center gap-2 overflow-hidden">
+                              <div className="w-10 h-10 rounded bg-zinc-800 flex items-center justify-center shrink-0 overflow-hidden">
+                                {item.preview ? (
+                                  <img src={item.preview} alt="preview" className="w-full h-full object-cover" />
+                                ) : (
+                                  <ImageIcon className="w-4 h-4 text-[#D4C59D]" />
+                                )}
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <p className="text-xs text-white truncate font-medium">{item.name}</p>
+                                <p className="text-[10px] text-zinc-500">{(item.size / 1024).toFixed(0)} KB</p>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => removeFile(idx)}
+                                aria-label="Remove image"
+                                className="text-zinc-500 hover:text-red-400 p-1 rounded transition-colors"
+                              >
+                                <X className="w-4 h-4" />
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
                     <div className="space-y-2">
@@ -475,8 +601,23 @@ export default function BookPage() {
                     )}
 
                     {formStatus === "error" && (
-                      <div className="bg-red-500/10 border border-red-500/40 rounded-lg p-3 text-red-400 text-sm">
-                        {errorMessage || "Unable to submit your request. Please message us on WhatsApp or call our studio."}
+                      <div className="bg-red-500/10 border border-red-500/40 rounded-lg p-5 text-red-400 text-sm space-y-3 animate-in fade-in duration-200">
+                        <p className="font-medium">
+                          {errorMessage || "Booking notification failed to dispatch. Please contact the studio directly via WhatsApp."}
+                        </p>
+                        {submissionResult?.whatsappFallbackUrl && (
+                          <div className="pt-1">
+                            <a
+                              href={submissionResult.whatsappFallbackUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-sm py-2.5 px-5 rounded-md shadow transition-colors"
+                            >
+                              <MessageCircle className="w-4 h-4" />
+                              Contact Studio Directly via WhatsApp →
+                            </a>
+                          </div>
+                        )}
                       </div>
                     )}
 
