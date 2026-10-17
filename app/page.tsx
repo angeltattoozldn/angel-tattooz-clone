@@ -300,7 +300,7 @@ export default function Home() {
             Matches Elementor ID: 1dd584c
             - Simple centered CTA strip
            ========================================= */}
-        <section className="relative bg-[#121212] py-16 px-4">
+        <section id="booking" className="relative bg-[#121212] py-16 px-4">
           <div className="container mx-auto max-w-285 flex flex-col items-center text-center gap-6">
 
             {/* Heading */}

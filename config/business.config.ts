@@ -74,13 +74,13 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     longitude: -0.1495,
   },
   openingHours: {
-    monday: "11:30 AM – 6:30 PM",
-    tuesday: "11:30 AM – 6:30 PM",
-    wednesday: "11:30 AM – 6:30 PM",
-    thursday: "11:30 AM – 6:30 PM",
-    friday: "11:30 AM – 6:30 PM",
-    saturday: "11:30 AM – 6:30 PM",
-    sunday: "Appointments Only",
+    monday: "11:30 AM – 7:00 PM",
+    tuesday: "11:30 AM – 7:00 PM",
+    wednesday: "11:30 AM – 7:00 PM",
+    thursday: "11:30 AM – 7:00 PM",
+    friday: "11:30 AM – 7:00 PM",
+    saturday: "11:30 AM – 7:00 PM",
+    sunday: "Closed",
   },
   relocation: {
     isRelocating: true,
@@ -101,6 +101,28 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     googleReviewUrl: "https://g.page/r/CaJWy-nqXoSYEBM/review",
     googleMapsUrl: "https://maps.app.goo.gl/aUofWWXSFmsiukHt5",
   },
+}
+
+export const businessConfig = {
+  name: BUSINESS_CONFIG.businessName,
+  telephoneClean: BUSINESS_CONFIG.contact.phone,
+  telephoneDisplay: BUSINESS_CONFIG.contact.phoneDisplay,
+  cid: "12140880313101569106",
+  address: {
+    street: BUSINESS_CONFIG.primaryAddress.street,
+    city: BUSINESS_CONFIG.primaryAddress.city,
+    postcode: BUSINESS_CONFIG.primaryAddress.postcode,
+    country: "GB",
+  },
+  geo: {
+    latitude: BUSINESS_CONFIG.geo.latitude,
+    longitude: BUSINESS_CONFIG.geo.longitude,
+  },
+  bookingUrl: "https://www.angeltattooz.co.uk/#booking",
+  whatsappMessage: "Hi Angel Tattooz, I would like to book a consultation.",
+  whatsappUrl: `https://wa.me/${BUSINESS_CONFIG.contact.whatsapp.replace("+", "")}?text=${encodeURIComponent(
+    "Hi Angel Tattooz, I would like to book a consultation."
+  )}`,
 }
 
 export function getFullAddress(): string {
