@@ -196,7 +196,7 @@ export function generateTattooParlorSchema() {
       "@type": "ReserveAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://www.angeltattooz.co.uk/#booking",
+        "urlTemplate": businessConfig.bookingUrl,
         "inLanguage": "en-GB",
         "actionPlatform": [
           "http://schema.org/DesktopWebPlatform",
