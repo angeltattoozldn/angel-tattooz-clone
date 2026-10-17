@@ -1,4 +1,4 @@
-import { BUSINESS_CONFIG } from "@/config/business.config"
+import { businessConfig, BUSINESS_CONFIG } from "@/config/business.config"
 
 export interface Organization {
   "@context": string
@@ -149,136 +149,127 @@ export interface VideoObject {
 
 export function generateTattooParlorSchema() {
   return {
-    '@context': 'https://schema.org',
-    '@type': 'TattooParlor',
-    name: 'Angel Tattooz',
-    image: 'https://www.angeltattooz.co.uk/logo.png',
-    '@id': 'https://www.angeltattooz.co.uk/#tattooparlor',
-    url: 'https://www.angeltattooz.co.uk/',
-    telephone: '+447949123424',
-    priceRange: '££-£££',
-    description: 'Premier studio-led custom tattoo studio in London, providing medical-grade sterilization, private consultation sanctuaries, and specialized artistry.',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Studio A, 15 Station Parade, Cockfosters',
-      addressLocality: 'Barnet, London',
-      postalCode: 'EN4 0DL',
-      addressCountry: 'GB',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 51.6511,
-      longitude: -0.1495,
-    },
-    hasMap: 'https://maps.google.com/?cid=12140880313101569106',
-    sameAs: [
-      'https://maps.google.com/?cid=12140880313101569106',
-      'https://www.instagram.com/angeltattoozldn/',
-      'https://www.tiktok.com/@angeltattoozldn',
-      'https://www.facebook.com/angeltattoozldn',
+    "@context": "https://schema.org",
+    "@type": "TattooParlor",
+    "name": businessConfig.name,
+    "image": "https://www.angeltattooz.co.uk/logo.png",
+    "@id": "https://www.angeltattooz.co.uk/#tattooparlor",
+    "url": "https://www.angeltattooz.co.uk/",
+    "telephone": businessConfig.telephoneClean,
+    "priceRange": "££-£££",
+    "description": "Premier studio-led custom tattoo studio in London, providing medical-grade sterilization, private consultation sanctuaries, and specialized artistry.",
+    "hasMap": `https://maps.google.com/?cid=${businessConfig.cid}`,
+    "sameAs": [
+      `https://maps.google.com/?cid=${businessConfig.cid}`,
+      "https://www.instagram.com/angeltattoozldn/",
+      "https://www.tiktok.com/@angeltattoozldn",
+      "https://www.facebook.com/angeltattoozldn"
     ],
-    areaServed: [
-      { '@type': 'AdministrativeArea', name: 'London' },
-      { '@type': 'AdministrativeArea', name: 'North London' },
-      { '@type': 'AdministrativeArea', name: 'Barnet' },
-      { '@type': 'AdministrativeArea', name: 'Cockfosters' },
-      { '@type': 'AdministrativeArea', name: 'Southgate' },
-      { '@type': 'AdministrativeArea', name: 'Enfield' },
-      { '@type': 'AdministrativeArea', name: 'Potters Bar' },
-      { '@type': 'AdministrativeArea', name: 'Hertfordshire' },
-    ],
-    openingHoursSpecification: [
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": businessConfig.address.street,
+      "addressLocality": businessConfig.address.city,
+      "postalCode": businessConfig.address.postcode,
+      "addressCountry": businessConfig.address.country
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": businessConfig.geo.latitude,
+      "longitude": businessConfig.geo.longitude
+    },
+    "openingHoursSpecification": [
       {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-        ],
-        opens: '11:30',
-        closes: '18:30',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Sunday',
-        description: 'Appointments Only',
-      },
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "11:30",
+        "closes": "19:00"
+      }
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      reviewCount: '127',
-      bestRating: '5',
-      worstRating: '1',
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "127",
+      "bestRating": "5",
+      "worstRating": "1"
     },
-    knowsAbout: [
-      'Tattoo Cover-ups',
-      'First-Time Tattoos',
-      'Fine Line Tattoos',
-      'Black and Grey Realism',
-      'Custom Tattoo Art',
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.angeltattooz.co.uk/#booking",
+        "inLanguage": "en-GB",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      },
+      "result": {
+        "@type": "Reservation",
+        "name": "Tattoo Consultation Appointment"
+      }
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "London" },
+      { "@type": "AdministrativeArea", "name": "North London" },
+      { "@type": "AdministrativeArea", "name": "Barnet" },
+      { "@type": "AdministrativeArea", "name": "Cockfosters" },
+      { "@type": "AdministrativeArea", "name": "Southgate" },
+      { "@type": "AdministrativeArea", "name": "Enfield" },
+      { "@type": "AdministrativeArea", "name": "Potters Bar" },
+      { "@type": "AdministrativeArea", "name": "Hertfordshire" }
     ],
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Specialist Tattoo Services',
-      itemListElement: [
+    "knowsAbout": [
+      "Tattoo Cover-ups",
+      "First-Time Tattoos",
+      "Fine Line Tattoos",
+      "Black and Grey Realism",
+      "Custom Tattoo Art"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Specialist Tattoo Services",
+      "itemListElement": [
         {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Custom Tattoo Cover-Ups & Reworks',
-            description: 'Advanced dermal pigment analysis and blast-over transformation for existing tattoos.',
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Custom Tattoo Cover-Ups & Reworks",
+            "description": "Advanced dermal pigment analysis and blast-over transformation for existing tattoos."
           },
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            priceCurrency: 'GBP',
-            price: '££-£££',
-          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "GBP",
+            "price": "££-£££"
+          }
         },
         {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'First-Time Tattoo Consultation & Guide',
-            description: 'Low-anxiety, private consultation sanctuary tailored for first-time clients.',
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "First-Time Tattoo Consultation & Guide",
+            "description": "Low-anxiety, private consultation sanctuary tailored for first-time clients."
           },
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            priceCurrency: 'GBP',
-            price: '££',
-          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "GBP",
+            "price": "££"
+          }
         },
         {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Fine-Line & Delicate Tattoo Artistry',
-            description: 'Ultra-precise fine-needle texturing, micro-realism, and subtle script artistry.',
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Black & Grey Realism Tattoos",
+            "description": "High-contrast, smooth-gradient realism and fine-needle detailed portraiture."
           },
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            priceCurrency: 'GBP',
-            price: '££-£££',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Black & Grey Realism Tattoos',
-            description: 'High-contrast, smooth-gradient realism and fine-needle detailed portraiture.',
-          },
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            priceCurrency: 'GBP',
-            price: '££-£££',
-          },
-        },
-      ],
-    },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "GBP",
+            "price": "££-£££"
+          }
+        }
+      ]
+    }
   };
 }
 

@@ -53,12 +53,7 @@ export async function GET() {
             "Saturday",
           ],
           opens: "11:30",
-          closes: "18:30",
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: "Sunday",
-          description: "Appointments Only",
+          closes: "19:00",
         },
       ],
     },
