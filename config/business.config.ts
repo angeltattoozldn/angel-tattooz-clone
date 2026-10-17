@@ -51,7 +51,44 @@ export interface BusinessLocation {
   }
 }
 
-export const BUSINESS_CONFIG: BusinessLocation = {
+
+export const businessConfig = {
+  name: "Angel Tattooz",
+  legalName: "Angel Tattooz London",
+  email: "ink@angeltattooz.co.uk",
+  bookingEmail: process.env.BOOKING_NOTIFICATION_EMAIL || "ink@angeltattooz.co.uk",
+  telephone: "+44 79 4912 3424",
+  telephoneClean: "+447949123424",
+  bookingUrl: "https://www.angeltattooz.co.uk/bookings/",
+  whatsappUrl: "https://wa.me/447949123424?text=Hi%20Angel%20Tattooz%2C%20I%20would%20like%20to%20book%20a%20consultation.",
+  address: {
+    street: "Studio A, 15 Station Parade",
+    locality: "Cockfosters",
+    city: "Barnet, London",
+    postcode: "EN4 0DL",
+    country: "GB",
+  },
+  geo: {
+    latitude: 51.6511,
+    longitude: -0.1495,
+  },
+  cid: "12140880313101569106",
+  hours: {
+    display: "Mon - Sat: 11:30 AM - 7:00 PM | Sun: Closed",
+    schedule: [
+      {
+        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "11:30",
+        closes: "19:00",
+      },
+      {
+        days: ["Sunday"],
+        opens: null,
+        closes: null,
+        description: "Closed",
+      },
+    ],
+  },
   businessName: "Angel Tattooz",
   primaryAddress: {
     street: "Studio A, 15 Station Parade",
@@ -59,7 +96,7 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     city: "Barnet, London",
     postcode: "EN4 0DL",
     country: "United Kingdom",
-    state: "confirmed",
+    state: "confirmed" as const,
   },
   contact: {
     phone: "+447949123424",
@@ -68,10 +105,6 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     phone2Display: "+44 79 4912 3424",
     whatsapp: "+447949123424",
     email: "ink@angeltattooz.co.uk",
-  },
-  geo: {
-    latitude: 51.6511,
-    longitude: -0.1495,
   },
   openingHours: {
     monday: "11:30 AM – 7:00 PM",
@@ -101,35 +134,15 @@ export const BUSINESS_CONFIG: BusinessLocation = {
     googleReviewUrl: "https://g.page/r/CaJWy-nqXoSYEBM/review",
     googleMapsUrl: "https://maps.app.goo.gl/aUofWWXSFmsiukHt5",
   },
-}
+};
 
-export const businessConfig = {
-  name: BUSINESS_CONFIG.businessName,
-  telephoneClean: BUSINESS_CONFIG.contact.phone,
-  telephoneDisplay: BUSINESS_CONFIG.contact.phoneDisplay,
-  cid: "12140880313101569106",
-  address: {
-    street: BUSINESS_CONFIG.primaryAddress.street,
-    city: BUSINESS_CONFIG.primaryAddress.city,
-    postcode: BUSINESS_CONFIG.primaryAddress.postcode,
-    country: "GB",
-  },
-  geo: {
-    latitude: BUSINESS_CONFIG.geo.latitude,
-    longitude: BUSINESS_CONFIG.geo.longitude,
-  },
-  bookingUrl: "https://www.angeltattooz.co.uk/#booking",
-  whatsappMessage: "Hi Angel Tattooz, I would like to book a consultation.",
-  whatsappUrl: `https://wa.me/${BUSINESS_CONFIG.contact.whatsapp.replace("+", "")}?text=${encodeURIComponent(
-    "Hi Angel Tattooz, I would like to book a consultation."
-  )}`,
-}
+export const BUSINESS_CONFIG = businessConfig;
 
 export function getFullAddress(): string {
-  const { street, area, city, postcode } = BUSINESS_CONFIG.primaryAddress
+  const { street, area, city, postcode } = businessConfig.primaryAddress
   return `${street}, ${area}, ${city} ${postcode}`
 }
 
 export function isLocationConfirmed(): boolean {
-  return BUSINESS_CONFIG.primaryAddress.state === "confirmed"
+  return businessConfig.primaryAddress.state === "confirmed"
 }
