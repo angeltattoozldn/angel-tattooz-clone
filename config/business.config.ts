@@ -55,6 +55,7 @@ export interface BusinessLocation {
 export const businessConfig = {
   name: "Angel Tattooz",
   legalName: "Angel Tattooz London",
+  brandName: "Angel Tattooz Cockfosters",
   email: "ink@angeltattooz.co.uk",
   bookingEmail: process.env.BOOKING_NOTIFICATION_EMAIL || "ink@angeltattooz.co.uk",
   telephone: "+44 79 4912 3424",
@@ -67,6 +68,7 @@ export const businessConfig = {
     city: "Barnet, London",
     postcode: "EN4 0DL",
     country: "GB",
+    landmark: "Directly next to Costa Coffee, minutes from Cockfosters Tube Station",
   },
   geo: {
     latitude: 51.6511,

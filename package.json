@@ -6,7 +6,8 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
-    "start": "next start"
+    "start": "next start",
+    "verify:nap": "node scripts/verify-nap-integrity.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
