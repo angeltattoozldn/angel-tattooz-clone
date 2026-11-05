@@ -1,35 +1,39 @@
 const fs = require('fs');
 const path = require('path');
 
-const FORBIDDEN_STRINGS = [
+const FORBIDDEN_TOKENS = [
+  "248 Chase Side",
+  "N14 4PL",
   "Mount Parade",
   "Mount Pleasant",
   "EN4 9DD",
-  "en4 9dd",
+  "020 8216 3400",
+  "02082163400",
   "020 8",
   "0208"
 ];
 
-const SCAN_DIRS = ['app', 'components', 'config', 'content', 'lib'];
+const TARGET_DIRECTORIES = ['app', 'components', 'config', 'content', 'lib', 'public'];
+const ALLOWED_DISAVOWAL_FILES = [path.join('app', 'llms.txt', 'route.ts')];
 let violations = 0;
 
-function scanDir(dir) {
+function scanDirectory(dir) {
   if (!fs.existsSync(dir)) return;
-  const files = fs.readdirSync(dir);
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
 
-  for (const file of files) {
-    const fullPath = path.join(dir, file);
-    const stat = fs.statSync(fullPath);
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
 
-    if (stat.isDirectory()) {
-      if (!['node_modules', '.next', '.git'].includes(file)) {
-        scanDir(fullPath);
+    if (entry.isDirectory()) {
+      if (!['node_modules', '.next', '.git'].includes(entry.name)) {
+        scanDirectory(fullPath);
       }
-    } else if (/\.(tsx|ts|jsx|js|json|md|mdx)$/.test(file)) {
-      const content = fs.readFileSync(fullPath, 'utf8');
-      FORBIDDEN_STRINGS.forEach((forbidden) => {
-        if (content.includes(forbidden)) {
-          console.error(`[NAP VIOLATION] Legacy string "${forbidden}" found in ${fullPath}`);
+    } else if (/\.(tsx|ts|jsx|js|json|md|mdx|txt)$/.test(entry.name)) {
+      if (ALLOWED_DISAVOWAL_FILES.includes(fullPath)) continue;
+      const fileContent = fs.readFileSync(fullPath, 'utf8');
+      FORBIDDEN_TOKENS.forEach((token) => {
+        if (fileContent.includes(token)) {
+          console.error(`[CRITICAL NAP VIOLATION] Legacy token "${token}" detected in: ${fullPath}`);
           violations++;
         }
       });
@@ -37,13 +41,13 @@ function scanDir(dir) {
   }
 }
 
-console.log(">>> Starting NAP Integrity Audit...");
-SCAN_DIRS.forEach(scanDir);
+console.log(">>> Running NAP & Contact Number Integrity Audit...");
+TARGET_DIRECTORIES.forEach(scanDirectory);
 
 if (violations > 0) {
-  console.error(`FAILED: ${violations} legacy NAP occurrences detected. Cleanse before deployment.`);
+  console.error(`FAILED: ${violations} legacy data violation(s) detected. Cleanse before proceeding.`);
   process.exit(1);
 } else {
-  console.log("PASSED: 100% NAP Integrity. Zero legacy address traces found.");
+  console.log("PASSED: Repository is 100% clean. Zero legacy addresses or retired landlines found.");
   process.exit(0);
 }

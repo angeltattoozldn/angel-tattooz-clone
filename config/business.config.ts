@@ -68,7 +68,7 @@ export const businessConfig = {
     city: "Barnet, London",
     postcode: "EN4 0DL",
     country: "GB",
-    landmark: "Directly next to Costa Coffee, minutes from Cockfosters Tube Station",
+    landmark: "Directly adjacent to Cockfosters Underground Station and Costa Coffee",
   },
   geo: {
     latitude: 51.6511,
