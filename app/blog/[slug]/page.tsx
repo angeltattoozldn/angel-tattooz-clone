@@ -10,6 +10,7 @@ import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { portableTextComponents } from '@/components/portable-text';
 import { BUSINESS_CONFIG, getFullAddress } from '@/config/business.config';
+import { TrackedContactLink } from '@/components/tracked-contact-link';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -219,9 +220,9 @@ export default async function DynamicBlogPostPage({ params }: PageProps) {
                 </p>
                 <p className="flex items-center gap-2">
                   <span className="text-zinc-100 font-bold">📞</span>
-                  <a href={`tel:${BUSINESS_CONFIG.contact.phone}`} className="hover:text-[#c2a278] transition-colors">
+                  <TrackedContactLink event="contact_call" location="blog_sidebar" href={`tel:${BUSINESS_CONFIG.contact.phone}`} className="hover:text-[#c2a278] transition-colors">
                     {BUSINESS_CONFIG.contact.phoneDisplay}
-                  </a>
+                  </TrackedContactLink>
                 </p>
                 <div className="flex items-center gap-2">
                   <span className="text-zinc-100 font-bold">🕒</span>

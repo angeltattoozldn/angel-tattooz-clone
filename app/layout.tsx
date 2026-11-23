@@ -2,11 +2,13 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import localFont from "next/font/local"
+import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { RelocationBanner } from "@/components/relocation-banner"
 import { QuickActionsBar } from "@/components/quick-actions-bar"
 import { TrafficSourceCapture } from "@/components/traffic-source-capture"
+import { GA_MEASUREMENT_ID } from "@/lib/analytics"
 import "./globals.css"
 
 const poppins = Poppins({
@@ -107,6 +109,18 @@ export default function RootLayout({
         <TrafficSourceCapture />
         <Analytics />
         <SpeedInsights />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
       </body>
     </html>
   )

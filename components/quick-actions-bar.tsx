@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Phone, MessageCircle, Calendar } from "lucide-react";
 import { businessConfig } from "@/config/business.config";
+import { trackEvent } from "@/lib/analytics";
 
 const actionClass =
   "flex flex-1 flex-col items-center justify-center gap-1 rounded-lg px-2 py-2 text-[11px] font-semibold leading-none text-white transition active:scale-95";
@@ -22,6 +23,7 @@ export function QuickActionsBar() {
         href={`tel:${businessConfig.telephoneClean}`}
         aria-label={`Call Angel Tattooz on ${businessConfig.telephone}`}
         className={`${actionClass} bg-neutral-700 hover:bg-neutral-600`}
+        onClick={() => trackEvent("contact_call", { method: "sticky_bar" })}
       >
         <Phone className="h-5 w-5" aria-hidden="true" />
         Call
@@ -32,6 +34,7 @@ export function QuickActionsBar() {
         rel="noopener noreferrer"
         aria-label="Chat with Angel Tattooz on WhatsApp"
         className={`${actionClass} bg-emerald-600 hover:bg-emerald-500`}
+        onClick={() => trackEvent("contact_whatsapp", { method: "sticky_bar" })}
       >
         <MessageCircle className="h-5 w-5" aria-hidden="true" />
         WhatsApp
@@ -40,6 +43,7 @@ export function QuickActionsBar() {
         href="/bookings/"
         aria-label="Book a consultation online"
         className={`${actionClass} bg-sky-600 hover:bg-sky-500`}
+        onClick={() => trackEvent("book_online_click", { method: "sticky_bar" })}
       >
         <Calendar className="h-5 w-5" aria-hidden="true" />
         Book Online

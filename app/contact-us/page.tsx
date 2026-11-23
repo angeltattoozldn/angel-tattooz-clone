@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Phone, Mail, MapPin } from "lucide-react"
 import { BUSINESS_CONFIG, getFullAddress } from "@/config/business.config"
+import { TrackedContactLink } from "@/components/tracked-contact-link"
 
 export const metadata: Metadata = {
   title: "Contact Us | Angel Tattooz",
@@ -59,9 +60,9 @@ export default function ContactPage() {
                   Telephone
                 </h2>
                 <div className="flex flex-col items-center gap-1">
-                  <a href={`tel:${BUSINESS_CONFIG.contact.phone}`} className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
+                  <TrackedContactLink event="contact_call" location="contact_page" href={`tel:${BUSINESS_CONFIG.contact.phone}`} className="text-white font-sans text-[19px] hover:text-[#D4C59D] transition-colors">
                     {BUSINESS_CONFIG.contact.phoneDisplay}
-                  </a>
+                  </TrackedContactLink>
                 </div>
               </div>
 

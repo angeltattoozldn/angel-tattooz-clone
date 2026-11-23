@@ -11,6 +11,7 @@ import Link from "next/link"
 import { MapPin, Train, Bus, Car, Phone, Navigation } from "lucide-react"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
+import { TrackedContactLink } from "@/components/tracked-contact-link"
 
 export async function generateStaticParams() {
   return getAllServiceAreaSlugs().map((slug) => ({
@@ -286,10 +287,10 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
                 <Link href="/bookings/">Book Now</Link>
               </Button>
               <Button size="lg" variant="outline" asChild className="text-base px-8 py-6 bg-transparent">
-                <a href={`tel:${BUSINESS_CONFIG.contact.phone}`}>
+                <TrackedContactLink event="contact_call" location="area_page" href={`tel:${BUSINESS_CONFIG.contact.phone}`}>
                   <Phone className="h-5 w-5 mr-2" />
                   Call Us
-                </a>
+                </TrackedContactLink>
               </Button>
             </div>
           </div>

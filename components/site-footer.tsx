@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Rss, MapPin, Phone } from "lucide-react"
 import { BUSINESS_CONFIG, getFullAddress } from "@/config/business.config"
+import { trackEvent } from "@/lib/analytics"
 
 export function SiteFooter() {
   return (
@@ -61,6 +62,7 @@ export function SiteFooter() {
                   <a
                     href={`tel:${BUSINESS_CONFIG.contact.phone}`}
                     className="text-[#FAD5E6] text-[16px] font-normal hover:text-white transition-colors font-sans"
+                    onClick={() => trackEvent("contact_call", { method: "footer" })}
                   >
                     {BUSINESS_CONFIG.contact.phoneDisplay}
                   </a>

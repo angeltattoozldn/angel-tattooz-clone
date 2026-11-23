@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { TrackedContactLink } from '@/components/tracked-contact-link';
 
 interface AreaConfig {
   name: string;
@@ -153,14 +154,16 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
       </section>
 
       <div className="text-center mt-10">
-        <a
+        <TrackedContactLink
+          event="contact_whatsapp"
+          location="areas_we_serve_page"
           href="https://wa.me/447949123424"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-8 py-3 bg-sky-500 hover:bg-sky-400 text-white font-bold rounded-lg shadow-lg shadow-sky-500/25 transition-all"
         >
           Book Consultation from {area.name}
-        </a>
+        </TrackedContactLink>
       </div>
     </main>
   );

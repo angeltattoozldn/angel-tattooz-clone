@@ -15,6 +15,7 @@ import { Calendar, MessageCircle, Phone, Clock, Check, ShieldAlert, CreditCard, 
 import { useState, useTransition } from "react"
 import { readTrafficContext } from "@/lib/traffic-source-client"
 import { submitBooking, type BookingResult } from "@/app/actions/booking"
+import { trackEvent } from "@/lib/analytics"
 import { BUSINESS_CONFIG } from "@/config/business.config"
 
 interface SelectedFileItem {
@@ -106,6 +107,11 @@ export default function BookPage() {
       setSubmissionResult(result)
       if (result.success) {
         setFormStatus("success")
+        trackEvent("generate_lead", {
+          appointment_type: result.appointmentType,
+          traffic_source: result.trafficSource,
+          inquiry_reference: result.reference,
+        })
       } else {
         setErrorMessage(result.error || "Booking notification failed to dispatch. Please contact the studio directly via WhatsApp.")
         setFormStatus("error")
