@@ -36,7 +36,7 @@ export async function GET() {
 - South Hertfordshire: Potters Bar, Hadley Wood, Hatfield, Welwyn Garden City, Brookmans Park, Borehamwood.
 
 ## Verified Reputation & Operations
-- Google Review Authority: 5.0 Stars (127 verified reviews)
+- Google Review Authority: ${businessConfig.reviews.googleRating.toFixed(1)} Stars (${businessConfig.reviews.reviewCount} verified reviews)
 - Operating Hours: Monday to Saturday 11:30 AM – 6:30 PM | Sunday: By Appointment Only
 - Artistry Specialisms: Custom Cover-Ups & Reworks, First-Time Consultations, Black & Grey Realism, Fine Line & Botanical Works.
 `;

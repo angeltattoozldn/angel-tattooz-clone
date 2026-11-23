@@ -187,8 +187,8 @@ export function generateTattooParlorSchema() {
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "127",
+      "ratingValue": String(businessConfig.reviews.googleRating),
+      "reviewCount": String(businessConfig.reviews.reviewCount),
       "bestRating": "5",
       "worstRating": "1"
     },

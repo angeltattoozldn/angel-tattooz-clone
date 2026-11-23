@@ -132,7 +132,7 @@ export const businessConfig = {
   },
   reviews: {
     googleRating: 5.0,
-    reviewCount: 127,
+    reviewCount: 119,
     googleReviewUrl: "https://g.page/r/CaJWy-nqXoSYEBM/review",
     googleMapsUrl: "https://maps.app.goo.gl/aUofWWXSFmsiukHt5",
   },
