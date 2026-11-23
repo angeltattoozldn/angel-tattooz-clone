@@ -102,7 +102,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(gmbVerifiedSchema) }}
         />
       </head>
-      <body className={`font-sans antialiased ${poppins.variable} ${heyAugust.variable} pb-[calc(4.75rem+env(safe-area-inset-bottom))] md:pb-0`}>
+      <body className={`font-sans antialiased ${poppins.variable} ${heyAugust.variable}`}>
         <RelocationBanner />
         {children}
         <QuickActionsBar />
