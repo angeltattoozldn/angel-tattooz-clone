@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { RelocationBanner } from "@/components/relocation-banner"
 import { QuickActionsBar } from "@/components/quick-actions-bar"
+import { TrafficSourceCapture } from "@/components/traffic-source-capture"
 import "./globals.css"
 
 const poppins = Poppins({
@@ -99,10 +100,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(gmbVerifiedSchema) }}
         />
       </head>
-      <body className={`font-sans antialiased ${poppins.variable} ${heyAugust.variable}`}>
+      <body className={`font-sans antialiased ${poppins.variable} ${heyAugust.variable} pb-[calc(4.75rem+env(safe-area-inset-bottom))] md:pb-0`}>
         <RelocationBanner />
         {children}
         <QuickActionsBar />
+        <TrafficSourceCapture />
         <Analytics />
         <SpeedInsights />
       </body>

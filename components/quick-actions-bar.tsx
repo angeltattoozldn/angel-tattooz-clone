@@ -2,26 +2,48 @@
 
 import React from "react";
 import Link from "next/link";
-import { MessageSquare, Calendar } from "lucide-react";
+import { Phone, MessageCircle, Calendar } from "lucide-react";
 import { businessConfig } from "@/config/business.config";
 
+const actionClass =
+  "flex flex-1 flex-col items-center justify-center gap-1 rounded-lg px-2 py-2 text-[11px] font-semibold leading-none text-white transition active:scale-95";
+
+/**
+ * Sticky mobile conversion bar (hidden from md up): Call / WhatsApp / Book Online.
+ * Numbers come from businessConfig so there is one source of truth.
+ */
 export function QuickActionsBar() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-between gap-3 border-t border-neutral-800 bg-neutral-950/95 px-4 py-3 backdrop-blur-md md:hidden">
+    <nav
+      aria-label="Quick contact actions"
+      className="fixed bottom-0 left-0 right-0 z-50 flex items-stretch justify-between gap-2 border-t border-neutral-800 bg-neutral-950/95 px-3 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] backdrop-blur-md md:hidden"
+    >
+      <a
+        href={`tel:${businessConfig.telephoneClean}`}
+        aria-label={`Call Angel Tattooz on ${businessConfig.telephone}`}
+        className={`${actionClass} bg-neutral-700 hover:bg-neutral-600`}
+      >
+        <Phone className="h-5 w-5" aria-hidden="true" />
+        Call
+      </a>
       <a
         href={businessConfig.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-emerald-500"
+        aria-label="Chat with Angel Tattooz on WhatsApp"
+        className={`${actionClass} bg-emerald-600 hover:bg-emerald-500`}
       >
-        <MessageSquare className="h-4 w-4"/>
-        WhatsApp Chat
+        <MessageCircle className="h-5 w-5" aria-hidden="true" />
+        WhatsApp
       </a>
-      <Link className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-sky-600 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-sky-500" href="/bookings/">
-        <Calendar className="h-4 w-4"/>
+      <Link
+        href="/bookings/"
+        aria-label="Book a consultation online"
+        className={`${actionClass} bg-sky-600 hover:bg-sky-500`}
+      >
+        <Calendar className="h-5 w-5" aria-hidden="true" />
         Book Online
       </Link>
-    </div>
+    </nav>
   );
 }
-

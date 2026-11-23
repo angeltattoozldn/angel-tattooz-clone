@@ -3,6 +3,10 @@
 import { Resend } from "resend"
 import { createClient } from "next-sanity"
 import { BUSINESS_CONFIG } from "@/config/business.config"
+import { generateInquiryReference, classifyTrafficSource, parseRawTrafficContext, type TrafficSource } from "@/lib/inquiry-reference"
+
+const esc = (v: string) =>
+  v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")
 
 export interface BookingSubmissionData {
   name: string
@@ -14,6 +18,7 @@ export interface BookingSubmissionData {
   preferredDate?: string
   preferredTime?: string
   description: string
+  trafficContext?: string
 }
 
 export interface BookingResult {
@@ -24,6 +29,9 @@ export interface BookingResult {
   depositUrl?: string
   customerName?: string
   appointmentType?: string
+  /** Unique inquiry reference, format AT-XXXXXX */
+  reference?: string
+  trafficSource?: string
 }
 
 export async function submitBooking(formData: FormData | BookingSubmissionData): Promise<BookingResult> {
@@ -38,6 +46,7 @@ export async function submitBooking(formData: FormData | BookingSubmissionData):
     let preferredTime: string | undefined
     let description: string
     let files: File[] = []
+    let trafficContextRaw: unknown
 
     if (typeof formData === "object" && "get" in formData) {
       name = (formData.get("name") as string) || ""
@@ -49,6 +58,7 @@ export async function submitBooking(formData: FormData | BookingSubmissionData):
       preferredDate = (formData.get("preferredDate") as string) || undefined
       preferredTime = (formData.get("preferredTime") as string) || undefined
       description = (formData.get("description") as string) || ""
+      trafficContextRaw = formData.get("trafficContext")
       files = (formData.getAll("images") as File[]).filter((f) => f && f.size > 0)
     } else {
       name = formData.name || ""
@@ -60,6 +70,7 @@ export async function submitBooking(formData: FormData | BookingSubmissionData):
       preferredDate = formData.preferredDate
       preferredTime = formData.preferredTime
       description = formData.description || ""
+      trafficContextRaw = formData.trafficContext
     }
 
     if (!name?.trim() || !email?.trim() || !phone?.trim() || !description?.trim()) {
@@ -67,9 +78,12 @@ export async function submitBooking(formData: FormData | BookingSubmissionData):
     }
 
     const isDepositRequired = appointmentType === "tattoo"
+    const reference = generateInquiryReference()
+    const trafficSource: TrafficSource = classifyTrafficSource(parseRawTrafficContext(trafficContextRaw))
 
     console.log("==========================================")
-    console.log(`[NEW BOOKING REQUEST] - ${new Date().toISOString()}`)
+    console.log(`[NEW BOOKING REQUEST] ${reference} - ${new Date().toISOString()}`)
+    console.log(`Source: ${trafficSource.label} (${trafficSource.detail})`)
     console.log(`Customer: ${name} (${email}, ${phone})`)
     console.log(`Service: ${service} | Placement: ${placement}`)
     console.log(`Type: ${appointmentType} (Deposit Required: ${isDepositRequired ? "YES - £50" : "NO - Consultation"})`)
@@ -149,27 +163,40 @@ export async function submitBooking(formData: FormData | BookingSubmissionData):
             </div>
 
             <div style="background: #ffffff; padding: 24px; border: 1px solid #eaeaea; border-top: none; border-radius: 0 0 8px 8px;">
+              <div style="background: #fdfcf7; border: 2px solid #D4C59D; border-radius: 6px; padding: 12px 16px; margin-bottom: 20px; text-align: center;">
+                <div style="font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 1px;">Inquiry Reference</div>
+                <div style="font-size: 26px; font-weight: 700; font-family: 'SFMono-Regular', Menlo, Consolas, monospace; letter-spacing: 2px; color: #111;">${reference}</div>
+                <div style="font-size: 12px; color: #666; margin-top: 4px;">Log this against WhatsApp leads and the £50 deposit</div>
+              </div>
               <h2 style="margin-top: 0; color: #111; border-bottom: 2px solid #D4C59D; padding-bottom: 8px;">Customer Information</h2>
               <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
                 <tr>
-                  <td style="padding: 6px 0; color: #666; width: 140px;"><strong>Customer Name:</strong></td>
-                  <td style="padding: 6px 0; color: #111; font-weight: 600;">${name}</td>
+                  <td style="padding: 6px 0; color: #666; width: 140px;"><strong>Reference:</strong></td>
+                  <td style="padding: 6px 0; color: #111; font-weight: 700; font-family: monospace;">${reference}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0; color: #666;"><strong>Traffic Source:</strong></td>
+                  <td style="padding: 6px 0; color: #111;">${esc(trafficSource.label)} <span style="color:#888; font-size: 12px;">(${esc(trafficSource.detail)}${trafficSource.landingPath ? `; landed on ${esc(trafficSource.landingPath)}` : ""})</span></td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0; color: #666;"><strong>Customer Name:</strong></td>
+                  <td style="padding: 6px 0; color: #111; font-weight: 600;">${esc(name)}</td>
                 </tr>
                 <tr>
                   <td style="padding: 6px 0; color: #666;"><strong>Email:</strong></td>
-                  <td style="padding: 6px 0;"><a href="mailto:${email}" style="color: #c2a278; text-decoration: none;">${email}</a></td>
+                  <td style="padding: 6px 0;"><a href="mailto:${esc(email)}" style="color: #c2a278; text-decoration: none;">${esc(email)}</a></td>
                 </tr>
                 <tr>
                   <td style="padding: 6px 0; color: #666;"><strong>Phone / WhatsApp:</strong></td>
-                  <td style="padding: 6px 0;"><a href="tel:${phone}" style="color: #111; text-decoration: none;">${phone}</a></td>
+                  <td style="padding: 6px 0;"><a href="tel:${esc(phone)}" style="color: #111; text-decoration: none;">${esc(phone)}</a></td>
                 </tr>
                 <tr>
                   <td style="padding: 6px 0; color: #666;"><strong>Service / Style:</strong></td>
-                  <td style="padding: 6px 0; color: #111;">${service}</td>
+                  <td style="padding: 6px 0; color: #111;">${esc(service)}</td>
                 </tr>
                 <tr>
                   <td style="padding: 6px 0; color: #666;"><strong>Placement:</strong></td>
-                  <td style="padding: 6px 0; color: #111;">${placement}</td>
+                  <td style="padding: 6px 0; color: #111;">${esc(placement)}</td>
                 </tr>
                 <tr>
                   <td style="padding: 6px 0; color: #666;"><strong>Type:</strong></td>
@@ -179,16 +206,16 @@ export async function submitBooking(formData: FormData | BookingSubmissionData):
                 </tr>
                 <tr>
                   <td style="padding: 6px 0; color: #666;"><strong>Preferred Date:</strong></td>
-                  <td style="padding: 6px 0; color: #111;">${preferredDate || "Flexible"}</td>
+                  <td style="padding: 6px 0; color: #111;">${esc(preferredDate || "Flexible")}</td>
                 </tr>
                 <tr>
                   <td style="padding: 6px 0; color: #666;"><strong>Preferred Time:</strong></td>
-                  <td style="padding: 6px 0; color: #111;">${preferredTime || "Flexible"}</td>
+                  <td style="padding: 6px 0; color: #111;">${esc(preferredTime || "Flexible")}</td>
                 </tr>
               </table>
 
               <h2 style="color: #111; border-bottom: 2px solid #D4C59D; padding-bottom: 8px;">Tattoo Concept / Description</h2>
-              <div style="background: #f9f9f9; padding: 16px; border-radius: 6px; border-left: 4px solid #D4C59D; margin-bottom: 24px; white-space: pre-wrap; font-size: 15px;">${description}</div>
+              <div style="background: #f9f9f9; padding: 16px; border-radius: 6px; border-left: 4px solid #D4C59D; margin-bottom: 24px; white-space: pre-wrap; font-size: 15px;">${esc(description)}</div>
 
               ${uploadedAssetUrls.length > 0 ? `
                 <h2 style="color: #111; border-bottom: 2px solid #D4C59D; padding-bottom: 8px;">Reference Images (${uploadedAssetUrls.length})</h2>
@@ -214,7 +241,7 @@ export async function submitBooking(formData: FormData | BookingSubmissionData):
               `}
 
               <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #888; font-size: 12px;">
-                <p>Reply directly to this email to contact <strong>${name}</strong> at <strong>${email}</strong>.</p>
+                <p>Reply directly to this email to contact <strong>${esc(name)}</strong> at <strong>${esc(email)}</strong>.</p>
                 <p>Studio A, 15 Station Parade, Cockfosters, London EN4 0DL</p>
               </div>
             </div>
@@ -226,7 +253,7 @@ export async function submitBooking(formData: FormData | BookingSubmissionData):
         to: [recipientEmail],
         bcc: ["angeltattoozldn@gmail.com"],
         replyTo: email,
-        subject: `${isDepositRequired ? "🚨 New Tattoo Booking" : "💬 New Consultation"}: ${name} - ${service}`,
+        subject: `[${reference}] ${isDepositRequired ? "🚨 New Tattoo Booking" : "💬 New Consultation"}: ${name} - ${service} (${trafficSource.label})`,
         html: htmlContent,
         attachments: attachments.length > 0 ? attachments : undefined,
       })
@@ -249,7 +276,7 @@ export async function submitBooking(formData: FormData | BookingSubmissionData):
         await resend.emails.send({
           from: fromEmail,
           to: [email],
-          subject: `We've received your ${isDepositRequired ? "tattoo booking request" : "consultation enquiry"} | Angel Tattooz`,
+          subject: `We've received your ${isDepositRequired ? "tattoo booking request" : "consultation enquiry"} (${reference}) | Angel Tattooz`,
           html: `
               <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 580px; margin: 0 auto; color: #222; line-height: 1.6;">
                 <div style="background: #121212; padding: 24px; border-radius: 8px 8px 0 0; text-align: center;">
@@ -257,10 +284,11 @@ export async function submitBooking(formData: FormData | BookingSubmissionData):
                   <p style="color: #D4C59D; margin: 6px 0 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Cockfosters, North London</p>
                 </div>
                 <div style="background: #ffffff; padding: 24px; border: 1px solid #eaeaea; border-top: none; border-radius: 0 0 8px 8px;">
-                  <h2 style="color: #111; margin-top: 0;">Hi ${name},</h2>
+                  <h2 style="color: #111; margin-top: 0;">Hi ${esc(name)},</h2>
                   <p>Thank you for reaching out to Angel Tattooz! We have received your ${isDepositRequired ? "tattoo session booking details" : "consultation request"}.</p>
                   
                   <div style="background: #fafafa; border: 1px solid #eee; border-radius: 6px; padding: 16px; margin: 20px 0;">
+                    <p style="margin: 0 0 8px 0;"><strong>Your reference:</strong> <span style="font-family: monospace; font-weight: 700;">${reference}</span> (quote this if you message us or pay your deposit)</p>
                     <p style="margin: 0 0 8px 0;"><strong>Service:</strong> ${service}</p>
                     <p style="margin: 0 0 8px 0;"><strong>Placement:</strong> ${placement}</p>
                     <p style="margin: 0;"><strong>Preferred Date:</strong> ${preferredDate || "Flexible"} (${preferredTime || "Studio hours"})</p>
@@ -309,6 +337,8 @@ export async function submitBooking(formData: FormData | BookingSubmissionData):
       depositUrl: isDepositRequired ? "https://buy.stripe.com/9AQ4je1EQ3ff7T24gh" : undefined,
       customerName: name,
       appointmentType,
+      reference,
+      trafficSource: trafficSource.label,
     }
   } catch (error: any) {
     console.error("Booking submission error:", error)
