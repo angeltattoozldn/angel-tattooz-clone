@@ -74,7 +74,7 @@ export const businessConfig = {
     latitude: 51.6511,
     longitude: -0.1495,
   },
-  cid: "12140880313101569106",
+  cid: "10990013353728628386",
   hours: {
     display: "Mon - Sat: 11:30 AM - 6:30 PM | Sun: By Appointment Only",
     schedule: [
@@ -132,7 +132,7 @@ export const businessConfig = {
   },
   reviews: {
     googleRating: 5.0,
-    reviewCount: 127,
+    reviewCount: 119,
     googleReviewUrl: "https://g.page/r/CaJWy-nqXoSYEBM/review",
     googleMapsUrl: "https://maps.app.goo.gl/aUofWWXSFmsiukHt5",
   },

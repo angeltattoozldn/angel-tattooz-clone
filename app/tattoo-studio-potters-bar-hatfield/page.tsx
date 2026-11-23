@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { SchemaScript } from "@/components/schema-script"
 import { generateBreadcrumbs, generateFAQSchema } from "@/lib/schema"
+import { businessConfig } from "@/config/business.config"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { MapPin, Navigation, Sparkles } from "lucide-react"
@@ -95,7 +96,7 @@ export default function TattooStudioPottersBarHatfieldPage() {
                 <Sparkles className="w-10 h-10 text-[#D4C59D] mb-4" />
                 <h3 className="text-xl font-bold text-white mb-2">Master Craftsmanship</h3>
                 <p className="text-zinc-300 text-sm leading-relaxed">
-                  Access 15+ years of tattoo mastery with 127+ 5-star Google reviews right on your local North London doorstep.
+                  Access 15+ years of tattoo mastery with {businessConfig.reviews.reviewCount}+ 5-star Google reviews right on your local North London doorstep.
                 </p>
               </div>
             </div>

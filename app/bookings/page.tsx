@@ -13,7 +13,9 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Calendar, MessageCircle, Phone, Clock, Check, ShieldAlert, CreditCard, Upload, ImageIcon, X } from "lucide-react"
 import { useState, useTransition } from "react"
+import { readTrafficContext } from "@/lib/traffic-source-client"
 import { submitBooking, type BookingResult } from "@/app/actions/booking"
+import { trackEvent } from "@/lib/analytics"
 import { BUSINESS_CONFIG } from "@/config/business.config"
 
 interface SelectedFileItem {
@@ -95,6 +97,7 @@ export default function BookPage() {
       payload.append("preferredDate", formData.preferredDate)
       payload.append("preferredTime", formData.preferredTime)
       payload.append("description", formData.description)
+      payload.append("trafficContext", readTrafficContext())
 
       selectedFiles.forEach((item) => {
         payload.append("images", item.file)
@@ -104,6 +107,11 @@ export default function BookPage() {
       setSubmissionResult(result)
       if (result.success) {
         setFormStatus("success")
+        trackEvent("generate_lead", {
+          appointment_type: result.appointmentType,
+          traffic_source: result.trafficSource,
+          inquiry_reference: result.reference,
+        })
       } else {
         setErrorMessage(result.error || "Booking notification failed to dispatch. Please contact the studio directly via WhatsApp.")
         setFormStatus("error")
@@ -289,6 +297,13 @@ export default function BookPage() {
                         Thank you, <strong>{submissionResult?.customerName}</strong>. To finalize your tattoo appointment and secure your artist's diary slot, please pay the <strong>£50 booking deposit</strong> via our secure Stripe checkout.
                       </p>
 
+                      {submissionResult?.reference && (
+                        <p className="text-sm text-zinc-300">
+                          Your reference: <strong className="font-mono text-base tracking-wider text-[#D4C59D]" data-testid="inquiry-reference">{submissionResult.reference}</strong>
+                          <span className="block text-xs text-zinc-500 mt-1">Quote this if you message us on WhatsApp or pay your deposit.</span>
+                        </p>
+                      )}
+
                       <div className="pt-2">
                         <a
                           href={submissionResult?.depositUrl || "https://buy.stripe.com/9AQ4je1EQ3ff7T24gh"}
@@ -343,9 +358,16 @@ export default function BookPage() {
                         Thank you, <strong>{submissionResult?.customerName}</strong>. Our studio team will review your tattoo idea and contact you within 24 hours to confirm your consultation.
                       </p>
 
+                      {submissionResult?.reference && (
+                        <p className="text-sm text-zinc-300">
+                          Your reference: <strong className="font-mono text-base tracking-wider text-[#D4C59D]" data-testid="inquiry-reference">{submissionResult.reference}</strong>
+                          <span className="block text-xs text-zinc-500 mt-1">Quote this if you message us on WhatsApp or pay your deposit.</span>
+                        </p>
+                      )}
+
                       <div className="pt-2">
                         <a
-                          href={`https://wa.me/${BUSINESS_CONFIG.contact.whatsapp.replace('+', '')}?text=Hi%20Angel%20Tattooz%2C%20I%20just%20submitted%20a%20consultation%20request%20for%20${encodeURIComponent(submissionResult?.customerName || '')}.`}
+                          href={`https://wa.me/${BUSINESS_CONFIG.contact.whatsapp.replace('+', '')}?text=Hi%20Angel%20Tattooz%2C%20I%20just%20submitted%20a%20consultation%20request%20for%20${encodeURIComponent(submissionResult?.customerName || '')}${submissionResult?.reference ? encodeURIComponent(' (ref ' + submissionResult.reference + ')') : ''}.`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-base py-3.5 px-8 rounded-lg shadow-lg shadow-[#25D366]/20 transition-all active:scale-95"
