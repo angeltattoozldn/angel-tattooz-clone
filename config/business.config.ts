@@ -76,18 +76,18 @@ export const businessConfig = {
   },
   cid: "12140880313101569106",
   hours: {
-    display: "Mon - Sat: 11:30 AM - 7:00 PM | Sun: Closed",
+    display: "Mon - Sat: 11:30 AM - 6:30 PM | Sun: By Appointment Only",
     schedule: [
       {
         days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         opens: "11:30",
-        closes: "19:00",
+        closes: "18:30",
       },
       {
         days: ["Sunday"],
         opens: null,
         closes: null,
-        description: "Closed",
+        description: "By Appointment Only",
       },
     ],
   },
@@ -109,13 +109,13 @@ export const businessConfig = {
     email: "ink@angeltattooz.co.uk",
   },
   openingHours: {
-    monday: "11:30 AM – 7:00 PM",
-    tuesday: "11:30 AM – 7:00 PM",
-    wednesday: "11:30 AM – 7:00 PM",
-    thursday: "11:30 AM – 7:00 PM",
-    friday: "11:30 AM – 7:00 PM",
-    saturday: "11:30 AM – 7:00 PM",
-    sunday: "Closed",
+    monday: "11:30 AM – 6:30 PM",
+    tuesday: "11:30 AM – 6:30 PM",
+    wednesday: "11:30 AM – 6:30 PM",
+    thursday: "11:30 AM – 6:30 PM",
+    friday: "11:30 AM – 6:30 PM",
+    saturday: "11:30 AM – 6:30 PM",
+    sunday: "By Appointment Only",
   },
   relocation: {
     isRelocating: true,

@@ -37,7 +37,7 @@ export async function GET() {
 
 ## Verified Reputation & Operations
 - Google Review Authority: 5.0 Stars (127 verified reviews)
-- Operating Hours: Monday to Saturday 11:30 AM – 7:00 PM | Sunday: Closed
+- Operating Hours: Monday to Saturday 11:30 AM – 6:30 PM | Sunday: By Appointment Only
 - Artistry Specialisms: Custom Cover-Ups & Reworks, First-Time Consultations, Black & Grey Realism, Fine Line & Botanical Works.
 `;
 

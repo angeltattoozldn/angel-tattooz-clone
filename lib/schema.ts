@@ -182,7 +182,7 @@ export function generateTattooParlorSchema() {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         "opens": "11:30",
-        "closes": "19:00"
+        "closes": "18:30"
       }
     ],
     "aggregateRating": {

@@ -53,7 +53,7 @@ export async function GET() {
             "Saturday",
           ],
           opens: "11:30",
-          closes: "19:00",
+          closes: "18:30",
         },
       ],
     },
@@ -153,7 +153,7 @@ export async function GET() {
         "Angel Tattooz features experienced artists with 15+ years experience specializing in custom designs, realism, traditional, and all tattoo styles.",
       "how much does a tattoo cost":
         "Tattoo pricing starts around £80-150 for small simple designs. Larger custom pieces are £100-150 per hour. Consultation provides exact quote.",
-      "tattoo studio open weekends": `Angel Tattooz is open ${BUSINESS_CONFIG.openingHours.saturday} on Saturdays and ${BUSINESS_CONFIG.openingHours.sunday} on Sundays.`,
+      "tattoo studio open weekends": `Angel Tattooz is open ${BUSINESS_CONFIG.openingHours.saturday} on Saturdays. Sundays are by appointment only.`,
     },
 
     metadata: {
