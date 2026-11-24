@@ -80,6 +80,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/booking-terms/',
+        destination: '/terms-of-service/',
+        permanent: false,
+      },
+      {
         source: '/terms/',
         destination: '/terms-of-service/',
         permanent: true,

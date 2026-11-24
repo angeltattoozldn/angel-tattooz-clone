@@ -21,7 +21,7 @@ export const servicesData: Record<
     pricing: string
     duration: string
     faqs: Array<{ question: string; answer: string }>
-    relatedServices: Array<{ title: string; slug: string }>
+    relatedServices: Array<{ title: string; slug: string; href?: string }>
     imageQuery: string
   }
 > = {
@@ -114,7 +114,6 @@ export const servicesData: Record<
     ],
     relatedServices: [
       { title: "Custom Tattoo Design", slug: "custom-tattoo-design" },
-      { title: "Portrait Tattoos", slug: "portrait-tattoos" },
     ],
     imageQuery: "black and gray realistic tattoo portrait detailed shading",
   },
@@ -157,7 +156,7 @@ export const servicesData: Record<
     ],
     relatedServices: [
       { title: "Custom Tattoo Design", slug: "custom-tattoo-design" },
-      { title: "Watercolor Tattoos", slug: "watercolor-tattoos" },
+      { title: "Watercolor Tattoos", slug: "watercolor", href: "/styles/watercolor" },
     ],
     imageQuery: "vibrant color tattoo artwork bold colors saturated",
   },
@@ -410,7 +409,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <h2 className="text-3xl font-semibold text-foreground mb-8">Related Services</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {service.relatedServices.map((related, index) => (
-                  <Link key={index} href={`/services/${related.slug}`}>
+                  <Link key={index} href={related.href ?? `/services/${related.slug}`}>
                     <Card className="hover:border-primary transition-colors">
                       <CardContent className="p-6">
                         <h3 className="text-xl font-semibold text-foreground mb-2">{related.title}</h3>

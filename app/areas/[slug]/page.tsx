@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: `Tattoo Studio Serving ${area.name} | ${area.distance} Away | Angel Tattooz`,
-    description: `${area.description} Located ${area.travelTime} from ${area.name}. Expert tattoo services near ${area.nearestStation}. Book your consultation today.`,
+    description: `${area.description} Located ${area.travelTime ?? area.distance} from ${area.name}. Expert tattoo services near ${area.nearestStation}. Book your consultation today.`,
     keywords: [
       `tattoo ${area.name}`,
       `tattoo studio ${area.name}`,
@@ -83,7 +83,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed text-balance mb-4">{area.description}</p>
               <p className="text-lg text-foreground">
-                <strong>{area.travelTime}</strong> from {area.nearestStation}
+                <strong>{area.travelTime ?? area.distance}</strong> from {area.nearestStation}
               </p>
             </div>
 
@@ -94,7 +94,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
                   <MapPin className="h-8 w-8 text-primary mx-auto" />
                   <h3 className="font-semibold text-foreground">Distance</h3>
                   <p className="text-sm text-muted-foreground">{area.distance}</p>
-                  <p className="text-sm text-primary font-medium">{area.travelTime}</p>
+                  {area.travelTime && <p className="text-sm text-primary font-medium">{area.travelTime}</p>}
                 </CardContent>
               </Card>
               <Card>
@@ -210,14 +210,14 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { name: "Custom Tattoo Design", slug: "custom-tattoo-design" },
-                { name: "Black & Gray Tattoos", slug: "black-gray-tattoos" },
-                { name: "Colour Tattoos", slug: "color-tattoos" },
-                { name: "Cover-Up Tattoos", slug: "cover-up-tattoos" },
-                { name: "Fine Line Tattoos", slug: "fine-line-tattoos" },
-                { name: "Realism Tattoos", slug: "realism-tattoos" },
+                { name: "Custom Tattoo Design", href: "/services/custom-tattoo-design" },
+                { name: "Black & Gray Tattoos", href: "/services/black-gray-tattoos" },
+                { name: "Colour Tattoos", href: "/services/color-tattoos" },
+                { name: "Cover-Up Tattoos", href: "/services/cover-up-tattoos" },
+                { name: "Fine Line Tattoos", href: "/styles/fine-line" },
+                { name: "Realism Tattoos", href: "/styles/realism" },
               ].map((service, index) => (
-                <Link key={index} href={`/services/${service.slug}`}>
+                <Link key={index} href={service.href}>
                   <Card className="h-full hover:border-primary transition-colors group">
                     <CardContent className="p-6">
                       <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">

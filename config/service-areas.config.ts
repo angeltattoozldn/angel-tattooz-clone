@@ -2,7 +2,7 @@ export interface ServiceArea {
   name: string
   slug: string
   distance: string
-  travelTime: string
+  travelTime?: string
   description: string
   nearestStation: string
   stationLine: string
@@ -24,15 +24,14 @@ export const SERVICE_AREAS: ServiceArea[] = [
   {
     name: "Barnet",
     slug: "barnet",
-    distance: "0.5 miles",
-    travelTime: "5 minutes",
+    distance: "1.9 miles",
     description:
-      "Angel Tattooz is perfectly located to serve tattoo enthusiasts in Barnet. Just a short walk from High Barnet Station, we're your local destination for premium tattoo artistry.",
+      "Angel Tattooz is perfectly located to serve tattoo enthusiasts in Barnet. The studio is in Cockfosters, about 1.9 miles in a straight line from High Barnet Station and minutes' walk from Cockfosters Underground Station.",
     nearestStation: "High Barnet",
     stationLine: "Northern Line",
     landmarks: ["The Spires Shopping Centre", "Barnet Museum", "Church Passage"],
     transport: {
-      tube: "High Barnet Station (Northern Line) - 5 minute walk",
+      tube: "Cockfosters Station (Piccadilly Line) is minutes' walk from the studio. High Barnet Station (Northern Line) is about 1.9 miles away in a straight line.",
       bus: "Routes 34, 84, 234, 263, 326 - Stop outside studio",
       car: "Free street parking available on Station Parade and surrounding streets",
       parking: "Multiple public car parks within 5 minutes walk",
@@ -246,7 +245,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
     stationLine: "Northern Line",
     landmarks: ["East Finchley Station", "Victoria Park", "Finchley Central"],
     transport: {
-      tube: "Northern Line to High Barnet, then 5 minute walk",
+      tube: "Northern Line to High Barnet, which is about 1.9 miles from the studio in a straight line",
       bus: "Routes 263, 326 from Finchley to Barnet/Cockfosters",
       car: "18 minute drive via A1000",
       parking: "Free parking available",
@@ -254,7 +253,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
     localFAQs: [
       {
         question: "How long does it take to get to Angel Tattooz from Finchley?",
-        answer: "About 18 minutes by car or 25 minutes by Northern Line (to High Barnet station) then a 5 minute walk.",
+        answer: "About 18 minutes by car. By Tube, the Northern Line runs to High Barnet station, which is about 1.9 miles from the studio in a straight line.",
       },
       {
         question: "Do you accept clients from Finchley?",
